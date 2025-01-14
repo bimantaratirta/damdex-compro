@@ -7,8 +7,8 @@ import img1gif from "../../public/fungsi1gif.gif";
 
 export const SecondSection = () => {
   return (
-    <Box sx={{ height: "95vh" }}>
-      <Stack alignItems={"center"} mb="2vh" data-aos="fade-up" data-aos-easing="ease-in-out">
+    <Box sx={{ height: "95vh" }} id="trigger">
+      <Stack alignItems={"center"} mb="2vh" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor="#trigger" data-aos-anchor-placement="top-center">
         <Typography variant="h2" fontWeight={800} pt={"2vh"}>
           Damdex Multifungsi
         </Typography>
@@ -30,6 +30,8 @@ export const SecondSection = () => {
             },
           }}
           data-aos="fade-up"
+          data-aos-anchor="#trigger"
+          data-aos-anchor-placement="top-center"
           data-aos-easing="ease-in-out"
           data-aos-delay="100"
         >
@@ -64,6 +66,8 @@ export const SecondSection = () => {
             alignSelf: "end",
           }}
           data-aos="fade-up"
+          data-aos-anchor="#trigger"
+          data-aos-anchor-placement="top-center"
           data-aos-easing="ease-in-out"
           data-aos-delay="200"
         >
@@ -99,6 +103,8 @@ export const SecondSection = () => {
             },
           }}
           data-aos="fade-up"
+          data-aos-anchor="#trigger"
+          data-aos-anchor-placement="top-center"
           data-aos-easing="ease-in-out"
           data-aos-delay="300"
         >
@@ -132,6 +138,8 @@ export const SecondSection = () => {
             },
           }}
           data-aos="fade-up"
+          data-aos-anchor="#trigger"
+          data-aos-anchor-placement="top-center"
           data-aos-easing="ease-in-out"
           data-aos-delay="400"
         >

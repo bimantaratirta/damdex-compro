@@ -5,9 +5,6 @@ import news1 from "../../public/news1.png";
 import news2 from "../../public/news2.png";
 
 export const FourthSection = () => {
-  document.addEventListener("aos:in", ({ detail }) => {
-    console.log("animated in", detail);
-  });
   return (
     <Box sx={{ width: "100vw", background: `url(${background.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh" }} data-aos="fade-up" data-aos-easing="ease-in-out">
       <Stack direction={"row"} alignItems={"center"} justifyContent={"center"} spacing={3} pt={"10vh"} data-aos="fade-up" data-aos-easing="ease-in-out">
