@@ -8,7 +8,7 @@ import img1gif from "../../public/fungsi1gif.gif";
 export const SecondSection = () => {
   return (
     <Box sx={{ height: "95vh" }}>
-      <Stack alignItems={"center"} mb="2vh">
+      <Stack alignItems={"center"} mb="2vh" data-aos="fade-up" data-aos-easing="ease-in-out">
         <Typography variant="h2" fontWeight={800} pt={"2vh"}>
           Damdex Multifungsi
         </Typography>
@@ -29,6 +29,9 @@ export const SecondSection = () => {
               transition: "filter 750ms linear",
             },
           }}
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-delay="100"
         >
           <Stack ml="3vw" mt="4vw" justifyContent={"end"}>
             <Typography color="#FFF" variant="h4" fontWeight={800} width={"11.2vw"}>
@@ -60,6 +63,9 @@ export const SecondSection = () => {
             },
             alignSelf: "end",
           }}
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-delay="200"
         >
           <Stack mr="3vw" mt="4vw" alignItems={"end"}>
             <Typography color="#FFF" variant="h4" fontWeight={800} width={"14vw"} textAlign={"end"}>
@@ -92,6 +98,9 @@ export const SecondSection = () => {
               transition: "filter 750ms linear",
             },
           }}
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-delay="300"
         >
           <Stack ml="3vw" mt="4vw" justifyContent={"end"}>
             <Typography color="#FFF" variant="h4" fontWeight={800} width={"13vw"}>
@@ -122,6 +131,9 @@ export const SecondSection = () => {
               transition: "filter 750ms linear",
             },
           }}
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-delay="400"
         >
           <Stack mr="3vw" mt="4vw" alignItems={"end"}>
             <Typography color="#FFF" variant="h4" fontWeight={800} width={"30vw"} textAlign={"end"}>
