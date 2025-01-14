@@ -16,7 +16,7 @@ export const FirstSection = () => {
         <Typography variant="h4" fontWeight={400} pb="2vh">
           dan fungsi istimewa lainnya.
         </Typography>
-        <Image src={masdamdex} alt="maskot" width={630} />
+        <Image src={masdamdex} alt="maskot" width={630} unoptimized />
       </Stack>
     </Box>
   );
