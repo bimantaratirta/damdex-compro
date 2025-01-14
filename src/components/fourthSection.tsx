@@ -5,9 +5,12 @@ import news1 from "../../public/news1.png";
 import news2 from "../../public/news2.png";
 
 export const FourthSection = () => {
+  document.addEventListener("aos:in", ({ detail }) => {
+    console.log("animated in", detail);
+  });
   return (
-    <Box sx={{ width: "100vw", background: `url(${background.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh" }}>
-      <Stack direction={"row"} alignItems={"center"} justifyContent={"center"} spacing={3} pt={"10vh"}>
+    <Box sx={{ width: "100vw", background: `url(${background.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh" }} data-aos="fade-up" data-aos-easing="ease-in-out">
+      <Stack direction={"row"} alignItems={"center"} justifyContent={"center"} spacing={3} pt={"10vh"} data-aos="fade-up" data-aos-easing="ease-in-out">
         <Typography variant="h2" fontWeight={800}>
           Read Our
         </Typography>
@@ -28,7 +31,7 @@ export const FourthSection = () => {
         </Typography>
       </Stack>
       <Stack alignContent={"center"} justifyContent={"center"} direction={"row"} spacing={5} mt={5}>
-        <Box sx={{ width: "33vw", height: "70vh", justifyContent: "center" }}>
+        <Box sx={{ width: "33vw", height: "70vh", justifyContent: "center" }} data-aos="fade-up" data-aos-easing="ease-in-out">
           <Image alt="news1" src={news1} style={{ width: "33vw", height: "48vh", borderRadius: 25 }} />
           <Stack alignContent={"center"} justifyContent={"center"} spacing={2}>
             <Typography variant="h5" color="#242424">
@@ -39,7 +42,7 @@ export const FourthSection = () => {
             </Typography>
           </Stack>
         </Box>
-        <Box sx={{ width: "33vw", height: "70vh" }}>
+        <Box sx={{ width: "33vw", height: "70vh" }} data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="200">
           <Image alt="news2" src={news2} style={{ width: "33vw", height: "48vh", borderRadius: 25 }} />
           <Stack alignContent={"center"} justifyContent={"center"} spacing={2}>
             <Typography variant="h5" color="#242424">

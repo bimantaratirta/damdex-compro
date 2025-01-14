@@ -6,7 +6,7 @@ import image2 from "../../public/section3-2.png";
 export const ThirdSection = () => {
   return (
     <Box sx={{ width: "100vw", height: "180vh", position: "relative" }}>
-      <Stack alignItems={"center"} mb="2vh">
+      <Stack alignItems={"center"} mb="2vh" data-aos="fade-up" data-aos-easing="ease-in-out">
         <Stack direction={"row"} alignItems={"center"} spacing={3}>
           <Typography variant="h2" fontWeight={800}>
             Damdex
@@ -34,7 +34,7 @@ export const ThirdSection = () => {
         <Image alt="image2" src={image2} style={{ width: "90vw", height: "79vh", backgroundSize: "cover" }} />
       </Stack>
       <div>
-        <Box sx={{ height: "11vh", width: "58vw", mx: "auto", position: "absolute", top: "84vh", left: "23vw", zIndex: 5 }}>
+        <Box sx={{ height: "11vh", width: "58vw", mx: "auto", position: "absolute", top: "84vh", left: "23vw", zIndex: 5 }} data-aos="fade-up" data-aos-easing="ease-in-out">
           <Stack alignItems={"center"}>
             <Typography variant="h3" fontWeight={800} color="#FFF" width={"80vw"} textAlign={"center"}>
               CONFIDENCE IN EVERY DROP
@@ -44,7 +44,7 @@ export const ThirdSection = () => {
             </Typography>
           </Stack>
         </Box>
-        <Box sx={{ height: "6vh", width: "45vw", backgroundColor: "#37B878", alignSelf: "center", position: "absolute", top: "87vh", left: "29.3vw" }} />
+        <Box sx={{ height: "6vh", width: "45vw", backgroundColor: "#37B878", alignSelf: "center", position: "absolute", top: "87vh", left: "29.3vw" }} data-aos="fade-up" data-aos-easing="ease-in-out" />
       </div>
     </Box>
   );

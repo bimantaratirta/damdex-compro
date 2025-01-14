@@ -14,6 +14,8 @@ export const SixthSection = () => {
           borderRadius: "25px",
           mx: "auto",
         }}
+        data-aos="zoom-in"
+        data-aos-easing="ease-in-out"
       >
         <Stack alignItems={"center"} justifyItems={"center"} direction={"column"} pt={"15vh"} spacing={4}>
           <Typography variant="h2" fontWeight={800} color="rgba(255, 255, 255, 1)" textAlign={"center"} width={"65vw"}>
