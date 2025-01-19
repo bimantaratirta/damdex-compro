@@ -4,14 +4,14 @@ import img2 from "../../public/fungsi2.png";
 import img3 from "../../public/fungsi3.png";
 import img4 from "../../public/fungsi4.png";
 import img1gif from "../../public/fungsi1gif.gif";
+import logo from "../../public/Damdex Multifungsi Logo.png";
+import Image from "next/image";
 
 export const SecondSection = () => {
   return (
-    <Box sx={{ height: "95vh" }} id="trigger">
-      <Stack alignItems={"center"} mb="2vh" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor="#trigger" data-aos-anchor-placement="top-center">
-        <Typography variant="h2" fontWeight={800} pt={"2vh"}>
-          Damdex Multifungsi
-        </Typography>
+    <Box sx={{ height: "95vh" }}>
+      <Stack alignItems={"center"} justifyContent={"center"} direction={"row"} mt={"1vh"} mb="1vh" data-aos="fade-up" data-aos-easing="ease-in-out">
+        <Image alt="logo" src={logo} height={100} />
         <Typography variant="h5">One Product, All Solution</Typography>
       </Stack>
       <Stack direction={"row"} mx="5vw" zIndex={0}>
@@ -30,8 +30,6 @@ export const SecondSection = () => {
             },
           }}
           data-aos="fade-up"
-          data-aos-anchor="#trigger"
-          data-aos-anchor-placement="top-center"
           data-aos-easing="ease-in-out"
           data-aos-delay="100"
         >
@@ -66,8 +64,6 @@ export const SecondSection = () => {
             alignSelf: "end",
           }}
           data-aos="fade-up"
-          data-aos-anchor="#trigger"
-          data-aos-anchor-placement="top-center"
           data-aos-easing="ease-in-out"
           data-aos-delay="200"
         >
@@ -103,8 +99,6 @@ export const SecondSection = () => {
             },
           }}
           data-aos="fade-up"
-          data-aos-anchor="#trigger"
-          data-aos-anchor-placement="top-center"
           data-aos-easing="ease-in-out"
           data-aos-delay="300"
         >
@@ -138,8 +132,6 @@ export const SecondSection = () => {
             },
           }}
           data-aos="fade-up"
-          data-aos-anchor="#trigger"
-          data-aos-anchor-placement="top-center"
           data-aos-easing="ease-in-out"
           data-aos-delay="400"
         >
