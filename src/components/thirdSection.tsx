@@ -6,7 +6,7 @@ import logowarna from "../../public/Damdex Warna Logo-01.png";
 
 export const ThirdSection = () => {
   return (
-    <Box sx={{ width: "100vw", height: { xs: "80vh", sm: "72vh", md: "152vh", lg: "171.5vh" }, position: "relative", pt: 2 }}>
+    <Box sx={{ width: "100vw", height: { xs: "80vh", sm: "74.5vh", md: "152vh", lg: "171.5vh" }, position: "relative", pt: 2 }}>
       <Stack alignItems={"center"} justifyContent={"center"} direction="row" mb="2vh" data-aos="fade-up" data-aos-easing="ease-in-out">
         <Image src={logowarna} alt="logo" height={100} />
         <Typography variant="h5" sx={{ fontSize: { xs: "20px", sm: "24px", lg: "30px" } }}>

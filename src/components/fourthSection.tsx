@@ -9,7 +9,7 @@ export const FourthSection = () => {
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Box sx={{ width: "100vw", background: `url(${background.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: { xs: "110vh", sm: "90vh", md: "115vh", lg: "95vh" } }} data-aos="fade-up" data-aos-easing="ease-in-out">
+    <Box sx={{ width: "100vw", background: `url(${background.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: { xs: "110vh", sm: "95vh", md: "115vh", lg: "95vh" } }} data-aos="fade-up" data-aos-easing="ease-in-out">
       {mobile && (
         <Stack direction={"column"} alignItems={"center"} justifyContent={"center"} spacing={1} sx={{ pt: { xs: "5vh", md: "6vh" } }} data-aos="fade-up" data-aos-easing="ease-in-out">
           <Typography variant="h2" fontWeight={800}>
