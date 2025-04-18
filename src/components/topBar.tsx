@@ -47,10 +47,26 @@ export const TopBar = () => {
         {!mobile && (
           <>
             <Stack direction={"row"} spacing={3} pr={"5vw"}>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/");
+                }}
+              >
                 Home
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/product");
+                }}
+              >
                 Products
               </Link>
               <Link underline="hover" color="#FFF">

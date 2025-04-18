@@ -2,9 +2,9 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import bg from "../../public/bg2.png";
 import img from "../../public/toko.jpg";
 
-export const SixthSection = () => {
+export const SixthSection = ({ noBackground }: { noBackground?: boolean }) => {
   return (
-    <Box sx={{ width: "100vw", background: `url(${bg.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "80vh", pt: { xs: "15vh", sm: "10vh", lg: "5vh" } }}>
+    <Box sx={{ width: "100vw", background: noBackground ? null : `url(${bg.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "80vh", pt: { xs: "15vh", sm: "10vh", lg: "5vh" } }}>
       <Box
         sx={{
           width: { xs: "95vw", sm: "75vw" },

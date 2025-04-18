@@ -9,58 +9,59 @@ export const Footer = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Box sx={{ width: "100vw", backgroundColor: "rgba(36,36,36,1)", height: "95vh" }}>
+    <Box sx={{ width: "100vw", backgroundColor: "rgba(36,36,36,1)", height: "95vh", p: 15 }}>
       <Typography
         color="#FFF"
         fontWeight={800}
         variant="h3"
         pt={"8vh"}
-        textAlign={"center"}
+        textAlign={"left"}
         width={"80vw"}
-        mx={"auto"}
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        sx={{ fontSize: { xs: "28px", sm: "48px" }, pb: { xs: "2vh", sm: "8vh" } }}
+        // mx={"auto"}
+        // data-aos="fade-up"
+        // data-aos-easing="ease-in-out"
+        sx={{ fontSize: { xs: "28px", sm: "48px" }, width: "50vw", px: "3.5vw" }}
       >
-        Paint your vision, shape your home.
+        Find Us on Social Media or your Favotrite Store
       </Typography>
       {!mobile && (
-        <Stack spacing={5} pt={"12vh"}>
-          <Stack direction={"row"} justifyContent={"space-between"} px={"3.5vw"} zIndex={10}>
-            <Stack direction={"row"} spacing={3} pr={"5vw"} data-aos="fade-right" data-aos-easing="ease-in-out">
-              <Link underline="hover" color="#FFF">
-                Home
-              </Link>
-              <Link underline="hover" color="#FFF">
-                Products
-              </Link>
-              <Link underline="hover" color="#FFF">
-                About
-              </Link>
-              <Link underline="hover" color="#FFF">
-                User & Applications
-              </Link>
-              <Link underline="hover" color="#FFF">
-                Contact Us
-              </Link>
-            </Stack>
-            <Stack direction={"row"} justifyContent={"center"} spacing={2} data-aos="fade-left" data-aos-easing="ease-in-out">
-              <IconButton href="https://www.youtube.com/user/DamdexIndonesia" target="_blank">
-                <YouTubeIcon sx={{ color: "#FFF" }} />
-              </IconButton>
+        <Stack direction={"row"} justifyContent={"space-between"} px={"3.5vw"} pt={"8vh"} zIndex={10}>
+          <Stack direction={"column"} justifyContent={"center"} spacing={2} data-aos="fade-left" data-aos-easing="ease-in-out">
+            <Stack direction={"row"} spacing={4}>
               <IconButton href="https://www.facebook.com/Damdex" target="_blank">
-                <Image src={fb} alt="fb" width={25} height={25} />
+                <Image src={fb} alt="fb" width={33} height={33} />
               </IconButton>
+              <Typography color="#FFF" alignContent={"center"}>
+                Damdex Indonesia
+              </Typography>
+            </Stack>
+            <Stack direction={"row"} spacing={4}>
               <IconButton href="https://www.instagram.com/damdexindonesia/?hl=en" target="_blank">
-                <Image src={ig} alt="ig" width={25} height={25} />
+                <Image src={ig} alt="ig" width={33} height={33} />
               </IconButton>
+              <Typography color="#FFF" alignContent={"center"}>
+                @DamdexIndonesia
+              </Typography>
+            </Stack>
+            <Stack direction={"row"} spacing={4}>
               <IconButton href="https://www.tiktok.com/@damdexindonesia" target="_blank">
-                <Image src={tiktok} alt="tiktok" width={25} height={25} />
+                <Image src={tiktok} alt="tiktok" width={33} height={33} />
               </IconButton>
+              <Typography color="#FFF" alignContent={"center"}>
+                @DamdexIndonesia
+              </Typography>
+            </Stack>
+            <Stack direction={"row"} spacing={4}>
+              <IconButton href="https://www.youtube.com/user/DamdexIndonesia" target="_blank">
+                <YouTubeIcon sx={{ color: "#FFF" }} fontSize="large" />
+              </IconButton>
+              <Typography color="#FFF" alignContent={"center"}>
+                DamdexIndonesia
+              </Typography>
             </Stack>
           </Stack>
-          <Typography color="#FFF" fontWeight={800} fontSize={"19.931vw"} lineHeight={"18.652vh"} pl={"2vw"} data-aos="fade-up" data-aos-easing="ease-in-out">
-            DAMDEX
+          <Typography color="#FFF" fontSize={"24px"} sx={{ width: "20vw" }}>
+            Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join the conversation on our social media for insights, tips, and expert advice!
           </Typography>
         </Stack>
       )}
