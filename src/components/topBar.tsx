@@ -69,10 +69,26 @@ export const TopBar = () => {
               >
                 Products
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/use");
+                }}
+              >
                 User & Applications
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/projects");
+                }}
+              >
                 Projects
               </Link>
               <Link underline="hover" color="#FFF">
