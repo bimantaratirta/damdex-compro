@@ -34,7 +34,7 @@ export const TopBar = () => {
         borderBottom: "7px solid transparent",
         width: "100vw",
         position: "fixed",
-        zIndex: 10,
+        zIndex: 100,
       }}
     >
       <Stack direction={"row"} alignItems={"center"} width={"100vw"} height={"6.5vh"} justifyContent={"space-between"} sx={{ px: "2.5vw" }}>
@@ -102,7 +102,15 @@ export const TopBar = () => {
               >
                 Events
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/contact");
+                }}
+              >
                 Contact Us
               </Link>
             </Stack>
