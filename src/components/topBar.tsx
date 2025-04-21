@@ -91,7 +91,15 @@ export const TopBar = () => {
               >
                 Projects
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/event");
+                }}
+              >
                 Events
               </Link>
               <Link underline="hover" color="#FFF">
