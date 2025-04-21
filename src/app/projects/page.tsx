@@ -4,6 +4,7 @@ import { AppLayout } from "@/components/appLayout";
 import { Box, Grid2, Pagination, Stack, Typography } from "@mui/material";
 import img from "@/../public/project.png";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const data = [
@@ -16,6 +17,7 @@ const Page = () => {
     { img: img, name: "Cluster Da Silva" },
     { img: img, name: "Bukit Golf Riverside Lagoon" },
   ];
+  const router = useRouter();
   return (
     <AppLayout>
       <Box
@@ -38,7 +40,7 @@ const Page = () => {
         </Typography>
         <Grid2 container spacing={4}>
           {data.map((d, idx) => (
-            <div onClick={() => alert("clicked")} key={idx}>
+            <div onClick={() => router.push(`/projects/detail/${idx}`)} key={idx}>
               <Stack spacing={2} sx={{ "&:hover": { cursor: "pointer" } }}>
                 <Image src={d.img} alt="abc" width={800} height={400} style={{ borderRadius: "25px" }} />
                 <Typography variant="h6" fontWeight={800}>

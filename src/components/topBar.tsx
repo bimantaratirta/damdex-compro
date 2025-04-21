@@ -92,6 +92,9 @@ export const TopBar = () => {
                 Projects
               </Link>
               <Link underline="hover" color="#FFF">
+                Events
+              </Link>
+              <Link underline="hover" color="#FFF">
                 Contact Us
               </Link>
             </Stack>
