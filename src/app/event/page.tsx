@@ -31,9 +31,10 @@ const Page = () => {
             bottom: 0,
             left: 0,
             right: 0,
+            height: "200vh",
             backgroundSize: "cover",
             zIndex: -1,
-            opacity: 0.1,
+            opacity: 0.2,
           },
         }}
       >

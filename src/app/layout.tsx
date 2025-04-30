@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Animation from "./Animation";
+import LocalStorageProvider from "@/components/localStorageProvider";
 
 const roboto = Roboto({
   weight: "400",
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={roboto.className}>
-        <Animation>{children}</Animation>
+        <Animation>
+          <LocalStorageProvider>{children}</LocalStorageProvider>
+        </Animation>
       </body>
     </html>
   );
