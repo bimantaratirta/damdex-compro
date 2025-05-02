@@ -59,3 +59,35 @@ export interface Home extends Base {
   key: string;
   fileUrl: string;
 }
+
+export interface ProductAdvantage extends Base {
+  product: string;
+  productId: string;
+  heroImageUrl: string;
+  heroImage: string;
+  titleIDN: string;
+  descriptionIDN: string;
+  titleENG: string;
+  descriptionENG: string;
+}
+
+export interface Product extends Base {
+  heroImage: string;
+  heroImageUrl: string;
+  titleIDN: string;
+  descriptionIDN: string;
+  titleENG: string;
+  descriptionENG: string;
+  productAdvantage: ProductAdvantage[];
+}
+
+export interface Project extends Base {
+  heroImage: string;
+  heroImageUrl: string;
+  titleIDN: string;
+  firstDescriptionIDN: string;
+  secondDescriptionIDN: string;
+  titleENG: string;
+  firstDescriptionENG: string;
+  secondDescriptionENG: string;
+}
