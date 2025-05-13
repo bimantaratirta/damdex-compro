@@ -1,5 +1,6 @@
 "use client";
 
+import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import { useState, useEffect, ReactNode } from "react";
 
 interface LocalStorageProviderProps {
@@ -29,9 +30,12 @@ export default function LocalStorageProvider({ children }: LocalStorageProviderP
 
   if (!isReady) {
     return (
-      <div>
-        <p>Loading...</p>
-      </div>
+      <Box sx={{ display: "flex", justifyContent: "center", height: "20vh", mt: "35vh" }}>
+        <Stack direction="column">
+          <CircularProgress sx={{ margin: "auto" }} />
+          <Typography>Loading language setting</Typography>
+        </Stack>
+      </Box>
     );
   }
 
