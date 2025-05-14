@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React from "react";
 import { Box, Stack, Typography, ToggleButton, Button, List, ListItem, ListItemText } from "@mui/material";
@@ -18,18 +19,40 @@ const Page = () => {
           backgroundSize: "cover",
         }}
       >
-        <Stack alignItems={"center"} justifyItems={"center"} direction={"column"} spacing={4} sx={{ pt: { xs: "10vh", sm: "23vh" } }}>
-          <Typography variant="h2" fontWeight={800} color="rgba(255, 255, 255, 1)" textAlign={"center"} width={"65vw"} sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}>
+        <Stack
+          alignItems={"center"}
+          justifyItems={"center"}
+          direction={"column"}
+          spacing={4}
+          sx={{ pt: { xs: "10vh", sm: "23vh" } }}
+        >
+          <Typography
+            variant="h2"
+            fontWeight={800}
+            color="rgba(255, 255, 255, 1)"
+            textAlign={"center"}
+            width={"65vw"}
+            sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}
+          >
             Damdex For Your Home
           </Typography>
         </Stack>
       </Box>
       <Box sx={{ p: 10 }}>
-        <Stack direction={"column"} spacing={1}>
-          <Typography fontSize={"32px"} fontWeight={800}>
+        <Stack
+          direction={"column"}
+          spacing={1}
+        >
+          <Typography
+            fontSize={"32px"}
+            fontWeight={800}
+          >
             Composition
           </Typography>
-          <Stack direction={"row"} spacing={4}>
+          <Stack
+            direction={"row"}
+            spacing={4}
+          >
             <Box
               sx={
                 selectedComposition === "thin"
@@ -56,7 +79,11 @@ const Page = () => {
                   width: "22vw",
                   borderRadius: "0px 100px 100px",
                   color: "#000",
-                  "&.Mui-selected": { background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)", color: "#FFF", border: 0 },
+                  "&.Mui-selected": {
+                    background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)",
+                    color: "#FFF",
+                    border: 0,
+                  },
                 }}
                 selected={selectedComposition === "thin"}
                 onChange={(_, value) => setSelectedComposition(value)}
@@ -90,7 +117,11 @@ const Page = () => {
                   width: "22vw",
                   borderRadius: "0px 100px 100px",
                   color: "#000",
-                  "&.Mui-selected": { background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)", color: "#FFF", border: 0 },
+                  "&.Mui-selected": {
+                    background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)",
+                    color: "#FFF",
+                    border: 0,
+                  },
                 }}
                 selected={selectedComposition === "medium"}
                 onChange={(_, value) => setSelectedComposition(value)}
@@ -124,7 +155,11 @@ const Page = () => {
                   width: "22vw",
                   borderRadius: "0px 100px 100px",
                   color: "#000",
-                  "&.Mui-selected": { background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)", color: "#FFF", border: 0 },
+                  "&.Mui-selected": {
+                    background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)",
+                    color: "#FFF",
+                    border: 0,
+                  },
                 }}
                 selected={selectedComposition === "thick"}
                 onChange={(_, value) => setSelectedComposition(value)}
@@ -158,7 +193,11 @@ const Page = () => {
                   width: "22vw",
                   borderRadius: "0px 100px 100px",
                   color: "#000",
-                  "&.Mui-selected": { background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)", color: "#FFF", border: 0 },
+                  "&.Mui-selected": {
+                    background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)",
+                    color: "#FFF",
+                    border: 0,
+                  },
                 }}
                 selected={selectedComposition === "waterproof"}
                 onChange={(_, value) => setSelectedComposition(value)}
@@ -168,7 +207,7 @@ const Page = () => {
             </Box>
           </Stack>
         </Stack>
-        <Stack direction={"column"} py={10} spacing={1}>
+        {/* <Stack direction={"column"} py={10} spacing={1}>
           <Typography fontSize={"32px"} fontWeight={800}>
             Use For
           </Typography>
@@ -286,15 +325,36 @@ const Page = () => {
               Pori
             </ToggleButton>
           </Stack>
-        </Stack>
-        <Box sx={{ width: "90vw", height: "100vh", backgroundColor: "rgba(246, 246, 246, 1)", margin: "auto", borderRadius: "25px", p: 5 }}>
-          <Typography color="#000" fontWeight={800} fontSize={"40px"}>
+        </Stack> */}
+        <Box
+          sx={{
+            width: "90vw",
+            height: "100vh",
+            backgroundColor: "rgba(246, 246, 246, 1)",
+            margin: "100px auto",
+            borderRadius: "25px",
+            p: 5,
+          }}
+        >
+          <Typography
+            color="#000"
+            fontWeight={800}
+            fontSize={"40px"}
+          >
             WHEN USING DAMDEX FOLLOW THE RECOMMENDED WAYS
           </Typography>
-          <Typography fontWeight={400} fontSize={"40px"}>
-            Paint a waterproof coat on tiled, concrete or asbestos roofs. On floors and wall surfaces. On ceramic tiles, too.
+          <Typography
+            fontWeight={400}
+            fontSize={"40px"}
+          >
+            Paint a waterproof coat on tiled, concrete or asbestos roofs. On floors and wall surfaces. On ceramic tiles,
+            too.
           </Typography>
-          <Typography color="#000" fontWeight={800} fontSize={"40px"}>
+          <Typography
+            color="#000"
+            fontWeight={800}
+            fontSize={"40px"}
+          >
             Preparation
           </Typography>
           <List sx={{ listStyle: "decimal", pl: 5, fontSize: "40px" }}>
@@ -305,10 +365,16 @@ const Page = () => {
               />
             </ListItem>
             <ListItem sx={{ display: "list-item" }}>
-              <ListItemText primary="For best results always wet the surface with water. Never work on hot, dry surfaces." sx={{ "& span": { fontSize: "40px" } }} />
+              <ListItemText
+                primary="For best results always wet the surface with water. Never work on hot, dry surfaces."
+                sx={{ "& span": { fontSize: "40px" } }}
+              />
             </ListItem>
             <ListItem sx={{ display: "list-item" }}>
-              <ListItemText primary="Remove any cement lumps by riddling/filtering the cement powder before mixing." sx={{ "& span": { fontSize: "40px" } }} />
+              <ListItemText
+                primary="Remove any cement lumps by riddling/filtering the cement powder before mixing."
+                sx={{ "& span": { fontSize: "40px" } }}
+              />
             </ListItem>
           </List>
         </Box>
@@ -321,8 +387,21 @@ const Page = () => {
           backgroundSize: "cover",
         }}
       >
-        <Stack alignItems={"center"} justifyItems={"center"} direction={"row"} spacing={4} sx={{ pt: { xs: "10vh", sm: "18vh" } }}>
-          <Typography variant="h2" fontWeight={800} color="rgba(255, 255, 255, 1)" textAlign={"center"} width={"65vw"} sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}>
+        <Stack
+          alignItems={"center"}
+          justifyItems={"center"}
+          direction={"row"}
+          spacing={4}
+          sx={{ pt: { xs: "10vh", sm: "18vh" } }}
+        >
+          <Typography
+            variant="h2"
+            fontWeight={800}
+            color="rgba(255, 255, 255, 1)"
+            textAlign={"center"}
+            width={"65vw"}
+            sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}
+          >
             Damdex For Professional
           </Typography>
           <Button

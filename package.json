@@ -15,6 +15,7 @@
     "@mui/material": "^6.4.0",
     "aos": "^2.3.4",
     "axios": "^1.9.0",
+    "embla-carousel-react": "^8.6.0",
     "formik": "^2.4.6",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",

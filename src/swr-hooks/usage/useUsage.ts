@@ -1,0 +1,29 @@
+import useSWR from "swr";
+import { fetchUse } from "@/repositories/api";
+import { PaginationParams, PaginationQuery } from "@/lib/queryparams";
+import { paginationQueryToParams } from "@/lib/utils";
+
+export const usageParamsSwrKey = (query?: PaginationQuery) => {
+  const params: PaginationParams | undefined = query ? paginationQueryToParams(query) : undefined;
+
+  if (params) {
+    if (!params?.limit) delete params.limit;
+    if (!params?.page) delete params.page;
+  }
+
+  return ["/use", params];
+};
+
+export const useUsage = (query?: PaginationQuery) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { data, mutate, error } = useSWR(usageParamsSwrKey(query), ([path, params]) =>
+    fetchUse(params as PaginationParams)
+  );
+  const loading = !data && !error;
+
+  return {
+    loading,
+    mutate,
+    data,
+  };
+};

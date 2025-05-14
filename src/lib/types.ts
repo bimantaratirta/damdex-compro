@@ -23,7 +23,7 @@ export type PaginatedDataResponse<T> = {
 };
 
 export type Base = {
-  id: string;
+  id: number;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date;
@@ -62,7 +62,7 @@ export interface Home extends Base {
 
 export interface ProductAdvantage extends Base {
   product: string;
-  productId: string;
+  productId: number;
   heroImageUrl: string;
   heroImage: string;
   titleIDN: string;
@@ -90,4 +90,30 @@ export interface Project extends Base {
   titleENG: string;
   firstDescriptionENG: string;
   secondDescriptionENG: string;
+}
+
+export interface Use extends Base {
+  heroImage: string;
+  titleIDN: string;
+  titleENG: string;
+  useComposition: string[];
+}
+
+export interface UseFor extends Base {
+  useComposition: string;
+  useCompositionid: number;
+  titleIDN: string;
+  titleENG: string;
+  descriptionIDN: string;
+  descriptionENG: string;
+}
+
+export interface UseComposition extends Base {
+  use: Use;
+  useid: number;
+  titleIDN: string;
+  titleENG: string;
+  descriptionIDN: string;
+  descriptionENG: string;
+  useCompositionUseFor: UseFor[];
 }
