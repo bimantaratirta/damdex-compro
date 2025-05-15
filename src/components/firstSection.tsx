@@ -2,7 +2,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import masdamdex from "../../public/masdamdex.gif";
-import background from "../../public/bg1.png";
+import background from "../../public/bg4.png";
 
 export const FirstSection = () => {
   return (

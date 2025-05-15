@@ -1,6 +1,19 @@
 "use client";
 import React from "react";
-import { Box, Link, Stack, Typography, IconButton, useTheme, useMediaQuery, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import {
+  Box,
+  Link,
+  Stack,
+  Typography,
+  IconButton,
+  useTheme,
+  useMediaQuery,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
 import Image from "next/image";
 import logo from "../../public/damdexlogo.png";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -9,10 +22,10 @@ import { useRouter } from "next/navigation";
 export const TopBar = () => {
   const drawerItems = [
     { name: "Home", url: "/" },
-    { name: "Products", url: "/" },
+    { name: "Products", url: "/product" },
     { name: "User & Applications", url: "/" },
-    { name: "Projects", url: "/" },
-    { name: "Contact us", url: "/" },
+    { name: "Projects", url: "/projects" },
+    { name: "Contact us", url: "/contact" },
   ];
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -25,6 +38,8 @@ export const TopBar = () => {
 
   const drawerWidth = 240;
 
+  const settings = localStorage.getItem("languageSettings");
+
   return (
     <Box
       sx={{
@@ -34,36 +49,136 @@ export const TopBar = () => {
         borderBottom: "7px solid transparent",
         width: "100vw",
         position: "fixed",
-        zIndex: 10,
+        zIndex: 100,
       }}
     >
-      <Stack direction={"row"} alignItems={"center"} width={"100vw"} height={"6.5vh"} justifyContent={"space-between"} sx={{ px: "2.5vw" }}>
-        <Image alt="logo" src={logo} height={23} />
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        width={"100vw"}
+        height={"6.5vh"}
+        justifyContent={"space-between"}
+        sx={{ px: "2.5vw" }}
+      >
+        <Image
+          alt="logo"
+          src={logo}
+          height={23}
+        />
         {mobile && (
-          <IconButton aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ mr: { xs: 1, sm: 2 }, display: { sm: "none" } }}>
+          <IconButton
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: { xs: 1, sm: 2 }, display: { sm: "none" } }}
+          >
             <MenuIcon sx={{ color: "#FFF" }} />
           </IconButton>
         )}
         {!mobile && (
           <>
-            <Stack direction={"row"} spacing={3} pr={"5vw"}>
-              <Link underline="hover" color="#FFF">
+            <Stack
+              direction={"row"}
+              spacing={3}
+              pr={"5vw"}
+            >
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/");
+                }}
+              >
                 Home
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/product");
+                }}
+              >
                 Products
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/use");
+                }}
+              >
                 User & Applications
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/projects");
+                }}
+              >
                 Projects
               </Link>
-              <Link underline="hover" color="#FFF">
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/event");
+                }}
+              >
+                Events
+              </Link>
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/contact");
+                }}
+              >
                 Contact Us
               </Link>
             </Stack>
-            <Typography color="#FFF">ID/EN</Typography>
+            <Stack
+              direction={"row"}
+              spacing={1}
+            >
+              <Link
+                underline="hover"
+                color={settings === "id" ? "#FFF" : "#4D4D4D"}
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  localStorage.setItem("languageSettings", "id");
+                  window.location.reload();
+                }}
+              >
+                ID
+              </Link>
+              <Typography color="#FFF">/</Typography>
+              <Link
+                underline="hover"
+                color={settings === "en" ? "#FFF" : "#4D4D4D"}
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  localStorage.setItem("languageSettings", "en");
+                  window.location.reload();
+                }}
+              >
+                EN
+              </Link>
+            </Stack>
           </>
         )}
       </Stack>
@@ -80,11 +195,22 @@ export const TopBar = () => {
         }}
       >
         <Box sx={{ height: "100vh", backgroundColor: "#000" }}>
-          <Image alt="logo" src={logo} height={23} style={{ margin: "10px 0px 0px 70px" }} />
+          <Image
+            alt="logo"
+            src={logo}
+            height={23}
+            style={{ margin: "10px 0px 0px 70px" }}
+          />
           <List>
             {drawerItems.map((item, idx) => (
-              <ListItem key={idx} disablePadding>
-                <ListItemButton sx={{ textAlign: "center", color: "#FFF" }} onClick={() => router.push(item.url)}>
+              <ListItem
+                key={idx}
+                disablePadding
+              >
+                <ListItemButton
+                  sx={{ textAlign: "center", color: "#FFF" }}
+                  onClick={() => router.push(item.url)}
+                >
                   <ListItemText primary={item.name} />
                 </ListItemButton>
               </ListItem>

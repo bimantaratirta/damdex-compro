@@ -3,10 +3,11 @@ import Image from "next/image";
 import image1 from "../../public/section3-1.png";
 import image2 from "../../public/distributor.png";
 import logowarna from "../../public/Damdex Warna Logo-01.png";
+import background from "../../public/bg3.png";
 
 export const ThirdSection = () => {
   return (
-    <Box sx={{ width: "100vw", height: { xs: "80vh", sm: "74.5vh", md: "152vh", lg: "171.5vh" }, position: "relative", pt: 2 }}>
+    <Box sx={{ width: "100vw", height: { xs: "80vh", sm: "74.5vh", md: "152vh", lg: "180.5vh" }, position: "relative", pt: 2, background: `url(${background.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
       <Stack alignItems={"center"} justifyContent={"center"} direction="row" mb="2vh" data-aos="fade-up" data-aos-easing="ease-in-out">
         <Image src={logowarna} alt="logo" height={100} />
         <Typography variant="h5" sx={{ fontSize: { xs: "20px", sm: "24px", lg: "30px" } }}>

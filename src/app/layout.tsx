@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Animation from "./Animation";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import LocalStorageProvider from "@/components/localStorageProvider";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto = Roboto({
+  weight: "400",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,8 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Animation>{children}</Animation>
+      <body className={roboto.className}>
+        <Animation>
+          <LocalStorageProvider>{children}</LocalStorageProvider>
+        </Animation>
       </body>
     </html>
   );
