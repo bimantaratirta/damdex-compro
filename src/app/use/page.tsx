@@ -3,10 +3,11 @@
 // import styles from "./page.module.css";
 import { AppLayout } from "@/components/appLayout";
 import background from "@/../public/bguse.png";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import img1 from "@/../public/damdexforhome.png";
 import img2 from "@/../public/damdexforpro.png";
 import { useRouter } from "next/navigation";
+import { OutlinedButton } from "@/components/button";
 
 const Page = () => {
   const router = useRouter();
@@ -18,14 +19,14 @@ const Page = () => {
           background: `url(${background.src})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          height: { xs: "90vh", md: "135vh", lg: "75vh" },
+          height: { xs: "90vh", md: "85vh", lg: "70vh" },
         }}
       >
         <Typography
-          fontSize={"80px"}
+          sx={{ fontSize: { xs: 20, md: 40, lg: 80 } }}
           fontWeight={500}
           textAlign={"center"}
-          pt={22.5}
+          pt={20}
           width={"60vw"}
           margin={"auto"}
         >
@@ -57,25 +58,10 @@ const Page = () => {
           >
             Damdex For Your Home
           </Typography>
-          <Button
-            variant="outlined"
-            sx={{
-              "&.MuiButtonBase-root": {
-                color: "#FFF",
-                borderColor: "#FFF",
-                width: { xs: "50vw", sm: "14.097vw" },
-                height: "5.664vh",
-                borderRadius: "64px",
-                fontSize: { xs: 16, sm: 20, lg: 24 },
-                "&:hover": {
-                  backgroundColor: "rgba(255,255,255,0.1)",
-                },
-              },
-            }}
-            onClick={() => router.push("/use/detail")}
-          >
-            Learn More
-          </Button>
+          <OutlinedButton
+            onClick={() => router.push("/use/for-your-home")}
+            label="Learn More"
+          />
         </Stack>
       </Box>
       <Box
@@ -103,25 +89,10 @@ const Page = () => {
           >
             Damdex For Professional
           </Typography>
-          <Button
-            variant="outlined"
-            sx={{
-              "&.MuiButtonBase-root": {
-                color: "#FFF",
-                borderColor: "#FFF",
-                width: { xs: "50vw", sm: "14.097vw" },
-                height: "5.664vh",
-                borderRadius: "64px",
-                fontSize: { xs: 16, sm: 20, lg: 24 },
-                "&:hover": {
-                  backgroundColor: "rgba(255,255,255,0.1)",
-                },
-              },
-            }}
-            onClick={() => router.push("/use/detail")}
-          >
-            Learn More
-          </Button>
+          <OutlinedButton
+            onClick={() => router.push("/use/for-professional")}
+            label="Learn More"
+          />
         </Stack>
       </Box>
     </AppLayout>

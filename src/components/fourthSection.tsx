@@ -3,16 +3,39 @@ import background from "../../public/bg1.png";
 import Image from "next/image";
 import news1 from "../../public/news1.png";
 import news2 from "../../public/news2.png";
+import { useRouter } from "next/navigation";
 
 export const FourthSection = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const router = useRouter();
 
   return (
-    <Box sx={{ width: "100vw", background: `url(${background.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: { xs: "110vh", sm: "95vh", md: "115vh", lg: "95vh" } }} data-aos="fade-up" data-aos-easing="ease-in-out">
+    <Box
+      sx={{
+        width: "100vw",
+        background: `url(${background.src})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        height: { xs: "110vh", sm: "95vh", md: "115vh", lg: "95vh" },
+      }}
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+    >
       {mobile && (
-        <Stack direction={"column"} alignItems={"center"} justifyContent={"center"} spacing={1} sx={{ pt: { xs: "5vh", md: "6vh" } }} data-aos="fade-up" data-aos-easing="ease-in-out">
-          <Typography variant="h2" fontWeight={800}>
+        <Stack
+          direction={"column"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          spacing={1}
+          sx={{ pt: { xs: "5vh", md: "6vh" } }}
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+        >
+          <Typography
+            variant="h2"
+            fontWeight={800}
+          >
             Read Our
           </Typography>
           <Typography
@@ -33,8 +56,19 @@ export const FourthSection = () => {
         </Stack>
       )}
       {!mobile && (
-        <Stack direction={"row"} alignItems={"center"} justifyContent={"center"} spacing={1} sx={{ pt: { xs: "5vh", md: "6vh" } }} data-aos="fade-up" data-aos-easing="ease-in-out">
-          <Typography variant="h2" fontWeight={800}>
+        <Stack
+          direction={"row"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          spacing={1}
+          sx={{ pt: { xs: "5vh", md: "6vh" } }}
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+        >
+          <Typography
+            variant="h2"
+            fontWeight={800}
+          >
             Read Our
           </Typography>
           <Typography
@@ -54,50 +88,135 @@ export const FourthSection = () => {
           </Typography>
         </Stack>
       )}
-      <Stack alignContent={"center"} justifyContent={"center"} direction={"row"} spacing={5} mt={5}>
+      <Stack
+        alignContent={"center"}
+        justifyContent={"center"}
+        direction={"row"}
+        spacing={5}
+        mt={5}
+      >
         {mobile && (
-          <Box sx={{ width: "90vw", height: "70vh", justifyContent: "center" }} data-aos="fade-up" data-aos-easing="ease-in-out">
+          <Box
+            sx={{ width: "90vw", height: "70vh", justifyContent: "center" }}
+            data-aos="fade-up"
+            data-aos-easing="ease-in-out"
+          >
             <Box sx={{ position: "relative", width: "90vw", height: "45vh" }}>
-              <Image alt="news1" src={news1} fill style={{ borderRadius: 25 }} />
+              <Image
+                alt="news1"
+                src={news1}
+                fill
+                style={{ borderRadius: 25 }}
+              />
             </Box>
-            <Stack alignContent={"center"} justifyContent={"center"} spacing={2} pt={2}>
-              <Typography variant="h5" color="#242424" align="center" fontSize={18}>
+            <Stack
+              alignContent={"center"}
+              justifyContent={"center"}
+              spacing={2}
+              pt={2}
+            >
+              <Typography
+                variant="h5"
+                color="#242424"
+                align="center"
+                fontSize={18}
+              >
                 Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
               </Typography>
-              <Typography variant="h6" color="#7B7B7B" align="center" fontSize={14}>
-                Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.
+              <Typography
+                variant="h6"
+                color="#7B7B7B"
+                align="center"
+                fontSize={14}
+              >
+                Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor
+                today and start building better, faster, stronger.
               </Typography>
             </Stack>
           </Box>
         )}
         {!mobile && (
           <>
-            <Box sx={{ width: "33vw", height: "70vh", justifyContent: "center" }} data-aos="fade-up" data-aos-easing="ease-in-out">
-              <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", lg: "48vh" } }}>
-                <Image alt="news1" src={news1} fill style={{ borderRadius: 25 }} />
+            <div
+              onClick={() => router.push("news/detail/abc")}
+              style={{ cursor: "pointer" }}
+            >
+              <Box
+                sx={{ width: "33vw", height: "70vh", justifyContent: "center" }}
+                data-aos="fade-up"
+                data-aos-easing="ease-in-out"
+              >
+                <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", lg: "48vh" } }}>
+                  <Image
+                    alt="news1"
+                    src={news1}
+                    fill
+                    style={{ borderRadius: 25 }}
+                  />
+                </Box>
+                <Stack
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                  spacing={2}
+                  pt={2}
+                >
+                  <Typography
+                    variant="h5"
+                    color="#242424"
+                  >
+                    Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    color="#7B7B7B"
+                  >
+                    Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor
+                    today and start building better, faster, stronger.
+                  </Typography>
+                </Stack>
               </Box>
-              <Stack alignContent={"center"} justifyContent={"center"} spacing={2} pt={2}>
-                <Typography variant="h5" color="#242424">
-                  Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
-                </Typography>
-                <Typography variant="h6" color="#7B7B7B">
-                  Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.
-                </Typography>
-              </Stack>
-            </Box>
-            <Box sx={{ width: "33vw", height: "70vh" }} data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="200">
-              <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", lg: "48vh" } }}>
-                <Image alt="news2" src={news2} fill style={{ borderRadius: 25 }} />
+            </div>
+
+            <div
+              onClick={() => router.push("news/detail/abc")}
+              style={{ cursor: "pointer" }}
+            >
+              <Box
+                sx={{ width: "33vw", height: "70vh" }}
+                data-aos="fade-up"
+                data-aos-easing="ease-in-out"
+                data-aos-delay="200"
+              >
+                <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", lg: "48vh" } }}>
+                  <Image
+                    alt="news2"
+                    src={news2}
+                    fill
+                    style={{ borderRadius: 25 }}
+                  />
+                </Box>
+                <Stack
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                  spacing={2}
+                  pt={2}
+                >
+                  <Typography
+                    variant="h5"
+                    color="#242424"
+                  >
+                    Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    color="#7B7B7B"
+                  >
+                    Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor
+                    today and start building better, faster, stronger.
+                  </Typography>
+                </Stack>
               </Box>
-              <Stack alignContent={"center"} justifyContent={"center"} spacing={2} pt={2}>
-                <Typography variant="h5" color="#242424">
-                  Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
-                </Typography>
-                <Typography variant="h6" color="#7B7B7B">
-                  Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.
-                </Typography>
-              </Stack>
-            </Box>
+            </div>
           </>
         )}
       </Stack>

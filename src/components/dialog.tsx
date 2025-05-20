@@ -31,7 +31,7 @@ export const AdvantageDialog = ({
       <DialogTitle sx={{ textAlign: "left", fontWeight: "bold" }}>{title}</DialogTitle>
       <DialogContent>
         <Box sx={{ backgroundColor: "#F0F0F0", minHeight: "40vh", p: 2 }}>
-          <Typography variant="body1">{description}</Typography>
+          <Typography variant="h5">{description}</Typography>
         </Box>
         {img && img !== undefined && (
           <Box sx={{ textAlign: "center" }}>

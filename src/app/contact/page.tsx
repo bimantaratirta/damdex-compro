@@ -33,20 +33,46 @@ const Page = () => {
           backgroundSize: "cover",
         }}
       >
-        <Stack alignItems={"center"} justifyItems={"center"} direction={"column"} spacing={4} sx={{ pt: { xs: "10vh", sm: "20vh" } }}>
-          <Typography variant="h2" fontWeight={800} color="rgba(255, 255, 255, 1)" textAlign={"center"} width={"65vw"} sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}>
+        <Stack
+          alignItems={"center"}
+          justifyItems={"center"}
+          direction={"column"}
+          spacing={4}
+          sx={{ pt: { xs: "10vh", sm: "20vh" } }}
+        >
+          <Typography
+            variant="h2"
+            fontWeight={800}
+            color="rgba(255, 255, 255, 1)"
+            textAlign={"center"}
+            width={"65vw"}
+            sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}
+          >
             Contact Us
           </Typography>
         </Stack>
       </Box>
-      <Stack direction={"row"} p={12} spacing={5}>
-        <Stack width={"45vw"} spacing={3}>
+      <Stack
+        direction={"row"}
+        p={12}
+        spacing={5}
+      >
+        <Stack
+          width={"45vw"}
+          spacing={3}
+        >
           <Typography variant="h4">Get in Touch</Typography>
-          <Typography variant="h2" fontWeight={800}>
+          <Typography
+            variant="h2"
+            fontWeight={800}
+          >
             Have any questions? Feel free to reach out to us.
           </Typography>
           <Stack spacing={1}>
-            <Typography variant="h4" fontWeight={800}>
+            <Typography
+              variant="h4"
+              fontWeight={800}
+            >
               Call Center
             </Typography>
             <Typography variant="h5">
@@ -54,13 +80,19 @@ const Page = () => {
             </Typography>
           </Stack>
           <Stack spacing={1}>
-            <Typography variant="h4" fontWeight={800}>
+            <Typography
+              variant="h4"
+              fontWeight={800}
+            >
               Our Location
             </Typography>
             <Typography variant="h5">Jl. Cinere Raya No. 50-51 Blok A, Cinere - Limo,Depok 16514</Typography>
           </Stack>
           <Stack spacing={1}>
-            <Typography variant="h4" fontWeight={800}>
+            <Typography
+              variant="h4"
+              fontWeight={800}
+            >
               Email
             </Typography>
             <Typography variant="h5">info@damdexindonesia.com</Typography>
@@ -84,9 +116,36 @@ const Page = () => {
             {({ values, handleChange, touched, errors }) => (
               <Form>
                 <Stack spacing={2}>
-                  <TextField id="name" name="name" label="Full Name" variant="standard" value={values.name} onChange={handleChange} error={touched.name && Boolean(errors.name)} helperText={touched.name && errors.name} />
-                  <TextField id="email" name="email" label="E-Mail" variant="standard" value={values.email} onChange={handleChange} error={touched.email && Boolean(errors.email)} helperText={touched.email && errors.email} />
-                  <TextField id="subject" name="subject" label="Subject" variant="standard" value={values.subject} onChange={handleChange} error={touched.subject && Boolean(errors.subject)} helperText={touched.subject && errors.subject} />
+                  <TextField
+                    id="name"
+                    name="name"
+                    label="Full Name"
+                    variant="standard"
+                    value={values.name}
+                    onChange={handleChange}
+                    error={touched.name && Boolean(errors.name)}
+                    helperText={touched.name && errors.name}
+                  />
+                  <TextField
+                    id="email"
+                    name="email"
+                    label="E-Mail"
+                    variant="standard"
+                    value={values.email}
+                    onChange={handleChange}
+                    error={touched.email && Boolean(errors.email)}
+                    helperText={touched.email && errors.email}
+                  />
+                  <TextField
+                    id="subject"
+                    name="subject"
+                    label="Subject"
+                    variant="standard"
+                    value={values.subject}
+                    onChange={handleChange}
+                    error={touched.subject && Boolean(errors.subject)}
+                    helperText={touched.subject && errors.subject}
+                  />
                   <TextField
                     id="message"
                     name="message"
@@ -100,7 +159,11 @@ const Page = () => {
                     rows={5}
                   />
                 </Stack>
-                <Button variant="contained" type="submit" sx={{ mt: 3 }}>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  sx={{ mt: 3 }}
+                >
                   Send
                 </Button>
               </Form>
@@ -109,7 +172,10 @@ const Page = () => {
         </Box>
       </Stack>
       <Box sx={{ width: "100vw", height: "50vh", display: "block" }}>
-        <Map position={[-6.32595166017651, 106.7850292]} zoom={18} />
+        <Map
+          position={[-6.32595166017651, 106.7850292]}
+          zoom={18}
+        />
       </Box>
     </AppLayout>
   );

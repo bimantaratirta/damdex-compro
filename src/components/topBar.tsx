@@ -23,7 +23,7 @@ export const TopBar = () => {
   const drawerItems = [
     { name: "Home", url: "/" },
     { name: "Products", url: "/product" },
-    { name: "User & Applications", url: "/" },
+    { name: "Use & Applications", url: "/" },
     { name: "Projects", url: "/projects" },
     { name: "Contact us", url: "/contact" },
   ];
@@ -113,7 +113,7 @@ export const TopBar = () => {
                   router.push("/use");
                 }}
               >
-                User & Applications
+                Use & Applications
               </Link>
               <Link
                 underline="hover"
