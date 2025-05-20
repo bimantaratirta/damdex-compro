@@ -40,3 +40,31 @@ a {
     color-scheme: dark;
   }
 }
+
+.text-slider-container {
+  height: 50px;
+  overflow: hidden;
+}
+
+.text-slider-item {
+  font-size: 1.5rem;
+  animation: slideText 12s linear infinite;
+}
+
+@keyframes slideText {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
