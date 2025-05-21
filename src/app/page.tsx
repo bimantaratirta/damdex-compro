@@ -1,6 +1,4 @@
 "use client";
-// import Image from "next/image";
-// import styles from "./page.module.css";
 import { FirstSection } from "@/components/firstSection";
 import { SecondSection } from "@/components/secondSection";
 import { ThirdSection } from "@/components/thirdSection";

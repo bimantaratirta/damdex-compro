@@ -20,7 +20,6 @@ export default function LocalStorageProvider({ children }: LocalStorageProviderP
         setIsReady(true);
       } catch (error) {
         console.error("Error accessing localStorage:", error);
-        // Tetap lanjutkan meski error (misalnya, private browsing)
         setIsReady(true);
       }
     };

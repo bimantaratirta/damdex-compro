@@ -10,13 +10,31 @@ import Image from "next/image";
 export const SecondSection = () => {
   return (
     <Box sx={{ height: { xs: "95vh", sm: "92vh", md: "95vh", lg: "90vh" } }}>
-      <Stack alignItems={"center"} justifyContent={"center"} direction={"row"} mt={"1vh"} mb="1vh" data-aos="fade-up" data-aos-easing="ease-in-out">
-        <Image alt="logo" src={logo} height={100} />
-        <Typography variant="h5" sx={{ fontSize: { xs: "18px", sm: "24px" } }}>
+      <Stack
+        alignItems={"center"}
+        justifyContent={"center"}
+        direction={"row"}
+        mt={"1vh"}
+        mb="1vh"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+      >
+        <Image
+          alt="logo"
+          src={logo}
+          height={100}
+        />
+        <Typography
+          variant="h5"
+          sx={{ fontSize: { xs: "18px", sm: "24px" } }}
+        >
           One Product, All Solution
         </Typography>
       </Stack>
-      <Stack zIndex={0} sx={{ mx: { xs: 0, md: "5vw" }, flexDirection: { xs: "column", md: "row" } }}>
+      <Stack
+        zIndex={0}
+        sx={{ mx: { xs: 0, md: "5vw" }, flexDirection: { xs: "column", md: "row" } }}
+      >
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
@@ -35,8 +53,18 @@ export const SecondSection = () => {
           data-aos-easing="ease-in-out"
           data-aos-delay="100"
         >
-          <Stack ml="3vw" mt="4vw" justifyContent={"end"}>
-            <Typography color="#FFF" variant="h4" fontWeight={800} width={"11.2vw"} sx={{ fontSize: { xs: "16px", lg: "34px" } }}>
+          <Stack
+            ml="3vw"
+            mt="2vw"
+            justifyContent={"end"}
+          >
+            <Typography
+              color="#FFF"
+              variant="h4"
+              fontWeight={800}
+              width={"15vw"}
+              sx={{ fontSize: { xs: "16px", lg: "28px" } }}
+            >
               STRONGER CONCRETE
             </Typography>
             <Box
@@ -47,7 +75,11 @@ export const SecondSection = () => {
                 mb: "1vh",
               }}
             />
-            <Typography color="#fff" fontWeight={400} sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "8px", sm: "12px", lg: "16px" } }}>
+            <Typography
+              color="#fff"
+              fontWeight={400}
+              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "8px", sm: "12px", lg: "14px" } }}
+            >
               Hanya membutuhkan 2% dari berat semen, mampu meningkatkan mutu beton hingga 35%
             </Typography>
           </Stack>
@@ -69,8 +101,19 @@ export const SecondSection = () => {
           data-aos-easing="ease-in-out"
           data-aos-delay="200"
         >
-          <Stack mr="3vw" mt="4vw" alignItems={"end"} sx={{ mr: { xs: "8vw", sm: "7vw", md: "3vw" } }}>
-            <Typography color="#FFF" variant="h4" fontWeight={800} sx={{ width: { xs: "50vw", md: "30vw", lg: "14vw" }, fontSize: { xs: "16px", lg: "34px" } }} textAlign={"end"}>
+          <Stack
+            mr="3vw"
+            mt="2vw"
+            alignItems={"end"}
+            sx={{ mr: { xs: "8vw", sm: "7vw", md: "3vw" } }}
+          >
+            <Typography
+              color="#FFF"
+              variant="h4"
+              fontWeight={800}
+              sx={{ width: { xs: "50vw", md: "30vw", lg: "14vw" }, fontSize: { xs: "16px", lg: "28px" } }}
+              textAlign={"end"}
+            >
               PENETRATE & ADHESIVE
             </Typography>
             <Box
@@ -81,7 +124,12 @@ export const SecondSection = () => {
                 mb: "1vh",
               }}
             />
-            <Typography textAlign={"end"} color="#fff" fontWeight={400} sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "16px" } }}>
+            <Typography
+              textAlign={"end"}
+              color="#fff"
+              fontWeight={400}
+              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "14px" } }}
+            >
               Memiliki tingkat keenceran yang tinggi, maka mudah meresap dan meningkat ke pori - pori beton
             </Typography>
           </Stack>
@@ -104,8 +152,17 @@ export const SecondSection = () => {
           data-aos-easing="ease-in-out"
           data-aos-delay="300"
         >
-          <Stack ml="3vw" mt="4vw" justifyContent={"end"}>
-            <Typography color="#FFF" variant="h4" fontWeight={800} sx={{ fontSize: { xs: "16px", lg: "28px" }, width: { xs: "60vw", md: "40vw", lg: "14vw" } }}>
+          <Stack
+            ml="3vw"
+            mt="2vw"
+            justifyContent={"end"}
+          >
+            <Typography
+              color="#FFF"
+              variant="h4"
+              fontWeight={800}
+              sx={{ fontSize: { xs: "16px", lg: "28px" }, width: { xs: "60vw", md: "40vw", lg: "14vw" } }}
+            >
               STOP LEAKS INSTANLY
             </Typography>
             <Box
@@ -116,7 +173,11 @@ export const SecondSection = () => {
                 mb: "1vh",
               }}
             />
-            <Typography color="#fff" fontWeight={400} sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "16px" } }}>
+            <Typography
+              color="#fff"
+              fontWeight={400}
+              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", xl: "16px" } }}
+            >
               Dengan formula campuran Damdex 3:1 dapat menyumbat kebocoran air mengalir, sederas apapun secara instant.
             </Typography>
           </Stack>
@@ -137,8 +198,19 @@ export const SecondSection = () => {
           data-aos-easing="ease-in-out"
           data-aos-delay="400"
         >
-          <Stack mr="3vw" mt="4vw" alignItems={"end"} sx={{ mr: { xs: "8vw", sm: "7vw", md: "3vw" } }}>
-            <Typography color="#FFF" variant="h4" fontWeight={800} sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "16px", lg: "34px" } }} textAlign={"end"}>
+          <Stack
+            mr="3vw"
+            mt="2vw"
+            alignItems={"end"}
+            sx={{ mr: { xs: "8vw", sm: "7vw", md: "3vw" } }}
+          >
+            <Typography
+              color="#FFF"
+              variant="h4"
+              fontWeight={800}
+              sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "16px", lg: "28px" } }}
+              textAlign={"end"}
+            >
               UNDERWATER CERAMICS INSTALLATION
             </Typography>
             <Box
@@ -149,7 +221,12 @@ export const SecondSection = () => {
                 mb: "1vh",
               }}
             />
-            <Typography sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "16px" } }} color="#fff" fontWeight={400} textAlign={"end"}>
+            <Typography
+              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "14px" } }}
+              color="#fff"
+              fontWeight={400}
+              textAlign={"end"}
+            >
               Mampu merekat keramik dan mengeras dengan instan walaupun pemasangan di dalam air atau tanpa dikuras
             </Typography>
           </Stack>

@@ -10,15 +10,22 @@ export const Footer = () => {
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const tab = useMediaQuery(theme.breakpoints.down("lg"));
   return (
-    <Box sx={{ width: "100vw", backgroundColor: "rgba(36,36,36,1)", height: { xl: "95vh", md: "130vh" }, p: 10 }}>
+    <Box
+      sx={{
+        width: "100vw",
+        backgroundColor: "rgba(36,36,36,1)",
+        height: { xl: "95vh", lg: "110vh", md: "100vh" },
+        p: 10,
+      }}
+    >
       <Typography
         color="#FFF"
         fontWeight={800}
         variant="h3"
-        pt={"8vh"}
+        pt={"3vh"}
         textAlign={"left"}
         width={"80vw"}
-        sx={{ fontSize: { xs: "28px", sm: "48px" }, width: "50vw", px: "3.5vw" }}
+        sx={{ fontSize: { xs: "28px", lg: "48px" }, width: "50vw", px: "3.5vw" }}
       >
         Find Us on Social Media or your Favorite Store
       </Typography>
@@ -238,7 +245,7 @@ export const Footer = () => {
           </Stack>
           <Typography
             color="#FFF"
-            fontSize={"20px"}
+            fontSize={"16px"}
             sx={{ width: "20vw" }}
           >
             Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join
@@ -360,7 +367,7 @@ export const Footer = () => {
       <Typography
         textAlign={"center"}
         color="#FFF"
-        sx={{ mt: { xs: "8vh", lg: "18vh" } }}
+        sx={{ mt: { xs: "8vh", lg: "12vh" } }}
       >
         © PT Prima Graha Bangun Tunggal. All rights reserved 2024
       </Typography>

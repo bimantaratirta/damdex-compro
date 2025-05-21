@@ -63,7 +63,7 @@ const Page = () => {
         >
           <Typography variant="h4">Get in Touch</Typography>
           <Typography
-            variant="h2"
+            fontSize={{ lg: "70px", md: "40px" }}
             fontWeight={800}
           >
             Have any questions? Feel free to reach out to us.

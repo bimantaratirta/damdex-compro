@@ -137,7 +137,7 @@ const Page = () => {
           </Typography>
           <Stack
             direction={"row"}
-            spacing={4}
+            spacing={{ lg: 4, md: 2 }}
           >
             {compositionData.map((d, i) => (
               <CompositionButton
@@ -156,7 +156,7 @@ const Page = () => {
         <Divider sx={{ backgroundColor: "#000", my: 4 }} />
         <Stack
           direction={"row"}
-          spacing={4}
+          spacing={{ lg: 4, md: 2 }}
         >
           {composition !== "" &&
             compositionData
@@ -182,12 +182,15 @@ const Page = () => {
               p: 5,
             }}
           >
-            <Image
-              alt="komposisi"
-              src={compositionData.find((d) => d.value === composition)!.img}
-              width={500}
-              style={{ alignSelf: "center", borderRadius: "25px" }}
-            />
+            <Box
+              sx={{ position: "relative", alignSelf: "center", width: "30vw", height: "30vh", borderRadius: "25px" }}
+            >
+              <Image
+                alt="komposisi"
+                src={compositionData.find((d) => d.value === composition)!.img}
+                fill
+              />
+            </Box>
             <Typography
               color="#000"
               fontWeight={800}
@@ -233,7 +236,7 @@ const Page = () => {
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
             width={"65vw"}
-            sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}
+            sx={{ fontSize: { xs: "35px", md: "45px", lg: "60px" } }}
           >
             Damdex For Professional
           </Typography>
@@ -265,6 +268,7 @@ const CompositionButton = ({
     <Stack
       justifyContent={"center"}
       alignItems={"center"}
+      alignContent={"center"}
     >
       <Box
         sx={
@@ -289,10 +293,10 @@ const CompositionButton = ({
           value={value}
           sx={{
             textTransform: "none",
-            width: "22vw",
+            width: { lg: "21vw", md: "19vw" },
             borderRadius: "0px 100px 100px",
             color: "#000",
-            fontSize: "25px",
+            fontSize: { xl: "25px", lg: "16px", md: "11px" },
             "&.Mui-selected": {
               background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)",
               color: "#FFF",
@@ -307,19 +311,21 @@ const CompositionButton = ({
       </Box>
       <Stack mt={1}>
         <Typography
-          fontSize={"26px"}
+          fontSize={{ lg: "26px", md: "14px" }}
           fontWeight={800}
         >
           Perbandingan Volume
         </Typography>
-        <Typography fontSize={"20px"}>(Menggunakan gelas/kaleng)</Typography>
+        <Typography fontSize={{ lg: "20px", md: "10px" }}>(Menggunakan gelas/kaleng)</Typography>
       </Stack>
-      <Image
-        alt="perbandingan"
-        src={img}
-        width={250}
-        style={{ marginTop: "10px" }}
-      />
+      <Box sx={{ position: "relative", width: "15vw", height: "15vh" }}>
+        <Image
+          alt="perbandingan"
+          src={img}
+          fill
+          style={{ marginTop: "10px" }}
+        />
+      </Box>
     </Stack>
   );
 };
@@ -339,10 +345,10 @@ const UsageForButton = ({
       value={value}
       sx={{
         width: "12vw",
-        borderRadius: "30px",
+        borderRadius: { lg: "30px", md: "20px" },
         color: "#000",
         border: 0,
-        fontSize: "28px",
+        fontSize: { xl: "28px", lg: "20px", md: "12px" },
         minHeight: "10vh",
         px: 5,
         lineHeight: 1,
