@@ -30,7 +30,8 @@ export const FirstSection = () => {
         background: `url(${background.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: { xs: "90vh", md: "135vh", lg: "100vh" },
+        pb: "50px",
+        // height: { xs: "90vh", md: "135vh", lg: "100vh" },
       }}
     >
       <Stack
@@ -50,7 +51,9 @@ export const FirstSection = () => {
           Better Faster Stronger
         </Typography> */}
         <Box sx={{ pt: "3vh" }}>
-          <Box sx={{ position: "relative", height: "330px", overflow: "hidden" }}>
+          <Box
+            sx={{ position: "relative", height: "330px", overflow: "hidden" }}
+          >
             <Typography
               key={key}
               fontSize={"250px"}
@@ -95,22 +98,20 @@ export const FirstSection = () => {
             height: { xs: "284px", sm: "300px", md: "434px", lg: "45vh" },
           }}
         >
-          <Image
-            src={masdamdex}
-            alt="maskot"
-            fill
-            unoptimized
-          />
+          <Image src={masdamdex} alt="maskot" fill unoptimized />
         </Box>
         <Stack>
           <Typography
             variant="h4"
             fontWeight={400}
             align="center"
-            sx={{ fontSize: { xs: "16px", sm: "20px", md: "34px", lg: "40px" } }}
-            width={"50vw"}
+            sx={{
+              fontSize: { xs: "16px", sm: "20px", md: "34px", lg: "40px" },
+            }}
+            width={"60vw"}
           >
-            PRODUK PENCAMPUR SEMEN BERMUTU TINGGI, WATERPROOF DAN FUNGSI ISTIMEWA LAINNYA.
+            PRODUK PENCAMPUR SEMEN BERMUTU TINGGI, WATERPROOF DAN FUNGSI
+            ISTIMEWA LAINNYA.
           </Typography>
         </Stack>
       </Stack>
