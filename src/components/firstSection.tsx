@@ -34,13 +34,7 @@ export const FirstSection = () => {
         // height: { xs: "90vh", md: "135vh", lg: "100vh" },
       }}
     >
-      <Stack
-        alignItems={"center"}
-        width={"100vw"}
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        spacing={3}
-      >
+      <Stack alignItems={"center"} width={"100vw"} data-aos="fade-up" data-aos-easing="ease-in-out" spacing={3}>
         {/* <Typography
           fontSize={"6vw"}
           pb="3vh"
@@ -51,9 +45,7 @@ export const FirstSection = () => {
           Better Faster Stronger
         </Typography> */}
         <Box sx={{ pt: "3vh" }}>
-          <Box
-            sx={{ position: "relative", height: "330px", overflow: "hidden" }}
-          >
+          <Box sx={{ position: "relative", height: "330px", overflow: "hidden" }}>
             <Typography
               key={key}
               fontSize={"250px"}
@@ -110,8 +102,7 @@ export const FirstSection = () => {
             }}
             width={"60vw"}
           >
-            PRODUK PENCAMPUR SEMEN BERMUTU TINGGI, WATERPROOF DAN FUNGSI
-            ISTIMEWA LAINNYA.
+            PRODUK PENCAMPUR SEMEN BERMUTU TINGGI, WATERPROOF DAN FUNGSI ISTIMEWA LAINNYA.
           </Typography>
         </Stack>
       </Stack>
