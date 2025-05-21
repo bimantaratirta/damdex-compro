@@ -26,11 +26,7 @@ export const ThirdSection = () => {
         data-aos="fade-up"
         data-aos-easing="ease-in-out"
       >
-        <Image
-          src={logowarna}
-          alt="logo"
-          height={100}
-        />
+        <Image src={logowarna} alt="logo" height={100} />
         <Typography
           variant="h5"
           sx={{ fontSize: { xs: "20px", sm: "24px", lg: "30px" } }}
@@ -50,17 +46,15 @@ export const ThirdSection = () => {
             backgroundColor: "rgba(0,0,0,1)",
           }}
         >
-          <Stack
-            ml="3vw"
-            mt="4vw"
-            justifyContent={"flex-end"}
-            zIndex={2}
-          >
+          <Stack ml="3vw" mt="4vw" justifyContent={"flex-end"} zIndex={2}>
             <Typography
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ fontSize: { xs: "16px", lg: "64PX" }, width: { xs: "60vw", md: "40vw", lg: "14vw" } }}
+              sx={{
+                fontSize: { xs: "16px", lg: "64PX" },
+                width: { xs: "60vw", md: "40vw", lg: "20vw" },
+              }}
             >
               LONGER POT LIFE
             </Typography>
@@ -75,9 +69,13 @@ export const ThirdSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "20px" } }}
+              sx={{
+                width: { xs: "60vw", md: "20vw" },
+                fontSize: { xs: "10px", sm: "12px", lg: "20px" },
+              }}
             >
-              Umur campuran produk lain maksimal 45 menit, sedangkan Damdex Warna bisa tahan 30x lebih lama.
+              Umur campuran produk lain maksimal 45 menit, sedangkan Damdex
+              Warna bisa tahan 30x lebih lama.
             </Typography>
           </Stack>
         </Box>
@@ -105,7 +103,10 @@ export const ThirdSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "16px", lg: "64px" } }}
+              sx={{
+                width: { xs: "60vw", md: "30vw" },
+                fontSize: { xs: "16px", lg: "64px" },
+              }}
               textAlign={"end"}
             >
               COLORFUL CEMENT WATERPROOFING
@@ -119,12 +120,16 @@ export const ThirdSection = () => {
               }}
             />
             <Typography
-              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "20px" } }}
+              sx={{
+                width: { xs: "50vw", md: "20vw" },
+                fontSize: { xs: "10px", sm: "12px", lg: "20px" },
+              }}
               color="#fff"
               fontWeight={400}
               textAlign={"end"}
             >
-              Satu - satunya waterproofing semen base yang memiliki 7 varian warna.
+              Satu - satunya waterproofing semen base yang memiliki 7 varian
+              warna.
             </Typography>
           </Stack>
         </Box>
@@ -160,7 +165,9 @@ export const ThirdSection = () => {
               color="#FFF"
               width={"80vw"}
               textAlign={"center"}
-              sx={{ fontSize: { xs: "20px", sm: "45px", md: "60px", lg: "84px" } }}
+              sx={{
+                fontSize: { xs: "20px", sm: "45px", md: "60px", lg: "84px" },
+              }}
             >
               WATERPROOF
             </Typography>
