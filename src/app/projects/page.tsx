@@ -53,42 +53,18 @@ const Page = () => {
           </Typography>
         </Stack>
       </Box>
-      <Box sx={{ p: 15 }}>
-        <Typography
-          variant="h5"
-          fontWeight={800}
-          mb={4}
-        >
+      <Box sx={{ p: 15 }} justifyItems={"center"}>
+        <Typography variant="h5" fontWeight={800} mb={4}>
           Here are some projects we have worked on
         </Typography>
         {!tab && (
-          <Grid2
-            container
-            spacing={4}
-            gridColumn={2}
-            gridAutoColumns={2}
-          >
+          <Grid2 container spacing={4} gridColumn={2} gridAutoColumns={2} justifyContent={"center"}>
             {data.map((d, idx) => (
-              <div
-                onClick={() => router.push(`/projects/detail/${idx}`)}
-                key={idx}
-              >
+              <div onClick={() => router.push(`/projects/detail/${idx}`)} key={idx}>
                 <Grid2>
-                  <Stack
-                    spacing={2}
-                    sx={{ "&:hover": { cursor: "pointer" } }}
-                  >
-                    <Image
-                      src={d.img}
-                      alt="abc"
-                      width={800}
-                      height={400}
-                      style={{ borderRadius: "25px" }}
-                    />
-                    <Typography
-                      variant="h6"
-                      fontWeight={800}
-                    >
+                  <Stack spacing={2} sx={{ "&:hover": { cursor: "pointer" } }}>
+                    <Image src={d.img} alt="project" width={700} height={400} style={{ borderRadius: "25px" }} />
+                    <Typography variant="h6" fontWeight={800} width={700}>
                       {d.name}
                     </Typography>
                   </Stack>
@@ -98,33 +74,13 @@ const Page = () => {
           </Grid2>
         )}
         {tab && (
-          <Grid2
-            container
-            spacing={4}
-            gridColumn={2}
-            gridAutoColumns={2}
-          >
+          <Grid2 container spacing={4} gridColumn={2} gridAutoColumns={2} justifyContent={"center"}>
             {data.map((d, idx) => (
-              <div
-                onClick={() => router.push(`/projects/detail/${idx}`)}
-                key={idx}
-              >
+              <div onClick={() => router.push(`/projects/detail/${idx}`)} key={idx}>
                 <Grid2>
-                  <Stack
-                    spacing={2}
-                    sx={{ "&:hover": { cursor: "pointer" } }}
-                  >
-                    <Image
-                      src={d.img}
-                      alt="abc"
-                      width={390}
-                      height={200}
-                      style={{ borderRadius: "25px" }}
-                    />
-                    <Typography
-                      variant="h6"
-                      fontWeight={800}
-                    >
+                  <Stack spacing={2} sx={{ "&:hover": { cursor: "pointer" } }}>
+                    <Image src={d.img} alt="project" width={390} height={200} style={{ borderRadius: "25px" }} />
+                    <Typography variant="h6" fontWeight={800} width={390}>
                       {d.name}
                     </Typography>
                   </Stack>
