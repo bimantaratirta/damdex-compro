@@ -4,7 +4,7 @@ import Image from "next/image";
 import { AppLayout } from "@/components/appLayout";
 import product1 from "@/../public/product1.png";
 import product2 from "@/../public/product2.png";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -12,8 +12,8 @@ const PopupPoint = ({ top, right, children }: { top: string; right: string; chil
   return (
     <Box
       sx={{
-        height: "8vh",
-        width: "15vw",
+        height: { xl: "8vh", md: "10vh" },
+        width: { xl: "15vw", md: "16vw" },
         zIndex: 2,
         borderRadius: "15px",
         backgroundColor: "#ff0101",
@@ -32,6 +32,8 @@ const PopupPoint = ({ top, right, children }: { top: string; right: string; chil
 };
 
 const Page = () => {
+  const theme = useTheme();
+  const tab = useMediaQuery(theme.breakpoints.down("xl"));
   const router = useRouter();
   return (
     <AppLayout>
@@ -43,7 +45,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "30vh", sm: "30vh", md: "100vh", lg: "100vh" },
+              height: { xs: "30vh", sm: "30vh", md: "100vh", xl: "100vh" },
               position: "relative",
             }}
           >
@@ -57,7 +59,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "30vh", sm: "30vh", md: "110vh", lg: "120vh" },
+              height: { xs: "30vh", sm: "30vh", md: "110vh", xl: "120vh" },
               position: "relative",
             }}
           >
@@ -74,18 +76,17 @@ const Page = () => {
               />
               <PopupPoint
                 top="55%"
-                right="18.5%"
+                right={"18.5%"}
               >
                 <Stack
                   spacing={0.5}
-                  pt={1.5}
+                  pt={{ lg: 1.5, md: 1 }}
                 >
                   <Typography
                     color="#FFF"
                     textAlign={"center"}
                     justifyContent={"center"}
-                    // height={"8vh"}
-                    fontSize={"30px"}
+                    fontSize={{ xl: "30px", md: "18px" }}
                     fontWeight={800}
                     lineHeight={1}
                   >
@@ -95,8 +96,7 @@ const Page = () => {
                     color="#FFF"
                     textAlign={"center"}
                     justifyContent={"center"}
-                    // height={"8vh"}
-                    fontSize={"18px"}
+                    fontSize={{ xl: "18px", md: "10px" }}
                     fontWeight={800}
                     lineHeight={1}
                   >
@@ -105,8 +105,8 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top="44.5%"
-                right="17%"
+                top={tab ? "43.5%" : "44.5%"}
+                right={"17%"}
               >
                 <Typography
                   color="#FFF"
@@ -115,25 +115,25 @@ const Page = () => {
                   height={"8vh"}
                   fontWeight={800}
                   lineHeight={1}
-                  pt={2.5}
-                  fontSize="36px"
+                  pt={{ xl: 2.5, md: 1.2 }}
+                  fontSize={{ xl: "36px", md: "24px" }}
                 >
                   CRACKING
                 </Typography>
               </PopupPoint>
               <PopupPoint
-                top="33.75%"
-                right="19%"
+                top={tab ? "32%" : "33.75%"}
+                right={tab ? "18%" : "19%"}
               >
                 <Stack
                   spacing={0.5}
-                  pt={1}
+                  pt={{ lg: 1, md: 0.5 }}
                 >
                   <Typography
                     color="#FFF"
                     textAlign={"center"}
                     justifyContent={"center"}
-                    fontSize={"22px"}
+                    fontSize={{ xl: "22px", md: "12px" }}
                     fontWeight={800}
                     lineHeight={1}
                   >
@@ -143,7 +143,7 @@ const Page = () => {
                     color="#FFF"
                     textAlign={"center"}
                     justifyContent={"center"}
-                    fontSize={"30px"}
+                    fontSize={{ xl: "30px", md: "18px" }}
                     fontWeight={800}
                     lineHeight={1}
                   >
@@ -152,12 +152,12 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top="33.75%"
+                top={tab ? "32%" : "33.75%"}
                 right="64.6%"
               >
                 <Stack
                   spacing={0.5}
-                  pt={1.2}
+                  pt={{ lg: 1.2, md: 0.8 }}
                 >
                   <Typography
                     color="#FFF"
@@ -165,7 +165,7 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={"32px"}
+                    fontSize={{ xl: "32px", md: "18px" }}
                   >
                     CORROSIVE
                   </Typography>
@@ -175,19 +175,19 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={"20px"}
+                    fontSize={{ xl: "20px", md: "12px" }}
                   >
                     Nat Ceramics
                   </Typography>
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top="55%"
-                right="66.8%"
+                top={tab ? "54%" : "55%"}
+                right={tab ? "66%" : "66.8%"}
               >
                 <Stack
                   spacing={0.5}
-                  pt={1}
+                  pt={{ lg: 1, md: 0.5 }}
                 >
                   <Typography
                     color="#FFF"
@@ -195,7 +195,7 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={"30px"}
+                    fontSize={{ xl: "30px", md: "18px" }}
                   >
                     POPPING
                   </Typography>
@@ -205,15 +205,15 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={"20px"}
+                    fontSize={{ xl: "20px", md: "12px" }}
                   >
                     Ceramics
                   </Typography>
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top="44.2%"
-                right="68.5%"
+                top={tab ? "43%" : "44.2%"}
+                right={tab ? "67.5%" : "68.5%"}
               >
                 <Typography
                   color="#FFF"
@@ -222,8 +222,8 @@ const Page = () => {
                   height={"8vh"}
                   fontWeight={800}
                   lineHeight={1}
-                  pt={2.5}
-                  fontSize="36px"
+                  pt={{ xl: 2.5, md: 1.2 }}
+                  fontSize={{ xl: "36px", md: "24px" }}
                 >
                   POROUS
                 </Typography>
@@ -233,7 +233,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "30vh", sm: "30vh", md: "100vh", lg: "100vh" },
+              height: { xs: "30vh", sm: "30vh", md: "100vh", xl: "100vh" },
             }}
           >
             <div

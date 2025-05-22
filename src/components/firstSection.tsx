@@ -16,9 +16,9 @@ export const FirstSection = () => {
     const interval = setInterval(() => {
       const nextIndex = (currentIndex + 1) % words.length;
       setText(words[nextIndex]);
-      setKey((prev) => prev + 1); // Memaksa render ulang untuk animasi
+      setKey((prev) => prev + 1);
       currentIndex = nextIndex;
-    }, 3000); // Ganti setiap 2 detik
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -30,25 +30,21 @@ export const FirstSection = () => {
         background: `url(${background.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        pb: "50px",
-        // height: { xs: "90vh", md: "135vh", lg: "100vh" },
+        height: { xs: "90vh", md: "105vh", lg: "100vh" },
       }}
     >
-      <Stack alignItems={"center"} width={"100vw"} data-aos="fade-up" data-aos-easing="ease-in-out" spacing={3}>
-        {/* <Typography
-          fontSize={"6vw"}
-          pb="3vh"
-          pt="12vh"
-          fontWeight={800}
-          color="#FFF"
-        >
-          Better Faster Stronger
-        </Typography> */}
-        <Box sx={{ pt: "3vh" }}>
-          <Box sx={{ position: "relative", height: "330px", overflow: "hidden" }}>
+      <Stack
+        alignItems={"center"}
+        width={"100vw"}
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        spacing={3}
+      >
+        <Box sx={{ pt: { lg: "3vh", md: "7vh" } }}>
+          <Box sx={{ position: "relative", height: { lg: "200px", md: "120px" }, overflow: "hidden" }}>
             <Typography
               key={key}
-              fontSize={"250px"}
+              fontSize={{ lg: "150px", md: "100px" }}
               fontWeight={800}
               sx={{
                 position: "relative",
@@ -86,21 +82,24 @@ export const FirstSection = () => {
         <Box
           sx={{
             position: "relative",
-            width: { xs: "335px", sm: "500px", md: "630px", lg: "40vw" },
-            height: { xs: "284px", sm: "300px", md: "434px", lg: "45vh" },
+            width: { xs: "335px", sm: "500px", md: "40vw", lg: "40vw" },
+            height: { xs: "284px", sm: "100vh", md: "45vh", lg: "45vh" },
           }}
         >
-          <Image src={masdamdex} alt="maskot" fill unoptimized />
+          <Image
+            src={masdamdex}
+            alt="maskot"
+            fill
+            unoptimized
+          />
         </Box>
         <Stack>
           <Typography
             variant="h4"
             fontWeight={400}
             align="center"
-            sx={{
-              fontSize: { xs: "16px", sm: "20px", md: "34px", lg: "40px" },
-            }}
-            width={"60vw"}
+            sx={{ fontSize: { xs: "16px", sm: "20px", md: "22px", lg: "32px" } }}
+            width={{ lg: "70vw", md: "80vw" }}
           >
             PRODUK PENCAMPUR SEMEN BERMUTU TINGGI, WATERPROOF DAN FUNGSI ISTIMEWA LAINNYA.
           </Typography>

@@ -53,7 +53,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
             direction={"row"}
             spacing={5}
           >
-            <Typography sx={{ width: { lg: "15vw", md: "39.5vw" }, typography: { lg: "h4", md: "h5" } }}>
+            <Typography sx={{ width: { xl: "15vw", lg: "41vw", md: "37vw" }, typography: { lg: "h4", md: "h5" } }}>
               Tema Acara
             </Typography>
             <Typography sx={{ typography: { lg: "h4", md: "h5" } }}>:</Typography>

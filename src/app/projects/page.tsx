@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { AppLayout } from "@/components/appLayout";
-import { Box, Grid2, Pagination, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Grid2, Pagination, Stack, Typography } from "@mui/material";
 import img from "@/../public/project.png";
 import img1 from "@/../public/golf.png";
 import img2 from "@/../public/dasilva.png";
@@ -21,9 +21,7 @@ const Page = () => {
     { img: img5, name: "Water Treatment Plant (WTP) PAM Jaya" },
     { img: img6, name: "Cluster Gramercy – Alam Sutera" },
   ];
-  const theme = useTheme();
   const router = useRouter();
-  const tab = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <AppLayout>
       <Box
@@ -39,7 +37,7 @@ const Page = () => {
           justifyItems={"center"}
           direction={"column"}
           spacing={4}
-          sx={{ pt: { xs: "10vh", sm: "20vh" } }}
+          sx={{ pt: { xs: "10vh", md: "15vh", lg: "20vh" } }}
         >
           <Typography
             variant="h2"
@@ -53,22 +51,22 @@ const Page = () => {
           </Typography>
         </Stack>
       </Box>
-      <Box sx={{ p: 15 }}>
+      <Box sx={{ p: { lg: 8, md: 7 }, display: "flex", justifyContent: "center", flexDirection: "column" }}>
         <Typography
-          variant="h5"
           fontWeight={800}
           mb={4}
+          fontSize={{ lg: "30px", md: "20px" }}
         >
           Here are some projects we have worked on
         </Typography>
-        {!tab && (
-          <Grid2
-            container
-            spacing={4}
-            gridColumn={2}
-            gridAutoColumns={2}
-          >
-            {data.map((d, idx) => (
+        <Grid2
+          container
+          spacing={4}
+          gridColumn={2}
+          gridAutoColumns={2}
+        >
+          {data &&
+            data.map((d, idx) => (
               <div
                 onClick={() => router.push(`/projects/detail/${idx}`)}
                 key={idx}
@@ -78,16 +76,19 @@ const Page = () => {
                     spacing={2}
                     sx={{ "&:hover": { cursor: "pointer" } }}
                   >
-                    <Image
-                      src={d.img}
-                      alt="abc"
-                      width={800}
-                      height={400}
-                      style={{ borderRadius: "25px" }}
-                    />
+                    <Box sx={{ position: "relative", width: { xl: "45vw", md: "42vw" }, height: "45vh" }}>
+                      <Image
+                        src={d.img}
+                        alt="project"
+                        fill
+                        style={{ borderRadius: "25px" }}
+                      />
+                    </Box>
                     <Typography
-                      variant="h6"
+                      fontSize={{ lg: "20px", md: "16px" }}
                       fontWeight={800}
+                      width={{ xl: "45vw", md: "42vw" }}
+                      textOverflow={"clip"}
                     >
                       {d.name}
                     </Typography>
@@ -95,44 +96,8 @@ const Page = () => {
                 </Grid2>
               </div>
             ))}
-          </Grid2>
-        )}
-        {tab && (
-          <Grid2
-            container
-            spacing={4}
-            gridColumn={2}
-            gridAutoColumns={2}
-          >
-            {data.map((d, idx) => (
-              <div
-                onClick={() => router.push(`/projects/detail/${idx}`)}
-                key={idx}
-              >
-                <Grid2>
-                  <Stack
-                    spacing={2}
-                    sx={{ "&:hover": { cursor: "pointer" } }}
-                  >
-                    <Image
-                      src={d.img}
-                      alt="abc"
-                      width={390}
-                      height={200}
-                      style={{ borderRadius: "25px" }}
-                    />
-                    <Typography
-                      variant="h6"
-                      fontWeight={800}
-                    >
-                      {d.name}
-                    </Typography>
-                  </Stack>
-                </Grid2>
-              </div>
-            ))}
-          </Grid2>
-        )}
+        </Grid2>
+
         <Pagination
           count={10}
           shape="rounded"

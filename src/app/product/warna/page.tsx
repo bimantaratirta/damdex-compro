@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 import imgcarousel from "@/../public/section3a.png";
 
 const Page = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const [advantage, setAdvantage] = useState<
@@ -178,9 +178,9 @@ const Page = () => {
       {/*Carousel */}
       <Box sx={{ px: 20, py: 5 }}>
         <Typography
-          variant="h4"
           gutterBottom
-          sx={{ fontWeight: "bold" }}
+          fontWeight={800}
+          sx={{ fontWeight: "bold", fontSize: { lg: "34px", md: "24px" } }}
         >
           Additive with Multi Purpose
         </Typography>
@@ -194,11 +194,11 @@ const Page = () => {
               <Box
                 key={index}
                 sx={{
-                  minWidth: "20%",
+                  minWidth: { lg: "20%", md: "25%" },
                   padding: 2,
                   borderRadius: "25px",
                   position: "relative", // Diperlukan untuk Image
-                  height: "600px", // Tinggi tetap
+                  height: { lg: "600px", md: "400px" }, // Tinggi tetap
                   mx: 2,
                   backgroundColor: "rgba(0,0,0,1)",
                   cursor: "pointer",
@@ -218,15 +218,17 @@ const Page = () => {
                       top: 0,
                       width: "90%",
                       color: "white",
-                      textAlign: "left",
-                      justifyContent: "center",
-                      alignItems: "flex-end",
                       padding: 2,
                       borderBottomLeftRadius: 2,
                       borderBottomRightRadius: 2,
                     }}
                   >
-                    <Typography variant="h6">{slide.title}</Typography>
+                    <Typography
+                      alignSelf={"start"}
+                      sx={{ typography: { lg: "h6", md: "caption" } }}
+                    >
+                      {slide.title}
+                    </Typography>
                   </Box>
                 </div>
               </Box>

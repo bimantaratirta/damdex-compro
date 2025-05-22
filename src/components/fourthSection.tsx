@@ -146,7 +146,7 @@ export const FourthSection = () => {
                 data-aos="fade-up"
                 data-aos-easing="ease-in-out"
               >
-                <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", lg: "48vh" } }}>
+                <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", xl: "48vh" } }}>
                   <Image
                     alt="news1"
                     src={news1}
@@ -163,12 +163,14 @@ export const FourthSection = () => {
                   <Typography
                     variant="h5"
                     color="#242424"
+                    fontSize={{ lg: "24px", md: "16px" }}
                   >
                     Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
                   </Typography>
                   <Typography
                     variant="h6"
                     color="#7B7B7B"
+                    fontSize={{ lg: "20px", md: "14px" }}
                   >
                     Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor
                     today and start building better, faster, stronger.
@@ -176,7 +178,6 @@ export const FourthSection = () => {
                 </Stack>
               </Box>
             </div>
-
             <div
               onClick={() => router.push("news/detail/abc")}
               style={{ cursor: "pointer" }}
@@ -187,7 +188,7 @@ export const FourthSection = () => {
                 data-aos-easing="ease-in-out"
                 data-aos-delay="200"
               >
-                <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", lg: "48vh" } }}>
+                <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", xl: "48vh" } }}>
                   <Image
                     alt="news2"
                     src={news2}
@@ -204,12 +205,14 @@ export const FourthSection = () => {
                   <Typography
                     variant="h5"
                     color="#242424"
+                    fontSize={{ lg: "24px", md: "16px" }}
                   >
                     Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
                   </Typography>
                   <Typography
                     variant="h6"
                     color="#7B7B7B"
+                    fontSize={{ lg: "24px", md: "16px" }}
                   >
                     Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor
                     today and start building better, faster, stronger.

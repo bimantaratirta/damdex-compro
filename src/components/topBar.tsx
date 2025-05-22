@@ -28,7 +28,7 @@ export const TopBar = () => {
     { name: "Contact us", url: "/contact" },
   ];
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const router = useRouter();
 
@@ -70,7 +70,7 @@ export const TopBar = () => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: { xs: 1, sm: 2 }, display: { sm: "none" } }}
+            sx={{ mr: { xs: 1, sm: 2 }, display: { md: "none" } }}
           >
             <MenuIcon sx={{ color: "#FFF" }} />
           </IconButton>
@@ -187,10 +187,10 @@ export const TopBar = () => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
-          display: { xs: "block", sm: "none" },
+          display: { xs: "block", md: "none" },
           "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
         }}
       >

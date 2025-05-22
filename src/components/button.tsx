@@ -18,7 +18,7 @@ export const OutlinedButton = ({
           width: { xs: "50vw", sm: "14.097vw" },
           height: "5.664vh",
           borderRadius: "64px",
-          fontSize: { xs: 12, lg: 24 },
+          fontSize: { xs: 12, lg: 16, xl: 24 },
           "&:hover": {
             backgroundColor: "rgba(255,255,255,0.1)",
           },
@@ -43,7 +43,7 @@ export const FilledButton = ({ onClick, label }: { onClick?: MouseEventHandler<H
           width: { xs: "50vw", sm: "14.097vw" },
           height: "5.664vh",
           borderRadius: "64px",
-          fontSize: { xs: 12, lg: 24 },
+          fontSize: { xs: 12, lg: 16, xl: 24 },
           "&:hover": {
             backgroundColor: "rgba(0,0,0,0.75)",
           },

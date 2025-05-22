@@ -1,6 +1,4 @@
 "use client";
-// import Image from "next/image";
-// import styles from "./page.module.css";
 import { AppLayout } from "@/components/appLayout";
 import background from "@/../public/bguse.png";
 import { Box, Stack, Typography } from "@mui/material";
@@ -19,14 +17,14 @@ const Page = () => {
           background: `url(${background.src})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          height: { xs: "90vh", md: "85vh", lg: "70vh" },
+          height: { xs: "90vh", md: "65vh", lg: "70vh" },
         }}
       >
         <Typography
-          sx={{ fontSize: { xs: 20, md: 40, lg: 80 } }}
+          sx={{ fontSize: { xs: 20, md: 40, lg: 60, xl: 80 } }}
           fontWeight={500}
           textAlign={"center"}
-          pt={20}
+          pt={{ xl: 20, lg: 14, md: 10 }}
           width={"60vw"}
           margin={"auto"}
         >

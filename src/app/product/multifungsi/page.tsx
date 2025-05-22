@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 import imgcarousel from "@/../public/section3a.png";
 
 const Page = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const [advantage, setAdvantage] = useState<
@@ -72,7 +72,7 @@ const Page = () => {
   return (
     <AppLayout>
       <Stack
-        sx={{ alignItems: { md: "center" }, pt: { lg: 8, md: 4 } }}
+        sx={{ alignItems: { md: "center" }, pt: { xl: 6, md: 4 } }}
         direction={"row"}
       >
         <Box
@@ -111,7 +111,7 @@ const Page = () => {
               position: "absolute",
               left: "23vw",
               zIndex: 5,
-              top: { lg: "20vh", md: "18vh" },
+              top: { xl: "20vh", md: "18vh" },
             }}
           >
             <Stack alignItems={"center"}>
@@ -120,7 +120,7 @@ const Page = () => {
                 color="#FFF"
                 width={"80vw"}
                 textAlign={"center"}
-                sx={{ typography: { lg: "h2", md: "h3" } }}
+                sx={{ typography: { xl: "h2", md: "h3" } }}
               >
                 ONE PRODUCT
               </Typography>
@@ -129,7 +129,7 @@ const Page = () => {
                 color="#FFF"
                 width={"80vw"}
                 textAlign={"center"}
-                sx={{ typography: { lg: "h2", md: "h3" } }}
+                sx={{ typography: { xl: "h2", md: "h3" } }}
               >
                 ALL SOLUTIONS
               </Typography>
@@ -178,9 +178,9 @@ const Page = () => {
       {/*Carousel */}
       <Box sx={{ px: 20, py: 5 }}>
         <Typography
-          variant="h4"
           gutterBottom
-          sx={{ fontWeight: "bold" }}
+          fontWeight={800}
+          sx={{ fontWeight: "bold", fontSize: { xl: "34px", md: "24px" } }}
         >
           Additive with Multi Purpose
         </Typography>
@@ -194,11 +194,11 @@ const Page = () => {
               <Box
                 key={index}
                 sx={{
-                  minWidth: "20%",
+                  minWidth: { xl: "20%", md: "25%" },
                   padding: 2,
                   borderRadius: "25px",
-                  position: "relative", // Diperlukan untuk Image
-                  height: "600px", // Tinggi tetap
+                  position: "relative",
+                  height: { xl: "600px", md: "400px" },
                   mx: 2,
                   backgroundColor: "rgba(0,0,0,1)",
                   cursor: "pointer",
@@ -208,9 +208,9 @@ const Page = () => {
                   <Image
                     src={slide.image}
                     alt={slide.title}
-                    layout="fill" // Mengisi kontainer
-                    objectFit="cover" // Pastikan gambar menutup area
-                    style={{ borderRadius: "25px" }} // Sesuaikan sudut
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "25px" }}
                   />
                   <Box
                     sx={{
@@ -218,15 +218,17 @@ const Page = () => {
                       top: 0,
                       width: "90%",
                       color: "white",
-                      textAlign: "left",
-                      justifyContent: "center",
-                      alignItems: "flex-end",
                       padding: 2,
                       borderBottomLeftRadius: 2,
                       borderBottomRightRadius: 2,
                     }}
                   >
-                    <Typography variant="h6">{slide.title}</Typography>
+                    <Typography
+                      alignSelf={"start"}
+                      sx={{ typography: { xl: "h6", md: "caption" } }}
+                    >
+                      {slide.title}
+                    </Typography>
                   </Box>
                 </div>
               </Box>
@@ -289,7 +291,7 @@ const Page = () => {
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
             width={"65vw"}
-            sx={{ fontSize: { lg: "45px", md: "30px" } }}
+            sx={{ fontSize: { xl: "45px", md: "30px" } }}
           >
             Vibrant hues endless possibilities
           </Typography>

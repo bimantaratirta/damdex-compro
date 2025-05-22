@@ -59,6 +59,7 @@ const Page = () => {
           width={"20vw"}
           lineHeight={1}
           mb={10}
+          alignSelf={"center"}
         >
           LOKASI TOKO
         </Typography>
@@ -116,7 +117,7 @@ const Page = () => {
                 <MenuItem value={"Jakarta Timur"}>Jakarta Timur</MenuItem>
               </Select>
             </FormControl>
-            <Box sx={{ height: "50vh", display: "block" }}>
+            <Box sx={{ height: { xl: "60vh", lg: "75vh", md: "80vh" }, display: "block" }}>
               <Map
                 position={[-6.32595166017651, 106.7850292]}
                 zoom={18}
@@ -134,15 +135,15 @@ export default Page;
 const Alamat = ({ alamat, noTelp }: { alamat: string; noTelp: string }) => {
   return (
     <Box>
-      <Typography fontSize={"40px"}>{alamat}</Typography>
+      <Typography fontSize={{ xl: "40px", lg: "28px", md: "22px" }}>{alamat}</Typography>
       <Typography
-        fontSize={"32px"}
+        fontSize={{ xl: "32px", lg: "24px", md: "20px" }}
         fontWeight={800}
       >
         Call : {noTelp}
       </Typography>
       <Link
-        fontSize={"32px"}
+        fontSize={{ xl: "32px", lg: "24px", md: "20px" }}
         sx={{ cursor: "pointer" }}
       >
         View on Map
