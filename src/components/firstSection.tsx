@@ -44,11 +44,11 @@ export const FirstSection = () => {
           data-aos="fade-up"
           data-aos-easing="ease-in-out"
         >
-          <Box sx={{ pt: { xs: "5vh", sm: "7vh", md: "8vh" } }}>
+          <Box sx={{ pt: { xs: "5vh", sm: "1vh", md: "3vh" } }}>
             <Box
               sx={{
                 position: "relative",
-                minHeight: { xs: "60px", sm: "100px", md: "100px", lg: "110px" },
+                minHeight: { xs: "60px", sm: "100px", md: "100px", lg: "80px" },
                 overflow: "hidden",
                 textAlign: "center",
               }}
@@ -57,10 +57,10 @@ export const FirstSection = () => {
                 key={key}
                 sx={{
                   fontSize: {
-                    xs: "clamp(40px, 8vw, 40px)",
-                    sm: "clamp(44px, 8vw, 48px)",
-                    md: "clamp(48px, 8vw, 64px)",
-                    lg: "clamp(64px, 8vw, 96px)",
+                    xs: "60px",
+                    sm: "80px",
+                    md: "120px",
+                    lg: "150px",
                   },
                   fontWeight: 800,
                   color: "white",
@@ -96,9 +96,9 @@ export const FirstSection = () => {
           <Box
             sx={{
               position: "relative",
-              width: { xs: "90%", sm: "70%", md: "50%", lg: "40%" },
+              width: { xs: "90%", sm: "100%", md: "50%", lg: "100%" },
               aspectRatio: "1 / 1", // Menjaga proporsi gambar
-              maxWidth: "90vw",
+              maxWidth: "100vw",
               maxHeight: "40vh",
             }}
           >
@@ -106,7 +106,7 @@ export const FirstSection = () => {
               src={masdamdex}
               alt="maskot"
               fill
-              sizes="(max-width: 576px) 90vw, (max-width: 768px) 70vw, (max-width: 992px) 50vw, 50vw"
+              // sizes="(max-width: 576px) 90vw, (max-width: 768px) 70vw, (max-width: 992px) 50vw, 50vw"
               style={{ objectFit: "contain" }}
               unoptimized
             />
@@ -120,8 +120,8 @@ export const FirstSection = () => {
                 fontSize: {
                   xs: "clamp(14px, 4vw, 16px)",
                   sm: "clamp(16px, 4vw, 18px)",
-                  md: "clamp(18px, 4vw, 22px)",
-                  lg: "clamp(18px, 4vw, 32px)",
+                  md: "24px",
+                  lg: "28px",
                 },
                 color: "#000",
               }}

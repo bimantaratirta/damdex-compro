@@ -110,7 +110,7 @@ const Page = () => {
           justifyItems={"center"}
           direction={"column"}
           spacing={4}
-          sx={{ pt: { xs: "10vh", sm: "23vh" } }}
+          sx={{ pt: { xs: "20vh", md: "10vh", sm: "23vh" } }}
         >
           <Typography
             variant="h2"
@@ -124,7 +124,7 @@ const Page = () => {
           </Typography>
         </Stack>
       </Box>
-      <Box sx={{ p: 10 }}>
+      <Box sx={{ p: 5 }}>
         <Stack
           direction={"column"}
           spacing={1}
@@ -194,11 +194,17 @@ const Page = () => {
               backgroundColor: "rgba(246, 246, 246, 1)",
               borderRadius: "25px",
               mt: "100px",
-              p: 5,
+              p: 3,
             }}
           >
             <Box
-              sx={{ position: "relative", alignSelf: "center", width: "30vw", height: "30vh", borderRadius: "25px" }}
+              sx={{
+                position: "relative",
+                alignSelf: "center",
+                width: { md: "30vw", xs: "50vw" },
+                height: { md: "30vh", sm: "20vh", xs: "15vh" },
+                borderRadius: "25px",
+              }}
             >
               <Image
                 alt="komposisi"
@@ -377,11 +383,11 @@ const UsageForButton = ({
     <ToggleButton
       value={value}
       sx={{
-        width: "15vw",
+        width: { md: "15vw", sm: "20vw", xs: "25vw" },
         borderRadius: { lg: "30px", md: "20px" },
         color: "#000",
         border: 0,
-        fontSize: { xl: "28px", lg: "20px", md: "12px" },
+        fontSize: { xl: "28px", lg: "20px", md: "12px", xs: "12px" },
         minHeight: { xl: "10vh", lg: "8vh", sm: "5vh", xs: "8vh" },
         px: 5,
         lineHeight: 1,
