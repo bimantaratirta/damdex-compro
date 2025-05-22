@@ -12,19 +12,19 @@ const PopupPoint = ({ top, right, children }: { top: string; right: string; chil
   return (
     <Box
       sx={{
-        height: { xl: "8vh", md: "10vh" },
-        width: { xl: "15vw", md: "16vw" },
+        height: { xl: "8vh", md: "3vh", sm: "3vh", xs: "3.2vh" },
+        width: { xl: "15vw", md: "15vw", sm: "15vw", xs: "15.5vw" },
         zIndex: 2,
-        borderRadius: "15px",
+        borderRadius: { md: "5px", xs: "5px" },
         backgroundColor: "#ff0101",
         position: "absolute",
         top: top,
         right: right,
-        border: "3px solid black",
+        border: { xs: "1px solid black" },
       }}
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-anchor-placement="top-bottom"
+      // data-aos="fade-up"
+      // data-aos-easing="ease-in-out"
+      // data-aos-anchor-placement="top-bottom"
     >
       {children}
     </Box>
@@ -33,7 +33,10 @@ const PopupPoint = ({ top, right, children }: { top: string; right: string; chil
 
 const Page = () => {
   const theme = useTheme();
-  const tab = useMediaQuery(theme.breakpoints.down("xl"));
+  const tab = useMediaQuery(theme.breakpoints.down("lg") && theme.breakpoints.up("md"));
+  const phonexs = useMediaQuery(theme.breakpoints.down("sm") && theme.breakpoints.up("xs"));
+  const phonesm = useMediaQuery(theme.breakpoints.down("md") && theme.breakpoints.up("sm"));
+  const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
   const router = useRouter();
   return (
     <AppLayout>
@@ -45,7 +48,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "30vh", sm: "30vh", md: "100vh", xl: "100vh" },
+              height: { xs: "50vh", xl: "80vh" },
               position: "relative",
             }}
           >
@@ -53,13 +56,12 @@ const Page = () => {
               alt="image1"
               src={product1}
               fill
-              objectFit="cover"
             />
           </Box>
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "30vh", sm: "30vh", md: "110vh", xl: "120vh" },
+              height: { xs: "50vh", xl: "120vh" },
               position: "relative",
             }}
           >
@@ -71,22 +73,21 @@ const Page = () => {
                 alt="image2"
                 src={product2}
                 fill
-                objectFit="cover"
                 style={{ zIndex: 1 }}
               />
               <PopupPoint
-                top="55%"
-                right={"18.5%"}
+                top={desktopxl ? "65vh" : phonesm || phonexs ? "27.2vh" : "55%"}
+                right={phonesm ? "18.5vw" : phonexs ? "18.4vw" : "18.5%"}
               >
                 <Stack
-                  spacing={0.5}
-                  pt={{ lg: 1.5, md: 1 }}
+                  spacing={{ xs: 0.2 }}
+                  pt={{ xl: 1.2, lg: 0.8, xs: 0.5 }}
                 >
                   <Typography
                     color="#FFF"
                     textAlign={"center"}
                     justifyContent={"center"}
-                    fontSize={{ xl: "30px", md: "18px" }}
+                    fontSize={{ xl: "28px", lg: "18px", md: "12px", sm: "8px", xs: "7px" }}
                     fontWeight={800}
                     lineHeight={1}
                   >
@@ -96,7 +97,7 @@ const Page = () => {
                     color="#FFF"
                     textAlign={"center"}
                     justifyContent={"center"}
-                    fontSize={{ xl: "18px", md: "10px" }}
+                    fontSize={{ xl: "16px", md: "8px", xs: "5px" }}
                     fontWeight={800}
                     lineHeight={1}
                   >
@@ -105,8 +106,8 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={tab ? "43.5%" : "44.5%"}
-                right={"17%"}
+                top={desktopxl ? "54vh" : phonesm ? "22.5vh" : phonexs ? "44.5%" : tab ? "22.5vh" : "44.5%"}
+                right={phonexs ? "17vw" : "17%"}
               >
                 <Typography
                   color="#FFF"
@@ -115,25 +116,25 @@ const Page = () => {
                   height={"8vh"}
                   fontWeight={800}
                   lineHeight={1}
-                  pt={{ xl: 2.5, md: 1.2 }}
-                  fontSize={{ xl: "36px", md: "24px" }}
+                  pt={{ xl: 2.5, sm: 1, xs: 0.5 }}
+                  fontSize={{ xl: "36px", lg: "24px", md: "16px", xs: "clamp(6px, 8vh, 10px)" }}
                 >
                   CRACKING
                 </Typography>
               </PopupPoint>
               <PopupPoint
-                top={tab ? "32%" : "33.75%"}
-                right={tab ? "18%" : "19%"}
+                top={desktopxl ? "43vh" : phonexs ? "18vh" : tab ? "32%" : "33.75%"}
+                right={phonexs ? "19vw" : tab ? "18%" : "19%"}
               >
                 <Stack
-                  spacing={0.5}
-                  pt={{ lg: 1, md: 0.5 }}
+                  spacing={{ xs: 0.2 }}
+                  pt={{ xl: 2, md: 0.5, sm: 0.6, xs: 0.3 }}
                 >
                   <Typography
                     color="#FFF"
                     textAlign={"center"}
                     justifyContent={"center"}
-                    fontSize={{ xl: "22px", md: "12px" }}
+                    fontSize={{ xl: "16px", lg: "10px", md: "8px", sm: "7px", xs: "clamp(5px, 8vh, 6px)" }}
                     fontWeight={800}
                     lineHeight={1}
                   >
@@ -143,7 +144,7 @@ const Page = () => {
                     color="#FFF"
                     textAlign={"center"}
                     justifyContent={"center"}
-                    fontSize={{ xl: "30px", md: "18px" }}
+                    fontSize={{ xl: "28px", lg: "20px", md: "12px", sm: "8px", xs: "clamp(6px, 8vh, 7px)" }}
                     fontWeight={800}
                     lineHeight={1}
                   >
@@ -152,12 +153,12 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={tab ? "32%" : "33.75%"}
-                right="64.6%"
+                top={desktopxl ? "42vh" : phonexs ? "17.8vh" : tab ? "32%" : "33.75%"}
+                right={phonexs ? "64.5vw" : "64.6%"}
               >
                 <Stack
-                  spacing={0.5}
-                  pt={{ lg: 1.2, md: 0.8 }}
+                  spacing={{ xs: 0.2 }}
+                  pt={{ xl: 1.5, md: 0.5, sm: 0.8, xs: 0.5 }}
                 >
                   <Typography
                     color="#FFF"
@@ -165,7 +166,7 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={{ xl: "32px", md: "18px" }}
+                    fontSize={{ xl: "28px", lg: "20px", md: "12px", sm: "8px", xs: "6px" }}
                   >
                     CORROSIVE
                   </Typography>
@@ -175,19 +176,19 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={{ xl: "20px", md: "12px" }}
+                    fontSize={{ xl: "16px", lg: "10px", md: "8px", xs: "clamp(5px, 8vw, 6px)" }}
                   >
                     Nat Ceramics
                   </Typography>
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={tab ? "54%" : "55%"}
-                right={tab ? "66%" : "66.8%"}
+                top={desktopxl ? "65vh" : phonexs ? "27vh" : tab ? "54%" : "55%"}
+                right={phonesm ? "67vw" : phonexs ? "66.5vw" : tab ? "66%" : "66.8%"}
               >
                 <Stack
-                  spacing={0.5}
-                  pt={{ lg: 1, md: 0.5 }}
+                  spacing={{ xs: 0.2 }}
+                  pt={{ md: 0.5, xl: 1.5, sm: 0.5, xs: 0.5 }}
                 >
                   <Typography
                     color="#FFF"
@@ -195,7 +196,7 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={{ xl: "30px", md: "18px" }}
+                    fontSize={{ xl: "28px", lg: "20px", md: "12px", sm: "8px", xs: "6px" }}
                   >
                     POPPING
                   </Typography>
@@ -205,15 +206,15 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={{ xl: "20px", md: "12px" }}
+                    fontSize={{ xl: "16px", lg: "10px", md: "8px", xs: "5px" }}
                   >
                     Ceramics
                   </Typography>
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={tab ? "43%" : "44.2%"}
-                right={tab ? "67.5%" : "68.5%"}
+                top={desktopxl ? "54vh" : phonexs ? "22.3vh" : tab ? "43%" : "44.2%"}
+                right={phonesm ? "68.5vw" : phonexs ? "68vw" : tab ? "67.5%" : "68.5%"}
               >
                 <Typography
                   color="#FFF"
@@ -222,8 +223,8 @@ const Page = () => {
                   height={"8vh"}
                   fontWeight={800}
                   lineHeight={1}
-                  pt={{ xl: 2.5, md: 1.2 }}
-                  fontSize={{ xl: "36px", md: "24px" }}
+                  pt={{ xl: 2.5, lg: 1, xs: 0.5, sm: 1 }}
+                  fontSize={{ xl: "36px", lg: "24px", md: "16px", xs: "clamp(6px, 8vh, 10px)" }}
                 >
                   POROUS
                 </Typography>
@@ -233,7 +234,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "30vh", sm: "30vh", md: "100vh", xl: "100vh" },
+              height: { xs: "50vh", xl: "90vh" },
             }}
           >
             <div
@@ -245,7 +246,11 @@ const Page = () => {
                 loop
                 muted
                 preload="none"
-                style={{ width: "100vw", height: "100vh", objectFit: "cover" }}
+                style={{
+                  width: "100vw",
+                  height: desktopxl ? "90vh" : phonexs || phonesm ? "50vh" : "100vh",
+                  objectFit: "cover",
+                }}
               >
                 <source
                   src="product3.mp4"

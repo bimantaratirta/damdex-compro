@@ -14,7 +14,7 @@ export const SixthSection = ({ noBackground }: { noBackground?: boolean }) => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         height: "80vh",
-        pt: { xs: "15vh", sm: "10vh", lg: "5vh" },
+        pt: { xs: "10vh", sm: "10vh", md: "10vh", lg: "5vh" },
       }}
     >
       <Box
@@ -34,7 +34,7 @@ export const SixthSection = ({ noBackground }: { noBackground?: boolean }) => {
           justifyItems={"center"}
           direction={"column"}
           spacing={4}
-          sx={{ pt: { xs: "10vh", sm: "15vh" } }}
+          sx={{ pt: { xs: "10vh", sm: "13vh", xl: "18vh" } }}
         >
           <Typography
             variant="h2"
@@ -42,7 +42,7 @@ export const SixthSection = ({ noBackground }: { noBackground?: boolean }) => {
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
             width={"65vw"}
-            sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}
+            sx={{ fontSize: { xs: "25px", sm: "50px", lg: "60px" } }}
           >
             Toko / Traditional Market / Toko Material
           </Typography>

@@ -51,7 +51,7 @@ const Page = () => {
           </Typography>
         </Stack>
       </Box>
-      <Box sx={{ p: { lg: 8, md: 7 }, display: "flex", justifyContent: "center", flexDirection: "column" }}>
+      <Box sx={{ p: { xs: 5 }, display: "flex", justifyContent: "center", flexDirection: "column" }}>
         <Typography
           fontWeight={800}
           mb={4}
@@ -61,9 +61,8 @@ const Page = () => {
         </Typography>
         <Grid2
           container
-          spacing={4}
-          gridColumn={2}
-          gridAutoColumns={2}
+          spacing={2}
+          justifyContent={"space-evenly"}
         >
           {data &&
             data.map((d, idx) => (
@@ -71,12 +70,18 @@ const Page = () => {
                 onClick={() => router.push(`/projects/detail/${idx}`)}
                 key={idx}
               >
-                <Grid2>
+                <Grid2 size={8}>
                   <Stack
                     spacing={2}
                     sx={{ "&:hover": { cursor: "pointer" } }}
                   >
-                    <Box sx={{ position: "relative", width: { xl: "45vw", md: "42vw" }, height: "45vh" }}>
+                    <Box
+                      sx={{
+                        position: "relative",
+                        width: { xl: "45vw", lg: "40vw", md: "40vw" },
+                        height: { xl: "45vh", lg: "30vh", md: "25vh" },
+                      }}
+                    >
                       <Image
                         src={d.img}
                         alt="project"
@@ -101,7 +106,7 @@ const Page = () => {
         <Pagination
           count={10}
           shape="rounded"
-          size="large"
+          size={"medium"}
           sx={{ display: "flex", justifyContent: "center", alignItems: "center", pt: 5 }}
         />
       </Box>

@@ -54,12 +54,11 @@ const Page = () => {
       >
         <Typography
           textAlign={"center"}
-          fontSize={"80px"}
+          fontSize={{ xl: "80px", lg: "60px", md: "40px", xs: "20px" }}
           fontWeight={800}
           width={"20vw"}
           lineHeight={1}
           mb={10}
-          alignSelf={"center"}
         >
           LOKASI TOKO
         </Typography>
@@ -117,10 +116,10 @@ const Page = () => {
                 <MenuItem value={"Jakarta Timur"}>Jakarta Timur</MenuItem>
               </Select>
             </FormControl>
-            <Box sx={{ height: { xl: "60vh", lg: "75vh", md: "80vh" }, display: "block" }}>
+            <Box sx={{ height: { xl: "60vh", lg: "75vh", md: "80vh", sm: "50vh", xs: "50vh" }, display: "block" }}>
               <Map
                 position={[-6.32595166017651, 106.7850292]}
-                zoom={18}
+                zoom={16}
               />
             </Box>
           </Stack>

@@ -1,21 +1,24 @@
-import { Box, IconButton, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 import tiktok from "../../public/ytb 1.png";
 import fb from "../../public/fb 1.png";
 import ig from "../../public/fb 2.png";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
 export const Footer = () => {
-  const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("md"));
-  const tab = useMediaQuery(theme.breakpoints.down("lg"));
+  const sosmed = [
+    { img: fb, href: "https://www.facebook.com/Damdex", label: "Damdex Indonesia" },
+    { img: ig, href: "https://www.instagram.com/damdexindonesia/?hl=en", label: "@DamdexIndonesia" },
+    { img: tiktok, href: "https://www.tiktok.com/@damdexindonesia", label: "@DamdexIndonesia" },
+  ];
+
   return (
     <Box
       sx={{
         width: "100vw",
         backgroundColor: "rgba(36,36,36,1)",
-        height: { xl: "95vh", lg: "110vh", md: "100vh" },
-        p: 10,
+        minHeight: { lg: "80vh", md: "70vh", xs: "60vh" },
+        p: { md: 10, sm: 5, xs: 1 },
       }}
     >
       <Typography
@@ -25,352 +28,103 @@ export const Footer = () => {
         pt={"3vh"}
         textAlign={"left"}
         width={"80vw"}
-        sx={{ fontSize: { xs: "28px", lg: "48px" }, width: "50vw", px: "3.5vw" }}
+        sx={{ fontSize: { xs: "16px", md: "28px", lg: "48px" }, width: "50vw" }}
       >
         Find Us on Social Media or your Favorite Store
       </Typography>
-      {!mobile && !tab && (
+      <Stack
+        direction={"row"}
+        justifyContent={"space-between"}
+        // px={"3.5vw"}
+        pt={"4vh"}
+        zIndex={10}
+      >
         <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          px={"3.5vw"}
-          pt={"4vh"}
-          zIndex={10}
+          direction={"column"}
+          justifyContent={"center"}
+          spacing={2}
+          // data-aos="fade-left"
+          // data-aos-easing="ease-in-out"
         >
+          {sosmed.map((d, i) => (
+            <SosmedButton
+              key={i}
+              href={d.href}
+              img={d.img}
+              label={d.label}
+            />
+          ))}
           <Stack
-            direction={"column"}
-            justifyContent={"center"}
+            direction={"row"}
             spacing={2}
-            data-aos="fade-left"
-            data-aos-easing="ease-in-out"
           >
-            <Stack
-              direction={"row"}
-              spacing={4}
+            <IconButton
+              href="https://www.youtube.com/user/DamdexIndonesia"
+              target="_blank"
             >
-              <IconButton
-                href="https://www.facebook.com/Damdex"
-                target="_blank"
-              >
-                <Image
-                  src={fb}
-                  alt="fb"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                Damdex Indonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
+              <YouTubeIcon sx={{ color: "#FFF", fontSize: { xs: "16px", md: "20px", lg: "30px", xl: "50px" } }} />
+            </IconButton>
+            <Typography
+              color="#FFF"
+              alignContent={"center"}
+              fontSize={{ xl: "32px", lg: "20px", md: "16px", sm: "16px", xs: "12px" }}
             >
-              <IconButton
-                href="https://www.instagram.com/damdexindonesia/?hl=en"
-                target="_blank"
-              >
-                <Image
-                  src={ig}
-                  alt="ig"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                @DamdexIndonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.tiktok.com/@damdexindonesia"
-                target="_blank"
-              >
-                <Image
-                  src={tiktok}
-                  alt="tiktok"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                @DamdexIndonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.youtube.com/user/DamdexIndonesia"
-                target="_blank"
-              >
-                <YouTubeIcon
-                  sx={{ color: "#FFF" }}
-                  fontSize="large"
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                DamdexIndonesia
-              </Typography>
-            </Stack>
+              DamdexIndonesia
+            </Typography>
           </Stack>
-          <Typography
-            color="#FFF"
-            fontSize={"24px"}
-            sx={{ width: "20vw" }}
-          >
-            Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join
-            the conversation on our social media for insights, tips, and expert advice!
-          </Typography>
         </Stack>
-      )}
-      {!mobile && tab && (
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          px={"3.5vw"}
-          pt={"4vh"}
-          zIndex={10}
+        <Typography
+          color="#FFF"
+          fontSize={{ lg: "24px", md: "16px", sm: "12px", xs: "10px" }}
+          width={{ md: "20vw", xs: "25vw" }}
         >
-          <Stack
-            direction={"column"}
-            justifyContent={"center"}
-            spacing={2}
-            data-aos="fade-left"
-            data-aos-easing="ease-in-out"
-          >
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.facebook.com/Damdex"
-                target="_blank"
-              >
-                <Image
-                  src={fb}
-                  alt="fb"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                Damdex Indonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.instagram.com/damdexindonesia/?hl=en"
-                target="_blank"
-              >
-                <Image
-                  src={ig}
-                  alt="ig"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                @DamdexIndonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.tiktok.com/@damdexindonesia"
-                target="_blank"
-              >
-                <Image
-                  src={tiktok}
-                  alt="tiktok"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                @DamdexIndonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.youtube.com/user/DamdexIndonesia"
-                target="_blank"
-              >
-                <YouTubeIcon
-                  sx={{ color: "#FFF" }}
-                  fontSize="large"
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                DamdexIndonesia
-              </Typography>
-            </Stack>
-          </Stack>
-          <Typography
-            color="#FFF"
-            fontSize={"16px"}
-            sx={{ width: "20vw" }}
-          >
-            Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join
-            the conversation on our social media for insights, tips, and expert advice!
-          </Typography>
-        </Stack>
-      )}
-      {mobile && !tab && (
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          px={"3.5vw"}
-          pt={"4vh"}
-          zIndex={10}
-        >
-          <Stack
-            direction={"column"}
-            justifyContent={"center"}
-            spacing={2}
-            data-aos="fade-left"
-            data-aos-easing="ease-in-out"
-          >
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.facebook.com/Damdex"
-                target="_blank"
-              >
-                <Image
-                  src={fb}
-                  alt="fb"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                Damdex Indonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.instagram.com/damdexindonesia/?hl=en"
-                target="_blank"
-              >
-                <Image
-                  src={ig}
-                  alt="ig"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                @DamdexIndonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.tiktok.com/@damdexindonesia"
-                target="_blank"
-              >
-                <Image
-                  src={tiktok}
-                  alt="tiktok"
-                  width={33}
-                  height={33}
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                @DamdexIndonesia
-              </Typography>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={4}
-            >
-              <IconButton
-                href="https://www.youtube.com/user/DamdexIndonesia"
-                target="_blank"
-              >
-                <YouTubeIcon
-                  sx={{ color: "#FFF" }}
-                  fontSize="large"
-                />
-              </IconButton>
-              <Typography
-                color="#FFF"
-                alignContent={"center"}
-              >
-                DamdexIndonesia
-              </Typography>
-            </Stack>
-          </Stack>
-          <Typography
-            color="#FFF"
-            sx={{ width: "20vw", fontSize: { xs: "12px", md: "20px", xl: "24px" } }}
-          >
-            Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join
-            the conversation on our social media for insights, tips, and expert advice!
-          </Typography>
-        </Stack>
-      )}
+          Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join the
+          conversation on our social media for insights, tips, and expert advice!
+        </Typography>
+      </Stack>
       <Typography
         textAlign={"center"}
         color="#FFF"
         sx={{ mt: { xs: "8vh", lg: "12vh" } }}
+        fontSize={{ md: "16px", xs: "12px" }}
       >
         © PT Prima Graha Bangun Tunggal. All rights reserved 2024
       </Typography>
     </Box>
+  );
+};
+
+const SosmedButton = ({ img, href, label }: { img: StaticImageData | string; href: string; label: string }) => {
+  return (
+    <Stack
+      direction={"row"}
+      spacing={2}
+    >
+      <IconButton
+        href={href}
+        target="_blank"
+      >
+        <Box
+          sx={{
+            position: "relative",
+            width: { xs: "12px", sm: "16px", md: "20px", lg: "30px", xl: "50px" },
+            height: { xs: "12px", sm: "16px", md: "20px", lg: "30px", xl: "50px" },
+          }}
+        >
+          <Image
+            src={img}
+            alt="fb"
+            fill
+          />
+        </Box>
+      </IconButton>
+      <Typography
+        color="#FFF"
+        alignContent={"center"}
+        fontSize={{ xl: "32px", lg: "20px", md: "16px", sm: "16px", xs: "12px" }}
+      >
+        {label}
+      </Typography>
+    </Stack>
   );
 };
