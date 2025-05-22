@@ -34,7 +34,7 @@ const Page = () => {
             bottom: 0,
             left: 0,
             right: 0,
-            height: { xl: "200vh", lg: "210vh", md: "300vh" },
+            height: { xl: "200vh", md: "150vh", sm: "200vh", xs: "350vh" },
             backgroundSize: "cover",
             zIndex: -1,
             opacity: 0.2,
@@ -43,20 +43,18 @@ const Page = () => {
       >
         <Typography
           textAlign={"center"}
-          mt={{ lg: 5, md: 0 }}
+          mt={{ lg: 5, md: 0, xs: 5 }}
           fontWeight={800}
           width={"30vw"}
           mx={"auto"}
-          sx={{ fontSize: { lg: "75px", md: "50px" } }}
+          sx={{ fontSize: { lg: "75px", md: "50px", xs: "40px" } }}
         >
           Event Gallery
         </Typography>
         <Grid2
           container
           mt={10}
-          spacing={{ lg: 4, md: 2 }}
-          gridColumn={3}
-          gridAutoColumns={3}
+          spacing={{ lg: 4, md: 2, sm: 6, xs: 5 }}
           justifyContent={"center"}
         >
           {data.map((d, idx) => (
@@ -64,34 +62,42 @@ const Page = () => {
               onClick={() => router.push(`/event/detail/${idx}`)}
               key={idx}
             >
-              <Stack
-                spacing={2}
-                sx={{ "&:hover": { cursor: "pointer" } }}
-              >
-                <Box sx={{ position: "relative", width: { lg: "25vw", md: "25vw" }, height: "25vh" }}>
-                  <Image
-                    src={d.img}
-                    alt="event"
-                    fill
-                    style={{ borderRadius: "25px" }}
-                  />
-                </Box>
-                <Typography
-                  fontSize={{ lg: "30px", md: "20px" }}
-                  fontWeight={800}
-                  width={{ xl: "25vw", md: "25vw" }}
-                  textOverflow={"clip"}
+              <Grid2 size={{ md: 4, xs: 8 }}>
+                <Stack
+                  spacing={2}
+                  sx={{ "&:hover": { cursor: "pointer" } }}
                 >
-                  {d.name}
-                </Typography>
-              </Stack>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: { lg: "25vw", md: "25vw", sm: "30vw", xs: "50vw" },
+                      height: { xl: "25vh", md: "15vh", sm: "15vh", xs: "20vh" },
+                    }}
+                  >
+                    <Image
+                      src={d.img}
+                      alt="event"
+                      fill
+                      style={{ borderRadius: "25px" }}
+                    />
+                  </Box>
+                  <Typography
+                    fontSize={{ lg: "30px", md: "20px" }}
+                    fontWeight={800}
+                    width={{ xl: "25vw", md: "25vw" }}
+                    textOverflow={"clip"}
+                  >
+                    {d.name}
+                  </Typography>
+                </Stack>
+              </Grid2>
             </div>
           ))}
         </Grid2>
         <Pagination
-          count={10}
+          count={5}
           shape="rounded"
-          size="large"
+          size="small"
           sx={{ display: "flex", justifyContent: "center", alignItems: "center", pt: 5 }}
         />
       </Box>

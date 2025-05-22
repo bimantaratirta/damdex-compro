@@ -13,20 +13,23 @@ const Page = () => {
     <AppLayout>
       <Box
         sx={{
+          pt: { sm: 18, xs: 12 },
           width: "100vw",
           background: `url(${background.src})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          height: { xs: "90vh", md: "65vh", lg: "70vh" },
+          height: { sm: "25vh", md: "50vh", lg: "50vh" },
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         <Typography
-          sx={{ fontSize: { xs: 20, md: 40, lg: 60, xl: 80 } }}
+          sx={{ fontSize: { xs: 16, sm: 20, md: 40, lg: 60, xl: "60px" } }}
           fontWeight={500}
+          pt={{ xl: 1, lg: 5, md: 3, sm: 0 }}
+          pb={{ xs: 5, sm: 0 }}
           textAlign={"center"}
-          pt={{ xl: 20, lg: 14, md: 10 }}
-          width={"60vw"}
-          margin={"auto"}
+          width={"80vw"}
         >
           These are the respective ways of using Damdex for your needs in each sector.
         </Typography>

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { SixthSection } from "@/components/sixthSection";
 import { AppLayout } from "@/components/appLayout";
-import { Stack, Box, Typography, Button, IconButton, useTheme } from "@mui/material";
+import { Stack, Box, Typography, Button, IconButton, useTheme, useMediaQuery } from "@mui/material";
 import img1 from "@/../public/productheader.png";
 import img2 from "@/../public/fungsi4.png";
 import sizeImg from "@/../public/productsize.png";
@@ -24,6 +24,7 @@ const Page = () => {
     { title: string; description: string; image: string | StaticImageData } | undefined
   >(undefined);
   const theme = useTheme();
+  const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
   const router = useRouter();
 
   useEffect(() => {
@@ -72,13 +73,13 @@ const Page = () => {
   return (
     <AppLayout>
       <Stack
-        sx={{ alignItems: { md: "center" }, pt: { lg: 8, md: 4 } }}
+        sx={{ alignItems: { md: "center" }, pt: { xl: 6, xs: 4 } }}
         direction={"row"}
       >
         <Box
           sx={{
             width: { xs: "100vw", md: "90vw" },
-            height: { xs: "40vh" },
+            height: { xs: "30vh", md: "40vh" },
             position: "relative",
             backgroundColor: "rgba(0,0,0,1)",
           }}
@@ -92,7 +93,7 @@ const Page = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "90vw" },
-            height: { xs: "40vh" },
+            height: { xs: "30vh", md: "40vh" },
             position: "relative",
             backgroundColor: "rgba(0,0,0,1)",
           }}
@@ -111,25 +112,23 @@ const Page = () => {
               position: "absolute",
               left: "23vw",
               zIndex: 5,
-              top: { lg: "20vh", md: "18vh" },
+              top: { xl: "20vh", xs: "18vh" },
             }}
           >
             <Stack alignItems={"center"}>
               <Typography
-                fontWeight={800}
                 color="#FFF"
                 width={"80vw"}
                 textAlign={"center"}
-                sx={{ typography: { lg: "h2", md: "h3" } }}
+                sx={{ typography: { xl: "h2", md: "h3" } }}
               >
                 ONE PRODUCT
               </Typography>
               <Typography
-                fontWeight={800}
                 color="#FFF"
                 width={"80vw"}
                 textAlign={"center"}
-                sx={{ typography: { lg: "h2", md: "h3" } }}
+                sx={{ typography: { xl: "h2", md: "h3" } }}
               >
                 ALL SOLUTIONS
               </Typography>
@@ -137,50 +136,32 @@ const Page = () => {
           </Box>
           <Box
             sx={{
-              height: { xs: "4vh" },
+              height: { xl: "4vh", lg: "2vh", md: "3vh", sm: "1.25vh", xs: "1.5vh" },
               width: "45vw",
               backgroundColor: "#37B878",
               position: "absolute",
-              top: "23.25vh",
-              left: "29.3vw",
+              top: { xl: "23.25vh", lg: "20vh", md: "21vh", sm: "19vh", xs: "19.5vh" },
+              left: { xs: "29.3vw" },
             }}
           />
         </div>
       </Stack>
-      <Stack
-        px={20}
-        py={5}
-        spacing={5}
-      >
-        <Typography variant="h3">
+      <Stack p={{ xs: 5, lg: 10 }}>
+        <Typography
+          variant="h3"
+          fontSize={{ lg: "48px", md: "32px", sm: "24px", xs: "20px" }}
+        >
           Damdex Multifungsi is a cement additive that basically can be mixed three different ways depending on the job
           to be done; Thin, Medium, Thick.
-        </Typography>
-        <Typography variant="h3">
-          The thin mix has a low viscosity (watery) so it can be applied with a brush as a coating to penetrate deep
-          into concrete pores.
-        </Typography>
-        <Typography variant="h3">
-          A medium mix can be used to improve concrete quality by 15 - 35% and accelerate hardening time by 50%. It can
-          also be used as an additive for plaster mixes, ceramic grout applications, ceramic installation in concrete
-          and tile on tile.
-        </Typography>
-        <Typography variant="h3">
-          The third way to mix is just Damdex and cement powder to make a thick putty - like mix. This is ideal to plug
-          holes spouting water and fixing tiles under water.
-        </Typography>
-        <Typography variant="h3">
-          Damdex Multifungsi is efficient, effective and easy to use, all important properties when building protecting
-          your building.
         </Typography>
       </Stack>
 
       {/*Carousel */}
-      <Box sx={{ px: 20, py: 5 }}>
+      <Box p={{ xs: 5, lg: 10 }}>
         <Typography
           gutterBottom
           fontWeight={800}
-          sx={{ fontWeight: "bold", fontSize: { lg: "34px", md: "24px" } }}
+          sx={{ fontWeight: "bold", fontSize: { xl: "34px", md: "24px" } }}
         >
           Additive with Multi Purpose
         </Typography>
@@ -194,11 +175,11 @@ const Page = () => {
               <Box
                 key={index}
                 sx={{
-                  minWidth: { lg: "20%", md: "25%" },
+                  minWidth: { xl: "20%", md: "25%", sm: "40%", xs: "50%" },
                   padding: 2,
                   borderRadius: "25px",
-                  position: "relative", // Diperlukan untuk Image
-                  height: { lg: "600px", md: "400px" }, // Tinggi tetap
+                  position: "relative",
+                  height: { lg: "500px", sm: "400px", xs: "300px" },
                   mx: 2,
                   backgroundColor: "rgba(0,0,0,1)",
                   cursor: "pointer",
@@ -208,9 +189,9 @@ const Page = () => {
                   <Image
                     src={slide.image}
                     alt={slide.title}
-                    layout="fill" // Mengisi kontainer
-                    objectFit="cover" // Pastikan gambar menutup area
-                    style={{ borderRadius: "25px" }} // Sesuaikan sudut
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "25px" }}
                   />
                   <Box
                     sx={{
@@ -225,7 +206,8 @@ const Page = () => {
                   >
                     <Typography
                       alignSelf={"start"}
-                      sx={{ typography: { lg: "h6", md: "caption" } }}
+                      fontSize={{}}
+                      sx={{ typography: { xl: "h6", md: "caption" } }}
                     >
                       {slide.title}
                     </Typography>
@@ -261,12 +243,12 @@ const Page = () => {
         </Box>
       </Box>
 
-      <Box sx={{ width: { xs: "100vw" }, height: { xs: "65vh" }, position: "relative", mb: 10 }}>
+      <Box sx={{ width: { xl: "100vw" }, height: { xl: "65vh", xs: "30vh" }, position: "relative" }}>
         <Image
           alt="image1"
           src={sizeImg}
           fill
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: desktopxl ? "cover" : "contain" }}
         />
       </Box>
       <SixthSection noBackground />
@@ -274,6 +256,7 @@ const Page = () => {
         sx={{
           width: { xs: "100vw" },
           height: "30vh",
+          px: 2,
           background: "linear-gradient(89.7deg, #B94BBC -18.1%, #137C3B 115.45%)",
           backgroundSize: "cover",
         }}
@@ -291,7 +274,7 @@ const Page = () => {
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
             width={"65vw"}
-            sx={{ fontSize: { lg: "45px", md: "30px" } }}
+            sx={{ fontSize: { xl: "45px", md: "30px", xs: "15px" } }}
           >
             Vibrant hues endless possibilities
           </Typography>

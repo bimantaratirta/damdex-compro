@@ -23,8 +23,9 @@ export const TopBar = () => {
   const drawerItems = [
     { name: "Home", url: "/" },
     { name: "Products", url: "/product" },
-    { name: "Use & Applications", url: "/" },
+    { name: "Use & Applications", url: "/use" },
     { name: "Projects", url: "/projects" },
+    { name: "Events", url: "/event" },
     { name: "Contact us", url: "/contact" },
   ];
   const theme = useTheme();

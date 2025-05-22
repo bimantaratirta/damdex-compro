@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Stack, Typography, ToggleButton, Divider } from "@mui/material";
+import { Box, Stack, Typography, ToggleButton, Divider, Grid2 } from "@mui/material";
 import { AppLayout } from "@/components/appLayout";
 import img1 from "@/../public/damdexforhome.png";
 import img2 from "@/../public/damdexforpro.png";
@@ -81,7 +81,7 @@ const Page = () => {
       img: thickmix,
     },
     {
-      value: "Waterproofing (Damdex Warna)",
+      value: "Waterproofing",
       usage: [
         {
           value: "Waterproofing",
@@ -135,50 +135,65 @@ const Page = () => {
           >
             Composition
           </Typography>
-          <Stack
-            direction={"row"}
-            spacing={{ lg: 4, md: 2 }}
+          <Grid2
+            container
+            justifyContent={"space-evenly"}
+            spacing={{ md: 2 }}
           >
             {compositionData.map((d, i) => (
-              <CompositionButton
+              <Grid2
                 key={i}
-                value={d.value}
-                onChange={() => {
-                  setComposition(d.value);
-                  setUsage("");
-                }}
-                img={d.img}
-                selected={composition}
-              />
-            ))}
-          </Stack>
-        </Stack>
-        <Divider sx={{ backgroundColor: "#000", my: 4 }} />
-        <Stack
-          direction={"row"}
-          spacing={{ lg: 4, md: 2 }}
-        >
-          {composition !== "" &&
-            compositionData
-              .find((c) => c.value === composition)!
-              .usage.map((d, i) => (
-                <UsageForButton
-                  key={i}
-                  selected={usage}
+                size={{ xs: 6, md: 3 }}
+                mt={{ xs: 2, md: 0 }}
+              >
+                <CompositionButton
                   value={d.value}
-                  onChange={() => setUsage(d.value)}
+                  onChange={() => {
+                    setComposition(d.value);
+                    setUsage("");
+                  }}
+                  img={d.img}
+                  selected={composition}
                 />
-              ))}
+              </Grid2>
+            ))}
+          </Grid2>
         </Stack>
+        <Divider sx={{ backgroundColor: "#000", my: 4, minWidth: "70vw" }} />
+        {composition !== "" && (
+          <Grid2
+            spacing={{ md: 15, xs: 5 }}
+            justifyContent={"start"}
+            direction={"row"}
+            container
+          >
+            {composition !== "" &&
+              compositionData
+                .find((c) => c.value === composition)!
+                .usage.map((d, i) => (
+                  <Grid2
+                    key={i}
+                    size={{ md: 2, xs: 4 }}
+                    alignSelf={"start"}
+                  >
+                    <UsageForButton
+                      selected={usage}
+                      value={d.value}
+                      onChange={() => setUsage(d.value)}
+                    />
+                  </Grid2>
+                ))}
+          </Grid2>
+        )}
         {composition && usage && (
           <Stack
             spacing={5}
+            justifyContent={"center"}
             sx={{
-              width: "90vw",
               height: "auto",
               backgroundColor: "rgba(246, 246, 246, 1)",
-              margin: "100px auto",
               borderRadius: "25px",
+              mt: "100px",
               p: 5,
             }}
           >
@@ -194,20 +209,20 @@ const Page = () => {
             <Typography
               color="#000"
               fontWeight={800}
-              fontSize={"40px"}
+              fontSize={{ sm: "40px", xs: "20px" }}
               mb={5}
             >
               Deskripsi
             </Typography>
             <Typography
               fontWeight={400}
-              fontSize={"40px"}
+              fontSize={{ sm: "40px", xs: "20px" }}
             >
               {compositionData.find((d) => d.value === composition)!.usage.find((u) => u.value === usage)?.deskripsi1}
             </Typography>
             <Typography
               fontWeight={400}
-              fontSize={"40px"}
+              fontSize={{ sm: "40px", xs: "20px" }}
             >
               {compositionData.find((d) => d.value === composition)!.usage.find((u) => u.value === usage)?.deskripsi2 ??
                 ""}
@@ -218,7 +233,7 @@ const Page = () => {
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: "45vh",
+          height: { sm: "45vh", xs: "30vh" },
           background: `linear-gradient(180.53deg, rgba(245, 5, 3, 0.65) 22.87%, rgba(255, 230, 86, 0.65) 119.83%), url(${img2.src})`,
           backgroundSize: "cover",
         }}
@@ -227,7 +242,7 @@ const Page = () => {
           alignItems={"center"}
           justifyItems={"center"}
           direction={"row"}
-          spacing={4}
+          spacing={{ sm: 4, xs: 2 }}
           sx={{ pt: { xs: "10vh", sm: "18vh" } }}
         >
           <Typography
@@ -293,10 +308,11 @@ const CompositionButton = ({
           value={value}
           sx={{
             textTransform: "none",
-            width: { lg: "21vw", md: "19vw" },
+            width: { lg: "18vw", md: "15vw", sm: "30vw", xs: "25vw" },
             borderRadius: "0px 100px 100px",
+            minHeight: { xs: "6vh", lg: "10h", xl: "9vh" },
             color: "#000",
-            fontSize: { xl: "25px", lg: "16px", md: "11px" },
+            fontSize: { xl: "25px", lg: "16px", xs: "11px" },
             "&.Mui-selected": {
               background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)",
               color: "#FFF",
@@ -306,19 +322,36 @@ const CompositionButton = ({
           selected={selected === value}
           onChange={onChange}
         >
-          {value}
+          <Stack direction={"column"}>
+            {value}
+            {value === "Waterproofing" && (
+              <Typography fontSize={{ lg: "15px", md: "10px", xs: "8px" }}> (Damdex warna)</Typography>
+            )}
+          </Stack>
         </ToggleButton>
       </Box>
       <Stack mt={1}>
         <Typography
-          fontSize={{ lg: "26px", md: "14px" }}
+          fontSize={{ xl: "26px", lg: "16px", md: "12px", xs: "12px" }}
           fontWeight={800}
+          textAlign={"center"}
         >
           Perbandingan Volume
         </Typography>
-        <Typography fontSize={{ lg: "20px", md: "10px" }}>(Menggunakan gelas/kaleng)</Typography>
+        <Typography
+          fontSize={{ xl: "20px", lg: "10px", xs: "10px" }}
+          textAlign={"center"}
+        >
+          (Menggunakan gelas/kaleng)
+        </Typography>
       </Stack>
-      <Box sx={{ position: "relative", width: "15vw", height: "15vh" }}>
+      <Box
+        sx={{
+          position: "relative",
+          width: { xl: "15vw", lg: "12vw", md: "10vw", xs: "15vw" },
+          height: { xl: "15vh", lg: "8vh", md: "6vh", sm: "8vh", xs: "6vh" },
+        }}
+      >
         <Image
           alt="perbandingan"
           src={img}
@@ -344,12 +377,12 @@ const UsageForButton = ({
     <ToggleButton
       value={value}
       sx={{
-        width: "12vw",
+        width: "15vw",
         borderRadius: { lg: "30px", md: "20px" },
         color: "#000",
         border: 0,
         fontSize: { xl: "28px", lg: "20px", md: "12px" },
-        minHeight: "10vh",
+        minHeight: { xl: "10vh", lg: "8vh", sm: "5vh", xs: "8vh" },
         px: 5,
         lineHeight: 1,
         backgroundColor: "rgba(242, 242, 242, 1)",

@@ -38,7 +38,7 @@ const Page = () => {
           justifyItems={"center"}
           direction={"column"}
           spacing={4}
-          sx={{ pt: { xs: "10vh", sm: "20vh" } }}
+          sx={{ pt: "20vh" }}
         >
           <Typography
             variant="h2"
@@ -53,52 +53,61 @@ const Page = () => {
         </Stack>
       </Box>
       <Stack
-        direction={"row"}
-        p={12}
+        direction={{ md: "row", xs: "column" }}
+        p={5}
         spacing={5}
       >
         <Stack
-          width={"45vw"}
+          width={{ md: "45vw", xs: "auto" }}
           spacing={3}
         >
-          <Typography variant="h4">Get in Touch</Typography>
+          <Typography fontSize={{ md: "32px", xs: "24px" }}>Get in Touch</Typography>
           <Typography
-            fontSize={{ lg: "70px", md: "40px" }}
+            fontSize={{ lg: "70px", md: "40px", xs: "32px" }}
             fontWeight={800}
           >
             Have any questions? Feel free to reach out to us.
           </Typography>
           <Stack spacing={1}>
             <Typography
-              variant="h4"
+              fontSize={{ md: "32px", xs: "24px" }}
               fontWeight={800}
             >
               Call Center
             </Typography>
-            <Typography variant="h5">
+            <Typography fontSize={{ md: "24px", xs: "18px" }}>
               021 7542688 <br /> 021 7545131
             </Typography>
           </Stack>
           <Stack spacing={1}>
             <Typography
-              variant="h4"
+              fontSize={{ md: "32px", xs: "24px" }}
               fontWeight={800}
             >
               Our Location
             </Typography>
-            <Typography variant="h5">Jl. Cinere Raya No. 50-51 Blok A, Cinere - Limo,Depok 16514</Typography>
+            <Typography fontSize={{ md: "24px", xs: "18px" }}>
+              Jl. Cinere Raya No. 50-51 Blok A, Cinere - Limo,Depok 16514
+            </Typography>
           </Stack>
           <Stack spacing={1}>
             <Typography
-              variant="h4"
+              fontSize={{ md: "32px", xs: "24px" }}
               fontWeight={800}
             >
               Email
             </Typography>
-            <Typography variant="h5">info@damdexindonesia.com</Typography>
+            <Typography fontSize={{ md: "24px", xs: "18px" }}>info@damdexindonesia.com</Typography>
           </Stack>
         </Stack>
-        <Box sx={{ backgroundColor: "rgba(251, 251, 251, 1)", borderRadius: "25px", width: "45vw", p: 5 }}>
+        <Box
+          sx={{
+            backgroundColor: "rgba(251, 251, 251, 1)",
+            borderRadius: "25px",
+            width: { md: "45vw", xs: "auto" },
+            p: 5,
+          }}
+        >
           <Typography>Feel free to let me know if you need any further adjustments</Typography>
           <Formik
             initialValues={{

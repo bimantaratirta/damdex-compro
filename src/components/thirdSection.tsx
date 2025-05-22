@@ -10,9 +10,9 @@ export const ThirdSection = () => {
     <Box
       sx={{
         width: "100vw",
-        height: { xs: "80vh", sm: "74.5vh", md: "155.5vh", lg: "180.5vh" },
+        height: { xs: "111vh", sm: "111vh", md: "157vh", lg: "187.3vh" },
         position: "relative",
-        pt: 2,
+        pt: { md: 2 },
         background: `url(${background.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -21,19 +21,26 @@ export const ThirdSection = () => {
       <Stack
         alignItems={"center"}
         justifyContent={"center"}
-        direction="row"
+        alignSelf={"center"}
+        direction="column"
         mb="2vh"
         data-aos="fade-up"
         data-aos-easing="ease-in-out"
       >
-        <Image
-          src={logowarna}
-          alt="logo"
-          height={100}
-        />
+        <Box
+          position={"relative"}
+          sx={{ width: { xs: "50vw", md: "30vw", lg: "25vw" }, height: { xs: "15vh", md: "18vh" } }}
+        >
+          <Image
+            src={logowarna}
+            alt="logo"
+            fill
+          />
+        </Box>
         <Typography
-          variant="h5"
-          sx={{ fontSize: { xs: "20px", sm: "24px", lg: "30px" } }}
+          fontWeight={800}
+          sx={{ fontSize: { xs: "16px", md: "24px", lg: "30px" } }}
+          textAlign={"center"}
         >
           Pioneer of Waterproofing Innovation
         </Typography>
@@ -42,7 +49,7 @@ export const ThirdSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "90vw" },
-            height: { xs: "30vh", sm: "30vh", md: "65vh", lg: "79vh" },
+            height: { xs: "45vh", md: "65vh", lg: "79vh" },
             position: "relative",
             color: "#FFF",
             background: `url(${image1.src})`,
@@ -59,7 +66,10 @@ export const ThirdSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ fontSize: { md: "32px", lg: "44px" }, width: { xs: "60vw", md: "16vw", lg: "16vw", xl: "14vw" } }}
+              sx={{
+                fontSize: { xs: "16px", sm: "24px", md: "32px", lg: "44px" },
+                width: { xs: "30vw", md: "16vw", lg: "16vw", xl: "14vw" },
+              }}
             >
               LONGER POT LIFE
             </Typography>
@@ -74,7 +84,7 @@ export const ThirdSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "16px" } }}
+              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "9px", sm: "16px" } }}
             >
               Umur campuran produk lain maksimal 45 menit, sedangkan Damdex Warna bisa tahan 30x lebih lama.
             </Typography>
@@ -83,7 +93,7 @@ export const ThirdSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "90vw" },
-            height: { xs: "30vh", sm: "30vh", md: "65vh", lg: "79vh" },
+            height: { xs: "45vh", md: "65vh", lg: "79vh" },
             position: "relative",
             background: `url(${image2.src})`,
             backgroundSize: "cover",
@@ -95,14 +105,14 @@ export const ThirdSection = () => {
             mt="4vw"
             justifyContent={"flex-end"}
             alignItems={"flex-end"}
-            height={{ md: "50vh", lg: "65vh", xl: "60vh" }}
-            sx={{ mr: { xs: "8vw", sm: "7vw", md: "3vw" } }}
+            height={{ xs: "40vh", md: "50vh", lg: "65vh", xl: "60vh" }}
+            sx={{ mr: { xs: "3vw", sm: "7vw", md: "3vw" } }}
           >
             <Typography
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { md: "32px", lg: "44px" } }}
+              sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "14px", sm: "22px", lg: "36px" } }}
               textAlign={"end"}
             >
               COLORFUL CEMENT WATERPROOFING
@@ -116,7 +126,7 @@ export const ThirdSection = () => {
               }}
             />
             <Typography
-              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "15px" } }}
+              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "9px", sm: "15px" } }}
               color="#fff"
               fontWeight={400}
               textAlign={"end"}
@@ -133,12 +143,12 @@ export const ThirdSection = () => {
             width: "58vw",
             mx: "auto",
             position: "absolute",
-            top: { xs: "47vh", sm: "39vh", md: "77vh", lg: "88vh" },
+            top: { xs: "64vh", sm: "60vh", md: "85vh", lg: "88vh" },
             left: "23vw",
             zIndex: 5,
           }}
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
+          // data-aos="fade-up"
+          // data-aos-easing="ease-in-out"
         >
           <Stack alignItems={"center"}>
             <Typography
@@ -147,7 +157,7 @@ export const ThirdSection = () => {
               color="#FFF"
               width={"80vw"}
               textAlign={"center"}
-              sx={{ fontSize: { xs: "15px", md: "40px", lg: "48px" } }}
+              sx={{ fontSize: { xs: "14px", sm: "29px", md: "40px", lg: "48px" } }}
             >
               CONFIDENCE IN EVERY DROP
             </Typography>
@@ -170,11 +180,11 @@ export const ThirdSection = () => {
             backgroundColor: "#37B878",
             alignSelf: "center",
             position: "absolute",
-            top: { xs: "48.5vh", sm: "40vh", md: "80vh", lg: "92vh", xl: "90vh" },
+            top: { xs: "65vh", sm: "61vh", md: "88vh", lg: "92vh", xl: "90vh" },
             left: "29.3vw",
           }}
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
+          // data-aos="fade-up"
+          // data-aos-easing="ease-in-out"
         />
       </div>
     </Box>

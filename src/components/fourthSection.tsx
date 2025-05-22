@@ -1,14 +1,38 @@
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import background from "../../public/bg1.png";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import news1 from "../../public/news1.png";
 import news2 from "../../public/news2.png";
 import { useRouter } from "next/navigation";
 
 export const FourthSection = () => {
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const router = useRouter();
+
+  const newsData = [
+    {
+      img: news1,
+      title: "Damdex Can Save You Billions Of Rupiah On Construction. Here's How",
+      description:
+        "Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.",
+    },
+    {
+      img: news2,
+      title: "Damdex Can Save You Billions Of Rupiah On Construction. Here's How",
+      description:
+        "Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.",
+    },
+  ];
+
+  const phoneNewsData = [
+    {
+      img: news1,
+      title: "Damdex Can Save You Billions Of Rupiah On Construction. Here's How",
+      description:
+        "Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.",
+    },
+  ];
 
   return (
     <Box
@@ -17,212 +41,138 @@ export const FourthSection = () => {
         background: `url(${background.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: { xs: "110vh", sm: "95vh", md: "115vh", lg: "95vh" },
+        height: { xs: "85vh", sm: "82vh", md: "92vh", lg: "95vh" },
       }}
       data-aos="fade-up"
       data-aos-easing="ease-in-out"
     >
-      {mobile && (
-        <Stack
-          direction={"column"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          spacing={1}
-          sx={{ pt: { xs: "5vh", md: "6vh" } }}
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
-        >
-          <Typography
-            variant="h2"
-            fontWeight={800}
-          >
-            Read Our
-          </Typography>
-          <Typography
-            variant="h2"
-            fontWeight={800}
-            sx={{
-              backgroundcolor: "primary",
-              backgroundImage: `linear-gradient(89.18deg,  #3557C4 57.54%, #9CD942 76.72%, #F4CB37 98.6%)`,
-              backgroundSize: "100%",
-              backgroundRepeat: "repeat",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            News
-          </Typography>
-        </Stack>
-      )}
-      {!mobile && (
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          spacing={1}
-          sx={{ pt: { xs: "5vh", md: "6vh" } }}
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
-        >
-          <Typography
-            variant="h2"
-            fontWeight={800}
-          >
-            Read Our
-          </Typography>
-          <Typography
-            variant="h2"
-            fontWeight={800}
-            sx={{
-              backgroundcolor: "primary",
-              backgroundImage: `linear-gradient(89.18deg,  #3557C4 57.54%, #9CD942 76.72%, #F4CB37 98.6%)`,
-              backgroundSize: "100%",
-              backgroundRepeat: "repeat",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            News
-          </Typography>
-        </Stack>
-      )}
       <Stack
-        alignContent={"center"}
+        direction={{ xs: "column", md: "row" }}
+        alignItems={"center"}
         justifyContent={"center"}
-        direction={"row"}
-        spacing={5}
-        mt={5}
+        spacing={1}
+        sx={{ pt: { xs: "5vh", md: "6vh" } }}
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
       >
-        {mobile && (
-          <Box
-            sx={{ width: "90vw", height: "70vh", justifyContent: "center" }}
-            data-aos="fade-up"
-            data-aos-easing="ease-in-out"
-          >
-            <Box sx={{ position: "relative", width: "90vw", height: "45vh" }}>
-              <Image
-                alt="news1"
-                src={news1}
-                fill
-                style={{ borderRadius: 25 }}
+        <Typography
+          variant="h2"
+          fontWeight={800}
+          fontSize={{ xs: "20px", md: "60px" }}
+        >
+          Read Our
+        </Typography>
+        <Typography
+          variant="h2"
+          fontWeight={800}
+          fontSize={{ xs: "20px", md: "60px" }}
+          sx={{
+            backgroundcolor: "primary",
+            backgroundImage: `linear-gradient(89.18deg,  #3557C4 57.54%, #9CD942 76.72%, #F4CB37 98.6%)`,
+            backgroundSize: "100%",
+            backgroundRepeat: "repeat",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          News
+        </Typography>
+      </Stack>
+      <Stack
+        justifyContent={"center"}
+        spacing={4}
+        direction={"row"}
+        mt={{ xs: 0, md: 2 }}
+      >
+        {mobile &&
+          phoneNewsData.map((d, i) => (
+            <div
+              key={i}
+              onClick={() => router.push(`/news/detail/${i}`)}
+              style={{ cursor: "pointer" }}
+            >
+              <NewsContent
+                img={d.img}
+                title={d.title}
+                description={d.description}
               />
-            </Box>
-            <Stack
-              alignContent={"center"}
-              justifyContent={"center"}
-              spacing={2}
-              pt={2}
-            >
-              <Typography
-                variant="h5"
-                color="#242424"
-                align="center"
-                fontSize={18}
-              >
-                Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
-              </Typography>
-              <Typography
-                variant="h6"
-                color="#7B7B7B"
-                align="center"
-                fontSize={14}
-              >
-                Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor
-                today and start building better, faster, stronger.
-              </Typography>
-            </Stack>
-          </Box>
-        )}
-        {!mobile && (
-          <>
+            </div>
+          ))}
+        {!mobile &&
+          newsData.map((d, i) => (
             <div
-              onClick={() => router.push("news/detail/abc")}
+              key={i}
+              onClick={() => router.push(`/news/detail/${i}`)}
               style={{ cursor: "pointer" }}
             >
-              <Box
-                sx={{ width: "33vw", height: "70vh", justifyContent: "center" }}
-                data-aos="fade-up"
-                data-aos-easing="ease-in-out"
-              >
-                <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", xl: "48vh" } }}>
-                  <Image
-                    alt="news1"
-                    src={news1}
-                    fill
-                    style={{ borderRadius: 25 }}
-                  />
-                </Box>
-                <Stack
-                  alignContent={"center"}
-                  justifyContent={"center"}
-                  spacing={2}
-                  pt={2}
-                >
-                  <Typography
-                    variant="h5"
-                    color="#242424"
-                    fontSize={{ lg: "24px", md: "16px" }}
-                  >
-                    Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    color="#7B7B7B"
-                    fontSize={{ lg: "20px", md: "14px" }}
-                  >
-                    Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor
-                    today and start building better, faster, stronger.
-                  </Typography>
-                </Stack>
-              </Box>
+              <NewsContent
+                img={d.img}
+                title={d.title}
+                description={d.description}
+              />
             </div>
-            <div
-              onClick={() => router.push("news/detail/abc")}
-              style={{ cursor: "pointer" }}
-            >
-              <Box
-                sx={{ width: "33vw", height: "70vh" }}
-                data-aos="fade-up"
-                data-aos-easing="ease-in-out"
-                data-aos-delay="200"
-              >
-                <Box sx={{ position: "relative", width: "33vw", height: { sm: "36vh", xl: "48vh" } }}>
-                  <Image
-                    alt="news2"
-                    src={news2}
-                    fill
-                    style={{ borderRadius: 25 }}
-                  />
-                </Box>
-                <Stack
-                  alignContent={"center"}
-                  justifyContent={"center"}
-                  spacing={2}
-                  pt={2}
-                >
-                  <Typography
-                    variant="h5"
-                    color="#242424"
-                    fontSize={{ lg: "24px", md: "16px" }}
-                  >
-                    Damdex Can Save You Billions Of Rupiah On Construction. Here&apos;s How
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    color="#7B7B7B"
-                    fontSize={{ lg: "24px", md: "16px" }}
-                  >
-                    Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor
-                    today and start building better, faster, stronger.
-                  </Typography>
-                </Stack>
-              </Box>
-            </div>
-          </>
-        )}
+          ))}
       </Stack>
     </Box>
+  );
+};
+
+const NewsContent = ({
+  img,
+  title,
+  description,
+}: {
+  img: string | StaticImageData;
+  title: string;
+  description: string;
+}) => {
+  return (
+    <Stack
+      justifyContent={{ xs: "center", md: "left" }}
+      alignContent={{ xs: "center" }}
+      alignItems={{ xs: "center", md: "left" }}
+      p={{ xs: 2, md: 5, lg: 0 }}
+      spacing={1}
+      width={"45vw"}
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+    >
+      <Box
+        sx={{
+          position: "relative",
+          width: { xs: "75vw", md: "45vw" },
+          height: { xs: "30vh", sm: "36vh", xl: "48vh" },
+        }}
+      >
+        <Image
+          alt="news"
+          src={img}
+          fill
+          style={{ borderRadius: 25 }}
+        />
+      </Box>
+      <Stack
+        spacing={2}
+        width={{ xs: "75vw", md: "45vw" }}
+      >
+        <Typography
+          variant="h5"
+          color="#242424"
+          fontSize={{ lg: "24px", md: "24px", sm: "20px", xs: "18px" }}
+          textAlign={{ xs: "center", md: "left" }}
+        >
+          {title}
+        </Typography>
+        <Typography
+          variant="h6"
+          color="#7B7B7B"
+          fontSize={{ lg: "20px", md: "20px", sm: "18px", xs: "16px" }}
+          textAlign={{ xs: "center", md: "left" }}
+        >
+          {description}
+        </Typography>
+      </Stack>
+    </Stack>
   );
 };

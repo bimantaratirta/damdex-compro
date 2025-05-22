@@ -17,55 +17,77 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           backgroundSize: "cover",
         }}
       />
-      <Box sx={{ p: 10 }}>
+      <Box sx={{ p: 5 }}>
         <Typography
-          variant="h1"
           textAlign={"center"}
-          mb={10}
+          mb={5}
           fontWeight={800}
-          sx={{ typography: { lg: "h1", md: "h3" } }}
+          fontSize={{ lg: "60px", md: "50px", xs: "40px" }}
         >
           ACE JABAR
         </Typography>
-        <Box sx={{ width: "60vw", mx: "auto", mb: 10 }}>
+        <Box sx={{ mb: 3, px: { xl: 20, md: 10, xs: 5 } }}>
           <Stack
             direction={"row"}
             spacing={5}
+            justifyContent={"start"}
           >
-            <Typography sx={{ typography: { lg: "h4", md: "h5" } }}>Tempat</Typography>
-            <Typography sx={{ typography: { lg: "h4", md: "h5" }, pl: { lg: 10.9, md: 12.9 } }}>:</Typography>
-            <Typography sx={{ typography: { lg: "h4", md: "h5" } }}>Bandung Convention Centre</Typography>
-          </Stack>
-          <Stack
-            direction={"row"}
-            spacing={5}
-          >
-            <Typography sx={{ typography: { lg: "h4", md: "h5" } }}>Hari</Typography>
             <Typography
-              sx={{ typography: { lg: "h4", md: "h5" } }}
-              pl={17.6}
+              width={"25vw"}
+              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
             >
-              :
+              Tempat
             </Typography>
-            <Typography sx={{ typography: { lg: "h4", md: "h5" } }}>Sabtu 1 Juni 2024</Typography>
+            <Typography fontSize={{ xs: "10px", md: "16px", lg: "20px" }}>:</Typography>
+            <Typography
+              width={"30vw"}
+              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+            >
+              Bandung Convention Centre
+            </Typography>
           </Stack>
           <Stack
             direction={"row"}
             spacing={5}
+            justifyContent={"start"}
           >
-            <Typography sx={{ width: { xl: "15vw", lg: "41vw", md: "37vw" }, typography: { lg: "h4", md: "h5" } }}>
+            <Typography
+              width={"25vw"}
+              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+            >
+              Hari
+            </Typography>
+            <Typography fontSize={{ xs: "10px", md: "16px", lg: "20px" }}>:</Typography>
+            <Typography
+              width={"30vw"}
+              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+            >
+              Sabtu 1 Juni 2024
+            </Typography>
+          </Stack>
+          <Stack
+            direction={"row"}
+            spacing={5}
+            justifyContent={"start"}
+          >
+            <Typography
+              width={"25vw"}
+              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+            >
               Tema Acara
             </Typography>
-            <Typography sx={{ typography: { lg: "h4", md: "h5" } }}>:</Typography>
-            <Typography sx={{ typography: { lg: "h4", md: "h5" } }}>
+            <Typography fontSize={{ xs: "10px", md: "16px", lg: "20px" }}>:</Typography>
+            <Typography
+              width={"30vw"}
+              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+            >
               Seminar & Gathering 2024 Asosiasi Chief Engineering Jawa Barat (ACE JABAR)
             </Typography>
           </Stack>
         </Box>
         <Typography
-          width={"80vw"}
-          mx={"auto"}
-          sx={{ typography: { lg: "h4", md: "h5" } }}
+          fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+          textAlign={"justify"}
         >
           Di dalam rangka memperluas jaringan networking, Damdex Indonesia juga menjalin Kerjasama dengan Asosiasi
           Chieft Engineering (ACE). ACE sendiri adalah satu wadah bagi para Chief Engineering, Building Management yang

@@ -9,26 +9,32 @@ import Image from "next/image";
 
 export const SecondSection = () => {
   return (
-    <Box sx={{ height: { xs: "95vh", sm: "92vh", md: "95vh", lg: "90vh" } }}>
+    <Box sx={{ minHeight: { xs: "146vh", sm: "92vh", md: "100vh" } }}>
       <Stack
         alignItems={"center"}
         justifyContent={"center"}
-        direction={"row"}
+        direction={"column"}
         mt={"1vh"}
         mb="1vh"
         data-aos="fade-up"
         data-aos-easing="ease-in-out"
       >
-        <Image
-          alt="logo"
-          src={logo}
-          height={100}
-        />
-        <Typography
-          variant="h5"
-          sx={{ fontSize: { xs: "18px", sm: "24px" } }}
+        <Box
+          position={"relative"}
+          sx={{ width: { xs: "50vw", md: "30vw", lg: "25vw" }, height: { xs: "15vh", md: "18vh" } }}
         >
-          One Product, All Solution
+          <Image
+            alt="logo"
+            src={logo}
+            fill
+          />
+        </Box>
+        <Typography
+          fontWeight={800}
+          sx={{ fontSize: { xs: "clamp(16px, 8vw, 20px)", md: "clamp(24px, 8vvw, 34px)" } }}
+          textAlign={"center"}
+        >
+          Cepat Menutup Kebocoran dan Memperkuat Beton
         </Typography>
       </Stack>
       <Stack
@@ -38,7 +44,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "20vh", md: "38vh" },
+            height: { xs: "30vh", md: "38vh" },
             backgroundImage: `url(${img1.src})`,
             backgroundSize: "cover",
             display: "block",
@@ -63,7 +69,7 @@ export const SecondSection = () => {
               variant="h4"
               fontWeight={800}
               width={"15vw"}
-              sx={{ fontSize: { xs: "16px", lg: "28px" } }}
+              sx={{ fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
             >
               STRONGER CONCRETE
             </Typography>
@@ -78,7 +84,7 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "8px", sm: "12px", lg: "14px" } }}
+              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
             >
               Hanya membutuhkan 2% dari berat semen, mampu meningkatkan mutu beton hingga 35%
             </Typography>
@@ -87,7 +93,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "20vh", md: "38vh" },
+            height: { xs: "30vh", md: "38vh" },
             background: `url(${img2.src})`,
             backgroundSize: "cover",
             filter: { md: "grayscale(100%)" },
@@ -105,13 +111,13 @@ export const SecondSection = () => {
             mr="3vw"
             mt="2vw"
             alignItems={"end"}
-            sx={{ mr: { xs: "8vw", sm: "7vw", md: "3vw" } }}
+            sx={{ mr: { xs: "3vw", sm: "7vw", md: "3vw" } }}
           >
             <Typography
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ width: { xs: "50vw", md: "30vw", lg: "14vw" }, fontSize: { xs: "16px", lg: "28px" } }}
+              sx={{ width: { xs: "50vw", md: "30vw", lg: "14vw" }, fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
               textAlign={"end"}
             >
               PENETRATE & ADHESIVE
@@ -128,7 +134,7 @@ export const SecondSection = () => {
               textAlign={"end"}
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "14px" } }}
+              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
             >
               Memiliki tingkat keenceran yang tinggi, maka mudah meresap dan meningkat ke pori - pori beton
             </Typography>
@@ -139,7 +145,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "20vh", md: "38vh" },
+            height: { xs: "30vh", md: "38vh" },
             background: `url(${img3.src})`,
             backgroundSize: "cover",
             filter: { md: "grayscale(100%)" },
@@ -161,7 +167,7 @@ export const SecondSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ fontSize: { xs: "16px", lg: "28px" }, width: { xs: "60vw", md: "40vw", lg: "14vw" } }}
+              sx={{ fontSize: { xs: "14px", sm: "20px", lg: "28px" }, width: { xs: "60vw", md: "40vw", lg: "14vw" } }}
             >
               STOP LEAKS INSTANLY
             </Typography>
@@ -176,7 +182,7 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", xl: "16px" } }}
+              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
             >
               Dengan formula campuran Damdex 3:1 dapat menyumbat kebocoran air mengalir, sederas apapun secara instant.
             </Typography>
@@ -185,7 +191,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "20vh", md: "38vh" },
+            height: { xs: "30vh", md: "38vh" },
             background: `url(${img4.src})`,
             backgroundSize: "cover",
             filter: { md: "grayscale(100%)" },
@@ -202,13 +208,13 @@ export const SecondSection = () => {
             mr="3vw"
             mt="2vw"
             alignItems={"end"}
-            sx={{ mr: { xs: "8vw", sm: "7vw", md: "3vw" } }}
+            sx={{ mr: { xs: "3vw", sm: "7vw", md: "3vw" } }}
           >
             <Typography
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "16px", lg: "28px" } }}
+              sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
               textAlign={"end"}
             >
               UNDERWATER CERAMICS INSTALLATION
@@ -222,7 +228,7 @@ export const SecondSection = () => {
               }}
             />
             <Typography
-              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "10px", sm: "12px", lg: "14px" } }}
+              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
               color="#fff"
               fontWeight={400}
               textAlign={"end"}
