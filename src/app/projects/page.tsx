@@ -27,7 +27,7 @@ const Page = () => {
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: "40vh",
+          height: { md: "40vh", xs: "30vh" },
           background: `linear-gradient(180.53deg, rgba(87, 47, 117, 0) 22.87%, rgba(255, 230, 86, 0) 119.83%), url(${img.src})`,
           backgroundSize: "cover",
         }}
@@ -37,7 +37,7 @@ const Page = () => {
           justifyItems={"center"}
           direction={"column"}
           spacing={4}
-          sx={{ pt: { xs: "10vh", md: "15vh", lg: "20vh" } }}
+          sx={{ pt: { xs: "15vh", lg: "20vh" } }}
         >
           <Typography
             variant="h2"
@@ -78,8 +78,8 @@ const Page = () => {
                     <Box
                       sx={{
                         position: "relative",
-                        width: { xl: "45vw", lg: "40vw", md: "40vw" },
-                        height: { xl: "45vh", lg: "30vh", md: "25vh" },
+                        width: { xl: "45vw", lg: "40vw", md: "40vw", xs: "80vw" },
+                        height: { xl: "45vh", lg: "30vh", md: "25vh", xs: "30vh" },
                       }}
                     >
                       <Image
@@ -92,7 +92,7 @@ const Page = () => {
                     <Typography
                       fontSize={{ lg: "20px", md: "16px" }}
                       fontWeight={800}
-                      width={{ xl: "45vw", md: "42vw" }}
+                      width={{ xl: "45vw", md: "42vw", xs: "80vw" }}
                       textOverflow={"clip"}
                     >
                       {d.name}
@@ -104,7 +104,7 @@ const Page = () => {
         </Grid2>
 
         <Pagination
-          count={10}
+          count={5}
           shape="rounded"
           size={"medium"}
           sx={{ display: "flex", justifyContent: "center", alignItems: "center", pt: 5 }}
