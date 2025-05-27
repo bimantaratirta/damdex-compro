@@ -26,7 +26,7 @@ const Page = () => {
     { title: string; description: string; image: string | StaticImageData } | undefined
   >(undefined);
   const theme = useTheme();
-  const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
+  const desktop = useMediaQuery(theme.breakpoints.up("md"));
   const router = useRouter();
 
   const { language } = useLanguage();
@@ -248,12 +248,12 @@ const Page = () => {
         </Box>
       </Box>
 
-      <Box sx={{ width: { xl: "100vw" }, height: { xl: "65vh", xs: "30vh" }, position: "relative" }}>
+      <Box sx={{ width: { lg: "100vw" }, height: { lg: "65vh", xs: "30vh" }, position: "relative" }}>
         <Image
           alt="image1"
           src={sizeImg}
           fill
-          style={{ objectFit: desktopxl ? "cover" : "contain" }}
+          style={{ objectFit: desktop ? "cover" : "contain" }}
         />
       </Box>
       <SixthSection noBackground />
