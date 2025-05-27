@@ -1,12 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React from "react";
 import { AppLayout } from "@/components/appLayout";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import img from "@/../public/project.png";
+import { useLanguage } from "@/components/localStorageProvider";
+import { useNewsDetail } from "@/swr-hooks/news/useNewsDetail";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = React.use(params);
+  const { language } = useLanguage();
+  const { data, loading } = useNewsDetail(Number(id));
+
   return (
     <AppLayout>
       <Box sx={{ p: 12 }}>

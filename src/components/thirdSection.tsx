@@ -1,16 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import image1 from "../../public/section3a.png";
 import image2 from "../../public/section3b.png";
 import logowarna from "../../public/Damdex Warna Logo-01.png";
 import background from "../../public/bg3.png";
+import { useLanguage } from "./localStorageProvider";
+import { useHome } from "@/swr-hooks/home/useHome";
 
 export const ThirdSection = () => {
+  const { language } = useLanguage();
+  const { data } = useHome({ lang: language, section: 1 });
   return (
     <Box
       sx={{
         width: "100vw",
-        height: { xs: "111vh", sm: "111vh", md: "157vh", lg: "187.3vh" },
+        height: { xs: "111vh", sm: "111vh", md: "157vh", lg: "190vh" },
         position: "relative",
         pt: { md: 2 },
         background: `url(${background.src})`,
@@ -29,7 +34,7 @@ export const ThirdSection = () => {
       >
         <Box
           position={"relative"}
-          sx={{ width: { xs: "50vw", md: "30vw", lg: "25vw" }, height: { xs: "15vh", md: "18vh" } }}
+          sx={{ width: { xs: "50vw", md: "30vw", lg: "25vw" }, height: { xs: "15vh", lg: "20vh" } }}
         >
           <Image
             src={logowarna}
@@ -143,33 +148,23 @@ export const ThirdSection = () => {
             width: "58vw",
             mx: "auto",
             position: "absolute",
-            top: { xs: "64vh", sm: "60vh", md: "85vh", lg: "88vh" },
+            top: { xs: "64vh", sm: "60vh", md: "85vh", lg: "100vh" },
             left: "23vw",
             zIndex: 5,
           }}
-          // data-aos="fade-up"
-          // data-aos-easing="ease-in-out"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
         >
           <Stack alignItems={"center"}>
             <Typography
               variant="h3"
               fontWeight={800}
               color="#FFF"
-              width={"80vw"}
+              width={{ xl: "60vw", sm: "80vw", xs: "60vw" }}
               textAlign={"center"}
-              sx={{ fontSize: { xs: "14px", sm: "29px", md: "40px", lg: "48px" } }}
+              sx={{ fontSize: { xs: "18px", sm: "29px", md: "40px", lg: "48px", xl: "60px" } }}
             >
-              CONFIDENCE IN EVERY DROP
-            </Typography>
-            <Typography
-              variant="h1"
-              fontWeight={800}
-              color="#FFF"
-              width={"80vw"}
-              textAlign={"center"}
-              sx={{ fontSize: { xs: "20px", sm: "45px", md: "56px", lg: "84px" } }}
-            >
-              WATERPROOF
+              CONFIDENCE IN EVERY DROP WATERPROOF
             </Typography>
           </Stack>
         </Box>
@@ -180,11 +175,11 @@ export const ThirdSection = () => {
             backgroundColor: "#37B878",
             alignSelf: "center",
             position: "absolute",
-            top: { xs: "65vh", sm: "61vh", md: "88vh", lg: "92vh", xl: "90vh" },
+            top: { xs: "65vh", sm: "61vh", md: "86vh", lg: "103vh" },
             left: "29.3vw",
           }}
-          // data-aos="fade-up"
-          // data-aos-easing="ease-in-out"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
         />
       </div>
     </Box>

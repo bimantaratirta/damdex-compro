@@ -15,6 +15,8 @@ import { AdvantageDialog } from "@/components/dialog";
 import { FilledButton } from "@/components/button";
 import { useRouter } from "next/navigation";
 import imgcarousel from "@/../public/section3a.png";
+import { useLanguage } from "@/components/localStorageProvider";
+import { useProduct } from "@/swr-hooks/product/useProduct";
 
 const Page = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
@@ -26,6 +28,9 @@ const Page = () => {
   const theme = useTheme();
   const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
   const router = useRouter();
+
+  const { language } = useLanguage();
+  const { data } = useProduct();
 
   useEffect(() => {
     if (emblaApi) {

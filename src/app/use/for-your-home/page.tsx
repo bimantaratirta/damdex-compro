@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React from "react";
-import { Box, Stack, Typography, ToggleButton, Divider, Grid2 } from "@mui/material";
+import { Box, Stack, Typography, ToggleButton, Divider, Grid2, useMediaQuery } from "@mui/material";
 import { AppLayout } from "@/components/appLayout";
 import img1 from "@/../public/damdexforhome.png";
 import img2 from "@/../public/damdexforpro.png";
@@ -12,11 +13,23 @@ import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { FilledButton } from "@/components/button";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "@/components/localStorageProvider";
+import { useUsage } from "@/swr-hooks/usage/useUsage";
+import { useUsageCompositionDetail } from "@/swr-hooks/usageComposition/useUsageCompositionDetail";
+import { useUsageForDetail } from "@/swr-hooks/usageFor/useUsageForDetail";
 
 const Page = () => {
   const router = useRouter();
   const [composition, setComposition] = React.useState<string>("");
+  const [compositionId, setCompositionId] = React.useState<number>(0);
+  const [usageForId, setUsageForId] = React.useState<number>(0);
   const [usage, setUsage] = React.useState<string>("");
+  const { language } = useLanguage();
+  const { data, loading } = useUsage();
+  const { data: compositionDatas, loading: compositionLoading } = useUsageCompositionDetail(compositionId);
+  const { data: usageData, loading: usageDataLoading } = useUsageForDetail(usageForId);
+  const isTall = useMediaQuery("(min-height: 1200px)");
+
   const compositionData = [
     {
       value: "Thin Mix",
@@ -100,7 +113,7 @@ const Page = () => {
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: "50vh",
+          height: isTall ? "30vh" : { xs: "30vh", lg: "50vh" },
           background: `linear-gradient(180.53deg, rgba(87, 47, 117, 0.8) 22.87%, rgba(255, 230, 86, 0.5) 119.83%), url(${img1.src})`,
           backgroundSize: "cover",
         }}
@@ -110,7 +123,11 @@ const Page = () => {
           justifyItems={"center"}
           direction={"column"}
           spacing={4}
-          sx={{ pt: { xs: "20vh", md: "10vh", sm: "23vh" } }}
+          sx={{
+            pt: isTall
+              ? { xs: "20vh", sm: "23vh", md: "15vh", xl: "25vh" }
+              : { xs: "13vh", md: "15vh", lg: "20vh", xl: "25vh" },
+          }}
         >
           <Typography
             variant="h2"
@@ -118,7 +135,7 @@ const Page = () => {
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
             width={"65vw"}
-            sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}
+            sx={{ fontSize: { xs: "35px", sm: "45px", lg: "60px" } }}
           >
             Damdex For Your Home
           </Typography>
@@ -150,6 +167,7 @@ const Page = () => {
                   value={d.value}
                   onChange={() => {
                     setComposition(d.value);
+                    setCompositionId(i);
                     setUsage("");
                   }}
                   img={d.img}
@@ -179,7 +197,10 @@ const Page = () => {
                     <UsageForButton
                       selected={usage}
                       value={d.value}
-                      onChange={() => setUsage(d.value)}
+                      onChange={() => {
+                        setUsage(d.value);
+                        setUsageForId(i);
+                      }}
                     />
                   </Grid2>
                 ))}
@@ -239,9 +260,10 @@ const Page = () => {
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: { sm: "45vh", xs: "30vh" },
+          height: isTall ? { sm: "30vh", xs: "35vh" } : { lg: "45vh", xs: "35vh" },
           background: `linear-gradient(180.53deg, rgba(245, 5, 3, 0.65) 22.87%, rgba(255, 230, 86, 0.65) 119.83%), url(${img2.src})`,
           backgroundSize: "cover",
+          p: 2,
         }}
       >
         <Stack
@@ -249,7 +271,9 @@ const Page = () => {
           justifyItems={"center"}
           direction={"row"}
           spacing={{ sm: 4, xs: 2 }}
-          sx={{ pt: { xs: "10vh", sm: "18vh" } }}
+          sx={{
+            pt: isTall ? { xs: "10vh", sm: "18vh", md: "10vh" } : { xs: "10vh", sm: "12vh", lg: "16vh" },
+          }}
         >
           <Typography
             variant="h2"
@@ -257,7 +281,7 @@ const Page = () => {
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
             width={"65vw"}
-            sx={{ fontSize: { xs: "35px", md: "45px", lg: "60px" } }}
+            sx={{ fontSize: { xs: "35px", md: "40px", lg: "50px", xl: "60px" } }}
           >
             Damdex For Professional
           </Typography>

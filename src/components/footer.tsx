@@ -75,8 +75,8 @@ export const Footer = () => {
         </Stack>
         <Typography
           color="#FFF"
-          fontSize={{ lg: "24px", md: "16px", sm: "12px", xs: "10px" }}
-          width={{ md: "20vw", xs: "25vw" }}
+          fontSize={{ lg: "20px", md: "16px", sm: "12px", xs: "10px" }}
+          width={{ xs: "25vw" }}
         >
           Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join the
           conversation on our social media for insights, tips, and expert advice!

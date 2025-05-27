@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { AppLayout } from "@/components/appLayout";
 import { Box, List, ListItem, Stack, Typography } from "@mui/material";
@@ -5,19 +6,23 @@ import Image from "next/image";
 import { use } from "react";
 import img1 from "@/../public/deskripsiprojek1.png";
 import img2 from "@/../public/deskripsiprojek2.png";
+import { useLanguage } from "@/components/localStorageProvider";
+import { useProjectDetail } from "@/swr-hooks/project/useProjectDetail";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { id } = use(params);
+  const { language } = useLanguage();
+  const { data, loading } = useProjectDetail(Number(id));
+
   return (
     <AppLayout>
-      <Box sx={{ p: 10 }}>
+      <Box sx={{ p: { lg: 10, xs: 5 } }}>
         <Typography
           fontWeight={800}
           textAlign={"center"}
-          mb={10}
+          mb={5}
           variant="h3"
-          mt={5}
+          mt={{ xs: 5, md: 8, lg: 5 }}
         >
           Bukit Golf Riverside Lagoon
         </Typography>
@@ -51,7 +56,13 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           width={{ md: "80vw", xs: "auto" }}
           spacing={5}
         >
-          <Box sx={{ width: { md: "50vw", xs: "auto" }, height: { xs: "50vh" }, position: "relative" }}>
+          <Box
+            sx={{
+              width: { lg: "50vw", md: "75vw", xs: "auto" },
+              height: { xs: "40vh", sm: "50vh" },
+              position: "relative",
+            }}
+          >
             <Image
               alt="image1"
               src={img2}
@@ -60,7 +71,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               style={{ borderRadius: "25px" }}
             />
           </Box>
-          <List sx={{ listStyle: "disc", fontSize: "20px", width: "40vw" }}>
+          <List sx={{ listStyle: "disc", fontSize: "20px", width: { md: "40vw", xs: "80vw" } }}>
             <ListItem sx={{ display: "list-item" }}>
               <Stack
                 direction={{ xs: "column", md: "row" }}
@@ -115,7 +126,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
                   <ListItem sx={{ display: "list-item" }}>
                     <Typography
                       alignContent={"center"}
-                      fontSize={"25px"}
+                      fontSize={"20px"}
                     >
                       Dak Utama
                     </Typography>
@@ -123,7 +134,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
                   <ListItem sx={{ display: "list-item" }}>
                     <Typography
                       alignContent={"center"}
-                      fontSize={"25px"}
+                      fontSize={"20px"}
                     >
                       Dak Rooftop 4
                     </Typography>
@@ -131,7 +142,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
                   <ListItem sx={{ display: "list-item" }}>
                     <Typography
                       alignContent={"center"}
-                      fontSize={"25px"}
+                      fontSize={"20px"}
                     >
                       Dak Lift
                     </Typography>

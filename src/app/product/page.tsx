@@ -9,10 +9,11 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const PopupPoint = ({ top, right, children }: { top: string; right: string; children: React.ReactNode }) => {
+  const isTall = useMediaQuery("(min-height: 1200px)");
   return (
     <Box
       sx={{
-        height: { xl: "8vh", md: "3vh", sm: "3vh", xs: "3.2vh" },
+        height: isTall ? "3vh" : { xl: "8vh", lg: "8vh", md: "3.5vh", sm: "3vh", xs: "3.2vh" },
         width: { xl: "15vw", md: "15vw", sm: "15vw", xs: "15.5vw" },
         zIndex: 2,
         borderRadius: { md: "5px", xs: "5px" },
@@ -22,9 +23,9 @@ const PopupPoint = ({ top, right, children }: { top: string; right: string; chil
         right: right,
         border: { xs: "1px solid black" },
       }}
-      // data-aos="fade-up"
-      // data-aos-easing="ease-in-out"
-      // data-aos-anchor-placement="top-bottom"
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-anchor-placement="top-bottom"
     >
       {children}
     </Box>
@@ -33,10 +34,12 @@ const PopupPoint = ({ top, right, children }: { top: string; right: string; chil
 
 const Page = () => {
   const theme = useTheme();
-  const tab = useMediaQuery(theme.breakpoints.down("lg") && theme.breakpoints.up("md"));
-  const phonexs = useMediaQuery(theme.breakpoints.down("sm") && theme.breakpoints.up("xs"));
-  const phonesm = useMediaQuery(theme.breakpoints.down("md") && theme.breakpoints.up("sm"));
+  const tab = useMediaQuery(theme.breakpoints.down("lg"));
+  const phonexs = useMediaQuery(theme.breakpoints.down("sm"));
+  const phonesm = useMediaQuery(theme.breakpoints.down("md"));
   const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
+  const desktop = useMediaQuery(theme.breakpoints.down("xl"));
+  const isTall = useMediaQuery("(min-height: 1200px)");
   const router = useRouter();
   return (
     <AppLayout>
@@ -48,7 +51,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "50vh", xl: "80vh" },
+              height: isTall ? "50vh" : { xs: "40vh", sm: "50vh", lg: "100vh" },
               position: "relative",
             }}
           >
@@ -61,7 +64,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "50vh", xl: "120vh" },
+              height: isTall ? "50vh" : { xs: "50vh", lg: "100vh", xl: "120vh" },
               position: "relative",
             }}
           >
@@ -73,10 +76,9 @@ const Page = () => {
                 alt="image2"
                 src={product2}
                 fill
-                style={{ zIndex: 1 }}
               />
               <PopupPoint
-                top={desktopxl ? "65vh" : phonesm || phonexs ? "27.2vh" : "55%"}
+                top={desktopxl ? "65vh" : tab ? "27vh" : phonesm || phonexs ? "27.2vh" : "54.8%"}
                 right={phonesm ? "18.5vw" : phonexs ? "18.4vw" : "18.5%"}
               >
                 <Stack
@@ -106,7 +108,7 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={desktopxl ? "54vh" : phonesm ? "22.5vh" : phonexs ? "44.5%" : tab ? "22.5vh" : "44.5%"}
+                top={desktopxl ? "54vh" : tab ? "22.5vh" : phonesm ? "22.5vh" : phonexs ? "44.5%" : "45%"}
                 right={phonexs ? "17vw" : "17%"}
               >
                 <Typography
@@ -123,8 +125,8 @@ const Page = () => {
                 </Typography>
               </PopupPoint>
               <PopupPoint
-                top={desktopxl ? "43vh" : phonexs ? "18vh" : tab ? "32%" : "33.75%"}
-                right={phonexs ? "19vw" : tab ? "18%" : "19%"}
+                top={isTall && desktop ? "18vh" : desktopxl ? "43vh" : tab ? "35.5%" : phonexs ? "18vh" : "33.75%"}
+                right={phonexs ? "19vw" : "19%"}
               >
                 <Stack
                   spacing={{ xs: 0.2 }}
@@ -153,7 +155,7 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={desktopxl ? "42vh" : phonexs ? "17.8vh" : tab ? "32%" : "33.75%"}
+                top={isTall && desktop ? "36%" : desktopxl ? "42vh" : tab ? "35%" : phonexs ? "17.8vh" : "35.75%"}
                 right={phonexs ? "64.5vw" : "64.6%"}
               >
                 <Stack
@@ -183,8 +185,8 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={desktopxl ? "65vh" : phonexs ? "27vh" : tab ? "54%" : "55%"}
-                right={phonesm ? "67vw" : phonexs ? "66.5vw" : tab ? "66%" : "66.8%"}
+                top={desktopxl ? "65vh" : tab ? "54%" : phonexs ? "27vh" : "54%"}
+                right={phonesm ? "67vw" : tab ? "67%" : phonexs ? "66.5vw" : "66.8%"}
               >
                 <Stack
                   spacing={{ xs: 0.2 }}
@@ -213,8 +215,8 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={desktopxl ? "54vh" : phonexs ? "22.3vh" : tab ? "43%" : "44.2%"}
-                right={phonesm ? "68.5vw" : phonexs ? "68vw" : tab ? "67.5%" : "68.5%"}
+                top={desktopxl ? "54vh" : phonexs ? "22.3vh" : tab ? "44.5%" : "44.5%"}
+                right={phonesm ? "68.5vw" : phonexs ? "68vw" : tab ? "68.5%" : "68.5%"}
               >
                 <Typography
                   color="#FFF"
@@ -234,7 +236,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: { xs: "50vh", xl: "90vh" },
+              height: isTall ? "50vh" : tab ? "50vh" : phonexs ? "40vh" : "100vh",
             }}
           >
             <div
@@ -248,7 +250,7 @@ const Page = () => {
                 preload="none"
                 style={{
                   width: "100vw",
-                  height: desktopxl ? "90vh" : phonexs || phonesm ? "50vh" : "100vh",
+                  height: isTall ? "50vh" : tab ? "50vh" : phonexs ? "40vh" : "100vh",
                   objectFit: "cover",
                 }}
               >
