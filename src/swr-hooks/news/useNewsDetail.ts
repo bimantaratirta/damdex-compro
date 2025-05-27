@@ -9,7 +9,7 @@ export const useNewsDetail = (id: number) => {
   const loading = !data && !error;
 
   return {
-    audio: data,
+    data,
     loading,
     error,
     mutate,

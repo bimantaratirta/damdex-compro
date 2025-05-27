@@ -1,15 +1,24 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { AppLayout } from "@/components/appLayout";
-import { Box, Grid2, Pagination, Stack, Typography } from "@mui/material";
+import { Box, Grid2, Pagination, Stack, Typography, useMediaQuery } from "@mui/material";
 import background from "@/../public/bguse.png";
 import img1 from "@/../public/event1.png";
 import img2 from "@/../public/event2.png";
 import img3 from "@/../public/event3.png";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
+import { usePaginationData } from "@/lib/usePaginationData";
+import { useLanguage } from "@/components/localStorageProvider";
 
 const Page = () => {
   const router = useRouter();
+  const isTall = useMediaQuery("(min-height: 1200px)");
+  const { pagination, handlePaginationModelChange } = usePaginationData({ pageIndex: 1, pageSize: 9 });
+  const { language } = useLanguage();
+  const { data: events, loading } = useEvent({ limit: pagination.pageSize, page: pagination.pageIndex });
+
   const data = [
     { img: img1, name: "ACE JABAR" },
     { img: img2, name: "Event 2" },
@@ -34,7 +43,9 @@ const Page = () => {
             bottom: 0,
             left: 0,
             right: 0,
-            height: { xl: "200vh", md: "150vh", sm: "200vh", xs: "350vh" },
+            height: isTall
+              ? { xl: "200vh", md: "150vh", sm: "200vh", xs: "350vh" }
+              : { xl: "200vh", lg: "250vh", md: "150vh", sm: "200vh", xs: "350vh" },
             backgroundSize: "cover",
             zIndex: -1,
             opacity: 0.2,
@@ -43,7 +54,7 @@ const Page = () => {
       >
         <Typography
           textAlign={"center"}
-          mt={{ lg: 5, md: 0, xs: 5 }}
+          mt={{ lg: 5, md: 3, xs: 5 }}
           fontWeight={800}
           width={"30vw"}
           mx={"auto"}
@@ -71,7 +82,9 @@ const Page = () => {
                     sx={{
                       position: "relative",
                       width: { lg: "25vw", md: "25vw", sm: "30vw", xs: "50vw" },
-                      height: { xl: "25vh", md: "15vh", sm: "15vh", xs: "20vh" },
+                      height: isTall
+                        ? { xl: "25vh", lg: "12vh", md: "10vh", sm: "15vh", xs: "20vh" }
+                        : { xl: "25vh", lg: "28vh", sm: "12vh", xs: "20vh" },
                     }}
                   >
                     <Image
@@ -97,7 +110,9 @@ const Page = () => {
         <Pagination
           count={5}
           shape="rounded"
-          size="small"
+          size="medium"
+          page={pagination.pageIndex}
+          onChange={(_, val) => handlePaginationModelChange({ pageIndex: val, pageSize: pagination.pageSize })}
           sx={{ display: "flex", justifyContent: "center", alignItems: "center", pt: 5 }}
         />
       </Box>

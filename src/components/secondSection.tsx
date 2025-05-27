@@ -6,8 +6,12 @@ import img4 from "../../public/fungsi4.png";
 import img1gif from "../../public/fungsi1gif.gif";
 import logo from "../../public/Damdex Multifungsi Logo.png";
 import Image from "next/image";
+import { useLanguage } from "./localStorageProvider";
+import { useHome } from "@/swr-hooks/home/useHome";
 
 export const SecondSection = () => {
+  const { language } = useLanguage();
+  const { data } = useHome({ lang: language, section: 1 });
   return (
     <Box sx={{ minHeight: { xs: "146vh", sm: "92vh", md: "100vh" } }}>
       <Stack

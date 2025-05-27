@@ -18,6 +18,7 @@ import Image from "next/image";
 import logo from "../../public/damdexlogo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "./localStorageProvider";
 
 export const TopBar = () => {
   const drawerItems = [
@@ -39,7 +40,7 @@ export const TopBar = () => {
 
   const drawerWidth = 240;
 
-  const settings = localStorage.getItem("languageSettings");
+  const { language } = useLanguage();
 
   return (
     <Box
@@ -156,7 +157,7 @@ export const TopBar = () => {
             >
               <Link
                 underline="hover"
-                color={settings === "id" ? "#FFF" : "#4D4D4D"}
+                color={language === "id" ? "#FFF" : "#4D4D4D"}
                 component={"button"}
                 onClick={(e) => {
                   e.preventDefault();
@@ -169,11 +170,11 @@ export const TopBar = () => {
               <Typography color="#FFF">/</Typography>
               <Link
                 underline="hover"
-                color={settings === "en" ? "#FFF" : "#4D4D4D"}
+                color={language === "eng" ? "#FFF" : "#4D4D4D"}
                 component={"button"}
                 onClick={(e) => {
                   e.preventDefault();
-                  localStorage.setItem("languageSettings", "en");
+                  localStorage.setItem("languageSettings", "eng");
                   window.location.reload();
                 }}
               >

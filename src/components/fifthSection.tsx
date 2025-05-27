@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import gallery1 from "../../public/gallery 1.png";
@@ -6,13 +7,23 @@ import gallery3 from "../../public/gallery 3.png";
 import gallery4 from "../../public/gallery 4.png";
 import gallery5 from "../../public/gallery 5.png";
 import gallery6 from "../../public/gallery 6.png";
+import { useLanguage } from "./localStorageProvider";
+import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
 
 export const FiftSection = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { language } = useLanguage();
+  const { data, loading } = useEvent({ page: 1, limit: mobile ? 3 : 6 });
+  const isTall = useMediaQuery("(min-height: 1200px)");
 
   return (
-    <Box sx={{ width: "100vw", height: { xs: "70vh", md: "120vh" } }}>
+    <Box
+      sx={{
+        width: "100vw",
+        height: isTall ? { xs: "70vh", md: "60vh" } : { xs: "70vh", md: "110vh", lg: "120vh", xl: "110vh" },
+      }}
+    >
       <Stack
         direction={"row"}
         alignItems={"center"}
@@ -95,7 +106,7 @@ export const FiftSection = () => {
               <Image
                 alt="gallery1"
                 src={gallery1}
-                style={{ width: "64.167vw", height: "48.242vh" }}
+                style={{ width: "64.167vw", height: isTall ? "24vh" : "48vh" }}
                 data-aos="fade-right"
                 data-aos-easing="ease-in-out"
               />
@@ -106,14 +117,14 @@ export const FiftSection = () => {
                 <Image
                   alt="gallery2"
                   src={gallery2}
-                  style={{ width: "31.25vw", height: "23.828vh" }}
+                  style={{ width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}
                   data-aos="fade-left"
                   data-aos-easing="ease-in-out"
                 />
                 <Image
                   alt="gallery3"
                   src={gallery3}
-                  style={{ width: "31.25vw", height: "23.828vh" }}
+                  style={{ width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}
                   data-aos="fade-up"
                   data-aos-easing="ease-in-out"
                 />
@@ -130,14 +141,14 @@ export const FiftSection = () => {
                 <Image
                   alt="gallery5"
                   src={gallery5}
-                  style={{ width: "31.25vw", height: "23.828vh" }}
+                  style={{ width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}
                   data-aos="fade-right"
                   data-aos-easing="ease-in-out"
                 />
                 <Image
                   alt="gallery4"
                   src={gallery4}
-                  style={{ width: "31.25vw", height: "23.828vh" }}
+                  style={{ width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}
                   data-aos="fade-right"
                   data-aos-easing="ease-in-out"
                 />
@@ -145,7 +156,7 @@ export const FiftSection = () => {
               <Image
                 alt="gallery6"
                 src={gallery6}
-                style={{ width: "64.167vw", height: "48.242vh" }}
+                style={{ width: "64.167vw", height: isTall ? "24vh" : "48vh" }}
                 data-aos="fade-up"
                 data-aos-easing="ease-in-out"
               />

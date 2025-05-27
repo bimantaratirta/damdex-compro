@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Animation from "./Animation";
-import LocalStorageProvider from "@/components/localStorageProvider";
+import { LocalStorageProvider } from "@/components/localStorageProvider";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 
@@ -28,7 +28,7 @@ export default function RootLayout({
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
-        ></meta>
+        />
       </head>
       <body className={roboto.className}>
         <Animation>

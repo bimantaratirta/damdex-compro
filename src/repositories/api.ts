@@ -26,9 +26,9 @@ export const fetchNews = async (params: PaginationParams): Promise<PaginatedData
   }
 };
 
-export const fetchNewsbyId = async (id: number): Promise<DataResponse<News[]>> => {
+export const fetchNewsbyId = async (id: number): Promise<DataResponse<News>> => {
   try {
-    const res = await damdexPublicAPI.get<DataResponse<News[]>>(`/news/${id}`);
+    const res = await damdexPublicAPI.get<DataResponse<News>>(`/news/${id}`);
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -62,9 +62,9 @@ export const fetchEventGallery = async (params: PaginationParams): Promise<Pagin
   }
 };
 
-export const fetchEventGallerybyId = async (id: number): Promise<DataResponse<EventGallery[]>> => {
+export const fetchEventGallerybyId = async (id: number): Promise<DataResponse<EventGallery>> => {
   try {
-    const res = await damdexPublicAPI.get<DataResponse<EventGallery[]>>(`/gallery-event/${id}`);
+    const res = await damdexPublicAPI.get<DataResponse<EventGallery>>(`/gallery-event/${id}`);
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -86,9 +86,9 @@ export const fetchProduct = async (params: PaginationParams): Promise<PaginatedD
   }
 };
 
-export const fetchProductbyId = async (id: number): Promise<DataResponse<Product[]>> => {
+export const fetchProductbyId = async (id: number): Promise<DataResponse<Product>> => {
   try {
-    const res = await damdexPublicAPI.get<DataResponse<Product[]>>(`/product/${id}`);
+    const res = await damdexPublicAPI.get<DataResponse<Product>>(`/product/${id}`);
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -110,9 +110,9 @@ export const fetchProject = async (params: PaginationParams): Promise<PaginatedD
   }
 };
 
-export const fetchProjectbyId = async (id: number): Promise<DataResponse<Project[]>> => {
+export const fetchProjectbyId = async (id: number): Promise<DataResponse<Project>> => {
   try {
-    const res = await damdexPublicAPI.get<DataResponse<Project[]>>(`/project/${id}`);
+    const res = await damdexPublicAPI.get<DataResponse<Project>>(`/project/${id}`);
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -146,9 +146,9 @@ export const fetchUseNoPagination = async (): Promise<DataResponse<Use[]>> => {
   }
 };
 
-export const fetchUsebyId = async (id: number): Promise<DataResponse<Use[]>> => {
+export const fetchUsebyId = async (id: number): Promise<DataResponse<Use>> => {
   try {
-    const res = await damdexPublicAPI.get<DataResponse<Use[]>>(`/use/${id}`);
+    const res = await damdexPublicAPI.get<DataResponse<Use>>(`/use/${id}`);
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -172,9 +172,9 @@ export const fetchUseCompositionNoPagination = async (): Promise<DataResponse<Us
   }
 };
 
-export const fetchUseCompositionbyId = async (id: number): Promise<DataResponse<UseComposition[]>> => {
+export const fetchUseCompositionbyId = async (id: number): Promise<DataResponse<UseComposition>> => {
   try {
-    const res = await damdexPublicAPI.get<DataResponse<UseComposition[]>>(`/use/use-composition/${id}`);
+    const res = await damdexPublicAPI.get<DataResponse<UseComposition>>(`/use/use-composition/${id}`);
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {

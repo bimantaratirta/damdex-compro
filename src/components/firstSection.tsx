@@ -1,13 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import masdamdex from "../../public/masdamdex.gif";
 import background from "../../public/bg4.png";
 import { useEffect, useState } from "react";
+import { useHome } from "@/swr-hooks/home/useHome";
+import { useLanguage } from "./localStorageProvider";
 
 export const FirstSection = () => {
   const [text, setText] = useState("BETTER");
   const [key, setKey] = useState(0);
+  const { language } = useLanguage();
+  const { data } = useHome({ lang: language, section: 1 });
 
   useEffect(() => {
     const words = ["BETTER", "FASTER", "STRONGER"];
@@ -48,7 +53,7 @@ export const FirstSection = () => {
             <Box
               sx={{
                 position: "relative",
-                minHeight: { xs: "60px", sm: "100px", md: "100px", lg: "80px" },
+                minHeight: { xs: "60px", sm: "100px", md: "100px", lg: "70px" },
                 overflow: "hidden",
                 textAlign: "center",
               }}
@@ -111,7 +116,7 @@ export const FirstSection = () => {
               unoptimized
             />
           </Box>
-          <Stack sx={{ width: { xs: "90%", sm: "80%", md: "70%" } }}>
+          <Stack sx={{ width: { xs: "90%", sm: "80%", md: "70%" }, pb: { lg: 2 } }}>
             <Typography
               variant="h4"
               fontWeight={400}

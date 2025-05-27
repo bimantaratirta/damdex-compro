@@ -1,14 +1,20 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import background from "../../public/bg1.png";
 import Image, { StaticImageData } from "next/image";
 import news1 from "../../public/news1.png";
 import news2 from "../../public/news2.png";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "./localStorageProvider";
+import { useNews } from "@/swr-hooks/news/useNews";
 
 export const FourthSection = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const router = useRouter();
+  const { language } = useLanguage();
+  const { data, loading } = useNews({ limit: 2, page: 1 });
+  const isTall = useMediaQuery("(min-height: 1200px)");
 
   const newsData = [
     {
@@ -41,7 +47,7 @@ export const FourthSection = () => {
         background: `url(${background.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: { xs: "85vh", sm: "82vh", md: "92vh", lg: "95vh" },
+        height: isTall ? { xs: "85vh", sm: "82vh", lg: "106vh" } : { xs: "85vh", sm: "82vh", md: "92vh", lg: "106vh" },
       }}
       data-aos="fade-up"
       data-aos-easing="ease-in-out"
@@ -127,6 +133,7 @@ const NewsContent = ({
   title: string;
   description: string;
 }) => {
+  const isTall = useMediaQuery("(min-height: 1200px)");
   return (
     <Stack
       justifyContent={{ xs: "center", md: "left" }}
@@ -142,7 +149,7 @@ const NewsContent = ({
         sx={{
           position: "relative",
           width: { xs: "75vw", md: "45vw" },
-          height: { xs: "30vh", sm: "36vh", xl: "48vh" },
+          height: isTall ? { xs: "30vh", sm: "36vh", md: "30vh", lg: "48vh" } : { xs: "30vh", sm: "36vh", lg: "48vh" },
         }}
       >
         <Image

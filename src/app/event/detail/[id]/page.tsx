@@ -1,12 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React from "react";
 import { AppLayout } from "@/components/appLayout";
 import { Box, Stack, Typography } from "@mui/material";
 import img from "@/../public/eventdeskripsi.png";
+import { useLanguage } from "@/components/localStorageProvider";
+import { useEventDetail } from "@/swr-hooks/eventGallery/useEventDetail";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { id } = React.use(params);
+  const { language } = useLanguage();
+  const { data, loading } = useEventDetail(Number(id));
+
   return (
     <AppLayout>
       <Box

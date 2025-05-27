@@ -1,14 +1,34 @@
 "use client";
 
 import { Box, CircularProgress, Stack, Typography } from "@mui/material";
-import { useState, useEffect, ReactNode } from "react";
+import { useState, useEffect, ReactNode, createContext, useContext } from "react";
 
 interface LocalStorageProviderProps {
   children: ReactNode;
 }
 
-export default function LocalStorageProvider({ children }: LocalStorageProviderProps) {
+interface LanguageContextType {
+  language: string;
+}
+
+// Buat Context
+const LanguageContext = createContext<LanguageContextType>({
+  language: "id",
+});
+
+// // Fungsi untuk memuat terjemahan
+// const loadTranslations = (locale) => {
+//   try {
+//     return require(`../locales/${locale}.json`);
+//   } catch (error) {
+//     console.error(`Gagal memuat terjemahan untuk locale: ${locale}`);
+//     return require('../locales/en.json'); // Fallback ke bahasa Inggris
+//   }
+// };
+
+export function LocalStorageProvider({ children }: LocalStorageProviderProps) {
   const [isReady, setIsReady] = useState(false);
+  const [language, setLanguage] = useState<string>("");
 
   useEffect(() => {
     const checkAndSetLocalStorage = () => {
@@ -16,7 +36,9 @@ export default function LocalStorageProvider({ children }: LocalStorageProviderP
         const settings = localStorage.getItem("languageSettings");
         if (!settings) {
           localStorage.setItem("languageSettings", "id");
+          setLanguage("id");
         }
+        if (settings) setLanguage(settings);
         setIsReady(true);
       } catch (error) {
         console.error("Error accessing localStorage:", error);
@@ -25,7 +47,7 @@ export default function LocalStorageProvider({ children }: LocalStorageProviderP
     };
 
     checkAndSetLocalStorage();
-  }, []);
+  }, [language]);
 
   if (!isReady) {
     return (
@@ -38,5 +60,13 @@ export default function LocalStorageProvider({ children }: LocalStorageProviderP
     );
   }
 
-  return <>{children}</>;
+  return <LanguageContext.Provider value={{ language }}>{children}</LanguageContext.Provider>;
 }
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage harus digunakan di dalam LanguageProvider");
+  }
+  return context;
+};
