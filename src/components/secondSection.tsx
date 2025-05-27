@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Stack, Typography } from "@mui/material";
 import img1 from "../../public/fungsi1.png";
 import img2 from "../../public/fungsi2.png";
