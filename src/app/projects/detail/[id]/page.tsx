@@ -1,18 +1,26 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { AppLayout } from "@/components/appLayout";
-import { Box, List, ListItem, Stack, Typography } from "@mui/material";
+import { Box, Grid2, List, ListItem, Stack, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { use } from "react";
 import img1 from "@/../public/deskripsiprojek1.png";
 import img2 from "@/../public/deskripsiprojek2.png";
 import { useLanguage } from "@/components/localStorageProvider";
 import { useProjectDetail } from "@/swr-hooks/project/useProjectDetail";
+import { OtherListSection } from "@/components/otherListSection";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = use(params);
   const { language } = useLanguage();
   const { data, loading } = useProjectDetail(Number(id));
+  const isTall = useMediaQuery("(min-height: 1200px)");
+
+  const dummy = [
+    { img: img1, title: "Bukit Golf Riverside Lagoon" },
+    { img: img2, title: "Cluster Da Silva 1" },
+    { img: img2, title: "Cluster Da Silva 2" },
+  ];
 
   return (
     <AppLayout>
@@ -26,7 +34,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
         >
           Bukit Golf Riverside Lagoon
         </Typography>
-        <Box sx={{ height: { xs: "50vh" }, position: "relative", m: "auto" }}>
+        <Box sx={{ height: { xs: "200px", sm: "300px", md: "50vh" }, position: "relative", m: "auto" }}>
           <Image
             alt="image1"
             src={img1}
@@ -53,7 +61,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           mx={"auto"}
           mt={10}
           direction={{ md: "row", xs: "column" }}
-          width={{ md: "80vw", xs: "auto" }}
+          width={{ md: "90vw", xs: "auto" }}
           spacing={5}
         >
           <Box
@@ -152,6 +160,10 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
             </ListItem>
           </List>
         </Stack>
+        <OtherListSection
+          data={dummy}
+          variant="Projects"
+        />
       </Box>
     </AppLayout>
   );

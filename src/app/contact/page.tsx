@@ -1,11 +1,14 @@
 "use client";
 import { AppLayout } from "@/components/appLayout";
-import { Box, Stack, Typography, TextField, Button } from "@mui/material";
+import { Box, Stack, Typography, TextField, Button, useMediaQuery } from "@mui/material";
 import img from "@/../public/contact.png";
 import React from "react";
 import dynamic from "next/dynamic";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
+import { OutlinedButton } from "@/components/button";
+import { useRouter } from "next/navigation";
+import imgToko from "../../../public/toko.jpg";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Nama lengkap harus diisi"),
@@ -15,6 +18,9 @@ const validationSchema = Yup.object({
 });
 
 const Page = () => {
+  const router = useRouter();
+  const isTall = useMediaQuery("(min-height: 1200px)");
+
   const Map = React.useMemo(
     () =>
       dynamic(() => import("@/components/map"), {
@@ -100,13 +106,13 @@ const Page = () => {
             <Typography fontSize={{ md: "24px", xs: "18px" }}>info@damdexindonesia.com</Typography>
           </Stack>
         </Stack>
-        <Box
+        <Stack
           sx={{
-            backgroundColor: "rgba(251, 251, 251, 1)",
-            borderRadius: "25px",
+            p: { xs: 0, md: 3 },
             width: { md: "45vw", xs: "auto" },
-            p: 5,
           }}
+          spacing={2}
+          direction={"column"}
         >
           <Typography>Feel free to let me know if you need any further adjustments</Typography>
           <Formik
@@ -124,7 +130,14 @@ const Page = () => {
           >
             {({ values, handleChange, touched, errors }) => (
               <Form>
-                <Stack spacing={2}>
+                <Stack
+                  spacing={2}
+                  sx={{
+                    backgroundColor: "rgba(251, 251, 251, 1)",
+                    borderRadius: "25px",
+                    p: 5,
+                  }}
+                >
                   <TextField
                     id="name"
                     name="name"
@@ -167,18 +180,50 @@ const Page = () => {
                     multiline
                     rows={5}
                   />
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    sx={{ mt: 3, width: "5vw", backgroundColor: "#000", borderRadius: "25px" }}
+                  >
+                    Send
+                  </Button>
                 </Stack>
-                <Button
-                  variant="contained"
-                  type="submit"
-                  sx={{ mt: 3 }}
-                >
-                  Send
-                </Button>
               </Form>
             )}
           </Formik>
-        </Box>
+          <Box
+            sx={{
+              height: isTall ? { xs: "35vh", md: "40vh", lg: "40vh" } : { xs: "35vh", md: "40vh", lg: "57vh" },
+              background: `linear-gradient(77.88deg, rgba(185, 75, 188, 0.8) -3.14%, rgba(53, 87, 196, 0.8) 27%, rgba(156, 217, 66, 0.8) 94.16%), url(${imgToko.src})`,
+              backgroundSize: "cover",
+              borderRadius: { xs: "20px", sm: "25px" },
+              mx: "auto",
+            }}
+          >
+            <Stack
+              alignItems={"center"}
+              justifyItems={"center"}
+              direction={"column"}
+              spacing={4}
+              sx={{ pt: { xs: "10vh", sm: "8vh", md: "10vh", lg: "12vh", xl: "15vh" } }}
+            >
+              <Typography
+                variant="h2"
+                width={{ xs: "40vw", md: "30vw", lg: "30vw", xl: "40vw" }}
+                fontWeight={800}
+                color="rgba(255, 255, 255, 1)"
+                textAlign={"center"}
+                sx={{ fontSize: { xs: "18px", sm: "30px", md: "25px", lg: "35px", xl: "50px" } }}
+              >
+                Toko / Traditional Market / Toko Material
+              </Typography>
+              <OutlinedButton
+                label="Find"
+                onClick={() => router.push("/lokasi-toko")}
+              />
+            </Stack>
+          </Box>
+        </Stack>
       </Stack>
       <Box sx={{ width: "100vw", height: "50vh", display: "block" }}>
         <Map

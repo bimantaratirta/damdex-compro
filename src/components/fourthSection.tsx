@@ -47,7 +47,9 @@ export const FourthSection = () => {
         background: `url(${background.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: isTall ? { xs: "85vh", sm: "82vh", lg: "106vh" } : { xs: "85vh", sm: "82vh", md: "92vh", lg: "106vh" },
+        height: isTall
+          ? { xs: "95vh", sm: "82vh", lg: "106vh" }
+          : { xs: "700px", sm: "82vh", md: "95vh", lg: "120vh", xl: "100vh" },
       }}
       data-aos="fade-up"
       data-aos-easing="ease-in-out"
@@ -89,7 +91,7 @@ export const FourthSection = () => {
         justifyContent={"center"}
         spacing={4}
         direction={"row"}
-        mt={{ xs: 0, md: 2 }}
+        pt={{ xs: 0, md: 2, xl: 8 }}
       >
         {mobile &&
           phoneNewsData.map((d, i) => (
@@ -119,6 +121,21 @@ export const FourthSection = () => {
               />
             </div>
           ))}
+      </Stack>
+      <Stack
+        direction={{ xs: "column", md: "row" }}
+        alignItems={"center"}
+        justifyContent={"center"}
+        spacing={1}
+        pt={{ xs: 2, xl: 5 }}
+      >
+        <Typography
+          variant="caption"
+          fontWeight={800}
+          fontSize={{ xs: "20px" }}
+        >
+          Read Other news
+        </Typography>
       </Stack>
     </Box>
   );

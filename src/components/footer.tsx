@@ -18,7 +18,7 @@ export const Footer = () => {
         width: "100vw",
         backgroundColor: "rgba(36,36,36,1)",
         minHeight: { lg: "80vh", md: "70vh", xs: "60vh" },
-        p: { md: 10, sm: 5, xs: 1 },
+        p: { md: 10, sm: 5, xs: 3 },
       }}
     >
       <Typography
