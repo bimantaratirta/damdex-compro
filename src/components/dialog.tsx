@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Dialog, DialogTitle, DialogContent, Typography } from "@mui/material";
+import { Box, Dialog, DialogTitle, DialogContent } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 
 export const AdvantageDialog = ({
@@ -31,17 +31,18 @@ export const AdvantageDialog = ({
       <DialogTitle sx={{ textAlign: "left", fontWeight: "bold" }}>{title}</DialogTitle>
       <DialogContent>
         <Box sx={{ backgroundColor: "#F0F0F0", minHeight: "40vh", p: 2 }}>
-          <Typography variant="h5">{description}</Typography>
+          <div dangerouslySetInnerHTML={{ __html: description as string }} />
         </Box>
         {img && img !== undefined && (
           <Box sx={{ textAlign: "center" }}>
-            <Image
-              src={img ?? ""}
-              alt="Building Construction"
-              height={300}
-              objectFit="cover"
-              style={{ width: "100%" }}
-            />
+            <Box sx={{ position: "relative", width: "100%", height: "300px" }}>
+              <Image
+                src={img ?? ""}
+                alt="Building Construction"
+                fill
+                objectFit="cover"
+              />
+            </Box>
           </Box>
         )}
       </DialogContent>

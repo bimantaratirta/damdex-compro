@@ -4,9 +4,6 @@ import Image from "next/image";
 import gallery1 from "../../public/gallery 1.png";
 import gallery2 from "../../public/gallery 2.png";
 import gallery3 from "../../public/gallery 3.png";
-import gallery4 from "../../public/gallery 4.png";
-import gallery5 from "../../public/gallery 5.png";
-import gallery6 from "../../public/gallery 6.png";
 import { useLanguage } from "./localStorageProvider";
 import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
 
@@ -14,14 +11,14 @@ export const FiftSection = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const { language } = useLanguage();
-  const { data, loading } = useEvent({ page: 1, limit: mobile ? 3 : 6 });
+  const { data, loading } = useEvent({ page: 1, limit: 3 });
   const isTall = useMediaQuery("(min-height: 1200px)");
 
   return (
     <Box
       sx={{
         width: "100vw",
-        height: isTall ? { xs: "70vh", md: "60vh" } : { xs: "70vh", md: "110vh", lg: "120vh", xl: "110vh" },
+        height: isTall ? { xs: "70vh", md: "60vh" } : { xs: "70vh", md: "65vh", lg: "75vh", xl: "65vh" },
       }}
     >
       <Stack
@@ -63,103 +60,73 @@ export const FiftSection = () => {
         alignItems={"center"}
         justifyItems={"center"}
       >
-        {mobile && (
+        {mobile && data && (
           <Stack
             direction={"column"}
             spacing={3}
           >
-            <Box sx={{ width: "80vw", height: "20vh", position: "relative" }}>
-              <Image
-                alt="gallery1"
-                src={gallery1}
-                fill
-                data-aos="fade-right"
-                data-aos-easing="ease-in-out"
-              />
-            </Box>
-            <Box sx={{ width: "80vw", height: "20vh", position: "relative" }}>
-              <Image
-                alt="gallery1"
-                src={gallery2}
-                fill
-                data-aos="fade-left"
-                data-aos-easing="ease-in-out"
-              />
-            </Box>
-            <Box sx={{ width: "80vw", height: "20vh", position: "relative" }}>
-              <Image
-                alt="gallery1"
-                src={gallery3}
-                fill
-                data-aos="fade-right"
-                data-aos-easing="ease-in-out"
-              />
-            </Box>
+            {data.data.payload.map((data, idx) => (
+              <Box
+                sx={{ width: "80vw", height: "20vh", position: "relative" }}
+                key={idx}
+              >
+                <Image
+                  alt={`gallery${idx}`}
+                  src={data.heroImageUrl}
+                  fill
+                  data-aos="fade-right"
+                  data-aos-easing="ease-in-out"
+                />
+              </Box>
+            ))}
           </Stack>
         )}
-        {!mobile && (
+        {!mobile && data && (
           <>
             <Stack
               direction={"row"}
               spacing={3}
             >
-              <Image
-                alt="gallery1"
-                src={gallery1}
-                style={{ width: "64.167vw", height: isTall ? "24vh" : "48vh" }}
-                data-aos="fade-right"
-                data-aos-easing="ease-in-out"
-              />
-              <Stack
-                direction={"column"}
-                spacing={1.5}
+              <Box
+                sx={{
+                  position: "relative",
+                  width: data.data.payload.length > 1 ? "100vw" : "64.167vw",
+                  height: isTall ? "24vh" : "48vh",
+                }}
               >
                 <Image
-                  alt="gallery2"
-                  src={gallery2}
-                  style={{ width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}
-                  data-aos="fade-left"
-                  data-aos-easing="ease-in-out"
-                />
-                <Image
-                  alt="gallery3"
-                  src={gallery3}
-                  style={{ width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}
-                  data-aos="fade-up"
-                  data-aos-easing="ease-in-out"
-                />
-              </Stack>
-            </Stack>
-            <Stack
-              direction={"row"}
-              spacing={3}
-            >
-              <Stack
-                direction={"column"}
-                spacing={1.5}
-              >
-                <Image
-                  alt="gallery5"
-                  src={gallery5}
-                  style={{ width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}
+                  alt="gallery1"
+                  src={data.data.payload[0].heroImageUrl}
+                  fill
                   data-aos="fade-right"
                   data-aos-easing="ease-in-out"
                 />
-                <Image
-                  alt="gallery4"
-                  src={gallery4}
-                  style={{ width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}
-                  data-aos="fade-right"
-                  data-aos-easing="ease-in-out"
-                />
-              </Stack>
-              <Image
-                alt="gallery6"
-                src={gallery6}
-                style={{ width: "64.167vw", height: isTall ? "24vh" : "48vh" }}
-                data-aos="fade-up"
-                data-aos-easing="ease-in-out"
-              />
+              </Box>
+              {data.data.payload.length > 1 && (
+                <Stack
+                  direction={"column"}
+                  spacing={1.5}
+                >
+                  <Box sx={{ position: "relative", width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}>
+                    <Image
+                      alt="gallery2"
+                      src={data.data.payload[0].heroImageUrl}
+                      fill
+                      data-aos="fade-left"
+                      data-aos-easing="ease-in-out"
+                    />
+                  </Box>
+                  <Box sx={{ position: "relative", width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}>
+                    <Image
+                      alt="gallery3"
+                      src={data.data.payload[0].heroImageUrl}
+                      fill
+                      data-aos="fade-up"
+                      data-aos-easing="ease-in-out"
+                    />
+                  </Box>
+                </Stack>
+              )}
             </Stack>
           </>
         )}

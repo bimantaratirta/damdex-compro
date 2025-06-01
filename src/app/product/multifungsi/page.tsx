@@ -3,10 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { SixthSection } from "@/components/sixthSection";
 import { AppLayout } from "@/components/appLayout";
-import { Stack, Box, Typography, Button, IconButton, useTheme, useMediaQuery } from "@mui/material";
+import { Stack, Box, Typography, IconButton, useTheme } from "@mui/material";
 import img1 from "@/../public/productheader.png";
 import img2 from "@/../public/fungsi4.png";
-import sizeImg from "@/../public/productsize.png";
+import sizeImg from "@/../public/multifungsi.png";
 import Image, { StaticImageData } from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -14,9 +14,8 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { AdvantageDialog } from "@/components/dialog";
 import { FilledButton } from "@/components/button";
 import { useRouter } from "next/navigation";
-import imgcarousel from "@/../public/section3a.png";
 import { useLanguage } from "@/components/localStorageProvider";
-import { useProduct } from "@/swr-hooks/product/useProduct";
+import { useProductDetail } from "@/swr-hooks/product/useProductDetail";
 
 const Page = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
@@ -26,11 +25,10 @@ const Page = () => {
     { title: string; description: string; image: string | StaticImageData } | undefined
   >(undefined);
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up("md"));
   const router = useRouter();
 
   const { language } = useLanguage();
-  const { data } = useProduct();
+  const { data } = useProductDetail(1);
 
   useEffect(() => {
     if (emblaApi) {
@@ -41,39 +39,6 @@ const Page = () => {
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
-
-  const slides = [
-    {
-      title: "BAHAN TAMBAH NAT KERAMIK",
-      description:
-        "Campuran semen pcc dan damdex multi dapat digunakan sebagai perekat keramik pada beton maupun tile on tile dan juga meminimalkan kasus popping keramik.dengan volume  2 kali lipat lebih banyak dibanding semen pasangan keramik lainnya,menjadikan campuran ini jauh lebih efisien.",
-      image: imgcarousel,
-    },
-    {
-      title: "GROUTING (Grouting lebih rekat dan keras)",
-      description:
-        "Campuran semen pcc dan damdex multi dapat digunakan sebagai perekat keramik pada beton maupun tile on tile dan juga meminimalkan kasus popping keramik.dengan volume  2 kali lipat lebih banyak dibanding semen pasangan keramik lainnya,menjadikan campuran ini jauh lebih efisien.",
-      image: imgcarousel,
-    },
-    {
-      title: "BAHAN TAMBAH PEMBUATAN BATOKO DAN PAVING BLOCK",
-      description:
-        "Campuran semen pcc dan damdex multi dapat digunakan sebagai perekat keramik pada beton maupun tile on tile dan juga meminimalkan kasus popping keramik.dengan volume  2 kali lipat lebih banyak dibanding semen pasangan keramik lainnya,menjadikan campuran ini jauh lebih efisien.",
-      image: imgcarousel,
-    },
-    {
-      title: "ACCELAN (Acceleran pengerih dan dahan)",
-      description:
-        "Campuran semen pcc dan damdex multi dapat digunakan sebagai perekat keramik pada beton maupun tile on tile dan juga meminimalkan kasus popping keramik.dengan volume  2 kali lipat lebih banyak dibanding semen pasangan keramik lainnya,menjadikan campuran ini jauh lebih efisien.",
-      image: imgcarousel,
-    },
-    {
-      title: "ACCELAN (Acceleran pengerih dan dahan)",
-      description:
-        "Campuran semen pcc dan damdex multi dapat digunakan sebagai perekat keramik pada beton maupun tile on tile dan juga meminimalkan kasus popping keramik.dengan volume  2 kali lipat lebih banyak dibanding semen pasangan keramik lainnya,menjadikan campuran ini jauh lebih efisien.",
-      image: imgcarousel,
-    },
-  ];
 
   return (
     <AppLayout>
@@ -151,111 +116,138 @@ const Page = () => {
           />
         </div>
       </Stack>
-      <Stack p={{ xs: 5, lg: 10 }}>
-        <Typography
-          variant="h3"
-          fontSize={{ lg: "48px", md: "32px", sm: "24px", xs: "20px" }}
-        >
-          Damdex Multifungsi is a cement additive that basically can be mixed three different ways depending on the job
-          to be done; Thin, Medium, Thick.
-        </Typography>
+
+      <Stack
+        p={5}
+        fontSize={{ lg: "48px", md: "32px", sm: "24px", xs: "20px" }}
+      >
+        <div
+          className="flex flex-col !space-y-10"
+          dangerouslySetInnerHTML={{
+            __html: language === "id" ? (data?.data.descriptionIDN as string) : (data?.data.descriptionENG as string),
+          }}
+        />
       </Stack>
 
       {/*Carousel */}
-      <Box p={{ xs: 5, lg: 10 }}>
-        <Typography
-          gutterBottom
-          fontWeight={800}
-          sx={{ fontWeight: "bold", fontSize: { xl: "34px", md: "24px" } }}
-        >
-          Additive with Multi Purpose
-        </Typography>
+      {data && data.data.productAdvantage && (
+        <Box p={{ xs: 5, lg: 10 }}>
+          <Typography
+            gutterBottom
+            fontWeight={800}
+            sx={{ fontWeight: "bold", fontSize: { xl: "34px", md: "24px" } }}
+          >
+            Additive with Multi Purpose
+          </Typography>
 
-        <Box
-          sx={{ overflow: "hidden", position: "relative" }}
-          ref={emblaRef}
-        >
-          <Box sx={{ display: "flex" }}>
-            {slides.map((slide, index) => (
-              <Box
-                key={index}
-                sx={{
-                  minWidth: { xl: "20%", md: "25%", sm: "40%", xs: "50%" },
-                  padding: 2,
-                  borderRadius: "25px",
-                  position: "relative",
-                  height: { lg: "500px", sm: "400px", xs: "300px" },
-                  mx: 2,
-                  backgroundColor: "rgba(0,0,0,1)",
-                  cursor: "pointer",
-                }}
-              >
-                <div onClick={() => setAdvantage(slide)}>
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    layout="fill"
-                    objectFit="cover"
-                    style={{ borderRadius: "25px" }}
-                  />
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: 0,
-                      width: "90%",
-                      color: "white",
-                      padding: 2,
-                      borderBottomLeftRadius: 2,
-                      borderBottomRightRadius: 2,
-                    }}
+          <Box
+            sx={{ overflow: "hidden", position: "relative" }}
+            ref={emblaRef}
+          >
+            <Box sx={{ display: "flex" }}>
+              {data?.data.productAdvantage.map((slide, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    minWidth: { xl: "20%", md: "25%", sm: "40%", xs: "50%" },
+                    padding: 2,
+                    borderRadius: "25px",
+                    position: "relative",
+                    height: { lg: "500px", sm: "400px", xs: "300px" },
+                    mx: 2,
+                    backgroundColor: "rgba(0,0,0,1)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    onClick={() =>
+                      setAdvantage({
+                        title: language === "eng" ? slide.titleENG : slide.titleIDN,
+                        description: language === "eng" ? slide.descriptionENG : slide.descriptionIDN,
+                        image: slide.heroImageUrl,
+                      })
+                    }
                   >
-                    <Typography
-                      alignSelf={"start"}
-                      fontSize={{}}
-                      sx={{ typography: { xl: "h6", md: "caption" } }}
+                    <Image
+                      src={slide.heroImageUrl}
+                      alt={language === "eng" ? slide.titleENG : slide.titleIDN}
+                      layout="fill"
+                      objectFit="cover"
+                      style={{ borderRadius: "25px" }}
+                    />
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: 0,
+                        width: "90%",
+                        color: "white",
+                        padding: 2,
+                        borderBottomLeftRadius: 2,
+                        borderBottomRightRadius: 2,
+                      }}
                     >
-                      {slide.title}
-                    </Typography>
-                  </Box>
-                </div>
-              </Box>
-            ))}
+                      <Typography
+                        alignSelf={"start"}
+                        fontSize={{}}
+                        sx={{ typography: { xl: "h6", md: "caption" } }}
+                      >
+                        {language === "eng" ? slide.titleENG : slide.titleIDN}
+                      </Typography>
+                    </Box>
+                  </div>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+          {/*Carousel */}
+
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <IconButton
+              onClick={scrollPrev}
+              sx={{ mx: 1 }}
+            >
+              <ArrowBackIosIcon sx={{ color: "#000" }} />
+            </IconButton>
+            <IconButton
+              onClick={scrollNext}
+              sx={{ mx: 1 }}
+            >
+              <ArrowForwardIosIcon sx={{ color: "#000" }} />
+            </IconButton>
           </Box>
         </Box>
-        {/*Carousel */}
+      )}
 
-        <AdvantageDialog
-          description={advantage?.description}
-          img={advantage?.image}
-          open={Boolean(advantage)}
-          onClose={() => setAdvantage(undefined)}
-          title={advantage?.title}
-        />
-
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-          <IconButton
-            onClick={scrollPrev}
-            sx={{ mx: 1 }}
-          >
-            <ArrowBackIosIcon sx={{ color: "#000" }} />
-          </IconButton>
-          <IconButton
-            onClick={scrollNext}
-            sx={{ mx: 1 }}
-          >
-            <ArrowForwardIosIcon sx={{ color: "#000" }} />
-          </IconButton>
-        </Box>
-      </Box>
+      <AdvantageDialog
+        description={advantage?.description}
+        img={advantage?.image}
+        open={Boolean(advantage)}
+        onClose={() => setAdvantage(undefined)}
+        title={advantage?.title}
+      />
 
       <Box sx={{ width: { lg: "100vw" }, height: { lg: "65vh", xs: "30vh" }, position: "relative" }}>
         <Image
           alt="image1"
           src={sizeImg}
           fill
-          style={{ objectFit: desktop ? "cover" : "contain" }}
+          style={{ objectFit: "contain" }}
         />
       </Box>
+      <Stack
+        direction={"column"}
+        justifyContent={"center"}
+        width={"100vw"}
+        alignItems={"center"}
+      >
+        <Typography fontSize={"20px"}>Tersedia dalam ukuran:</Typography>
+        <Typography
+          fontWeight={800}
+          fontSize={"20px"}
+        >
+          1, 5 & 20 Liter
+        </Typography>
+      </Stack>
       <SixthSection noBackground />
       <Box
         sx={{

@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import masdamdex from "../../public/masdamdex.gif";
-import background from "../../public/bg4.png";
 import { useEffect, useState } from "react";
 import { useHome } from "@/swr-hooks/home/useHome";
 import { useLanguage } from "./localStorageProvider";
@@ -33,7 +30,7 @@ export const FirstSection = () => {
       sx={{
         width: "100%",
         minHeight: { xs: "80vh", sm: "85vh", md: "100vh" },
-        background: `url(${background.src})`,
+        background: `url(${data?.data.find((data) => data.key === "section-1-background")?.fileUrl})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -98,24 +95,26 @@ export const FirstSection = () => {
               </style>
             </Box>
           </Box>
-          <Box
-            sx={{
-              position: "relative",
-              width: { xs: "90%", sm: "100%", md: "50%", lg: "100%" },
-              aspectRatio: "1 / 1", // Menjaga proporsi gambar
-              maxWidth: "100vw",
-              maxHeight: "40vh",
-            }}
-          >
-            <Image
-              src={masdamdex}
-              alt="maskot"
-              fill
-              // sizes="(max-width: 576px) 90vw, (max-width: 768px) 70vw, (max-width: 992px) 50vw, 50vw"
-              style={{ objectFit: "contain" }}
-              unoptimized
-            />
-          </Box>
+          {data && (
+            <Box
+              sx={{
+                position: "relative",
+                width: { xs: "90%", sm: "100%", md: "50%", lg: "100%" },
+                aspectRatio: "1 / 1", // Menjaga proporsi gambar
+                maxWidth: "100vw",
+                maxHeight: "40vh",
+              }}
+            >
+              <Image
+                src={data?.data.find((data) => data.key === "section-1-gif-image")?.fileUrl ?? ""}
+                alt="maskot"
+                fill
+                // sizes="(max-width: 576px) 90vw, (max-width: 768px) 70vw, (max-width: 992px) 50vw, 50vw"
+                style={{ objectFit: "contain" }}
+                unoptimized
+              />
+            </Box>
+          )}
           <Stack sx={{ width: { xs: "90%", sm: "80%", md: "70%" }, pb: { lg: 2 } }}>
             <Typography
               variant="h4"
@@ -131,7 +130,7 @@ export const FirstSection = () => {
                 color: "#000",
               }}
             >
-              PRODUK PENCAMPUR SEMEN BERMUTU TINGGI, WATERPROOF DAN FUNGSI ISTIMEWA LAINNYA.
+              {data?.data.find((data) => data.key === "section-1-description")?.content}
             </Typography>
           </Stack>
         </Stack>

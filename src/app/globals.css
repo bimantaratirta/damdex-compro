@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

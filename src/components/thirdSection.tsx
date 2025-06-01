@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import image1 from "../../public/section3a.png";
 import image2 from "../../public/section3b.png";
 import logowarna from "../../public/Damdex Warna Logo-01.png";
 import background from "../../public/bg3.png";
@@ -10,7 +8,7 @@ import { useHome } from "@/swr-hooks/home/useHome";
 
 export const ThirdSection = () => {
   const { language } = useLanguage();
-  const { data } = useHome({ lang: language, section: 1 });
+  const { data } = useHome({ lang: language, section: 3 });
   return (
     <Box
       sx={{
@@ -57,7 +55,7 @@ export const ThirdSection = () => {
             height: { xs: "45vh", md: "65vh", lg: "79vh" },
             position: "relative",
             color: "#FFF",
-            background: `url(${image1.src})`,
+            background: `url(${data?.data.find((data) => data.key === "section-3-image-background")?.fileUrl})`,
             backgroundSize: "cover",
             backgroundColor: "rgba(0,0,0,1)",
           }}
@@ -76,7 +74,7 @@ export const ThirdSection = () => {
                 width: { xs: "30vw", md: "16vw", lg: "16vw", xl: "14vw" },
               }}
             >
-              LONGER POT LIFE
+              {data?.data.find((data) => data.key === "section-3-top-left-title")?.content}
             </Typography>
             <Box
               sx={{
@@ -91,7 +89,7 @@ export const ThirdSection = () => {
               fontWeight={400}
               sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "9px", sm: "16px" } }}
             >
-              Umur campuran produk lain maksimal 45 menit, sedangkan Damdex Warna bisa tahan 30x lebih lama.
+              {data?.data.find((data) => data.key === "section-3-top-left-description")?.content}
             </Typography>
           </Stack>
         </Box>
@@ -120,7 +118,7 @@ export const ThirdSection = () => {
               sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "14px", sm: "22px", lg: "36px" } }}
               textAlign={"end"}
             >
-              COLORFUL CEMENT WATERPROOFING
+              {data?.data.find((data) => data.key === "section-3-bottom-right-title")?.content}
             </Typography>
             <Box
               sx={{
@@ -136,7 +134,7 @@ export const ThirdSection = () => {
               fontWeight={400}
               textAlign={"end"}
             >
-              Satu - satunya waterproofing semen base yang memiliki 7 varian warna.
+              {data?.data.find((data) => data.key === "section-3-bottom-right-description")?.content}
             </Typography>
           </Stack>
         </Box>
@@ -164,7 +162,7 @@ export const ThirdSection = () => {
               textAlign={"center"}
               sx={{ fontSize: { xs: "18px", sm: "29px", md: "40px", lg: "48px", xl: "60px" } }}
             >
-              CONFIDENCE IN EVERY DROP WATERPROOF
+              {data?.data.find((data) => data.key === "section-3-center-title")?.content}
             </Typography>
           </Stack>
         </Box>

@@ -96,7 +96,7 @@ export interface Use extends Base {
   heroImage: string;
   titleIDN: string;
   titleENG: string;
-  useComposition: string[];
+  useComposition: UseComposition[];
 }
 
 export interface UseFor extends Base {

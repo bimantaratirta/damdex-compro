@@ -19,28 +19,29 @@ import logo from "../../public/damdexlogo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "./localStorageProvider";
+import eng from "../locale/eng.json";
+import id from "../locale/id.json";
 
 export const TopBar = () => {
-  const drawerItems = [
-    { name: "Home", url: "/" },
-    { name: "Products", url: "/product" },
-    { name: "Use & Applications", url: "/use" },
-    { name: "Projects", url: "/projects" },
-    { name: "Events", url: "/event" },
-    { name: "Contact us", url: "/contact" },
-  ];
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const router = useRouter();
+  const { language } = useLanguage();
+  const drawerItems = [
+    { name: language === "eng" ? eng.topBar.home : id.topBar.home, url: "/" },
+    { name: language === "eng" ? eng.topBar.product : id.topBar.product, url: "/product" },
+    { name: language === "eng" ? eng.topBar.use : id.topBar.use, url: "/use" },
+    { name: language === "eng" ? eng.topBar.project : id.topBar.project, url: "/projects" },
+    { name: language === "eng" ? eng.topBar.event : id.topBar.event, url: "/event" },
+    { name: language === "eng" ? eng.topBar.contact : id.topBar.contact, url: "/contact" },
+  ];
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
   const drawerWidth = 240;
-
-  const { language } = useLanguage();
 
   return (
     <Box
@@ -93,7 +94,7 @@ export const TopBar = () => {
                   router.push("/");
                 }}
               >
-                Home
+                {language === "eng" ? eng.topBar.home : id.topBar.home}
               </Link>
               <Link
                 underline="hover"
@@ -104,7 +105,7 @@ export const TopBar = () => {
                   router.push("/product");
                 }}
               >
-                Products
+                {language === "eng" ? eng.topBar.product : id.topBar.product}
               </Link>
               <Link
                 underline="hover"
@@ -115,7 +116,7 @@ export const TopBar = () => {
                   router.push("/use");
                 }}
               >
-                Use & Applications
+                {language === "eng" ? eng.topBar.use : id.topBar.use}
               </Link>
               <Link
                 underline="hover"
@@ -126,7 +127,7 @@ export const TopBar = () => {
                   router.push("/projects");
                 }}
               >
-                Projects
+                {language === "eng" ? eng.topBar.project : id.topBar.project}
               </Link>
               <Link
                 underline="hover"
@@ -137,7 +138,7 @@ export const TopBar = () => {
                   router.push("/event");
                 }}
               >
-                Events
+                {language === "eng" ? eng.topBar.event : id.topBar.event}
               </Link>
               <Link
                 underline="hover"
@@ -148,7 +149,7 @@ export const TopBar = () => {
                   router.push("/contact");
                 }}
               >
-                Contact Us
+                {language === "eng" ? eng.topBar.contact : id.topBar.contact}
               </Link>
             </Stack>
             <Stack
@@ -218,6 +219,37 @@ export const TopBar = () => {
               </ListItem>
             ))}
           </List>
+          <Stack
+            direction={"row"}
+            spacing={1}
+            justifyContent={"center"}
+          >
+            <Link
+              underline="hover"
+              color={language === "id" ? "#FFF" : "#4D4D4D"}
+              component={"button"}
+              onClick={(e) => {
+                e.preventDefault();
+                localStorage.setItem("languageSettings", "id");
+                window.location.reload();
+              }}
+            >
+              ID
+            </Link>
+            <Typography color="#FFF">/</Typography>
+            <Link
+              underline="hover"
+              color={language === "eng" ? "#FFF" : "#4D4D4D"}
+              component={"button"}
+              onClick={(e) => {
+                e.preventDefault();
+                localStorage.setItem("languageSettings", "eng");
+                window.location.reload();
+              }}
+            >
+              EN
+            </Link>
+          </Stack>
         </Box>
       </Drawer>
     </Box>
