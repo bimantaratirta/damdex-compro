@@ -1,0 +1,13 @@
+{
+  "newsTitle": "Berita",
+  "topBar": {
+    "home": "Beranda",
+    "product": "Produk",
+    "use": "Kegunaan",
+    "project": "Projek",
+    "event": "Event",
+    "contact": "Hubungi Kami"
+  },
+  "otherNews": "Baca berita lain",
+  "projectCaption": "Berikut adalah projek yang sudah kami kerjakan"
+}

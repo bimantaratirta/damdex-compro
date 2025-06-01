@@ -16,16 +16,6 @@ const LanguageContext = createContext<LanguageContextType>({
   language: "id",
 });
 
-// // Fungsi untuk memuat terjemahan
-// const loadTranslations = (locale) => {
-//   try {
-//     return require(`../locales/${locale}.json`);
-//   } catch (error) {
-//     console.error(`Gagal memuat terjemahan untuk locale: ${locale}`);
-//     return require('../locales/en.json'); // Fallback ke bahasa Inggris
-//   }
-// };
-
 export function LocalStorageProvider({ children }: LocalStorageProviderProps) {
   const [isReady, setIsReady] = useState(false);
   const [language, setLanguage] = useState<string>("");

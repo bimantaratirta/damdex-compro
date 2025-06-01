@@ -1,11 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { AppLayout } from "@/components/appLayout";
-import { Box, Grid2, Pagination, Stack, Typography, useMediaQuery } from "@mui/material";
-import background from "@/../public/bguse.png";
-import img1 from "@/../public/event1.png";
-import img2 from "@/../public/event2.png";
-import img3 from "@/../public/event3.png";
+import { Box, Grid2, Pagination, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
@@ -15,41 +10,19 @@ import { useLanguage } from "@/components/localStorageProvider";
 const Page = () => {
   const router = useRouter();
   const isTall = useMediaQuery("(min-height: 1200px)");
+  const theme = useTheme();
+  const phone = useMediaQuery(theme.breakpoints.down("md"));
+
   const { pagination, handlePaginationModelChange } = usePaginationData({ pageIndex: 1, pageSize: 9 });
   const { language } = useLanguage();
-  const { data: events, loading } = useEvent({ limit: pagination.pageSize, page: pagination.pageIndex });
+  const { data: events } = useEvent({ limit: pagination.pageSize, page: pagination.pageIndex });
 
-  const data = [
-    { img: img1, name: "ACE JABAR" },
-    { img: img2, name: "Event 2" },
-    { img: img3, name: "Event 3" },
-    { img: img1, name: "Event 4" },
-    { img: img2, name: "Event 5" },
-    { img: img3, name: "Event 6" },
-    { img: img1, name: "Event 7" },
-    { img: img2, name: "Event 8" },
-    { img: img3, name: "Event 9" },
-  ];
   return (
     <AppLayout>
       <Box
         sx={{
           p: 8,
-          "&::before": {
-            content: "''",
-            backgroundImage: `url(${background.src})`,
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: isTall
-              ? { xl: "200vh", md: "150vh", sm: "200vh", xs: "350vh" }
-              : { xl: "200vh", lg: "250vh", md: "150vh", sm: "200vh", xs: "350vh" },
-            backgroundSize: "cover",
-            zIndex: -1,
-            opacity: 0.2,
-          },
+          backgroundColor: "#e8e0fd",
         }}
       >
         <Typography
@@ -68,9 +41,9 @@ const Page = () => {
           spacing={{ lg: 4, md: 2, sm: 6, xs: 5 }}
           justifyContent={"center"}
         >
-          {data.map((d, idx) => (
+          {events?.data.payload.map((d, idx) => (
             <div
-              onClick={() => router.push(`/event/detail/${idx}`)}
+              onClick={() => router.push(`/event/detail/${d.id}`)}
               key={idx}
             >
               <Grid2 size={{ md: 4, xs: 8 }}>
@@ -81,14 +54,14 @@ const Page = () => {
                   <Box
                     sx={{
                       position: "relative",
-                      width: { lg: "25vw", md: "25vw", sm: "30vw", xs: "50vw" },
+                      width: { lg: "25vw", md: "25vw", xs: "80vw" },
                       height: isTall
                         ? { xl: "25vh", lg: "12vh", md: "10vh", sm: "15vh", xs: "20vh" }
-                        : { xl: "25vh", lg: "28vh", sm: "12vh", xs: "20vh" },
+                        : { xl: "25vh", lg: "28vh", md: "150px", sm: "250px", xs: "180px" },
                     }}
                   >
                     <Image
-                      src={d.img}
+                      src={d.heroImageUrl}
                       alt="event"
                       fill
                       style={{ borderRadius: "25px" }}
@@ -100,7 +73,7 @@ const Page = () => {
                     width={{ xl: "25vw", md: "25vw" }}
                     textOverflow={"clip"}
                   >
-                    {d.name}
+                    {language === "id" ? d.titleIDN : d.titleENG}
                   </Typography>
                 </Stack>
               </Grid2>
@@ -108,9 +81,10 @@ const Page = () => {
           ))}
         </Grid2>
         <Pagination
-          count={5}
+          siblingCount={1}
+          count={events?.data.totalPage}
           shape="rounded"
-          size="medium"
+          size={phone ? "small" : "large"}
           page={pagination.pageIndex}
           onChange={(_, val) => handlePaginationModelChange({ pageIndex: val, pageSize: pagination.pageSize })}
           sx={{ display: "flex", justifyContent: "center", alignItems: "center", pt: 5 }}

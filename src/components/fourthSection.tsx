@@ -1,44 +1,19 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import background from "../../public/bg1.png";
 import Image, { StaticImageData } from "next/image";
-import news1 from "../../public/news1.png";
-import news2 from "../../public/news2.png";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "./localStorageProvider";
 import { useNews } from "@/swr-hooks/news/useNews";
+import eng from "../locale/eng.json";
+import id from "../locale/id.json";
 
 export const FourthSection = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const router = useRouter();
   const { language } = useLanguage();
-  const { data, loading } = useNews({ limit: 2, page: 1 });
+  const { data } = useNews({ limit: mobile ? 1 : 2, page: 1 });
   const isTall = useMediaQuery("(min-height: 1200px)");
-
-  const newsData = [
-    {
-      img: news1,
-      title: "Damdex Can Save You Billions Of Rupiah On Construction. Here's How",
-      description:
-        "Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.",
-    },
-    {
-      img: news2,
-      title: "Damdex Can Save You Billions Of Rupiah On Construction. Here's How",
-      description:
-        "Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.",
-    },
-  ];
-
-  const phoneNewsData = [
-    {
-      img: news1,
-      title: "Damdex Can Save You Billions Of Rupiah On Construction. Here's How",
-      description:
-        "Having DAMDEX in the mix means faster building time and a quicker ROI. Call your DAMDEX distributor today and start building better, faster, stronger.",
-    },
-  ];
 
   return (
     <Box
@@ -63,13 +38,15 @@ export const FourthSection = () => {
         data-aos="fade-up"
         data-aos-easing="ease-in-out"
       >
-        <Typography
-          variant="h2"
-          fontWeight={800}
-          fontSize={{ xs: "20px", md: "60px" }}
-        >
-          Read Our
-        </Typography>
+        {language === "eng" && (
+          <Typography
+            variant="h2"
+            fontWeight={800}
+            fontSize={{ xs: "20px", md: "60px" }}
+          >
+            Read our
+          </Typography>
+        )}
         <Typography
           variant="h2"
           fontWeight={800}
@@ -84,7 +61,7 @@ export const FourthSection = () => {
             WebkitTextFillColor: "transparent",
           }}
         >
-          News
+          {language === "eng" ? eng.newsTitle : id.newsTitle}
         </Typography>
       </Stack>
       <Stack
@@ -94,30 +71,32 @@ export const FourthSection = () => {
         pt={{ xs: 0, md: 2, xl: 8 }}
       >
         {mobile &&
-          phoneNewsData.map((d, i) => (
+          data &&
+          data.data.payload.map((d, i) => (
             <div
               key={i}
               onClick={() => router.push(`/news/detail/${i}`)}
               style={{ cursor: "pointer" }}
             >
               <NewsContent
-                img={d.img}
-                title={d.title}
-                description={d.description}
+                img={d.titleImageUrl}
+                title={language === "eng" ? d.titleENG : d.titleIDN}
+                description={language === "eng" ? d.contentENG : d.contentIDN}
               />
             </div>
           ))}
         {!mobile &&
-          newsData.map((d, i) => (
+          data &&
+          data.data.payload.map((d, i) => (
             <div
               key={i}
               onClick={() => router.push(`/news/detail/${i}`)}
               style={{ cursor: "pointer" }}
             >
               <NewsContent
-                img={d.img}
-                title={d.title}
-                description={d.description}
+                img={d.titleImageUrl}
+                title={language === "eng" ? d.titleENG : d.titleIDN}
+                description={language === "eng" ? d.contentENG : d.contentIDN}
               />
             </div>
           ))}
@@ -134,7 +113,7 @@ export const FourthSection = () => {
           fontWeight={800}
           fontSize={{ xs: "20px" }}
         >
-          Read Other news
+          {language === "eng" ? eng.otherNews : id.otherNews}
         </Typography>
       </Stack>
     </Box>
@@ -188,14 +167,10 @@ const NewsContent = ({
         >
           {title}
         </Typography>
-        <Typography
-          variant="h6"
-          color="#7B7B7B"
-          fontSize={{ lg: "20px", md: "20px", sm: "18px", xs: "16px" }}
-          textAlign={{ xs: "center", md: "left" }}
-        >
-          {description}
-        </Typography>
+        <div
+          className="line-clamp-3 xs:text-[16px] sm:text-[18px] md:text-[20px] xs:text-center md:text-left text-[#7B7B7B]"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       </Stack>
     </Stack>
   );

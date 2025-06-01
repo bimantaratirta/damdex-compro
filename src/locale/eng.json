@@ -1,0 +1,13 @@
+{
+  "newsTitle": "News",
+  "topBar": {
+    "home": "Homme",
+    "product": "Product",
+    "use": "Use & Applications",
+    "project": "Projects",
+    "event": "Events",
+    "contact": "Contact Us"
+  },
+  "otherNews": "Read other news",
+  "projectCaption": "Here are some projects we have worked on"
+}

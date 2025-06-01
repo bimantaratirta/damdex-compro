@@ -1,44 +1,44 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React from "react";
 import { AppLayout } from "@/components/appLayout";
-import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
-import img from "@/../public/eventdeskripsi.png";
+import { Box, Stack, Typography } from "@mui/material";
 import { useLanguage } from "@/components/localStorageProvider";
 import { useEventDetail } from "@/swr-hooks/eventGallery/useEventDetail";
 import Image from "next/image";
 import { OtherListSection } from "@/components/otherListSection";
-import imgdummy from "@/../public/event2.png";
+import { convertDate } from "@/lib/utils";
+import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = React.use(params);
   const { language } = useLanguage();
-  const { data, loading } = useEventDetail(Number(id));
-  const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const { data } = useEventDetail(Number(id));
+  const { data: events } = useEvent({ limit: 3 });
 
-  const dummy = [
-    { img: imgdummy, title: "Event 1" },
-    { img: imgdummy, title: "Event 2" },
-    { img: imgdummy, title: "Event 3" },
-  ];
+  const otherEvents = events?.data.payload.map((data) => ({
+    img: data.heroImageUrl,
+    title: language === "id" ? data.titleIDN : data.titleENG,
+    id: data.id,
+  }));
 
   return (
     <AppLayout>
-      <Box
-        sx={{
-          width: { lg: "100vw" },
-          height: { lg: "40vh", md: "30vh", sm: "250px", xs: "190px" },
-          position: "relative",
-        }}
-      >
-        <Image
-          alt="image1"
-          src={img.src}
-          fill
-          style={{ objectFit: desktop ? "cover" : "contain" }}
-        />
-      </Box>
+      {data && data.data.heroImageUrl && (
+        <Box
+          sx={{
+            width: { xs: "100vw" },
+            height: { lg: "40vh", md: "30vh", sm: "250px", xs: "190px" },
+            position: "relative",
+          }}
+        >
+          <Image
+            alt="image1"
+            src={data?.data.heroImageUrl ?? ""}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </Box>
+      )}
       <Box sx={{ p: { xs: "0px 24px 24px", md: "0px 40px 40px", lg: 5 } }}>
         <Typography
           textAlign={"center"}
@@ -46,7 +46,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           fontWeight={800}
           fontSize={{ lg: "60px", md: "50px", xs: "40px" }}
         >
-          ACE JABAR
+          {language === "id" ? data?.data.titleIDN : data?.data.titleENG}
         </Typography>
         <Box sx={{ mb: 3 }}>
           <Stack
@@ -72,7 +72,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               width={"50vw"}
               fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
             >
-              Bandung Convention Centre
+              {language === "id" ? data?.data.eventVenueIDN : data?.data.eventVenueENG}
             </Typography>
           </Stack>
           <Stack
@@ -98,7 +98,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               width={"50vw"}
               fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
             >
-              Sabtu 1 Juni 2024
+              {convertDate(data?.data.eventDate)}
             </Typography>
           </Stack>
           <Stack
@@ -124,23 +124,27 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               width={"50vw"}
               fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
             >
-              Seminar & Gathering 2024 Asosiasi Chief Engineering Jawa Barat (ACE JABAR)
+              {language === "id" ? data?.data.eventThemeIDN : data?.data.eventThemeENG}
             </Typography>
           </Stack>
         </Box>
-        <Typography
+        <Stack
+          direction={"column"}
+          spacing={50}
           fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
           textAlign={"justify"}
         >
-          Di dalam rangka memperluas jaringan networking, Damdex Indonesia juga menjalin Kerjasama dengan Asosiasi
-          Chieft Engineering (ACE). ACE sendiri adalah satu wadah bagi para Chief Engineering, Building Management yang
-          berprofesi sebagai ahli Teknik di seluruh Indonesia, yang mewadahi para Chief Engineering serta para Engineer
-          Manufactur, Hotel, Mall, Apartment, Building Office dan institusi lainnya Pada kesempatan ini kami juga turut
-          serta hadir dan memeriahkan serta mendukung berlangsungnya acara “Seminar & Gathering 2024 ACE Jabar”. Acara
-          tersebut berlangsung di Bandung pada 1 Juni 2024
-        </Typography>
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                data && language === "id"
+                  ? (data?.data.eventDescriptionIDN as string)
+                  : (data?.data.eventDescriptionENG as string),
+            }}
+          />
+        </Stack>
         <OtherListSection
-          data={dummy}
+          data={otherEvents}
           variant="Events"
         />
       </Box>

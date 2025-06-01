@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React from "react";
 import { Box, Stack, Typography, ToggleButton, Divider, Grid2, useMediaQuery } from "@mui/material";
@@ -14,9 +13,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { FilledButton } from "@/components/button";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/components/localStorageProvider";
-import { useUsage } from "@/swr-hooks/usage/useUsage";
-import { useUsageCompositionDetail } from "@/swr-hooks/usageComposition/useUsageCompositionDetail";
-import { useUsageForDetail } from "@/swr-hooks/usageFor/useUsageForDetail";
+import { useUsageDetail } from "@/swr-hooks/usage/useUsageDetail";
 
 const Page = () => {
   const router = useRouter();
@@ -25,88 +22,10 @@ const Page = () => {
   const [usageForId, setUsageForId] = React.useState<number>(0);
   const [usage, setUsage] = React.useState<string>("");
   const { language } = useLanguage();
-  const { data, loading } = useUsage();
-  const { data: compositionDatas, loading: compositionLoading } = useUsageCompositionDetail(compositionId);
-  const { data: usageData, loading: usageDataLoading } = useUsageForDetail(usageForId);
+  const { data } = useUsageDetail(1);
   const isTall = useMediaQuery("(min-height: 1200px)");
 
-  const compositionData = [
-    {
-      value: "Thin Mix",
-      usage: [
-        {
-          value: "Pori",
-          deskripsi1:
-            "Campuran Damdex Multifungsi dengan semen jenis PCC pada campuran Thin Mix memiliki sifat Low Viscosity (encer) yang efektif meresap ke pori beton dan meningkatkan kuat, sehingga menjadikan beton lebih kedap air. Campuran ini lebih efisien karena memiliki daya sebar luas yaitu 3 m² per campuran. 1 kg semen ditambahkan Damdex Multifungsi untuk 2 kali pelapisan.",
-        },
-      ],
-      img: thinmix,
-    },
-    {
-      value: "Medium Mix",
-      usage: [
-        {
-          value: "Penguat Beton",
-          deskripsi1:
-            "Bangunan yang kokoh dan kuat sangat ditentukan oleh mutu kualitas struktural beton. Pada proses pembuatan beton, pemilihan material yang tepat (ex: kadar lumpur pasir dibawah 5%, kadar lumpur batu split maks. 1%) diperlukankan juga bahan Aditif yaitu Plasticizer yang berguna untuk meningkatkan mutu kualitas beton. Penggunaan Plasticizer akan mengurangi pemakaian air sebesar 10%.",
-          deskripsi2:
-            "Damdex Multifungsi merupakan salah satu Aditif pencampuran beton yang berfungsi meningkatkan mutu kuat tekan beton sampai 35% pada umur beton 28 hari dan mempercepat setting pengerasan beton sebesar 50% sehingga bekisting dapat dilepas pada saat umur beton 14 hari.",
-        },
-        {
-          value: "Nat Keramik",
-          deskripsi1:
-            "Penggunaan cairan kimia pembersih keramik mengakibatkan nat keramik menjadi porous dan mudah terangkat. Untuk memperkuat dan menambah kekerasan pada nat keramik dibutuhkan aditif yaitu Damdex Multifungsi. Dengan dosis pemakaian 2% dari semen nat keramik yang digunakan (contoh: 2 ml Damdex Multifungsi untuk dicampur dengan 1 kg semen nat keramik).",
-        },
-        {
-          value: "Plaster Acian",
-          deskripsi1:
-            "Plesteran dan acian yang berkualitas akan memperkokoh dinding serta menjadikannya lebih kedap air. Oleh karena itu, untuk memperkuat struktur dinding, selain digunakan pasir yang berkualitas juga dibutuhkan aditif pada aplikasi plesteran yang mampu memperpadat dan memperkeras plesteran sehingga dinding akan lebih kokoh. Dengan penambahan Damdex Multifungsi sebanyak 2% dari berat semen yang digunakan (1 liter Damdex Multifungsi + 50 kg semen PCC) akan menjadikan plesteran dan acian lebih keras, tahan terhadap retak dan lebih kedap air.",
-        },
-        {
-          value: "Screeding",
-          deskripsi1:
-            "Screeding adalah suatu lapisan yang berfungsi sebagai pelindung waterproofing dari cuaca, sehingga menambah umur waterproofing. Screeding juga berfungsi sebagai pengatur kemiringan lantai beton, supaya air dapat mengalir dengan baik ke pipa pembuangan. Penggunaan aditif Damdex Multifungsi pada campuran screeding akan mengurangi retak muai susut semen serta meningkatkan kekerasan dari screeding itu sendiri.",
-          deskripsi2:
-            "Screeding terdiri dari campuran pasir yang berkualitas dan semen PCC dengan perbandingan 1 bagian semen : 3 bagian pasir, dan ditambahkan Damdex Multifungsi sebanyak Aditif sebanyak 2% dari berat semen (1 liter Damdex Multifungsi + 50 kg semen + 150 kg pasir).",
-        },
-        {
-          value: "Perekat Keramik",
-          deskripsi1:
-            "Deskripsi PCC dan pembahan Aditif Damdex Multifungsi sebanyak 2% dari berat semen (contoh: 1 liter Damdex Multifungsi + semen 50 kg). Sifat campuran Medium Mix ini akan meningkatkan daya rekat pada aplikasi pemasangan keramik sehinga dapat mengurangi risiko keramik lepas. Selain memperkuat daya rekat semen PCC, campuran ini meminimalkan efisiensi yang sangat tinggi, sehingga volume material mejadi 2x lebih banyak dibandingkan semen rekat keramik lainnya.",
-        },
-      ],
-      img: mediummix,
-    },
-    {
-      value: "Thick Mix",
-      usage: [
-        {
-          value: "Grouting",
-          deskripsi1:
-            "Pemilihan material Grouting wajib mempertimbangkan muai susut material yang digunakan. Campuran 1 bagian Damdex Multifungsi + 3 bagian semen mampu mengurangi muai susut semen dan memperkeras Grouting. Sehingga campuran ini direkomendasikan untuk aplikasi Grouting retak pada bangunan rumah.",
-        },
-        {
-          value: "Plug Kebocoran",
-          deskripsi1:
-            "Pemilihan material Grouting wajib mempertimbangkan muai susut material yang digunakan. Campuran 1 bagian Damdex Multifungsi + 3 bagian semen mampu mengurangi muai susut semen dan memperkeras Grouting. Sehingga campuran ini direkomendasikan untuk aplikasi Grouting retak pada bangunan rumah.",
-        },
-      ],
-      img: thickmix,
-    },
-    {
-      value: "Waterproofing",
-      usage: [
-        {
-          value: "Waterproofing",
-          deskripsi1:
-            "Damdex Warna Waterproofing Cement Based 2 komponen yang memiliki beberapa inovasi terbaru diantaranya seperti Damdex Warna sudah memiliki 7 varian warna, POT Life (umur adukan lebih lama), daya sebar lebih luas dan aplikasi pada dinding Exposed.",
-          deskripsi2:
-            "Damdex Warna Waterproofing yang bisa disesuaikan dengan kebutuhan dari Customer. 7 warna tersebut adalah Warna Primer, Warna Abu-Abu, Warna Hijau, Warna Biru, Warna Merah, Warna Hitam dan Warna Coklat. Banyak Project yang sudah berhasil di aplikasikan Damdex Warna maupun Damdex Warna Primer sebagai pelindung/Waterproofing dan pengganti Sealer untuk Case dinding yang lembab (berjamur). Dengan adanya warna akan membuat pengguna lebih mudah dalam Monitoring dan Controlling dak beton dan pada keseluruhan aplikasi pelapisan Waterproofing Damdex Warna.",
-        },
-      ],
-      img: waterproofing,
-    },
-  ];
+  const images = [thinmix, mediummix, thickmix, waterproofing];
 
   return (
     <AppLayout>
@@ -157,20 +76,20 @@ const Page = () => {
             justifyContent={"space-evenly"}
             spacing={{ md: 2 }}
           >
-            {compositionData.map((d, i) => (
+            {data?.data.useComposition.map((d, i) => (
               <Grid2
                 key={i}
                 size={{ xs: 6, md: 3 }}
                 mt={{ xs: 2, md: 0 }}
               >
                 <CompositionButton
-                  value={d.value}
+                  value={d.titleIDN}
                   onChange={() => {
-                    setComposition(d.value);
-                    setCompositionId(i);
+                    setComposition(d.titleENG);
+                    setCompositionId(d.id);
                     setUsage("");
                   }}
-                  img={d.img}
+                  img={images[i]}
                   selected={composition}
                 />
               </Grid2>
@@ -186,9 +105,9 @@ const Page = () => {
             container
           >
             {composition !== "" &&
-              compositionData
-                .find((c) => c.value === composition)!
-                .usage.map((d, i) => (
+              data?.data.useComposition
+                .find((d) => d.id === compositionId)
+                ?.useCompositionUseFor.map((d, i) => (
                   <Grid2
                     key={i}
                     size={{ md: 2, xs: 4 }}
@@ -196,10 +115,10 @@ const Page = () => {
                   >
                     <UsageForButton
                       selected={usage}
-                      value={d.value}
+                      value={language === "id" ? d.titleIDN : d.titleENG}
                       onChange={() => {
-                        setUsage(d.value);
-                        setUsageForId(i);
+                        setUsage(language === "id" ? d.titleIDN : d.titleENG);
+                        setUsageForId(d.id);
                       }}
                     />
                   </Grid2>
@@ -215,45 +134,26 @@ const Page = () => {
               backgroundColor: "rgba(246, 246, 246, 1)",
               borderRadius: "25px",
               mt: "100px",
-              p: 3,
+              p: 5,
             }}
           >
             <Box
-              sx={{
-                position: "relative",
-                alignSelf: "center",
-                width: { md: "30vw", xs: "50vw" },
-                height: { md: "30vh", sm: "20vh", xs: "15vh" },
-                borderRadius: "25px",
-              }}
+              fontWeight={400}
+              fontSize={{ md: "40px", sm: "30px", xs: "20px" }}
             >
-              <Image
-                alt="komposisi"
-                src={compositionData.find((d) => d.value === composition)!.img}
-                fill
+              <div
+                dangerouslySetInnerHTML={{
+                  __html:
+                    language === "id"
+                      ? (data?.data.useComposition
+                          .find((d) => d.id === compositionId)
+                          ?.useCompositionUseFor.find((d) => d.id === usageForId)?.descriptionIDN as string)
+                      : (data?.data.useComposition
+                          .find((d) => d.id === compositionId)
+                          ?.useCompositionUseFor.find((d) => d.id === usageForId)?.descriptionENG as string),
+                }}
               />
             </Box>
-            <Typography
-              color="#000"
-              fontWeight={800}
-              fontSize={{ sm: "40px", xs: "20px" }}
-              mb={5}
-            >
-              Deskripsi
-            </Typography>
-            <Typography
-              fontWeight={400}
-              fontSize={{ sm: "40px", xs: "20px" }}
-            >
-              {compositionData.find((d) => d.value === composition)!.usage.find((u) => u.value === usage)?.deskripsi1}
-            </Typography>
-            <Typography
-              fontWeight={400}
-              fontSize={{ sm: "40px", xs: "20px" }}
-            >
-              {compositionData.find((d) => d.value === composition)!.usage.find((u) => u.value === usage)?.deskripsi2 ??
-                ""}
-            </Typography>
           </Stack>
         )}
       </Box>
@@ -366,13 +266,13 @@ const CompositionButton = ({
           fontWeight={800}
           textAlign={"center"}
         >
-          Perbandingan Volume
+          {value === "Medium Mix" ? "Perbandingan Berat" : "Perbandingan Volume"}
         </Typography>
         <Typography
           fontSize={{ xl: "20px", lg: "10px", xs: "10px" }}
           textAlign={"center"}
         >
-          (Menggunakan gelas/kaleng)
+          {value === "Medium Mix" ? "(Menggunakan Timbangan)" : "(Menggunakan gelas/kaleng)"}
         </Typography>
       </Stack>
       <Box

@@ -1,10 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Stack, Typography } from "@mui/material";
-import img1 from "../../public/fungsi1.png";
-import img2 from "../../public/fungsi2.png";
-import img3 from "../../public/fungsi3.png";
-import img4 from "../../public/fungsi4.png";
-import img1gif from "../../public/fungsi1gif.gif";
 import logo from "../../public/Damdex Multifungsi Logo.png";
 import Image from "next/image";
 import { useLanguage } from "./localStorageProvider";
@@ -12,7 +6,7 @@ import { useHome } from "@/swr-hooks/home/useHome";
 
 export const SecondSection = () => {
   const { language } = useLanguage();
-  const { data } = useHome({ lang: language, section: 1 });
+  const { data } = useHome({ lang: language, section: 2 });
   return (
     <Box sx={{ minHeight: { xs: "146vh", sm: "92vh", md: "100vh" } }}>
       <Stack
@@ -50,12 +44,16 @@ export const SecondSection = () => {
           sx={{
             width: { xs: "100vw", md: "45vw" },
             height: { xs: "30vh", md: "38vh" },
-            backgroundImage: `url(${img1.src})`,
+            backgroundImage: `url(${
+              data?.data.find((data) => data.key === "section-2-top-left-image-background")?.fileUrl
+            })`,
             backgroundSize: "cover",
             display: "block",
             filter: { md: "grayscale(100%)" },
             "&:hover": {
-              backgroundImage: `url(${img1gif.src})`,
+              backgroundImage: `url(${
+                data?.data.find((data) => data.key === "section-2-top-left-image-background")?.fileUrl
+              })`,
               filter: "grayscale(0%)",
               transition: "filter 750ms linear",
             },
@@ -76,7 +74,7 @@ export const SecondSection = () => {
               width={"15vw"}
               sx={{ fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
             >
-              STRONGER CONCRETE
+              {data?.data.find((data) => data.key === "section-2-top-left-title")?.content}
             </Typography>
             <Box
               sx={{
@@ -91,7 +89,7 @@ export const SecondSection = () => {
               fontWeight={400}
               sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
             >
-              Hanya membutuhkan 2% dari berat semen, mampu meningkatkan mutu beton hingga 35%
+              {data?.data.find((data) => data.key === "section-2-top-left-description")?.content}
             </Typography>
           </Stack>
         </Box>
@@ -99,7 +97,9 @@ export const SecondSection = () => {
           sx={{
             width: { xs: "100vw", md: "45vw" },
             height: { xs: "30vh", md: "38vh" },
-            background: `url(${img2.src})`,
+            background: `url(${
+              data?.data.find((data) => data.key === "section-2-top-right-image-background")?.fileUrl
+            })`,
             backgroundSize: "cover",
             filter: { md: "grayscale(100%)" },
             "&:hover": {
@@ -125,7 +125,7 @@ export const SecondSection = () => {
               sx={{ width: { xs: "50vw", md: "30vw", lg: "14vw" }, fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
               textAlign={"end"}
             >
-              PENETRATE & ADHESIVE
+              {data?.data.find((data) => data.key === "section-2-top-right-title")?.content}
             </Typography>
             <Box
               sx={{
@@ -141,7 +141,7 @@ export const SecondSection = () => {
               fontWeight={400}
               sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
             >
-              Memiliki tingkat keenceran yang tinggi, maka mudah meresap dan meningkat ke pori - pori beton
+              {data?.data.find((data) => data.key === "section-2-top-right-description")?.content}
             </Typography>
           </Stack>
         </Box>
@@ -151,7 +151,9 @@ export const SecondSection = () => {
           sx={{
             width: { xs: "100vw", md: "45vw" },
             height: { xs: "30vh", md: "38vh" },
-            background: `url(${img3.src})`,
+            background: `url(${
+              data?.data.find((data) => data.key === "section-2-bottom-left-image-background")?.fileUrl
+            })`,
             backgroundSize: "cover",
             filter: { md: "grayscale(100%)" },
             "&:hover": {
@@ -174,7 +176,7 @@ export const SecondSection = () => {
               fontWeight={800}
               sx={{ fontSize: { xs: "14px", sm: "20px", lg: "28px" }, width: { xs: "60vw", md: "40vw", lg: "14vw" } }}
             >
-              STOP LEAKS INSTANLY
+              {data?.data.find((data) => data.key === "section-2-bottom-left-title")?.content}
             </Typography>
             <Box
               sx={{
@@ -189,7 +191,7 @@ export const SecondSection = () => {
               fontWeight={400}
               sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
             >
-              Dengan formula campuran Damdex 3:1 dapat menyumbat kebocoran air mengalir, sederas apapun secara instant.
+              {data?.data.find((data) => data.key === "section-2-bottom-left-description")?.content}
             </Typography>
           </Stack>
         </Box>
@@ -197,7 +199,9 @@ export const SecondSection = () => {
           sx={{
             width: { xs: "100vw", md: "45vw" },
             height: { xs: "30vh", md: "38vh" },
-            background: `url(${img4.src})`,
+            background: `url(${
+              data?.data.find((data) => data.key === "section-2-bottom-right-image-background")?.fileUrl
+            })`,
             backgroundSize: "cover",
             filter: { md: "grayscale(100%)" },
             "&:hover": {
@@ -222,7 +226,7 @@ export const SecondSection = () => {
               sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
               textAlign={"end"}
             >
-              UNDERWATER CERAMICS INSTALLATION
+              {data?.data.find((data) => data.key === "section-2-bottom-right-title")?.content}
             </Typography>
             <Box
               sx={{
@@ -238,7 +242,7 @@ export const SecondSection = () => {
               fontWeight={400}
               textAlign={"end"}
             >
-              Mampu merekat keramik dan mengeras dengan instan walaupun pemasangan di dalam air atau tanpa dikuras
+              {data?.data.find((data) => data.key === "section-2-bottom-right-description")?.content}
             </Typography>
           </Stack>
         </Box>
