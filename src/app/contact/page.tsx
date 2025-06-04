@@ -1,7 +1,6 @@
 "use client";
 import { AppLayout } from "@/components/appLayout";
 import { Box, Stack, Typography, TextField, Button, useMediaQuery } from "@mui/material";
-import img from "@/../public/contact.png";
 import React from "react";
 import dynamic from "next/dynamic";
 import * as Yup from "yup";
@@ -31,92 +30,64 @@ const Page = () => {
 
   return (
     <AppLayout>
-      <Box
-        sx={{
-          width: { xs: "100vw" },
-          height: { xs: "180px", sm: "220px", md: "300px", lg: "40vh" },
-          background: `linear-gradient(180.53deg, rgba(47, 117, 101, 0.5) 22.87%, rgba(255, 230, 86, 0.5) 119.83%), url(${img.src})`,
-          backgroundSize: "cover",
-        }}
-      >
-        <Stack
-          alignItems={"center"}
-          justifyItems={"center"}
-          direction={"column"}
-          spacing={4}
-          sx={{ pt: { xs: "100px", sm: "120px", md: "15vh", lg: "19vh" } }}
-        >
-          <Typography
-            variant="h2"
-            fontWeight={800}
-            color="rgba(255, 255, 255, 1)"
-            textAlign={"center"}
-            width={"65vw"}
-            sx={{ fontSize: { xs: "30px", sm: "40px", md: "50px", lg: "60px" } }}
-          >
-            Contact Us
-          </Typography>
-        </Stack>
-      </Box>
       <Stack
         direction={{ md: "row", xs: "column" }}
-        p={5}
+        pt={{ xs: 8, sm: 10, md: 12, lg: 8, xl: 10 }}
+        px={5}
         spacing={3}
+        pb={2}
       >
         <Stack
-          width={{ md: "45vw", xs: "auto" }}
+          width={{ md: "30vw", xs: "auto" }}
           spacing={2}
         >
           <Typography fontSize={{ sm: "32px", xs: "28px" }}>Get in Touch</Typography>
           <Typography
-            fontSize={{ xl: "56", lg: "48px", md: "40px", sm: "30px", xs: "24px" }}
+            fontSize={{ xl: "40px", lg: "30px", md: "30px", sm: "30px", xs: "24px" }}
             fontWeight={800}
           >
             Have any questions? Feel free to reach out to us.
           </Typography>
           <Stack spacing={1}>
             <Typography
-              fontSize={{ md: "32px", xs: "24px" }}
+              fontSize={{ xl: "40px", md: "28px", xs: "24px" }}
               fontWeight={800}
             >
               Call Center
             </Typography>
-            <Typography fontSize={{ md: "24px", xs: "22px" }}>
+            <Typography fontSize={{ xl: "32px", md: "20px", xs: "22px" }}>
               021 7542688 <br /> 021 7545131
             </Typography>
           </Stack>
           <Stack spacing={1}>
             <Typography
-              fontSize={{ md: "32px", xs: "24px" }}
+              fontSize={{ xl: "40px", md: "28px", xs: "24px" }}
               fontWeight={800}
             >
               Our Location
             </Typography>
-            <Typography fontSize={{ md: "24px", xs: "22px" }}>
+            <Typography fontSize={{ xl: "32px", md: "20px", xs: "22px" }}>
               Jl. Cinere Raya No. 50-51 Blok A, Cinere - Limo,Depok 16514
             </Typography>
           </Stack>
           <Stack spacing={1}>
             <Typography
-              fontSize={{ md: "32px", xs: "24px" }}
+              fontSize={{ xl: "40px", md: "28px", xs: "24px" }}
               fontWeight={800}
             >
               Email
             </Typography>
-            <Typography fontSize={{ md: "24px", xs: "22px" }}>info@damdexindonesia.com</Typography>
+            <Typography fontSize={{ xl: "32px", md: "20px", xs: "22px" }}>info@damdexindonesia.com</Typography>
           </Stack>
         </Stack>
         <Stack
           sx={{
             p: { xs: 0, md: 3 },
-            width: { md: "45vw", xs: "auto" },
+            width: { md: "70vw", xs: "auto" },
           }}
           spacing={2}
           direction={"column"}
         >
-          <Typography fontSize={{ md: "24px", xs: "22px" }}>
-            Feel free to let me know if you need any further adjustments
-          </Typography>
           <Formik
             initialValues={{
               name: "",
@@ -133,13 +104,16 @@ const Page = () => {
             {({ values, handleChange, touched, errors }) => (
               <Form>
                 <Stack
-                  spacing={2}
+                  spacing={1}
                   sx={{
                     backgroundColor: "rgba(251, 251, 251, 1)",
                     borderRadius: "25px",
-                    p: 5,
+                    p: 3,
                   }}
                 >
+                  <Typography fontSize={{ md: "20px", xs: "22px" }}>
+                    Feel free to let me know if you need any further adjustments
+                  </Typography>
                   <TextField
                     id="name"
                     name="name"
@@ -180,14 +154,14 @@ const Page = () => {
                     error={touched.message && Boolean(errors.message)}
                     helperText={touched.message && errors.message}
                     multiline
-                    rows={5}
+                    rows={3}
                   />
                   <Button
                     variant="contained"
                     type="submit"
                     sx={{
                       mt: 3,
-                      width: { xs: "20vw", md: "5vw" },
+                      width: { xs: "20vw", md: "10vw" },
                       backgroundColor: "#000",
                       borderRadius: "25px",
                       fontSize: { xs: "12px", sm: "16px" },
@@ -201,7 +175,7 @@ const Page = () => {
           </Formik>
           <Box
             sx={{
-              height: isTall ? { xs: "35vh", md: "40vh", lg: "40vh" } : { xs: "35vh", md: "40vh", lg: "57vh" },
+              height: isTall ? { xs: "35vh", md: "40vh", lg: "40vh" } : { xs: "35vh", md: "20vh", lg: "40vh" },
               background: `linear-gradient(77.88deg, rgba(185, 75, 188, 0.8) -3.14%, rgba(53, 87, 196, 0.8) 27%, rgba(156, 217, 66, 0.8) 94.16%), url(${imgToko.src})`,
               backgroundSize: "cover",
               borderRadius: { xs: "20px", sm: "25px" },
@@ -212,8 +186,8 @@ const Page = () => {
               alignItems={"center"}
               justifyItems={"center"}
               direction={"column"}
-              spacing={4}
-              sx={{ pt: { xs: "10vh", sm: "8vh", md: "10vh", lg: "12vh", xl: "15vh" } }}
+              spacing={2}
+              sx={{ pt: { xs: "10vh", sm: "8vh", md: "65px", lg: "60px", xl: "100px" } }}
             >
               <Typography
                 variant="h2"
@@ -221,7 +195,7 @@ const Page = () => {
                 fontWeight={800}
                 color="rgba(255, 255, 255, 1)"
                 textAlign={"center"}
-                sx={{ fontSize: { xs: "18px", sm: "30px", md: "25px", lg: "35px", xl: "50px" } }}
+                sx={{ fontSize: { xs: "18px", sm: "30px", md: "20px", lg: "30px", xl: "50px" } }}
               >
                 Toko / Traditional Market / Toko Material
               </Typography>

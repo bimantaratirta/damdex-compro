@@ -16,7 +16,6 @@ export const OutlinedButton = ({
           color: "#FFF",
           borderColor: "#FFF",
           width: { sm: "20vw", xs: "25vw" },
-          height: "5.664vh",
           borderRadius: "64px",
           fontSize: { xs: 12, sm: 16, xl: 24 },
           "&:hover": {
