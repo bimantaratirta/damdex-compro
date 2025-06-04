@@ -14,11 +14,13 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { data } = useProjectDetail(Number(id));
   const { data: projects } = useProject({ limit: 3 });
 
-  const otherProjects = projects?.data.payload.map((data) => ({
-    img: data.heroImageUrl,
-    title: language === "id" ? data.titleIDN : data.titleENG,
-    id: data.id,
-  }));
+  const otherProjects = projects?.data.payload
+    .filter((data) => data.id !== Number(id))
+    .map((data) => ({
+      img: data.heroImageUrl,
+      title: language === "id" ? data.titleIDN : data.titleENG,
+      id: data.id,
+    }));
 
   return (
     <AppLayout>
@@ -28,12 +30,12 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           textAlign={"center"}
           mb={5}
           variant="h3"
-          mt={{ xs: 5, md: 8, lg: 5 }}
+          mt={{ xs: 5, sm: 8, md: 10, lg: 3, xl: 5 }}
         >
           {language === "id" ? data?.data.titleIDN : data?.data.titleENG}
         </Typography>
         {data && data.data.heroImageUrl && (
-          <Box sx={{ height: { xs: "200px", sm: "300px", md: "50vh" }, position: "relative", m: "auto" }}>
+          <Box sx={{ height: { xs: "200px", sm: "300px", lg: "50vh" }, position: "relative", m: "auto" }}>
             <Image
               alt="image1"
               src={data?.data.heroImageUrl}
@@ -46,7 +48,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
         <Box
           textAlign={"justify"}
           mx="auto"
-          fontSize={"20px"}
+          fontSize={{ xs: "20px", lg: "26px" }}
           justifyContent={"start"}
           mt={5}
         >
@@ -70,7 +72,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
             <Box
               sx={{
                 width: { lg: "50vw", md: "75vw", xs: "auto" },
-                height: { xs: "200px", sm: "300px", md: "50vh" },
+                height: { xs: "200px", sm: "300px", lg: "50vh" },
                 position: "relative",
               }}
             >
@@ -83,14 +85,19 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               />
             </Box>
           )}
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                language === "id"
-                  ? (data?.data.secondDescriptionIDN as string)
-                  : (data?.data.secondDescriptionENG as string),
-            }}
-          />
+          <Box
+            fontSize={{ lg: "24px", xl: "30px" }}
+            sx={{ maxWidth: { md: "30vw" } }}
+          >
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  language === "id"
+                    ? (data?.data.secondDescriptionIDN as string)
+                    : (data?.data.secondDescriptionENG as string),
+              }}
+            />
+          </Box>
         </Stack>
         <OtherListSection
           data={otherProjects}

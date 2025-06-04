@@ -34,7 +34,7 @@ const Page = () => {
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: "40vh",
+          height: { xs: "180px", sm: "220px", md: "300px", lg: "40vh" },
           background: `linear-gradient(180.53deg, rgba(47, 117, 101, 0.5) 22.87%, rgba(255, 230, 86, 0.5) 119.83%), url(${img.src})`,
           backgroundSize: "cover",
         }}
@@ -44,7 +44,7 @@ const Page = () => {
           justifyItems={"center"}
           direction={"column"}
           spacing={4}
-          sx={{ pt: "20vh" }}
+          sx={{ pt: { xs: "100px", sm: "120px", md: "15vh", lg: "19vh" } }}
         >
           <Typography
             variant="h2"
@@ -52,7 +52,7 @@ const Page = () => {
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
             width={"65vw"}
-            sx={{ fontSize: { xs: "35px", sm: "50px", lg: "60px" } }}
+            sx={{ fontSize: { xs: "30px", sm: "40px", md: "50px", lg: "60px" } }}
           >
             Contact Us
           </Typography>
@@ -61,15 +61,15 @@ const Page = () => {
       <Stack
         direction={{ md: "row", xs: "column" }}
         p={5}
-        spacing={5}
+        spacing={3}
       >
         <Stack
           width={{ md: "45vw", xs: "auto" }}
-          spacing={3}
+          spacing={2}
         >
-          <Typography fontSize={{ md: "32px", xs: "24px" }}>Get in Touch</Typography>
+          <Typography fontSize={{ sm: "32px", xs: "28px" }}>Get in Touch</Typography>
           <Typography
-            fontSize={{ lg: "70px", md: "40px", xs: "32px" }}
+            fontSize={{ xl: "56", lg: "48px", md: "40px", sm: "30px", xs: "24px" }}
             fontWeight={800}
           >
             Have any questions? Feel free to reach out to us.
@@ -81,7 +81,7 @@ const Page = () => {
             >
               Call Center
             </Typography>
-            <Typography fontSize={{ md: "24px", xs: "18px" }}>
+            <Typography fontSize={{ md: "24px", xs: "22px" }}>
               021 7542688 <br /> 021 7545131
             </Typography>
           </Stack>
@@ -92,7 +92,7 @@ const Page = () => {
             >
               Our Location
             </Typography>
-            <Typography fontSize={{ md: "24px", xs: "18px" }}>
+            <Typography fontSize={{ md: "24px", xs: "22px" }}>
               Jl. Cinere Raya No. 50-51 Blok A, Cinere - Limo,Depok 16514
             </Typography>
           </Stack>
@@ -103,7 +103,7 @@ const Page = () => {
             >
               Email
             </Typography>
-            <Typography fontSize={{ md: "24px", xs: "18px" }}>info@damdexindonesia.com</Typography>
+            <Typography fontSize={{ md: "24px", xs: "22px" }}>info@damdexindonesia.com</Typography>
           </Stack>
         </Stack>
         <Stack
@@ -114,7 +114,9 @@ const Page = () => {
           spacing={2}
           direction={"column"}
         >
-          <Typography>Feel free to let me know if you need any further adjustments</Typography>
+          <Typography fontSize={{ md: "24px", xs: "22px" }}>
+            Feel free to let me know if you need any further adjustments
+          </Typography>
           <Formik
             initialValues={{
               name: "",
@@ -183,7 +185,13 @@ const Page = () => {
                   <Button
                     variant="contained"
                     type="submit"
-                    sx={{ mt: 3, width: "5vw", backgroundColor: "#000", borderRadius: "25px" }}
+                    sx={{
+                      mt: 3,
+                      width: { xs: "20vw", md: "5vw" },
+                      backgroundColor: "#000",
+                      borderRadius: "25px",
+                      fontSize: { xs: "12px", sm: "16px" },
+                    }}
                   >
                     Send
                   </Button>

@@ -21,13 +21,13 @@ const Page = () => {
     <AppLayout>
       <Box
         sx={{
-          p: 8,
+          p: 3,
           backgroundColor: "#e8e0fd",
         }}
       >
         <Typography
           textAlign={"center"}
-          mt={{ lg: 5, md: 3, xs: 5 }}
+          mt={{ lg: 5, sm: 8, xs: 5 }}
           fontWeight={800}
           width={"30vw"}
           mx={"auto"}
@@ -37,7 +37,7 @@ const Page = () => {
         </Typography>
         <Grid2
           container
-          mt={10}
+          mt={5}
           spacing={{ lg: 4, md: 2, sm: 6, xs: 5 }}
           justifyContent={"center"}
         >
@@ -54,7 +54,7 @@ const Page = () => {
                   <Box
                     sx={{
                       position: "relative",
-                      width: { lg: "25vw", md: "25vw", xs: "80vw" },
+                      width: { lg: "28vw", md: "28vw", xs: "80vw" },
                       height: isTall
                         ? { xl: "25vh", lg: "12vh", md: "10vh", sm: "15vh", xs: "20vh" }
                         : { xl: "25vh", lg: "28vh", md: "150px", sm: "250px", xs: "180px" },

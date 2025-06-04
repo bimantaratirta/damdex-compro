@@ -15,11 +15,13 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { data } = useEventDetail(Number(id));
   const { data: events } = useEvent({ limit: 3 });
 
-  const otherEvents = events?.data.payload.map((data) => ({
-    img: data.heroImageUrl,
-    title: language === "id" ? data.titleIDN : data.titleENG,
-    id: data.id,
-  }));
+  const otherEvents = events?.data.payload
+    .filter((data) => data.id !== Number(id))
+    .map((data) => ({
+      img: data.heroImageUrl,
+      title: language === "id" ? data.titleIDN : data.titleENG,
+      id: data.id,
+    }));
 
   return (
     <AppLayout>

@@ -49,7 +49,7 @@ export const SecondSection = () => {
             })`,
             backgroundSize: "cover",
             display: "block",
-            filter: { md: "grayscale(100%)" },
+            filter: "grayscale(100%)",
             "&:hover": {
               backgroundImage: `url(${
                 data?.data.find((data) => data.key === "section-2-top-left-image-background")?.fileUrl
@@ -101,7 +101,7 @@ export const SecondSection = () => {
               data?.data.find((data) => data.key === "section-2-top-right-image-background")?.fileUrl
             })`,
             backgroundSize: "cover",
-            filter: { md: "grayscale(100%)" },
+            filter: "grayscale(100%)",
             "&:hover": {
               filter: "grayscale(0%)",
               transition: "filter 750ms linear",
@@ -155,7 +155,7 @@ export const SecondSection = () => {
               data?.data.find((data) => data.key === "section-2-bottom-left-image-background")?.fileUrl
             })`,
             backgroundSize: "cover",
-            filter: { md: "grayscale(100%)" },
+            filter: "grayscale(100%)",
             "&:hover": {
               filter: "grayscale(0%)",
               transition: "filter 750ms linear",
@@ -203,7 +203,7 @@ export const SecondSection = () => {
               data?.data.find((data) => data.key === "section-2-bottom-right-image-background")?.fileUrl
             })`,
             backgroundSize: "cover",
-            filter: { md: "grayscale(100%)" },
+            filter: "grayscale(100%)",
             "&:hover": {
               filter: "grayscale(0%)",
               transition: "filter 750ms linear",

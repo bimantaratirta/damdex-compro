@@ -43,13 +43,13 @@ const Page = () => {
   return (
     <AppLayout>
       <Stack
-        sx={{ alignItems: { md: "center" }, pt: { xl: 6, xs: 4 } }}
+        sx={{ alignItems: { md: "center" }, pt: { xl: 6, lg: 4, xs: 6 } }}
         direction={"row"}
       >
         <Box
           sx={{
-            width: { xs: "100vw", md: "90vw" },
-            height: { xs: "30vh", md: "40vh" },
+            width: { xs: "100vw", md: "90vw", lg: "90vw" },
+            height: { xs: "150px", sm: "190px", md: "220px", lg: "40vh" },
             position: "relative",
             backgroundColor: "rgba(0,0,0,1)",
           }}
@@ -62,8 +62,8 @@ const Page = () => {
         </Box>
         <Box
           sx={{
-            width: { xs: "100vw", md: "90vw" },
-            height: { xs: "30vh", md: "40vh" },
+            width: { xs: "100vw", md: "90vw", lg: "90vw" },
+            height: { xs: "150px", sm: "190px", md: "220px", lg: "40vh" },
             position: "relative",
             backgroundColor: "rgba(0,0,0,1)",
           }}
@@ -82,7 +82,7 @@ const Page = () => {
               position: "absolute",
               left: "23vw",
               zIndex: 5,
-              top: { xl: "20vh", xs: "18vh" },
+              top: { xl: "20vh", lg: "18vh", md: "120px", sm: "12vh", xs: "100px" },
             }}
           >
             <Stack alignItems={"center"}>
@@ -106,11 +106,11 @@ const Page = () => {
           </Box>
           <Box
             sx={{
-              height: { xl: "4vh", lg: "2vh", md: "3vh", sm: "1.25vh", xs: "1.5vh" },
+              height: { xl: "4vh", lg: "4vh", md: "3.5vh", sm: "1.5vh", xs: "2.5vh" },
               width: "45vw",
               backgroundColor: "#37B878",
               position: "absolute",
-              top: { xl: "23.25vh", lg: "20vh", md: "21vh", sm: "19vh", xs: "19.5vh" },
+              top: { xl: "23.25vh", lg: "22vh", md: "145px", sm: "13vh", xs: "110px" },
               left: { xs: "29.3vw" },
             }}
           />
@@ -119,7 +119,7 @@ const Page = () => {
 
       <Stack
         p={5}
-        fontSize={{ lg: "48px", md: "32px", sm: "24px", xs: "20px" }}
+        fontSize={{ xl: "40px", md: "32px", sm: "24px", xs: "20px" }}
       >
         <div
           className="flex flex-col !space-y-10"
@@ -149,7 +149,7 @@ const Page = () => {
                 <Box
                   key={index}
                   sx={{
-                    minWidth: { xl: "20%", md: "25%", sm: "40%", xs: "50%" },
+                    minWidth: { xl: "20%", md: "25%", sm: "40%", xs: "55%" },
                     padding: 2,
                     borderRadius: "25px",
                     position: "relative",
@@ -188,8 +188,7 @@ const Page = () => {
                     >
                       <Typography
                         alignSelf={"start"}
-                        fontSize={{}}
-                        sx={{ typography: { xl: "h6", md: "caption" } }}
+                        fontSize={{ xs: "12px", md: "16px", lg: "20px" }}
                       >
                         {language === "eng" ? slide.titleENG : slide.titleIDN}
                       </Typography>
