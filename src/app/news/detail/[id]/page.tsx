@@ -14,11 +14,13 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { data } = useNewsDetail(Number(id));
   const { data: news } = useNews();
 
-  const otherNews = news?.data.payload.map((data) => ({
-    img: data.titleImageUrl,
-    title: language === "id" ? data.titleIDN : data.titleENG,
-    id: data.id,
-  }));
+  const otherNews = news?.data.payload
+    .filter((data) => data.id !== Number(id))
+    .map((data) => ({
+      img: data.titleImageUrl,
+      title: language === "id" ? data.titleIDN : data.titleENG,
+      id: data.id,
+    }));
 
   return (
     <AppLayout>

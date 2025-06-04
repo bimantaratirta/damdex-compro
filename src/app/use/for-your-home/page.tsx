@@ -238,11 +238,11 @@ const CompositionButton = ({
           value={value}
           sx={{
             textTransform: "none",
-            width: { lg: "18vw", md: "15vw", sm: "30vw", xs: "25vw" },
+            width: { lg: "18vw", md: "15vw", sm: "30vw", xs: "50vw" },
             borderRadius: "0px 100px 100px",
             minHeight: { xs: "6vh", lg: "10h", xl: "9vh" },
             color: "#000",
-            fontSize: { xl: "25px", lg: "16px", xs: "11px" },
+            fontSize: { xl: "25px", lg: "16px", md: "12px", sm: "14px", xs: "11px" },
             "&.Mui-selected": {
               background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)",
               color: "#FFF",
@@ -255,21 +255,21 @@ const CompositionButton = ({
           <Stack direction={"column"}>
             {value}
             {value === "Waterproofing" && (
-              <Typography fontSize={{ lg: "15px", md: "10px", xs: "8px" }}> (Damdex warna)</Typography>
+              <Typography fontSize={{ lg: "15px", sm: "9px", xs: "8px" }}> (Damdex Warna)</Typography>
             )}
           </Stack>
         </ToggleButton>
       </Box>
       <Stack mt={1}>
         <Typography
-          fontSize={{ xl: "26px", lg: "16px", md: "12px", xs: "12px" }}
+          fontSize={{ xl: "26px", lg: "16px", md: "12px", xs: "15px" }}
           fontWeight={800}
           textAlign={"center"}
         >
           {value === "Medium Mix" ? "Perbandingan Berat" : "Perbandingan Volume"}
         </Typography>
         <Typography
-          fontSize={{ xl: "20px", lg: "10px", xs: "10px" }}
+          fontSize={{ xl: "20px", lg: "10px", xs: "12px" }}
           textAlign={"center"}
         >
           {value === "Medium Mix" ? "(Menggunakan Timbangan)" : "(Menggunakan gelas/kaleng)"}
@@ -278,8 +278,8 @@ const CompositionButton = ({
       <Box
         sx={{
           position: "relative",
-          width: { xl: "15vw", lg: "12vw", md: "10vw", xs: "15vw" },
-          height: { xl: "15vh", lg: "8vh", md: "6vh", sm: "8vh", xs: "6vh" },
+          width: { xl: "15vw", lg: "13vw", md: "10vw", sm: "25vw", xs: "30vw" },
+          height: { xl: "15vh", lg: "13vh", md: "6vh", sm: "90px", xs: "75px" },
         }}
       >
         <Image

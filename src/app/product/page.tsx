@@ -248,6 +248,7 @@ const Page = () => {
                 loop
                 muted
                 preload="none"
+                playsInline
                 style={{
                   width: "100vw",
                   height: isTall ? "50vh" : tab ? "50vh" : phonexs ? "40vh" : "100vh",
