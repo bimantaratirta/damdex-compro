@@ -9,7 +9,6 @@ export const FiftSection = () => {
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const { language } = useLanguage();
   const { data, loading } = useEvent({ page: 1, limit: 3 });
-  const isTall = useMediaQuery("(min-height: 1200px)");
 
   return (
     <Box

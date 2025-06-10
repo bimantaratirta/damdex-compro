@@ -9,7 +9,6 @@ import { useLanguage } from "@/components/localStorageProvider";
 
 const Page = () => {
   const router = useRouter();
-  const isTall = useMediaQuery("(min-height: 1200px)");
   const theme = useTheme();
   const phone = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -55,9 +54,7 @@ const Page = () => {
                     sx={{
                       position: "relative",
                       width: { lg: "28vw", md: "28vw", xs: "80vw" },
-                      height: isTall
-                        ? { xl: "25vh", lg: "12vh", md: "10vh", sm: "15vh", xs: "20vh" }
-                        : { xl: "300px", lg: "180px", md: "150px", sm: "250px", xs: "180px" },
+                      height: { xl: "300px", lg: "180px", md: "150px", sm: "250px", xs: "180px" },
                     }}
                   >
                     <Image

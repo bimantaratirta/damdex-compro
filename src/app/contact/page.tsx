@@ -1,6 +1,6 @@
 "use client";
 import { AppLayout } from "@/components/appLayout";
-import { Box, Stack, Typography, TextField, Button, useMediaQuery } from "@mui/material";
+import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import React from "react";
 import dynamic from "next/dynamic";
 import * as Yup from "yup";
@@ -18,7 +18,6 @@ const validationSchema = Yup.object({
 
 const Page = () => {
   const router = useRouter();
-  const isTall = useMediaQuery("(min-height: 1200px)");
 
   const Map = React.useMemo(
     () =>
@@ -175,7 +174,7 @@ const Page = () => {
           </Formik>
           <Box
             sx={{
-              height: isTall ? { xs: "35vh", md: "40vh", lg: "40vh" } : { xs: "35vh", md: "20vh", lg: "40vh" },
+              height: { xs: "250px", sm: "300px", md: "225px", lg: "250px", xl: "350px" },
               background: `linear-gradient(77.88deg, rgba(185, 75, 188, 0.8) -3.14%, rgba(53, 87, 196, 0.8) 27%, rgba(156, 217, 66, 0.8) 94.16%), url(${imgToko.src})`,
               backgroundSize: "cover",
               borderRadius: { xs: "20px", sm: "25px" },
@@ -187,7 +186,7 @@ const Page = () => {
               justifyItems={"center"}
               direction={"column"}
               spacing={2}
-              sx={{ pt: { xs: "10vh", sm: "8vh", md: "65px", lg: "60px", xl: "100px" } }}
+              sx={{ pt: { xs: "10vh", sm: "8vh", md: "65px", lg: "60px", xl: "80px" } }}
             >
               <Typography
                 variant="h2"

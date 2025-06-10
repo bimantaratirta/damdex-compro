@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Stack, Typography, ToggleButton, Divider, Grid2, useMediaQuery } from "@mui/material";
+import { Box, Stack, Typography, ToggleButton, Divider, Grid2 } from "@mui/material";
 import { AppLayout } from "@/components/appLayout";
 import img1 from "@/../public/damdexforhome.png";
 import img2 from "@/../public/damdexforpro.png";
@@ -23,7 +23,6 @@ const Page = () => {
   const [usage, setUsage] = React.useState<string>("");
   const { language } = useLanguage();
   const { data } = useUsageDetail(2);
-  const isTall = useMediaQuery("(min-height: 1200px)");
 
   const images = [thinmix, mediummix, thickmix, waterproofing];
 
@@ -32,9 +31,10 @@ const Page = () => {
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: isTall ? "30vh" : { xs: "30vh", lg: "50vh" },
+          height: { xs: "200px", sm: "250px", md: "300px", xl: "400px" },
           background: `linear-gradient(180.53deg, rgba(245, 5, 3, 0.65) 22.87%, rgba(255, 230, 86, 0.65) 119.83%), url(${img2.src})`,
           backgroundSize: "cover",
+          backgroundPosition: { xs: "top", lg: "center" },
         }}
       >
         <Stack
@@ -43,9 +43,7 @@ const Page = () => {
           direction={"column"}
           spacing={4}
           sx={{
-            pt: isTall
-              ? { xs: "20vh", sm: "23vh", md: "15vh", xl: "25vh" }
-              : { xs: "13vh", md: "15vh", lg: "20vh", xl: "25vh" },
+            pt: { xs: "110px", sm: "135px", md: "150px", lg: "125px", xl: "200px" },
           }}
         >
           <Typography
@@ -53,8 +51,7 @@ const Page = () => {
             fontWeight={800}
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
-            width={"65vw"}
-            sx={{ fontSize: { xs: "35px", sm: "45px", lg: "60px" } }}
+            sx={{ fontSize: { xs: "24px", sm: "35px", md: "45px", lg: "60px" } }}
           >
             Damdex For Professional
           </Typography>
@@ -160,7 +157,7 @@ const Page = () => {
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: isTall ? { sm: "30vh", xs: "35vh" } : { lg: "45vh", xs: "35vh" },
+          height: { xl: "400px", lg: "300px", sm: "300px", xs: "250px" },
           background: `linear-gradient(180.53deg, rgba(87, 47, 117, 0.8) 22.87%, rgba(255, 230, 86, 0.5) 119.83%), url(${img1.src})`,
           backgroundSize: "cover",
           p: 2,
@@ -172,7 +169,7 @@ const Page = () => {
           direction={"row"}
           spacing={{ sm: 4, xs: 2 }}
           sx={{
-            pt: isTall ? { xs: "10vh", sm: "18vh", md: "10vh" } : { xs: "10vh", sm: "12vh", lg: "16vh" },
+            pt: { xs: "70px", sm: "100px", lg: "100px", xl: "150px" },
           }}
         >
           <Typography

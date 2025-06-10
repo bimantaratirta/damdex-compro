@@ -13,7 +13,7 @@ export const ThirdSection = () => {
     <Box
       sx={{
         width: "100vw",
-        height: { xs: "111vh", sm: "111vh", md: "157vh", lg: "190vh" },
+        height: { xs: "738px", sm: "1070px", md: "1200px", lg: "1150px", xl: "1683px" },
         position: "relative",
         pt: { md: 2 },
         background: `url(${background.src})`,
@@ -34,7 +34,7 @@ export const ThirdSection = () => {
           position={"relative"}
           sx={{
             width: { xs: "50vw", md: "30vw", lg: "25vw" },
-            height: { xs: "100px", sm: "125px", md: "125px", xl: "175px" },
+            height: { xs: "100px", sm: "125px", md: "125px", xl: "200px" },
           }}
         >
           <Image
@@ -55,7 +55,7 @@ export const ThirdSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "90vw" },
-            height: { xs: "45vh", md: "65vh", lg: "79vh" },
+            height: { xs: "300px", sm: "450px", md: "500px", lg: "475px", xl: "700px" },
             position: "relative",
             color: "#FFF",
             background: `url(${data?.data.find((data) => data.key === "section-3-image-background")?.fileUrl})`,
@@ -90,7 +90,7 @@ export const ThirdSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "9px", sm: "16px" } }}
+              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "9px", sm: "15px", xl: "18px" } }}
             >
               {data?.data.find((data) => data.key === "section-3-top-left-description")?.content}
             </Typography>
@@ -99,7 +99,7 @@ export const ThirdSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "90vw" },
-            height: { xs: "45vh", md: "65vh", lg: "79vh" },
+            height: { xs: "300px", sm: "450px", md: "500px", lg: "475px", xl: "700px" },
             position: "relative",
             background: `url(${image2.src})`,
             backgroundSize: "cover",
@@ -111,7 +111,7 @@ export const ThirdSection = () => {
             mt="4vw"
             justifyContent={"flex-end"}
             alignItems={"flex-end"}
-            height={{ xs: "40vh", md: "50vh", lg: "65vh", xl: "60vh" }}
+            height={{ xs: "280px", sm: "400px", md: "450px", lg: "420px", xl: "580px" }}
             sx={{ mr: { xs: "3vw", sm: "7vw", md: "3vw" } }}
           >
             <Typography
@@ -132,12 +132,13 @@ export const ThirdSection = () => {
               }}
             />
             <Typography
-              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "9px", sm: "15px" } }}
+              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "9px", sm: "15px", xl: "18px" } }}
               color="#fff"
               fontWeight={400}
               textAlign={"end"}
             >
               {data?.data.find((data) => data.key === "section-3-bottom-right-description")?.content}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sit incidunt fugiat blanditiis autem
             </Typography>
           </Stack>
         </Box>
@@ -149,38 +150,40 @@ export const ThirdSection = () => {
             width: "58vw",
             mx: "auto",
             position: "absolute",
-            top: { xs: "64vh", sm: "60vh", md: "85vh", lg: "100vh" },
+            top: { xs: "420px", sm: "590px", md: "660px", lg: "610px", xl: "910px" },
             left: "23vw",
             zIndex: 5,
           }}
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
+          // data-aos="fade-up"
+          // data-aos-easing="ease-in-out"
         >
           <Stack alignItems={"center"}>
             <Typography
               variant="h3"
               fontWeight={800}
               color="#FFF"
-              width={{ xl: "60vw", sm: "80vw", xs: "60vw" }}
+              lineHeight={1}
+              width={{ xl: "50vw", lg: "70vw", sm: "80vw", xs: "60vw" }}
               textAlign={"center"}
               sx={{ fontSize: { xs: "18px", sm: "29px", md: "40px", lg: "48px", xl: "60px" } }}
             >
               {data?.data.find((data) => data.key === "section-3-center-title")?.content}
+              Pioneer of Waterproofing Innovation
             </Typography>
           </Stack>
         </Box>
         <Box
           sx={{
-            height: { xs: "3vh", sm: "6vh", lg: "8vh" },
+            height: { xs: "20px", sm: "25px", md: "30px", lg: "40px", xl: "50px" },
             width: "45vw",
             backgroundColor: "#37B878",
             alignSelf: "center",
             position: "absolute",
-            top: { xs: "65vh", sm: "61vh", md: "86vh", lg: "103vh" },
+            top: { xs: "430px", sm: "610px", md: "685px", lg: "640px", xl: "945px" },
             left: "29.3vw",
           }}
-          data-aos="fade-up"
-          data-aos-easing="ease-in-out"
+          // data-aos="fade-up"
+          // data-aos-easing="ease-in-out"
         />
       </div>
     </Box>

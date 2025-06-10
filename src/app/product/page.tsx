@@ -22,9 +22,9 @@ const PopupPoint = ({ top, right, children }: { top: string; right: string; chil
         right: right,
         border: { xs: "1px solid black" },
       }}
-      // data-aos="fade-up"
-      // data-aos-easing="ease-in-out"
-      // data-aos-anchor-placement="top-bottom"
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-anchor-placement="top-bottom"
     >
       {children}
     </Box>
@@ -38,7 +38,6 @@ const Page = () => {
   const phonesm = useMediaQuery(theme.breakpoints.down("md"));
   const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
   const desktop = useMediaQuery(theme.breakpoints.down("xl"));
-  const isTall = useMediaQuery("(min-height: 1200px)");
   const router = useRouter();
   return (
     <AppLayout>
@@ -297,7 +296,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: isTall ? "50vh" : tab ? "50vh" : phonexs ? "40vh" : "100vh",
+              height: phonexs ? "250px" : phonesm ? "300px" : tab ? "500px" : "100vh",
             }}
           >
             <div
@@ -312,7 +311,7 @@ const Page = () => {
                 playsInline
                 style={{
                   width: "100vw",
-                  height: isTall ? "50vh" : tab ? "50vh" : phonexs ? "40vh" : "100vh",
+                  height: phonexs ? "250px" : phonesm ? "300px" : tab ? "500px" : "100vh",
                   objectFit: "cover",
                 }}
               >

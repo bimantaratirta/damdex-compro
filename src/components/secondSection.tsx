@@ -46,7 +46,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "30vh", md: "38vh" },
+            height: { xs: "250px", sm: "300px", md: "250px", lg: "250px", xl: "300px" },
             backgroundImage: `url(${
               data?.data.find((data) => data.key === "section-2-top-left-image-background")?.fileUrl
             })`,
@@ -74,8 +74,8 @@ export const SecondSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              width={"15vw"}
-              sx={{ fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
+              width={{ xs: "40vw", md: "15vw" }}
+              sx={{ fontSize: { xs: "16px", sm: "20px", lg: "28px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-top-left-title")?.content}
             </Typography>
@@ -90,7 +90,7 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
+              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "14px", lg: "16px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-top-left-description")?.content}
             </Typography>
@@ -99,7 +99,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "30vh", md: "38vh" },
+            height: { xs: "250px", sm: "300px", md: "250px", lg: "250px", xl: "300px" },
             background: `url(${
               data?.data.find((data) => data.key === "section-2-top-right-image-background")?.fileUrl
             })`,
@@ -142,7 +142,7 @@ export const SecondSection = () => {
               textAlign={"end"}
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
+              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "14px", lg: "16px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-top-right-description")?.content}
             </Typography>
@@ -153,7 +153,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "30vh", md: "38vh" },
+            height: { xs: "250px", sm: "300px", md: "250px", lg: "250px", xl: "300px" },
             background: `url(${
               data?.data.find((data) => data.key === "section-2-bottom-left-image-background")?.fileUrl
             })`,
@@ -192,7 +192,7 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
+              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "14px", sm: "16px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-bottom-left-description")?.content}
             </Typography>
@@ -201,7 +201,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "30vh", md: "38vh" },
+            height: { xs: "250px", sm: "300px", md: "250px", lg: "250px", xl: "300px" },
             background: `url(${
               data?.data.find((data) => data.key === "section-2-bottom-right-image-background")?.fileUrl
             })`,
@@ -240,7 +240,7 @@ export const SecondSection = () => {
               }}
             />
             <Typography
-              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "9px", sm: "14px" } }}
+              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "14px", lg: "16px" } }}
               color="#fff"
               fontWeight={400}
               textAlign={"end"}
