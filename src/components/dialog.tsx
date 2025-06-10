@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Dialog, DialogTitle, DialogContent } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
+import dialogimg from "@/../public/dialogImage.jpg";
 
 export const AdvantageDialog = ({
   open,
@@ -37,7 +38,7 @@ export const AdvantageDialog = ({
           <Box sx={{ textAlign: "center" }}>
             <Box sx={{ position: "relative", width: "100%", height: "300px" }}>
               <Image
-                src={img ?? ""}
+                src={dialogimg}
                 alt="Building Construction"
                 fill
                 objectFit="cover"
