@@ -9,11 +9,10 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const PopupPoint = ({ top, right, children }: { top: string; right: string; children: React.ReactNode }) => {
-  const isTall = useMediaQuery("(min-height: 1200px)");
   return (
     <Box
       sx={{
-        height: isTall ? "3vh" : { xl: "8vh", lg: "8vh", md: "3.5vh", sm: "3vh", xs: "3.2vh" },
+        height: { xl: "75px", lg: "44px", md: "35px", sm: "25px", xs: "21px" },
         width: { xl: "15vw", md: "15vw", sm: "15vw", xs: "15.5vw" },
         zIndex: 2,
         borderRadius: { md: "5px", xs: "5px" },
@@ -39,7 +38,6 @@ const Page = () => {
   const phonesm = useMediaQuery(theme.breakpoints.down("md"));
   const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
   const desktop = useMediaQuery(theme.breakpoints.down("xl"));
-  const isTall = useMediaQuery("(min-height: 1200px)");
   const router = useRouter();
   return (
     <AppLayout>
@@ -51,7 +49,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: isTall ? "50vh" : { xs: "40vh", sm: "50vh", lg: "100vh" },
+              height: { xs: "250px", sm: "400px", md: "500px", lg: "100vh" },
               position: "relative",
             }}
           >
@@ -64,7 +62,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: isTall ? "50vh" : { xs: "50vh", lg: "100vh", xl: "120vh" },
+              height: { xs: "300px", sm: "400px", md: "500px", lg: "676px", xl: "1082px" },
               position: "relative",
             }}
           >
@@ -78,12 +76,24 @@ const Page = () => {
                 fill
               />
               <PopupPoint
-                top={desktopxl ? "65vh" : tab ? "27vh" : phonesm || phonexs ? "27.2vh" : "54.8%"}
-                right={phonesm ? "18.5vw" : phonexs ? "18.4vw" : "18.5%"}
+                top={
+                  phonexs
+                    ? "160px"
+                    : phonesm
+                    ? "216px"
+                    : tab
+                    ? "270px"
+                    : desktop
+                    ? "363px"
+                    : desktopxl
+                    ? "590px"
+                    : "54.8%"
+                }
+                right={phonesm ? "18.4vw" : phonexs ? "18.4vw" : "18.5%"}
               >
                 <Stack
                   spacing={{ xs: 0.2 }}
-                  pt={{ xl: 1.2, lg: 0.8, xs: 0.5 }}
+                  pt={{ xl: 1.2, lg: 0.8, sm: 0.5, xs: 0.3 }}
                 >
                   <Typography
                     color="#FFF"
@@ -108,7 +118,19 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={desktopxl ? "54vh" : tab ? "22.5vh" : phonesm ? "22.5vh" : phonexs ? "44.5%" : "45%"}
+                top={
+                  phonexs
+                    ? "133px"
+                    : phonesm
+                    ? "180px"
+                    : tab
+                    ? "225px"
+                    : desktop
+                    ? "303px"
+                    : desktopxl
+                    ? "480px"
+                    : "45%"
+                }
                 right={phonexs ? "17vw" : "17%"}
               >
                 <Typography
@@ -125,12 +147,24 @@ const Page = () => {
                 </Typography>
               </PopupPoint>
               <PopupPoint
-                top={isTall && desktop ? "18vh" : desktopxl ? "43vh" : tab ? "35.5%" : phonexs ? "18vh" : "33.75%"}
-                right={phonexs ? "19vw" : "19%"}
+                top={
+                  phonexs
+                    ? "107px"
+                    : phonesm
+                    ? "142px"
+                    : tab
+                    ? "180px"
+                    : desktop
+                    ? "240px"
+                    : desktopxl
+                    ? "385px"
+                    : "33.75%"
+                }
+                right={phonexs ? "70px" : "19%"}
               >
                 <Stack
-                  spacing={{ xs: 0.2 }}
-                  pt={{ xl: 2, md: 0.5, sm: 0.6, xs: 0.3 }}
+                  spacing={{ xs: 0.2, md: 0.4 }}
+                  pt={{ xl: 2, md: 0.5, sm: 0.4, xs: 0.3 }}
                 >
                   <Typography
                     color="#FFF"
@@ -155,12 +189,24 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={isTall && desktop ? "36%" : desktopxl ? "42vh" : tab ? "35%" : phonexs ? "17.8vh" : "35.75%"}
+                top={
+                  phonexs
+                    ? "105px"
+                    : phonesm
+                    ? "142px"
+                    : tab
+                    ? "35%"
+                    : desktop
+                    ? "240px"
+                    : desktopxl
+                    ? "385px"
+                    : "35.75%"
+                }
                 right={phonexs ? "64.5vw" : "64.6%"}
               >
                 <Stack
                   spacing={{ xs: 0.2 }}
-                  pt={{ xl: 1.5, md: 0.5, sm: 0.8, xs: 0.5 }}
+                  pt={{ xl: 1.5, lg: 0.8, md: 0.5, sm: 0.5, xs: 0.35 }}
                 >
                   <Typography
                     color="#FFF"
@@ -168,7 +214,7 @@ const Page = () => {
                     justifyContent={"center"}
                     fontWeight={800}
                     lineHeight={1}
-                    fontSize={{ xl: "28px", lg: "20px", md: "12px", sm: "8px", xs: "6px" }}
+                    fontSize={{ xl: "28px", lg: "16px", md: "12px", sm: "8px", xs: "6px" }}
                   >
                     CORROSIVE
                   </Typography>
@@ -185,8 +231,10 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={desktopxl ? "65vh" : tab ? "54%" : phonexs ? "27vh" : "54%"}
-                right={phonesm ? "67vw" : tab ? "67%" : phonexs ? "66.5vw" : "66.8%"}
+                top={
+                  phonexs ? "160px" : phonesm ? "217px" : tab ? "54%" : desktop ? "365px" : desktopxl ? "585px" : "54%"
+                }
+                right={phonexs ? "66.5vw" : phonesm ? "67vw" : tab ? "67%" : "66.8%"}
               >
                 <Stack
                   spacing={{ xs: 0.2 }}
@@ -215,8 +263,20 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={desktopxl ? "54vh" : phonexs ? "22.3vh" : tab ? "44.5%" : "44.5%"}
-                right={phonesm ? "68.5vw" : phonexs ? "68vw" : tab ? "68.5%" : "68.5%"}
+                top={
+                  phonexs
+                    ? "133px"
+                    : phonesm
+                    ? "180px"
+                    : tab
+                    ? "44.5%"
+                    : desktop
+                    ? "300px"
+                    : desktopxl
+                    ? "485px"
+                    : "44.5%"
+                }
+                right={phonexs ? "68vw" : phonesm ? "68.5vw" : tab ? "68.5%" : "68.5%"}
               >
                 <Typography
                   color="#FFF"
@@ -236,7 +296,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: isTall ? "50vh" : tab ? "50vh" : phonexs ? "40vh" : "100vh",
+              height: phonexs ? "250px" : phonesm ? "300px" : tab ? "500px" : "100vh",
             }}
           >
             <div
@@ -251,7 +311,7 @@ const Page = () => {
                 playsInline
                 style={{
                   width: "100vw",
-                  height: isTall ? "50vh" : tab ? "50vh" : phonexs ? "40vh" : "100vh",
+                  height: phonexs ? "250px" : phonesm ? "300px" : tab ? "500px" : "100vh",
                   objectFit: "cover",
                 }}
               >

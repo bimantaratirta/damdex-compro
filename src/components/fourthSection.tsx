@@ -13,7 +13,6 @@ export const FourthSection = () => {
   const router = useRouter();
   const { language } = useLanguage();
   const { data } = useNews({ limit: mobile ? 1 : 2, page: 1 });
-  const isTall = useMediaQuery("(min-height: 1200px)");
 
   return (
     <Box
@@ -22,9 +21,7 @@ export const FourthSection = () => {
         background: `url(${background.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: isTall
-          ? { xs: "95vh", sm: "82vh", lg: "106vh" }
-          : { xs: "700px", sm: "82vh", md: "95vh", lg: "120vh", xl: "100vh" },
+        height: { xs: "700px", sm: "900px", md: "720px", lg: "650px", xl: "900px" },
       }}
       data-aos="fade-up"
       data-aos-easing="ease-in-out"
@@ -129,7 +126,6 @@ const NewsContent = ({
   title: string;
   description: string;
 }) => {
-  const isTall = useMediaQuery("(min-height: 1200px)");
   return (
     <Stack
       justifyContent={{ xs: "center", md: "left" }}
@@ -145,7 +141,7 @@ const NewsContent = ({
         sx={{
           position: "relative",
           width: { xs: "75vw", md: "45vw" },
-          height: isTall ? { xs: "30vh", sm: "36vh", md: "30vh", lg: "48vh" } : { xs: "30vh", sm: "36vh", lg: "48vh" },
+          height: { xs: "200px", sm: "250px", lg: "300px", xl: "400px" },
         }}
       >
         <Image

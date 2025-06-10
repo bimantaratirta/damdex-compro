@@ -19,14 +19,13 @@ const Page = () => {
 
   const theme = useTheme();
   const phone = useMediaQuery(theme.breakpoints.down("md"));
-  const isTall = useMediaQuery("(min-height: 1200px)");
 
   return (
     <AppLayout>
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: isTall ? { md: "30vh", xs: "30vh" } : { lg: "40vh", md: "30vh", sm: "250px", xs: "180px" },
+          height: { lg: "300px", md: "280px", sm: "250px", xs: "180px" },
           background: `linear-gradient(180.53deg, rgba(87, 47, 117, 0) 22.87%, rgba(255, 230, 86, 0) 119.83%), url(${img.src})`,
           backgroundSize: "cover",
           display: "flex",
@@ -39,7 +38,7 @@ const Page = () => {
           justifyItems={"center"}
           direction={"column"}
           spacing={4}
-          sx={{ pt: isTall ? { xs: "15vh", lg: "5vh", xl: "5vh" } : { xs: "8vh", md: "10vh", xl: "5vh" } }}
+          sx={{ pt: { xs: "50px", md: "80px", lg: "30px", xl: "30px" } }}
         >
           <Typography
             variant="h2"
@@ -80,17 +79,16 @@ const Page = () => {
                     <Box
                       sx={{
                         position: "relative",
+                        border: "1px solid black",
                         width: { xl: "45vw", lg: "40vw", md: "40vw", xs: "80vw" },
-                        height: isTall
-                          ? { xl: "45vh", lg: "30vh", md: "25vh", xs: "30vh" }
-                          : { xl: "45vh", lg: "45vh", md: "25vh", sm: "270px", xs: "200px" },
+                        height: { xl: "400px", lg: "280px", md: "250px", sm: "270px", xs: "200px" },
                       }}
                     >
                       <Image
                         src={d.heroImageUrl}
                         alt="project"
                         fill
-                        style={{ borderRadius: "25px" }}
+                        style={{ borderRadius: "25px", objectFit: "cover" }}
                       />
                     </Box>
                     <Typography

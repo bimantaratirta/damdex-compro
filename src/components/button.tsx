@@ -15,7 +15,7 @@ export const OutlinedButton = ({
         "&.MuiButtonBase-root": {
           color: "#FFF",
           borderColor: "#FFF",
-          width: { sm: "20vw", xs: "25vw" },
+          width: { md: "20vw", xs: "30vw" },
           borderRadius: "64px",
           fontSize: { xs: 12, sm: 16, xl: 24 },
           "&:hover": {
@@ -39,7 +39,7 @@ export const FilledButton = ({ onClick, label }: { onClick?: MouseEventHandler<H
           color: "#FFF",
           borderColor: "#000",
           backgroundColor: "rgba(0,0,0,1)",
-          width: { xs: "25vw", sm: "20vw" },
+          width: { md: "20vw", xs: "30vw" },
           height: "5.664vh",
           borderRadius: "64px",
           fontSize: { xs: 10, lg: 16, xl: 24 },

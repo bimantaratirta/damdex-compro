@@ -59,20 +59,20 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
             <Typography
               width={"15vw"}
               fontWeight={800}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
             >
               Tempat
             </Typography>
             <Typography
               fontWeight={800}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
             >
               :
             </Typography>
             <Typography
               fontWeight={800}
               width={"50vw"}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
             >
               {language === "id" ? data?.data.eventVenueIDN : data?.data.eventVenueENG}
             </Typography>
@@ -84,21 +84,21 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           >
             <Typography
               width={"15vw"}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
               fontWeight={800}
             >
               Hari
             </Typography>
             <Typography
               fontWeight={800}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
             >
               :
             </Typography>
             <Typography
               fontWeight={800}
               width={"50vw"}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
             >
               {convertDate(data?.data.eventDate)}
             </Typography>
@@ -110,21 +110,21 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           >
             <Typography
               width={"15vw"}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
               fontWeight={800}
             >
               Tema Acara
             </Typography>
             <Typography
               fontWeight={800}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
             >
               :
             </Typography>
             <Typography
               fontWeight={800}
               width={"50vw"}
-              fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
             >
               {language === "id" ? data?.data.eventThemeIDN : data?.data.eventThemeENG}
             </Typography>
@@ -133,7 +133,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
         <Stack
           direction={"column"}
           spacing={50}
-          fontSize={{ xs: "10px", md: "16px", lg: "20px" }}
+          fontSize={{ xs: "20px", lg: "26px" }}
           textAlign={"justify"}
         >
           <div

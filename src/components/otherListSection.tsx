@@ -1,4 +1,4 @@
-import { Box, Typography, Grid2, Stack, useMediaQuery } from "@mui/material";
+import { Box, Typography, Grid2, Stack } from "@mui/material";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,6 @@ export const OtherListSection = ({
   variant: "Projects" | "Events" | "News";
 }) => {
   const router = useRouter();
-  const isTall = useMediaQuery("(min-height: 1200px)");
   return (
     <Box sx={{ pt: 2, display: "flex", justifyContent: "center", flexDirection: "column" }}>
       {data && data.length !== 0 && (
@@ -46,17 +45,15 @@ export const OtherListSection = ({
                       <Box
                         sx={{
                           position: "relative",
-                          width: { xl: "25vw", lg: "25vw", md: "40vw", sm: "85vw", xs: "80vw" },
-                          height: isTall
-                            ? { xl: "30vh", lg: "30vh", md: "25vh", xs: "30vh" }
-                            : { xl: "23vh", lg: "30vh", md: "20vh", sm: "280px", xs: "200px" },
+                          width: { xl: "29vw", lg: "28vw", md: "40vw", sm: "85vw", xs: "80vw" },
+                          height: { xl: "250px", md: "180px", sm: "280px", xs: "200px" },
                         }}
                       >
                         <Image
                           src={d.img}
                           alt="project"
                           fill
-                          style={{ borderRadius: "25px" }}
+                          style={{ borderRadius: "25px", objectFit: "cover" }}
                         />
                       </Box>
                       <Typography

@@ -37,6 +37,18 @@ const Page = () => {
       alamat: "Jl. Pancoran No. 44 Blok A, Jakarta 11556",
       noTelp: "021 777 888 77",
     },
+    {
+      alamat: "Jl. Cipete No. 50-51 Blok A, Jakarta 11556",
+      noTelp: "021 777 888 77",
+    },
+    {
+      alamat: "Jl. Bangka No. 02 Blok A, Jakarta 11556",
+      noTelp: "021 777 888 77",
+    },
+    {
+      alamat: "Jl. Pancoran No. 44 Blok A, Jakarta 11556",
+      noTelp: "021 777 888 77",
+    },
   ];
 
   return (
@@ -47,27 +59,26 @@ const Page = () => {
           justifyContent: "center",
           flexDirection: "column",
           display: "flex",
-          pt: "15vh",
+          pt: { md: "10vh", lg: "12vh", xs: "80px", sm: "100px" },
           width: "100vw",
           mb: "10vh",
         }}
       >
         <Typography
           textAlign={"center"}
-          fontSize={{ xl: "80px", lg: "60px", md: "40px", xs: "20px" }}
+          fontSize={{ xl: "80px", lg: "50px", md: "40px", xs: "20px" }}
           fontWeight={800}
-          width={"20vw"}
           lineHeight={1}
-          mb={10}
+          mb={5}
         >
           LOKASI TOKO
         </Typography>
         <Stack
           direction={"row"}
-          spacing={5}
+          spacing={{ xs: 2, lg: 3 }}
         >
           <Stack
-            width={"30vw"}
+            width={"35vw"}
             spacing={5}
           >
             <FormControl>
@@ -84,7 +95,11 @@ const Page = () => {
                 <MenuItem value={"DKI Jakarta"}>DKI Jakarta</MenuItem>
               </Select>
             </FormControl>
-            <Stack spacing={5}>
+            <Stack
+              spacing={2}
+              overflow={"auto"}
+              height={{ xl: "500px", lg: "400px", md: "400px", sm: "300px", xs: "300px" }}
+            >
               {dataAlamatStatis.map((d, i) => (
                 <Alamat
                   key={i}
@@ -116,7 +131,7 @@ const Page = () => {
                 <MenuItem value={"Jakarta Timur"}>Jakarta Timur</MenuItem>
               </Select>
             </FormControl>
-            <Box sx={{ height: { xl: "60vh", lg: "75vh", md: "80vh", sm: "50vh", xs: "50vh" }, display: "block" }}>
+            <Box sx={{ height: { xl: "500px", lg: "400px", md: "400px", sm: "300px", xs: "300px" }, display: "block" }}>
               <Map
                 position={[-6.32595166017651, 106.7850292]}
                 zoom={16}
@@ -134,15 +149,15 @@ export default Page;
 const Alamat = ({ alamat, noTelp }: { alamat: string; noTelp: string }) => {
   return (
     <Box>
-      <Typography fontSize={{ xl: "40px", lg: "28px", md: "22px" }}>{alamat}</Typography>
+      <Typography fontSize={{ xl: "32px", lg: "28px", md: "22px", xs: "12px" }}>{alamat}</Typography>
       <Typography
-        fontSize={{ xl: "32px", lg: "24px", md: "20px" }}
+        fontSize={{ xl: "28px", lg: "24px", md: "20px", xs: "10px" }}
         fontWeight={800}
       >
         Call : {noTelp}
       </Typography>
       <Link
-        fontSize={{ xl: "32px", lg: "24px", md: "20px" }}
+        fontSize={{ xl: "28px", lg: "24px", md: "20px", xs: "10px" }}
         sx={{ cursor: "pointer" }}
       >
         View on Map
