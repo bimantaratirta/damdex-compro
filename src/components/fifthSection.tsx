@@ -71,7 +71,7 @@ export const FiftSection = () => {
                   src={data.heroImageUrl}
                   objectFit="cover"
                   fill
-                  data-aos="fade-right"
+                  data-aos={idx === 2 ? "fade-left" : "fade-right"}
                   data-aos-easing="ease-in-out"
                 />
               </Box>
@@ -108,7 +108,7 @@ export const FiftSection = () => {
                   <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
                     <Image
                       alt="gallery2"
-                      src={data.data.payload[0].heroImageUrl}
+                      src={data.data.payload[1].heroImageUrl}
                       fill
                       objectFit="cover"
                       data-aos="fade-left"
@@ -118,7 +118,7 @@ export const FiftSection = () => {
                   <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
                     <Image
                       alt="gallery3"
-                      src={data.data.payload[0].heroImageUrl}
+                      src={data.data.payload[2].heroImageUrl}
                       fill
                       objectFit="cover"
                       data-aos="fade-up"
