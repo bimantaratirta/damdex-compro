@@ -80,9 +80,9 @@ const Page = () => {
                 mt={{ xs: 2, md: 0 }}
               >
                 <CompositionButton
-                  value={d.titleIDN}
+                  value={language === "id" ? d.titleIDN : d.titleENG}
                   onChange={() => {
-                    setComposition(d.titleENG);
+                    setComposition(language === "id" ? d.titleIDN : d.titleENG);
                     setCompositionId(d.id);
                     setUsage("");
                   }}
