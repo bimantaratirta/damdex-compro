@@ -79,7 +79,6 @@ const Page = () => {
                     <Box
                       sx={{
                         position: "relative",
-                        border: "1px solid black",
                         width: { xl: "45vw", lg: "40vw", md: "40vw", xs: "80vw" },
                         height: { xl: "400px", lg: "280px", md: "250px", sm: "270px", xs: "200px" },
                       }}

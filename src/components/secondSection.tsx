@@ -8,7 +8,7 @@ export const SecondSection = () => {
   const { language } = useLanguage();
   const { data } = useHome({ lang: language, section: 2 });
   return (
-    <Box sx={{ minHeight: { xs: "146vh", sm: "92vh", md: "100vh" } }}>
+    <Box sx={{ minHeight: { xs: "1180px", sm: "1380px", md: "750px", lg: "100vh" } }}>
       <Stack
         alignItems={"center"}
         justifyContent={"center"}
@@ -119,7 +119,7 @@ export const SecondSection = () => {
             mr="3vw"
             mt="2vw"
             alignItems={"end"}
-            sx={{ mr: { xs: "3vw", sm: "7vw", md: "3vw" } }}
+            sx={{ mr: { xs: "3vw" } }}
           >
             <Typography
               color="#FFF"
@@ -177,7 +177,7 @@ export const SecondSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ fontSize: { xs: "14px", sm: "20px", lg: "28px" }, width: { xs: "60vw", md: "40vw", lg: "14vw" } }}
+              sx={{ fontSize: { xs: "14px", sm: "20px", lg: "28px" }, width: { xs: "60vw", md: "40vw", lg: "25vw" } }}
             >
               {data?.data.find((data) => data.key === "section-2-bottom-left-title")?.content}
             </Typography>
@@ -192,7 +192,7 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "14px", sm: "16px" } }}
+              sx={{ width: { xs: "55vw", md: "30vw", lg: "20vw" }, fontSize: { xs: "14px", sm: "16px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-bottom-left-description")?.content}
             </Typography>
@@ -220,13 +220,13 @@ export const SecondSection = () => {
             mr="3vw"
             mt="2vw"
             alignItems={"end"}
-            sx={{ mr: { xs: "3vw", sm: "7vw", md: "3vw" } }}
+            sx={{ mr: { xs: "3vw" } }}
           >
             <Typography
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
+              sx={{ width: { xs: "60vw", md: "40vw", xl: "30vw" }, fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
               textAlign={"end"}
             >
               {data?.data.find((data) => data.key === "section-2-bottom-right-title")?.content}

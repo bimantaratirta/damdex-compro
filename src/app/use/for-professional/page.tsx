@@ -263,13 +263,15 @@ const CompositionButton = ({
           fontWeight={800}
           textAlign={"center"}
         >
-          {value === "Medium Mix" ? "Perbandingan Berat" : "Perbandingan Volume"}
+          {value === "Medium Mix" || value === "Campuran Kental" ? "Perbandingan Berat" : "Perbandingan Volume"}
         </Typography>
         <Typography
           fontSize={{ xl: "20px", lg: "10px", xs: "12px" }}
           textAlign={"center"}
         >
-          {value === "Medium Mix" ? "(Menggunakan Timbangan)" : "(Menggunakan gelas/kaleng)"}
+          {value === "Medium Mix" || value === "Campuran Kental"
+            ? "(Menggunakan Timbangan)"
+            : "(Menggunakan gelas/kaleng)"}
         </Typography>
       </Stack>
       <Box

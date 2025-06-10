@@ -238,7 +238,7 @@ const CompositionButton = ({
             textTransform: "none",
             width: { lg: "18vw", md: "15vw", sm: "30vw", xs: "50vw" },
             borderRadius: "0px 100px 100px",
-            minHeight: { xs: "6vh", lg: "10h", xl: "9vh" },
+            minHeight: { xs: "45px", sm: "65px", md: "60px", lg: "75px", xl: "91px" },
             color: "#000",
             fontSize: { xl: "25px", lg: "16px", md: "12px", sm: "14px", xs: "11px" },
             "&.Mui-selected": {
@@ -264,13 +264,15 @@ const CompositionButton = ({
           fontWeight={800}
           textAlign={"center"}
         >
-          {value === "Medium Mix" ? "Perbandingan Berat" : "Perbandingan Volume"}
+          {value === "Medium Mix" || value === "Campuran Kental" ? "Perbandingan Berat" : "Perbandingan Volume"}
         </Typography>
         <Typography
           fontSize={{ xl: "20px", lg: "10px", xs: "12px" }}
           textAlign={"center"}
         >
-          {value === "Medium Mix" ? "(Menggunakan Timbangan)" : "(Menggunakan gelas/kaleng)"}
+          {value === "Medium Mix" || value === "Campuran Kental"
+            ? "(Menggunakan Timbangan)"
+            : "(Menggunakan gelas/kaleng)"}
         </Typography>
       </Stack>
       <Box
@@ -306,7 +308,8 @@ const UsageForButton = ({
       value={value}
       sx={{
         width: { md: "15vw", sm: "20vw", xs: "25vw" },
-        borderRadius: { lg: "30px", md: "20px" },
+        height: { xs: "70px", lg: "100px" },
+        borderRadius: { lg: "30px", xs: "20px" },
         color: "#000",
         border: 0,
         fontSize: { xl: "28px", lg: "20px", md: "12px", xs: "12px" },
