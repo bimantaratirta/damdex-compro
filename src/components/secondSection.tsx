@@ -20,7 +20,10 @@ export const SecondSection = () => {
       >
         <Box
           position={"relative"}
-          sx={{ width: { xs: "50vw", md: "30vw", lg: "25vw" }, height: { xs: "15vh", md: "18vh" } }}
+          sx={{
+            width: { xs: "50vw", md: "30vw", lg: "25vw" },
+            height: { xs: "100px", sm: "125px", md: "125px", xl: "175px" },
+          }}
         >
           <Image
             alt="logo"

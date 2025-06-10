@@ -207,7 +207,7 @@ const Page = () => {
           </Box>
         </Stack>
       </Stack>
-      <Box sx={{ width: "100vw", height: "50vh", display: "block" }}>
+      <Box sx={{ width: "100vw", height: "300px", display: "block" }}>
         <Map
           position={[-6.32595166017651, 106.7850292]}
           zoom={18}
