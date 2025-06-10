@@ -21,7 +21,7 @@ export const FourthSection = () => {
         background: `url(${background.src})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: { xs: "700px", sm: "900px", md: "720px", lg: "650px", xl: "900px" },
+        height: { xs: "600px", sm: "700px", md: "750px", lg: "675px", xl: "900px" },
       }}
       data-aos="fade-up"
       data-aos-easing="ease-in-out"

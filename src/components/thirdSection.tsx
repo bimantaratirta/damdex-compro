@@ -138,7 +138,6 @@ export const ThirdSection = () => {
               textAlign={"end"}
             >
               {data?.data.find((data) => data.key === "section-3-bottom-right-description")?.content}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sit incidunt fugiat blanditiis autem
             </Typography>
           </Stack>
         </Box>
@@ -154,8 +153,8 @@ export const ThirdSection = () => {
             left: "23vw",
             zIndex: 5,
           }}
-          // data-aos="fade-up"
-          // data-aos-easing="ease-in-out"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
         >
           <Stack alignItems={"center"}>
             <Typography
@@ -168,7 +167,6 @@ export const ThirdSection = () => {
               sx={{ fontSize: { xs: "18px", sm: "29px", md: "40px", lg: "48px", xl: "60px" } }}
             >
               {data?.data.find((data) => data.key === "section-3-center-title")?.content}
-              Pioneer of Waterproofing Innovation
             </Typography>
           </Stack>
         </Box>
@@ -182,8 +180,8 @@ export const ThirdSection = () => {
             top: { xs: "430px", sm: "610px", md: "685px", lg: "640px", xl: "945px" },
             left: "29.3vw",
           }}
-          // data-aos="fade-up"
-          // data-aos-easing="ease-in-out"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
         />
       </div>
     </Box>
