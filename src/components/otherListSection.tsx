@@ -45,7 +45,7 @@ export const OtherListSection = ({
                       <Box
                         sx={{
                           position: "relative",
-                          width: { xl: "29vw", lg: "28vw", md: "40vw", sm: "85vw", xs: "80vw" },
+                          width: { xl: "27vw", lg: "26vw", md: "40vw", sm: "85vw", xs: "80vw" },
                           height: { xl: "250px", md: "180px", sm: "280px", xs: "200px" },
                         }}
                       >
