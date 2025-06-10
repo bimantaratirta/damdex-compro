@@ -90,7 +90,7 @@ const Page = () => {
                         src={d.heroImageUrl}
                         alt="project"
                         fill
-                        style={{ borderRadius: "25px" }}
+                        style={{ borderRadius: "25px", objectFit: "cover" }}
                       />
                     </Box>
                     <Typography

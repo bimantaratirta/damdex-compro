@@ -56,7 +56,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           textAlign={"justify"}
           mx="auto"
           width={"auto"}
-          fontSize={{ md: "30px", sm: "20px", xs: "15px" }}
+          fontSize={{ xs: "20px", lg: "26px" }}
           justifyContent={"start"}
           mt={5}
         >

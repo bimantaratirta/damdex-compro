@@ -31,7 +31,7 @@ const Page = () => {
           fontWeight={800}
           width={"30vw"}
           mx={"auto"}
-          sx={{ fontSize: { lg: "75px", md: "50px", xs: "40px" } }}
+          sx={{ fontSize: { lg: "60px", md: "50px", xs: "40px" } }}
         >
           Event Gallery
         </Typography>
@@ -57,14 +57,14 @@ const Page = () => {
                       width: { lg: "28vw", md: "28vw", xs: "80vw" },
                       height: isTall
                         ? { xl: "25vh", lg: "12vh", md: "10vh", sm: "15vh", xs: "20vh" }
-                        : { xl: "25vh", lg: "28vh", md: "150px", sm: "250px", xs: "180px" },
+                        : { xl: "300px", lg: "180px", md: "150px", sm: "250px", xs: "180px" },
                     }}
                   >
                     <Image
                       src={d.heroImageUrl}
                       alt="event"
                       fill
-                      style={{ borderRadius: "25px" }}
+                      style={{ borderRadius: "25px", objectFit: "cover" }}
                     />
                   </Box>
                   <Typography

@@ -41,7 +41,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
               src={data?.data.heroImageUrl}
               fill
               objectFit="cover"
-              style={{ borderRadius: "25px" }}
+              style={{ borderRadius: "25px", objectFit: "cover" }}
             />
           </Box>
         )}
@@ -86,7 +86,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
             </Box>
           )}
           <Box
-            fontSize={{ lg: "24px", xl: "30px" }}
+            fontSize={{ xs: "20px", lg: "26px" }}
             sx={{ maxWidth: { md: "30vw" } }}
           >
             <div

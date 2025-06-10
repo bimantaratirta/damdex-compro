@@ -119,7 +119,7 @@ const Page = () => {
       </Stack>
       <Stack
         p={5}
-        fontSize={{ xl: "40px", md: "32px", sm: "24px", xs: "20px" }}
+        fontSize={{ xs: "20px", lg: "26px" }}
       >
         <div
           className="flex flex-col !space-y-10"
@@ -149,7 +149,7 @@ const Page = () => {
                 <Box
                   key={index}
                   sx={{
-                    minWidth: { xl: "20%", md: "25%", sm: "40%", xs: "55%" },
+                    minWidth: { xl: "20%", lg: "25%", md: "30%", sm: "40%", xs: "60%" },
                     padding: 2,
                     borderRadius: "25px",
                     position: "relative",
@@ -181,14 +181,13 @@ const Page = () => {
                         top: 0,
                         width: "90%",
                         color: "white",
-                        padding: 2,
-                        borderBottomLeftRadius: 2,
-                        borderBottomRightRadius: 2,
+                        pt: 2,
+                        px: 1,
                       }}
                     >
                       <Typography
                         alignSelf={"start"}
-                        fontSize={{ xs: "12px", md: "16px", lg: "20px" }}
+                        fontSize={{ xs: "10px", sm: "12px", md: "14px", lg: "16px", xl: "18px" }}
                       >
                         {language === "eng" ? slide.titleENG : slide.titleIDN}
                       </Typography>

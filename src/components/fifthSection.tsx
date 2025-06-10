@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
-import gallery1 from "../../public/gallery 1.png";
-import gallery2 from "../../public/gallery 2.png";
-import gallery3 from "../../public/gallery 3.png";
 import { useLanguage } from "./localStorageProvider";
 import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
 
@@ -18,7 +15,7 @@ export const FiftSection = () => {
     <Box
       sx={{
         width: "100vw",
-        height: isTall ? { xs: "70vh", md: "60vh" } : { xs: "70vh", md: "65vh", lg: "75vh", xl: "65vh" },
+        height: { xs: "620px", sm: "650px", md: "400px", lg: "75vh", xl: "65vh" },
       }}
     >
       <Stack
@@ -67,12 +64,13 @@ export const FiftSection = () => {
           >
             {data.data.payload.map((data, idx) => (
               <Box
-                sx={{ width: "80vw", height: "20vh", position: "relative" }}
+                sx={{ width: "80vw", height: { xs: "180px", sm: "200px" }, position: "relative" }}
                 key={idx}
               >
                 <Image
                   alt={`gallery${idx}`}
                   src={data.heroImageUrl}
+                  objectFit="cover"
                   fill
                   data-aos="fade-right"
                   data-aos-easing="ease-in-out"
@@ -90,8 +88,8 @@ export const FiftSection = () => {
               <Box
                 sx={{
                   position: "relative",
-                  width: data.data.payload.length > 1 ? "100vw" : "64.167vw",
-                  height: isTall ? "24vh" : "48vh",
+                  width: data.data.payload.length > 1 ? "64.167vw" : "100vw",
+                  height: { md: "300px", xl: "500px" },
                 }}
               >
                 <Image
@@ -100,6 +98,7 @@ export const FiftSection = () => {
                   fill
                   data-aos="fade-right"
                   data-aos-easing="ease-in-out"
+                  objectFit="cover"
                 />
               </Box>
               {data.data.payload.length > 1 && (
@@ -107,20 +106,22 @@ export const FiftSection = () => {
                   direction={"column"}
                   spacing={1.5}
                 >
-                  <Box sx={{ position: "relative", width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}>
+                  <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
                     <Image
                       alt="gallery2"
                       src={data.data.payload[0].heroImageUrl}
                       fill
+                      objectFit="cover"
                       data-aos="fade-left"
                       data-aos-easing="ease-in-out"
                     />
                   </Box>
-                  <Box sx={{ position: "relative", width: "31.25vw", height: isTall ? "11.5vh" : "23vh" }}>
+                  <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
                     <Image
                       alt="gallery3"
                       src={data.data.payload[0].heroImageUrl}
                       fill
+                      objectFit="cover"
                       data-aos="fade-up"
                       data-aos-easing="ease-in-out"
                     />

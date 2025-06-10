@@ -139,7 +139,7 @@ const Page = () => {
           >
             <Box
               fontWeight={400}
-              fontSize={{ md: "40px", sm: "30px", xs: "20px" }}
+              fontSize={{ xs: "20px", lg: "26px" }}
             >
               <div
                 dangerouslySetInnerHTML={{
