@@ -5,8 +5,13 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import { LatLngExpression } from "leaflet";
 
 const Map = ({ position, zoom }: { position: LatLngExpression; zoom?: number }) => {
+  const handleMarkerClick = () => {
+    window.open(`https://www.google.com/maps?q=${position.toString()}`, "_blank");
+  };
+
   return (
     <MapContainer
+      key={position.toString()}
       center={position}
       zoom={zoom}
       scrollWheelZoom={false}
@@ -16,7 +21,12 @@ const Map = ({ position, zoom }: { position: LatLngExpression; zoom?: number }) 
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={position} />
+      <Marker
+        position={position}
+        eventHandlers={{
+          click: handleMarkerClick,
+        }}
+      />
     </MapContainer>
   );
 };
