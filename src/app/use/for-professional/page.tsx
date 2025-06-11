@@ -132,6 +132,10 @@ const Page = () => {
               borderRadius: "25px",
               mt: "100px",
               p: 5,
+              "& .gambar": {
+                borderRadius: "25px",
+                border: "1px solid #ff352b",
+              },
               "& p.paragraf:has(img):nth-of-type(odd)": {
                 fontSize: "20px",
                 display: "flex",
@@ -141,9 +145,6 @@ const Page = () => {
                 mb: "20px",
                 "& > *:not(:last-child)": {
                   mr: "50px",
-                },
-                "& .gambar-inline": {
-                  width: "300px",
                 },
               },
               "& p.paragraf:has(img):nth-of-type(even)": {
@@ -157,9 +158,11 @@ const Page = () => {
                 "& > *:not(:last-child)": {
                   ml: "50px",
                 },
-                "& .gambar-inline": {
-                  width: "300px",
-                },
+              },
+              "& .gambar-inline": {
+                width: "300px",
+                height: "300px",
+                borderRadius: "50%",
               },
             }}
           >
