@@ -1,6 +1,9 @@
 "use client";
 import { AppLayout } from "@/components/appLayout";
 import Map from "@/components/map";
+import { useCityOptions } from "@/swr-hooks/store/useCityOptions";
+import { useProvinceOptions } from "@/swr-hooks/store/useProvinceOptions";
+import { useStore } from "@/swr-hooks/store/useStore";
 import {
   Box,
   FormControl,
@@ -15,41 +18,21 @@ import {
 import React from "react";
 
 const Page = () => {
-  const [provinsi, setProvinsi] = React.useState("");
-  const [kota, setKota] = React.useState("");
+  const [koordinat, setKoordinat] = React.useState<string>("-6.32595166017651, 106.7850292");
+  const [provinsi, setProvinsi] = React.useState("Jakarta");
+  const [kota, setKota] = React.useState("Jakarta Pusat");
   const handleChangeProv = (event: SelectChangeEvent) => {
     setProvinsi(event.target.value);
   };
   const handleChangeKota = (event: SelectChangeEvent) => {
     setKota(event.target.value);
   };
-
-  const dataAlamatStatis = [
-    {
-      alamat: "Jl. Cipete No. 50-51 Blok A, Jakarta 11556",
-      noTelp: "021 777 888 77",
-    },
-    {
-      alamat: "Jl. Bangka No. 02 Blok A, Jakarta 11556",
-      noTelp: "021 777 888 77",
-    },
-    {
-      alamat: "Jl. Pancoran No. 44 Blok A, Jakarta 11556",
-      noTelp: "021 777 888 77",
-    },
-    {
-      alamat: "Jl. Cipete No. 50-51 Blok A, Jakarta 11556",
-      noTelp: "021 777 888 77",
-    },
-    {
-      alamat: "Jl. Bangka No. 02 Blok A, Jakarta 11556",
-      noTelp: "021 777 888 77",
-    },
-    {
-      alamat: "Jl. Pancoran No. 44 Blok A, Jakarta 11556",
-      noTelp: "021 777 888 77",
-    },
-  ];
+  const { data: store } = useStore({ limit: 1000 });
+  const { data: province } = useProvinceOptions();
+  const { data: city } = useCityOptions(provinsi);
+  const handleChangeKoordinat = (data: string) => {
+    setKoordinat(data);
+  };
 
   return (
     <AppLayout>
@@ -92,7 +75,14 @@ const Page = () => {
                 label="Provinsi"
               >
                 <MenuItem value="">Provinsi</MenuItem>
-                <MenuItem value={"DKI Jakarta"}>DKI Jakarta</MenuItem>
+                {province?.data.map((d, i) => (
+                  <MenuItem
+                    key={i}
+                    value={d.value}
+                  >
+                    {d.label}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
             <Stack
@@ -100,13 +90,17 @@ const Page = () => {
               overflow={"auto"}
               height={{ xl: "500px", lg: "400px", md: "400px", sm: "300px", xs: "300px" }}
             >
-              {dataAlamatStatis.map((d, i) => (
-                <Alamat
-                  key={i}
-                  alamat={d.alamat}
-                  noTelp={d.noTelp}
-                />
-              ))}
+              {store?.data.payload
+                .filter((d) => d.city === kota && d.province === provinsi)
+                .map((d, i) => (
+                  <Alamat
+                    key={i}
+                    alamat={d.storeAddress}
+                    noTelp={d.storePhone}
+                    koordinat={d.storeAddressGoogleMap}
+                    handleChange={handleChangeKoordinat}
+                  />
+                ))}
             </Stack>
           </Stack>
           <Stack
@@ -124,16 +118,19 @@ const Page = () => {
                 label="Kota"
               >
                 <MenuItem value="">Kota</MenuItem>
-                <MenuItem value={"Jakarta Utara"}>Jakarta Utara</MenuItem>
-                <MenuItem value={"Jakarta Barat"}>Jakarta Barat</MenuItem>
-                <MenuItem value={"Jakarta Selatan"}>Jakarta Selatan</MenuItem>
-                <MenuItem value={"Jakarta Pusat"}>Jakarta Pusat</MenuItem>
-                <MenuItem value={"Jakarta Timur"}>Jakarta Timur</MenuItem>
+                {city?.data.map((d, i) => (
+                  <MenuItem
+                    key={i}
+                    value={d.value}
+                  >
+                    {d.label}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
             <Box sx={{ height: { xl: "500px", lg: "400px", md: "400px", sm: "300px", xs: "300px" }, display: "block" }}>
               <Map
-                position={[-6.32595166017651, 106.7850292]}
+                position={[Number(koordinat.split(", ")[0]), Number(koordinat.split(", ")[1])]}
                 zoom={16}
               />
             </Box>
@@ -146,7 +143,17 @@ const Page = () => {
 
 export default Page;
 
-const Alamat = ({ alamat, noTelp }: { alamat: string; noTelp: string }) => {
+const Alamat = ({
+  alamat,
+  noTelp,
+  koordinat,
+  handleChange,
+}: {
+  alamat: string;
+  noTelp: string;
+  koordinat: string;
+  handleChange: (data: string) => void;
+}) => {
   return (
     <Box>
       <Typography fontSize={{ xl: "32px", lg: "28px", md: "22px", xs: "12px" }}>{alamat}</Typography>
@@ -159,6 +166,12 @@ const Alamat = ({ alamat, noTelp }: { alamat: string; noTelp: string }) => {
       <Link
         fontSize={{ xl: "28px", lg: "24px", md: "20px", xs: "10px" }}
         sx={{ cursor: "pointer" }}
+        component={"button"}
+        onClick={(e) => {
+          e.preventDefault();
+          handleChange(koordinat);
+          console.log(koordinat);
+        }}
       >
         View on Map
       </Link>

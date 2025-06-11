@@ -1,6 +1,7 @@
 import { damdexPublicAPI } from "@/lib/apiClient";
 import { PaginationParams } from "@/lib/queryparams";
 import {
+  City,
   DataResponse,
   EventGallery,
   Home,
@@ -8,6 +9,8 @@ import {
   PaginatedDataResponse,
   Product,
   Project,
+  Province,
+  Store,
   Use,
   UseComposition,
   UseFor,
@@ -187,6 +190,54 @@ export const fetchUseCompositionbyId = async (id: number): Promise<DataResponse<
 export const fetchUseForbyId = async (id: number): Promise<DataResponse<UseFor>> => {
   try {
     const res = await damdexPublicAPI.get<DataResponse<UseFor>>(`/use/use-composition-use-for/${id}`);
+    return res.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw error.response;
+    }
+    throw error;
+  }
+};
+
+export const fetchStoreProvince = async (): Promise<DataResponse<Province[]>> => {
+  try {
+    const res = await damdexPublicAPI.get<DataResponse<Province[]>>(`/store/province-options`);
+    return res.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw error.response;
+    }
+    throw error;
+  }
+};
+
+export const fetchStoreCity = async (province: string): Promise<DataResponse<City[]>> => {
+  try {
+    const res = await damdexPublicAPI.get<DataResponse<City[]>>(`/store/city-options/${province}`);
+    return res.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw error.response;
+    }
+    throw error;
+  }
+};
+
+export const fetchStore = async (params: PaginationParams): Promise<PaginatedDataResponse<Store[]>> => {
+  try {
+    const res = await damdexPublicAPI.get<PaginatedDataResponse<Store[]>>(`/store`, { params });
+    return res.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw error.response;
+    }
+    throw error;
+  }
+};
+
+export const fetchStoreById = async (id: number): Promise<DataResponse<Store>> => {
+  try {
+    const res = await damdexPublicAPI.get<DataResponse<Store>>(`/store/${id}`);
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
