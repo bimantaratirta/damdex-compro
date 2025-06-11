@@ -132,6 +132,38 @@ const Page = () => {
               borderRadius: "25px",
               mt: "100px",
               p: 5,
+              "& .gambar": {
+                borderRadius: "25px",
+                border: "1px solid #ff352b",
+              },
+              "& p.paragraf:has(img):nth-of-type(odd)": {
+                fontSize: "20px",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+                mb: "20px",
+                "& > *:not(:last-child)": {
+                  mr: "50px",
+                },
+              },
+              "& p.paragraf:has(img):nth-of-type(even)": {
+                fontSize: "20px",
+                display: "flex",
+                flexDirection: "row-reverse",
+                width: "full",
+                justifyContent: "center",
+                alignItems: "center",
+                mb: "20px",
+                "& > *:not(:last-child)": {
+                  ml: "50px",
+                },
+              },
+              "& .gambar-inline": {
+                width: "300px",
+                height: "300px",
+                borderRadius: "50%",
+              },
             }}
           >
             <Box
