@@ -132,7 +132,6 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
         </Box>
         <Stack
           direction={"column"}
-          spacing={50}
           fontSize={{ xs: "20px", lg: "26px" }}
           textAlign={"justify"}
         >

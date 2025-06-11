@@ -72,7 +72,7 @@ export const FourthSection = () => {
           data.data.payload.map((d, i) => (
             <div
               key={i}
-              onClick={() => router.push(`/news/detail/${i}`)}
+              onClick={() => router.push(`/news/detail/${d.id}`)}
               style={{ cursor: "pointer" }}
             >
               <NewsContent
@@ -87,7 +87,7 @@ export const FourthSection = () => {
           data.data.payload.map((d, i) => (
             <div
               key={i}
-              onClick={() => router.push(`/news/detail/${i}`)}
+              onClick={() => router.push(`/news/detail/${d.id}`)}
               style={{ cursor: "pointer" }}
             >
               <NewsContent
