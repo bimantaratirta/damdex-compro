@@ -26,9 +26,8 @@ const Page = () => {
       >
         <Typography
           textAlign={"center"}
-          mt={{ lg: 5, sm: 8, xs: 5 }}
+          mt={{ xl: 8, lg: 5, sm: 8, xs: 5 }}
           fontWeight={800}
-          width={"30vw"}
           mx={"auto"}
           sx={{ fontSize: { lg: "60px", md: "50px", xs: "40px" } }}
         >

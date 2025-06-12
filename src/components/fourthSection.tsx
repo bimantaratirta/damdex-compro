@@ -135,6 +135,7 @@ const NewsContent = ({
       spacing={1}
       width={"45vw"}
       data-aos="fade-up"
+      data-aos-anchor-placement="top-center"
       data-aos-easing="ease-in-out"
     >
       <Box

@@ -61,6 +61,7 @@ export const SecondSection = () => {
               transition: "filter 750ms linear",
             },
           }}
+          data-aos-anchor-placement="bottom-bottom"
           data-aos="fade-up"
           data-aos-easing="ease-in-out"
           data-aos-delay="100"
@@ -111,6 +112,7 @@ export const SecondSection = () => {
             },
             alignSelf: "end",
           }}
+          data-aos-anchor-placement="bottom-bottom"
           data-aos="fade-up"
           data-aos-easing="ease-in-out"
           data-aos-delay="200"
@@ -164,6 +166,7 @@ export const SecondSection = () => {
               transition: "filter 750ms linear",
             },
           }}
+          data-aos-anchor-placement="bottom-bottom"
           data-aos="fade-up"
           data-aos-easing="ease-in-out"
           data-aos-delay="300"
@@ -212,6 +215,7 @@ export const SecondSection = () => {
               transition: "filter 750ms linear",
             },
           }}
+          data-aos-anchor-placement="bottom-bottom"
           data-aos="fade-up"
           data-aos-easing="ease-in-out"
           data-aos-delay="400"
