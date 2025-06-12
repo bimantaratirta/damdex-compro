@@ -13,7 +13,7 @@ import id from "../../locale/id.json";
 
 const Page = () => {
   const router = useRouter();
-  const { pagination, handlePaginationModelChange } = usePaginationData({ pageIndex: 1, pageSize: 9 });
+  const { pagination, handlePaginationModelChange } = usePaginationData({ pageIndex: 1, pageSize: 8 });
   const { language } = useLanguage();
   const { data: projects } = useProject({ page: pagination.pageIndex, limit: pagination.pageSize });
 
@@ -87,7 +87,7 @@ const Page = () => {
                         src={d.heroImageUrl}
                         alt="project"
                         fill
-                        style={{ borderRadius: "25px", objectFit: "cover" }}
+                        style={{ borderRadius: "25px", objectFit: "cover", objectPosition: "bottom" }}
                       />
                     </Box>
                     <Typography

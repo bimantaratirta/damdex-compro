@@ -62,6 +62,8 @@ export const ThirdSection = () => {
             backgroundSize: "cover",
             backgroundColor: "rgba(0,0,0,1)",
           }}
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
         >
           <Stack
             ml="3vw"

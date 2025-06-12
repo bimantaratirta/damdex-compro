@@ -71,8 +71,9 @@ export const FiftSection = () => {
                   src={data.heroImageUrl}
                   objectFit="cover"
                   fill
-                  data-aos={idx === 2 ? "fade-left" : "fade-right"}
+                  data-aos={idx === 1 ? "fade-left" : "fade-right"}
                   data-aos-easing="ease-in-out"
+                  data-aos-anchor-placement="bottom-bottom"
                 />
               </Box>
             ))}
@@ -97,6 +98,7 @@ export const FiftSection = () => {
                   fill
                   data-aos="fade-right"
                   data-aos-easing="ease-in-out"
+                  data-aos-anchor-placement="top-bottom"
                   objectFit="cover"
                 />
               </Box>
@@ -113,6 +115,7 @@ export const FiftSection = () => {
                       objectFit="cover"
                       data-aos="fade-left"
                       data-aos-easing="ease-in-out"
+                      data-aos-anchor-placement="bottom-bottom"
                     />
                   </Box>
                   <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
@@ -123,6 +126,7 @@ export const FiftSection = () => {
                       objectFit="cover"
                       data-aos="fade-up"
                       data-aos-easing="ease-in-out"
+                      data-aos-anchor-placement="bottom-bottom"
                     />
                   </Box>
                 </Stack>

@@ -27,8 +27,9 @@ export const SixthSection = ({ noBackground }: { noBackground?: boolean }) => {
           mx: "auto",
           mt: { xs: "100px", sm: "125px", md: "75px", lg: "50px", xl: "100px" },
         }}
-        // data-aos="zoom-in"
-        // data-aos-easing="ease-in-out"
+        data-aos="zoom-in"
+        data-aos-easing="ease-in-out"
+        data-aos-anchor-placement="center-bottom"
       >
         <Stack
           alignItems={"center"}
