@@ -9,5 +9,10 @@
     "contact": "Hubungi Kami"
   },
   "otherNews": "Baca berita lain",
-  "projectCaption": "Berikut adalah projek yang sudah kami kerjakan"
+  "projectCaption": "Berikut adalah projek yang sudah kami kerjakan",
+  "store": {
+    "title": "LOKASI TOKO",
+    "empty": "Belum ada toko.",
+    "loading": "Memuat data, mohon tunggu."
+  }
 }

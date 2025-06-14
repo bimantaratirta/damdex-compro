@@ -9,5 +9,10 @@
     "contact": "Contact Us"
   },
   "otherNews": "Read other news",
-  "projectCaption": "Here are some projects we have worked on"
+  "projectCaption": "Here are some projects we have worked on",
+  "store": {
+    "title": "STORE LOCATION",
+    "empty": "No stores yet.",
+    "loading": "Loading data, please wait."
+  }
 }

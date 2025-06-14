@@ -1,4 +1,4 @@
-import { HomeParams, HomeQuery, PaginationParams, PaginationQuery } from "./queryparams";
+import { HomeParams, HomeQuery, PaginationParams, PaginationQuery, StoreParams, StoreQuery } from "./queryparams";
 
 export const paginationQueryToParams = (query: PaginationQuery): PaginationParams => {
   return {
@@ -20,6 +20,16 @@ export const homeQuerytoParams = (query: HomeQuery): HomeParams => {
   return {
     lang: query.lang ?? undefined,
     section: query.section ?? undefined,
+  };
+};
+
+export const storeQuerytoParams = (query: StoreQuery): StoreParams => {
+  return {
+    page: query.page ?? undefined,
+    limit: query.limit ?? undefined,
+    city: query.city ?? undefined,
+    province: query.province ?? undefined,
+    storeName: query.storeName ?? undefined,
   };
 };
 
