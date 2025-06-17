@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Dialog, DialogTitle, DialogContent } from "@mui/material";
+import { Box, Dialog, DialogTitle, DialogContent, IconButton } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import dialogimg from "@/../public/dialogImage.jpg";
+import CloseIcon from "@mui/icons-material/Close";
 
 export const AdvantageDialog = ({
   open,
@@ -11,7 +12,7 @@ export const AdvantageDialog = ({
   description,
 }: {
   open: boolean;
-  onClose?: (reason: "backdropClick" | "escapeKeyDown") => void;
+  onClose?: React.MouseEventHandler<HTMLButtonElement>;
   img?: StaticImageData | string;
   title?: string;
   description?: string;
@@ -30,9 +31,23 @@ export const AdvantageDialog = ({
       }}
     >
       <DialogTitle sx={{ textAlign: "left", fontWeight: "bold" }}>{title}</DialogTitle>
+      <IconButton
+        onClick={onClose}
+        sx={(theme) => ({
+          position: "absolute",
+          right: 8,
+          top: 8,
+          color: theme.palette.grey[500],
+        })}
+      >
+        <CloseIcon />
+      </IconButton>
       <DialogContent>
         <Box sx={{ backgroundColor: "#F0F0F0", minHeight: "40vh", p: 2 }}>
-          <div dangerouslySetInnerHTML={{ __html: description as string }} />
+          <div
+            className="text-lg md:text-xl lg:text-2xl"
+            dangerouslySetInnerHTML={{ __html: description as string }}
+          />
         </Box>
         {img && img !== undefined && (
           <Box sx={{ textAlign: "center" }}>
@@ -42,6 +57,8 @@ export const AdvantageDialog = ({
                 alt="Building Construction"
                 fill
                 objectFit="cover"
+                priority
+                unoptimized
               />
             </Box>
           </Box>

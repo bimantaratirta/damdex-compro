@@ -43,7 +43,7 @@ const Page = () => {
           direction={"column"}
           spacing={4}
           sx={{
-            pt: { xs: "110px", sm: "135px", md: "150px", lg: "125px", xl: "200px" },
+            pt: { xs: "100px", sm: "120px", md: "130px", lg: "100px", xl: "175px" },
           }}
         >
           <Typography
@@ -51,7 +51,7 @@ const Page = () => {
             fontWeight={800}
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
-            width={"65vw"}
+            width={{ xs: "40vw", xl: "30vw" }}
             sx={{ fontSize: { xs: "24px", sm: "35px", md: "45px", lg: "60px" } }}
           >
             Damdex For Your Home
@@ -319,6 +319,7 @@ const CompositionButton = ({
           src={img}
           fill
           style={{ marginTop: "10px" }}
+          priority
         />
       </Box>
     </Stack>

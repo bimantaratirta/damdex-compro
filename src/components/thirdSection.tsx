@@ -39,6 +39,7 @@ export const ThirdSection = () => {
         >
           <Image
             src={logowarna}
+            priority
             alt="logo"
             fill
           />

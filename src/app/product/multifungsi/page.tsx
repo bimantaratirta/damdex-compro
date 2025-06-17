@@ -56,6 +56,7 @@ const Page = () => {
         >
           <Image
             alt="image1"
+            priority
             src={img1}
             fill
           />
@@ -71,6 +72,7 @@ const Page = () => {
           <Image
             alt="image2"
             src={img2}
+            priority
             fill
           />
         </Box>
@@ -174,6 +176,8 @@ const Page = () => {
                       layout="fill"
                       objectFit="cover"
                       style={{ borderRadius: "25px" }}
+                      priority
+                      unoptimized
                     />
                     <Box
                       sx={{
@@ -186,7 +190,7 @@ const Page = () => {
                     >
                       <Typography
                         alignSelf={"start"}
-                        fontSize={{ xs: "10px", sm: "12px", md: "14px", lg: "16px", xl: "18px" }}
+                        fontSize={{ xs: "13px", sm: "15px", md: "16px", lg: "16px", xl: "22px" }}
                       >
                         {language === "eng" ? slide.titleENG : slide.titleIDN}
                       </Typography>
@@ -229,6 +233,7 @@ const Page = () => {
           src={sizeImg}
           fill
           style={{ objectFit: "contain" }}
+          priority
         />
       </Box>
       <Stack

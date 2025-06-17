@@ -15,9 +15,10 @@ export const productParamsSwrKey = (query?: PaginationQuery) => {
 };
 
 export const useProduct = (query?: PaginationQuery) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { data, mutate, error } = useSWR(productParamsSwrKey(query), ([path, params]) =>
-    fetchProduct(params as PaginationParams)
+  const { data, mutate, error } = useSWR(
+    productParamsSwrKey(query),
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    ([path, params]) => fetchProduct(params as PaginationParams)
   );
   const loading = !data && !error;
 

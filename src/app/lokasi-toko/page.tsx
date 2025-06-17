@@ -1,7 +1,6 @@
 "use client";
 import { AppLayout } from "@/components/appLayout";
 import { useLanguage } from "@/components/localStorageProvider";
-import Map from "@/components/map";
 import { useCityOptions } from "@/swr-hooks/store/useCityOptions";
 import { useProvinceOptions } from "@/swr-hooks/store/useProvinceOptions";
 import { useStore } from "@/swr-hooks/store/useStore";
@@ -21,7 +20,9 @@ import eng from "@/locale/eng.json";
 import id from "@/locale/id.json";
 
 const Page = () => {
-  const [koordinat, setKoordinat] = React.useState<string>("-6.32595166017651, 106.7850292");
+  const [lokasi, setLokasi] = React.useState<string>(
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.5104763674353!2d106.7848386267823!3d-6.325764969128605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ee467f0dad49%3A0x1c9041845b8362d4!2sJl.%20Cinere%20Raya%20No.50-51%20Blok%20A%2C%20Cinere%2C%20Kec.%20Cinere%2C%20Kota%20Depok%2C%20Jawa%20Barat%2016514!5e0!3m2!1sid!2sid!4v1750162449463!5m2!1sid!2sid"
+  );
   const [provinsi, setProvinsi] = React.useState("Jakarta");
   const [kota, setKota] = React.useState("Jakarta Barat");
   const handleChangeProv = (event: SelectChangeEvent) => {
@@ -35,7 +36,7 @@ const Page = () => {
   const { data: province } = useProvinceOptions();
   const { data: city } = useCityOptions(provinsi);
   const handleChangeKoordinat = (data: string) => {
-    setKoordinat(data);
+    setLokasi(data);
   };
   const { language } = useLanguage();
 
@@ -151,9 +152,15 @@ const Page = () => {
               </Select>
             </FormControl>
             <Box sx={{ height: { xl: "500px", lg: "400px", md: "400px", sm: "300px", xs: "300px" }, display: "block" }}>
-              <Map
-                position={[Number(koordinat.split(", ")[0]), Number(koordinat.split(", ")[1])]}
-                zoom={16}
+              <iframe
+                src={lokasi}
+                key={lokasi}
+                style={{
+                  width: "100%",
+                  zIndex: 1,
+                  height: "100%",
+                }}
+                loading="lazy"
               />
             </Box>
           </Stack>
