@@ -38,10 +38,15 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
           <Box sx={{ height: { xs: "200px", sm: "300px", lg: "50vh" }, position: "relative", m: "auto" }}>
             <Image
               alt="image1"
-              src={data?.data.heroImageUrl}
+              src={data.data.heroImageUrl}
               fill
               objectFit="cover"
               style={{ borderRadius: "25px", objectFit: "cover" }}
+              priority
+              placeholder="blur"
+              blurDataURL={data?.data.heroImageUrl}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              unoptimized
             />
           </Box>
         )}
@@ -78,10 +83,15 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
             >
               <Image
                 alt="image"
-                src={data?.data.heroImageUrl}
+                src={data.data.heroImageUrl}
                 fill
                 objectFit="cover"
                 style={{ borderRadius: "25px" }}
+                placeholder="blur"
+                blurDataURL={data.data.heroImageUrl}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
+                unoptimized
               />
             </Box>
           )}

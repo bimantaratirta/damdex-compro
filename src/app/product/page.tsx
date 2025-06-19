@@ -55,6 +55,7 @@ const Page = () => {
           >
             <Image
               alt="image1"
+              priority
               src={product1}
               fill
             />
@@ -72,6 +73,7 @@ const Page = () => {
             >
               <Image
                 alt="image2"
+                priority
                 src={product2}
                 fill
               />

@@ -150,6 +150,8 @@ const NewsContent = ({
           src={img}
           fill
           style={{ borderRadius: 25 }}
+          priority
+          unoptimized
         />
       </Box>
       <Stack

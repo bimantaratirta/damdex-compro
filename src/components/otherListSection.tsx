@@ -54,6 +54,8 @@ export const OtherListSection = ({
                           alt="project"
                           fill
                           style={{ borderRadius: "25px", objectFit: "cover" }}
+                          loading="lazy"
+                          unoptimized
                         />
                       </Box>
                       <Typography

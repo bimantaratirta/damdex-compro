@@ -57,6 +57,7 @@ const Page = () => {
                     }}
                   >
                     <Image
+                      priority
                       src={d.heroImageUrl}
                       alt="event"
                       fill

@@ -18,9 +18,10 @@ export const storeParamsSwrKey = (query?: StoreQuery) => {
 };
 
 export const useStore = (query?: StoreQuery) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { data, mutate, error } = useSWR(storeParamsSwrKey(query), ([path, params]) =>
-    fetchStore(params as StoreParams)
+  const { data, mutate, error } = useSWR(
+    storeParamsSwrKey(query),
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    ([path, params]) => fetchStore(params as StoreParams)
   );
   const loading = !data && !error;
 

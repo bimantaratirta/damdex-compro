@@ -2,7 +2,6 @@
 import { AppLayout } from "@/components/appLayout";
 import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import React from "react";
-import dynamic from "next/dynamic";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import { OutlinedButton } from "@/components/button";
@@ -18,14 +17,6 @@ const validationSchema = Yup.object({
 
 const Page = () => {
   const router = useRouter();
-
-  const Map = React.useMemo(
-    () =>
-      dynamic(() => import("@/components/map"), {
-        ssr: false,
-      }),
-    []
-  );
 
   return (
     <AppLayout>
@@ -207,9 +198,18 @@ const Page = () => {
         </Stack>
       </Stack>
       <Box sx={{ width: "100vw", height: "300px", display: "block" }}>
-        <Map
+        {/* <Map
           position={[-6.32595166017651, 106.7850292]}
           zoom={18}
+        /> */}
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.5104763674353!2d106.7848386267823!3d-6.325764969128605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ee467f0dad49%3A0x1c9041845b8362d4!2sJl.%20Cinere%20Raya%20No.50-51%20Blok%20A%2C%20Cinere%2C%20Kec.%20Cinere%2C%20Kota%20Depok%2C%20Jawa%20Barat%2016514!5e0!3m2!1sid!2sid!4v1750162449463!5m2!1sid!2sid"
+          style={{
+            width: "100%",
+            zIndex: 1,
+            height: "100%",
+          }}
+          loading="lazy"
         />
       </Box>
     </AppLayout>

@@ -27,6 +27,7 @@ export const SecondSection = () => {
         >
           <Image
             alt="logo"
+            priority
             src={logo}
             fill
           />
@@ -75,7 +76,7 @@ export const SecondSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              width={{ xs: "40vw", md: "15vw" }}
+              width={{ xs: "50vw", md: "15vw" }}
               sx={{ fontSize: { xs: "16px", sm: "20px", lg: "28px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-top-left-title")?.content}
@@ -91,7 +92,7 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "14px", lg: "16px" } }}
+              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "14px", lg: "16px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-top-left-description")?.content}
             </Typography>
@@ -144,7 +145,7 @@ export const SecondSection = () => {
               textAlign={"end"}
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "14px", lg: "16px" } }}
+              sx={{ width: { xs: "70vw", md: "20vw" }, fontSize: { xs: "16px", lg: "16px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-top-right-description")?.content}
             </Typography>
@@ -195,7 +196,7 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "55vw", md: "30vw", lg: "20vw" }, fontSize: { xs: "14px", sm: "16px" } }}
+              sx={{ width: { xs: "70vw", md: "30vw", lg: "20vw" }, fontSize: { xs: "14px", sm: "16px" } }}
             >
               {data?.data.find((data) => data.key === "section-2-bottom-left-description")?.content}
             </Typography>
@@ -244,7 +245,7 @@ export const SecondSection = () => {
               }}
             />
             <Typography
-              sx={{ width: { xs: "55vw", md: "20vw" }, fontSize: { xs: "14px", lg: "16px" } }}
+              sx={{ width: { xs: "70vw", md: "20vw" }, fontSize: { xs: "15px", lg: "16px" } }}
               color="#fff"
               fontWeight={400}
               textAlign={"end"}

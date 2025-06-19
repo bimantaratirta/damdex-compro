@@ -35,6 +35,8 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
         >
           <Image
             alt="image1"
+            priority
+            unoptimized
             src={data?.data.heroImageUrl ?? ""}
             fill
             style={{ objectFit: "cover" }}

@@ -111,6 +111,7 @@ export const FirstSection = () => {
                 fill
                 // sizes="(max-width: 576px) 90vw, (max-width: 768px) 70vw, (max-width: 992px) 50vw, 50vw"
                 style={{ objectFit: "contain" }}
+                loading="lazy"
                 unoptimized
               />
             </Box>

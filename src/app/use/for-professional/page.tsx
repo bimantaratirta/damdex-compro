@@ -43,7 +43,7 @@ const Page = () => {
           direction={"column"}
           spacing={4}
           sx={{
-            pt: { xs: "110px", sm: "135px", md: "150px", lg: "125px", xl: "200px" },
+            pt: { xs: "100px", sm: "120px", md: "130px", lg: "100px", xl: "175px" },
           }}
         >
           <Typography
@@ -51,6 +51,7 @@ const Page = () => {
             fontWeight={800}
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
+            width={{ xs: "40vw", xl: "30vw" }}
             sx={{ fontSize: { xs: "24px", sm: "35px", md: "45px", lg: "60px" } }}
           >
             Damdex For Professional
@@ -94,6 +95,13 @@ const Page = () => {
           </Grid2>
         </Stack>
         <Divider sx={{ backgroundColor: "#000", my: 4, minWidth: "70vw" }} />
+        <Typography
+          fontSize={"32px"}
+          fontWeight={800}
+          mb={2}
+        >
+          {composition}
+        </Typography>
         {composition !== "" && (
           <Grid2
             spacing={{ md: 15, xs: 5 }}
@@ -318,6 +326,7 @@ const CompositionButton = ({
           src={img}
           fill
           style={{ marginTop: "10px" }}
+          priority
         />
       </Box>
     </Stack>

@@ -19,6 +19,10 @@ const Page = () => {
 
   const theme = useTheme();
   const phone = useMediaQuery(theme.breakpoints.down("md"));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const myLoader = ({ src }: { src: any }) => {
+    return src;
+  };
 
   return (
     <AppLayout>
@@ -88,6 +92,9 @@ const Page = () => {
                         alt="project"
                         fill
                         style={{ borderRadius: "25px", objectFit: "cover", objectPosition: "bottom" }}
+                        unoptimized
+                        loader={myLoader}
+                        loading={"lazy"}
                       />
                     </Box>
                     <Typography

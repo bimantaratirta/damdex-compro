@@ -113,6 +113,7 @@ const SosmedButton = ({ img, href, label }: { img: StaticImageData | string; hre
         >
           <Image
             src={img}
+            priority
             alt="fb"
             fill
           />

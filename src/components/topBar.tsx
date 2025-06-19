@@ -66,6 +66,7 @@ export const TopBar = () => {
         <Image
           alt="logo"
           src={logo}
+          priority
           height={23}
         />
         {mobile && (
@@ -201,6 +202,7 @@ export const TopBar = () => {
           <Image
             alt="logo"
             src={logo}
+            priority
             height={23}
             style={{ margin: "10px 0px 0px 70px" }}
           />

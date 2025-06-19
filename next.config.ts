@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "is3.cloudhost.id",
         port: "", // Kosongkan jika tidak menggunakan port khusus
-        pathname: "/**", // Izinkan semua path di hostname ini
+        pathname: "/damdex-compro/**", // Izinkan semua path di hostname ini
       },
     ],
   },
