@@ -1,10 +1,9 @@
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { Box, IconButton, Link, Stack, Typography } from "@mui/material";
 import tiktok from "../../public/ytb 1.png";
 import fb from "../../public/fb 1.png";
 import ig from "../../public/fb 2.png";
 import Image, { StaticImageData } from "next/image";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-
 export const Footer = () => {
   const sosmed = [
     { img: fb, href: "https://www.facebook.com/Damdex", label: "Damdex Indonesia" },
@@ -64,13 +63,17 @@ export const Footer = () => {
             >
               <YouTubeIcon sx={{ color: "#FFF", fontSize: { xs: "16px", md: "20px", lg: "30px", xl: "50px" } }} />
             </IconButton>
-            <Typography
+            <Link
               color="#FFF"
               alignContent={"center"}
               fontSize={{ xl: "32px", lg: "20px", md: "16px", sm: "16px", xs: "12px" }}
+              underline="none"
+              href="https://www.youtube.com/user/DamdexIndonesia"
+              target="_blank"
+              sx={{ cursor: "pointer" }}
             >
               DamdexIndonesia
-            </Typography>
+            </Link>
           </Stack>
         </Stack>
         <Typography
@@ -114,18 +117,22 @@ const SosmedButton = ({ img, href, label }: { img: StaticImageData | string; hre
           <Image
             src={img}
             priority
-            alt="fb"
+            alt="icon"
             fill
           />
         </Box>
       </IconButton>
-      <Typography
+      <Link
         color="#FFF"
         alignContent={"center"}
         fontSize={{ xl: "32px", lg: "20px", md: "16px", sm: "16px", xs: "12px" }}
+        underline="none"
+        href={href}
+        target="_blank"
+        sx={{ cursor: "pointer" }}
       >
         {label}
-      </Typography>
+      </Link>
     </Stack>
   );
 };
