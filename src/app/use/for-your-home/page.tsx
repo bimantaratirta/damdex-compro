@@ -95,6 +95,13 @@ const Page = () => {
           </Grid2>
         </Stack>
         <Divider sx={{ backgroundColor: "#000", my: 4, minWidth: "70vw" }} />
+        <Typography
+          fontSize={"32px"}
+          fontWeight={800}
+          mb={2}
+        >
+          {composition}
+        </Typography>
         {composition !== "" && (
           <Grid2
             spacing={{ md: 15, xs: 5 }}
