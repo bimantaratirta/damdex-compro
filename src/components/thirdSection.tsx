@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Link, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import image2 from "../../public/section3b.png";
 import logowarna from "../../public/Damdex Warna Logo-01.png";
@@ -97,6 +97,17 @@ export const ThirdSection = () => {
             >
               {data?.data.find((data) => data.key === "section-3-top-left-description")?.content}
             </Typography>
+            <Link
+              href={"/use/for-your-home?composition=Waterproofing&compositionId=4&usage=Waterproofing&usageId=12"}
+              style={{ color: "#FFF" }}
+              sx={{
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+                fontSize: { xs: "9px", sm: "15px", xl: "18px" },
+              }}
+            >
+              {language === "id" ? "Baca Selengkapnya" : "Read More"}
+            </Link>
           </Stack>
         </Box>
         <Box
@@ -142,6 +153,17 @@ export const ThirdSection = () => {
             >
               {data?.data.find((data) => data.key === "section-3-bottom-right-description")?.content}
             </Typography>
+            <Link
+              href={"/use/for-your-home?composition=Waterproofing&compositionId=4&usage=Waterproofing&usageId=12"}
+              style={{ color: "#FFF" }}
+              sx={{
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+                fontSize: { xs: "9px", sm: "15px", xl: "18px" },
+              }}
+            >
+              {language === "id" ? "Baca Selengkapnya" : "Read More"}
+            </Link>
           </Stack>
         </Box>
       </Stack>

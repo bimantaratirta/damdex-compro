@@ -59,3 +59,9 @@ export const convertDate = (tgl?: Date) => {
     return days[curr_day] + ", " + curr_date + " " + months[curr_month] + " " + curr_year;
   }
 };
+
+export const compositionDesc = { id: "Perbandingan Volume", eng: "Volume Ratio" };
+export const mediumCompDesc = { id: "Perbandingan Berat", eng: "Mass Ratio" };
+
+export const compUsageDesc = { id: "(Menggunakan Gelas / Kaleng)", eng: "(Using Glass / Can)" };
+export const mediumCompUsageDesc = { id: "(Menggunakan Timbangan)", eng: "(Using Scales)" };

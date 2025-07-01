@@ -17,6 +17,7 @@ import { FilledButton } from "@/components/button";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/components/localStorageProvider";
 import { useProductDetail } from "@/swr-hooks/product/useProductDetail";
+import { LoadingView } from "@/components/loadingView";
 
 const Page = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
@@ -30,7 +31,7 @@ const Page = () => {
   const router = useRouter();
 
   const { language } = useLanguage();
-  const { data } = useProductDetail(2);
+  const { data, loading } = useProductDetail(2);
 
   useEffect(() => {
     if (emblaApi) {
@@ -41,6 +42,8 @@ const Page = () => {
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
+  if (!data || loading) return <LoadingView />;
 
   return (
     <AppLayout>

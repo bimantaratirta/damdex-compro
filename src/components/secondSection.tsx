@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, Link } from "@mui/material";
 import logo from "../../public/Damdex Multifungsi Logo.png";
 import Image from "next/image";
 import { useLanguage } from "./localStorageProvider";
@@ -47,7 +47,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "250px", sm: "300px", md: "250px", lg: "250px", xl: "300px" },
+            height: { xs: "250px", sm: "300px", md: "300px", lg: "300px", xl: "300px" },
             backgroundImage: `url(${
               data?.data.find((data) => data.key === "section-2-top-left-image-background")?.fileUrl
             })`,
@@ -96,12 +96,24 @@ export const SecondSection = () => {
             >
               {data?.data.find((data) => data.key === "section-2-top-left-description")?.content}
             </Typography>
+            <Link
+              sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+              href={
+                language === "id"
+                  ? "/use/for-your-home?composition=Campuran Kental&compositionId=2&usage=Penguat Beton&usageId=4"
+                  : "/use/for-your-home?composition=Medium Mix&compositionId=2&usage=Concrete Reinforcement&usageId=4"
+              }
+              className="text-sm"
+              style={{ color: "#FFF" }}
+            >
+              {language === "id" ? "Baca Selengkapnya" : "Read More"}
+            </Link>
           </Stack>
         </Box>
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "250px", sm: "300px", md: "250px", lg: "250px", xl: "300px" },
+            height: { xs: "250px", sm: "300px", md: "300px", lg: "300px", xl: "300px" },
             background: `url(${
               data?.data.find((data) => data.key === "section-2-top-right-image-background")?.fileUrl
             })`,
@@ -149,6 +161,18 @@ export const SecondSection = () => {
             >
               {data?.data.find((data) => data.key === "section-2-top-right-description")?.content}
             </Typography>
+            <Link
+              href={
+                language === "id"
+                  ? "/use/for-your-home?composition=Campuran Cair&compositionId=1&usage=Pori&usageId=11"
+                  : "/use/for-your-home?composition=Thin Mix&compositionId=1&usage=Pores&usageId=11"
+              }
+              className="text-sm"
+              style={{ color: "#FFF" }}
+              sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+            >
+              {language === "id" ? "Baca Selengkapnya" : "Read More"}
+            </Link>
           </Stack>
         </Box>
       </Stack>
@@ -156,7 +180,7 @@ export const SecondSection = () => {
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "250px", sm: "300px", md: "250px", lg: "250px", xl: "300px" },
+            height: { xs: "250px", sm: "300px", md: "300px", lg: "300px", xl: "300px" },
             background: `url(${
               data?.data.find((data) => data.key === "section-2-bottom-left-image-background")?.fileUrl
             })`,
@@ -200,12 +224,24 @@ export const SecondSection = () => {
             >
               {data?.data.find((data) => data.key === "section-2-bottom-left-description")?.content}
             </Typography>
+            <Link
+              href={
+                language === "id"
+                  ? "/use/for-your-home?composition=Campuran Padat&compositionId=3&usage=Plug&usageId=10"
+                  : "/use/for-your-home?composition=Thick Mix&compositionId=3&usage=Plug&usageId=10"
+              }
+              className="text-sm"
+              style={{ color: "#FFF" }}
+              sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+            >
+              {language === "id" ? "Baca Selengkapnya" : "Read More"}
+            </Link>
           </Stack>
         </Box>
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
-            height: { xs: "250px", sm: "300px", md: "250px", lg: "250px", xl: "300px" },
+            height: { xs: "250px", sm: "300px", md: "300px", lg: "300px", xl: "300px" },
             background: `url(${
               data?.data.find((data) => data.key === "section-2-bottom-right-image-background")?.fileUrl
             })`,
@@ -252,6 +288,18 @@ export const SecondSection = () => {
             >
               {data?.data.find((data) => data.key === "section-2-bottom-right-description")?.content}
             </Typography>
+            <Link
+              href={
+                language === "id"
+                  ? "/use/for-professional?composition=Campuran Padat&compositionId=7&usage=Pemasangan Keramik dalam Air&usageId=17"
+                  : "/use/for-professional?composition=Thick Mix&compositionId=7&usage=Underwater Ceramic Installation&usageId=17"
+              }
+              className="text-sm"
+              style={{ color: "#FFF" }}
+              sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+            >
+              {language === "id" ? "Baca Selengkapnya" : "Read More"}
+            </Link>
           </Stack>
         </Box>
       </Stack>

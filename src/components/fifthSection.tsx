@@ -3,12 +3,14 @@ import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import { useLanguage } from "./localStorageProvider";
 import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
+import { useRouter } from "next/navigation";
 
 export const FiftSection = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const { language } = useLanguage();
   const { data, loading } = useEvent({ page: 1, limit: 3 });
+  const router = useRouter();
 
   return (
     <Box
@@ -62,22 +64,25 @@ export const FiftSection = () => {
             spacing={3}
           >
             {data.data.payload.map((data, idx) => (
-              <Box
-                sx={{ width: "80vw", height: { xs: "180px", sm: "200px" }, position: "relative" }}
+              <div
+                onClick={() => router.push(`/event/detail/${data.id}`)}
+                style={{ cursor: "pointer" }}
                 key={idx}
               >
-                <Image
-                  alt={`gallery${idx}`}
-                  src={data.heroImageUrl}
-                  objectFit="cover"
-                  fill
-                  data-aos={idx === 1 ? "fade-left" : "fade-right"}
-                  data-aos-easing="ease-in-out"
-                  data-aos-anchor-placement="bottom-bottom"
-                  priority
-                  unoptimized
-                />
-              </Box>
+                <Box sx={{ width: "80vw", height: { xs: "180px", sm: "200px" }, position: "relative" }}>
+                  <Image
+                    alt={`gallery${idx}`}
+                    src={data.heroImageUrl}
+                    objectFit="cover"
+                    fill
+                    data-aos={idx === 1 ? "fade-left" : "fade-right"}
+                    data-aos-easing="ease-in-out"
+                    data-aos-anchor-placement="bottom-bottom"
+                    priority
+                    unoptimized
+                  />
+                </Box>
+              </div>
             ))}
           </Stack>
         )}
@@ -87,56 +92,71 @@ export const FiftSection = () => {
               direction={"row"}
               spacing={3}
             >
-              <Box
-                sx={{
-                  position: "relative",
-                  width: data.data.payload.length > 1 ? "64.167vw" : "100vw",
-                  height: { md: "300px", xl: "500px" },
-                }}
+              <div
+                onClick={() => router.push(`/event/detail/${data.data.payload[0].id}`)}
+                style={{ cursor: "pointer" }}
               >
-                <Image
-                  alt="gallery1"
-                  src={data.data.payload[0].heroImageUrl}
-                  fill
-                  data-aos="fade-right"
-                  data-aos-easing="ease-in-out"
-                  data-aos-anchor-placement="top-bottom"
-                  objectFit="cover"
-                  priority
-                  unoptimized
-                />
-              </Box>
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: data.data.payload.length > 1 ? "64.167vw" : "100vw",
+                    height: { md: "300px", xl: "500px" },
+                  }}
+                >
+                  <Image
+                    alt="gallery1"
+                    src={data.data.payload[0].heroImageUrl}
+                    fill
+                    data-aos="fade-right"
+                    data-aos-easing="ease-in-out"
+                    data-aos-anchor-placement="top-bottom"
+                    objectFit="cover"
+                    priority
+                    unoptimized
+                  />
+                </Box>
+              </div>
               {data.data.payload.length > 1 && (
                 <Stack
                   direction={"column"}
                   spacing={1.5}
                 >
-                  <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
-                    <Image
-                      alt="gallery2"
-                      src={data.data.payload[1].heroImageUrl}
-                      fill
-                      objectFit="cover"
-                      data-aos="fade-left"
-                      data-aos-easing="ease-in-out"
-                      data-aos-anchor-placement="bottom-bottom"
-                      priority
-                      unoptimized
-                    />
-                  </Box>
-                  <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
-                    <Image
-                      alt="gallery3"
-                      src={data.data.payload[2].heroImageUrl}
-                      fill
-                      objectFit="cover"
-                      data-aos="fade-up"
-                      data-aos-easing="ease-in-out"
-                      data-aos-anchor-placement="bottom-bottom"
-                      priority
-                      unoptimized
-                    />
-                  </Box>
+                  <div
+                    onClick={() => router.push(`/event/detail/${data.data.payload[1].id}`)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
+                      <Image
+                        alt="gallery2"
+                        src={data.data.payload[1].heroImageUrl}
+                        fill
+                        objectFit="cover"
+                        data-aos="fade-left"
+                        data-aos-easing="ease-in-out"
+                        data-aos-anchor-placement="bottom-bottom"
+                        priority
+                        unoptimized
+                      />
+                    </Box>
+                  </div>
+                  <div
+                    onClick={() => router.push(`/event/detail/${data.data.payload[2].id}`)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <Box sx={{ position: "relative", width: "31.25vw", height: { md: "144px", xl: "244px" } }}>
+                      <Image
+                        alt="gallery3"
+                        src={data.data.payload[2].heroImageUrl}
+                        fill
+                        objectFit="cover"
+                        data-aos="fade-up"
+                        data-aos-easing="ease-in-out"
+                        data-aos-anchor-placement="bottom-bottom"
+                        priority
+                        unoptimized
+                      />
+                    </Box>
+                  </div>
                 </Stack>
               )}
             </Stack>

@@ -7,12 +7,13 @@ import { useLanguage } from "@/components/localStorageProvider";
 import { useProjectDetail } from "@/swr-hooks/project/useProjectDetail";
 import { OtherListSection } from "@/components/otherListSection";
 import { useProject } from "@/swr-hooks/project/useProject";
+import { LoadingView } from "@/components/loadingView";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = use(params);
   const { language } = useLanguage();
-  const { data } = useProjectDetail(Number(id));
-  const { data: projects } = useProject({ limit: 3 });
+  const { data, loading } = useProjectDetail(Number(id));
+  const { data: projects, loading: loadProjects } = useProject({ limit: 3 });
 
   const otherProjects = projects?.data.payload
     .filter((data) => data.id !== Number(id))
@@ -21,6 +22,8 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
       title: language === "id" ? data.titleIDN : data.titleENG,
       id: data.id,
     }));
+
+  if (!data || !projects || loading || loadProjects) return <LoadingView />;
 
   return (
     <AppLayout>

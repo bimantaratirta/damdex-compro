@@ -5,26 +5,35 @@ import { AppLayout } from "@/components/appLayout";
 import img1 from "@/../public/damdexforhome.png";
 import img2 from "@/../public/damdexforpro.png";
 import thinmix from "@/../public/thinmix.jpeg";
-import mediummix from "@/../public/mediummix.png";
-import thickmix from "@/../public/thickmix.png";
-import waterproofing from "@/../public/waterproofing.png";
+import mediummix from "@/../public/mediummix.jpeg";
+import thickmix from "@/../public/thickmix.jpeg";
+import waterproofing from "@/../public/waterproofing.jpeg";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { FilledButton } from "@/components/button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "@/components/localStorageProvider";
 import { useUsageDetail } from "@/swr-hooks/usage/useUsageDetail";
+import { LoadingView } from "@/components/loadingView";
+import { compositionDesc, compUsageDesc, mediumCompDesc, mediumCompUsageDesc } from "@/lib/utils";
 
 const Page = () => {
   const router = useRouter();
-  const [composition, setComposition] = React.useState<string>("");
-  const [compositionId, setCompositionId] = React.useState<number>(1);
-  const [usageForId, setUsageForId] = React.useState<number>(1);
-  const [usage, setUsage] = React.useState<string>("");
+  const searchParams = useSearchParams();
+  const comp = searchParams.get("composition");
+  const use = searchParams.get("usage");
+  const compId = searchParams.get("compositionId");
+  const useId = searchParams.get("usageId");
+  const [composition, setComposition] = React.useState<string>(comp ?? "");
+  const [compositionId, setCompositionId] = React.useState<number>(Number(compId) ?? 0);
+  const [usageForId, setUsageForId] = React.useState<number>(Number(useId) ?? 0);
+  const [usage, setUsage] = React.useState<string>(use ?? "");
   const { language } = useLanguage();
-  const { data } = useUsageDetail(2);
+  const { data, loading } = useUsageDetail(2);
 
   const images = [thinmix, mediummix, thickmix, waterproofing];
+
+  if (loading || !data) return <LoadingView />;
 
   return (
     <AppLayout>
@@ -246,6 +255,7 @@ const CompositionButton = ({
   onChange: (event: React.MouseEvent<HTMLElement>, value: any) => void;
   img: string | StaticImport;
 }) => {
+  const { language } = useLanguage();
   return (
     <Stack
       justifyContent={"center"}
@@ -303,15 +313,17 @@ const CompositionButton = ({
           fontWeight={800}
           textAlign={"center"}
         >
-          {value === "Medium Mix" || value === "Campuran Kental" ? "Perbandingan Berat" : "Perbandingan Volume"}
+          {value === "Medium Mix" || value === "Campuran Kental"
+            ? mediumCompDesc[(language as "id") || "eng"]
+            : compositionDesc[(language as "id") || "eng"]}
         </Typography>
         <Typography
           fontSize={{ xl: "20px", lg: "10px", xs: "12px" }}
           textAlign={"center"}
         >
           {value === "Medium Mix" || value === "Campuran Kental"
-            ? "(Menggunakan Timbangan)"
-            : "(Menggunakan gelas/kaleng)"}
+            ? mediumCompUsageDesc[(language as "id") || "eng"]
+            : compUsageDesc[(language as "id") || "eng"]}
         </Typography>
       </Stack>
       <Box
