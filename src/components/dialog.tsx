@@ -51,9 +51,9 @@ export const AdvantageDialog = ({
         </Box>
         {img && img !== undefined && (
           <Box sx={{ textAlign: "center" }}>
-            <Box sx={{ position: "relative", width: "100%", height: "300px" }}>
+            <Box sx={{ position: "relative", width: "100%", height: "400px" }}>
               <Image
-                src={dialogimg}
+                src={img ?? dialogimg}
                 alt="Building Construction"
                 fill
                 objectFit="cover"

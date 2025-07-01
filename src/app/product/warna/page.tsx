@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { SixthSection } from "@/components/sixthSection";
 import { AppLayout } from "@/components/appLayout";
-import { Stack, Box, Typography, IconButton, useTheme, useMediaQuery } from "@mui/material";
+import { Stack, Box, Typography, IconButton, useTheme, useMediaQuery, Link } from "@mui/material";
 import img from "@/../public/headerwarna.png";
 import logowarna from "@/../public/Damdex Warna Logo-01.png";
 import produk from "@/../public/produkwarna.png";
@@ -165,7 +165,6 @@ const Page = () => {
                       height: { lg: "500px", sm: "400px", xs: "300px" },
                       mx: 2,
                       backgroundColor: "rgba(0,0,0,1)",
-                      cursor: "pointer",
                     }}
                   >
                     <div
@@ -202,6 +201,17 @@ const Page = () => {
                         >
                           {language === "eng" ? slide.titleENG : slide.titleIDN}
                         </Typography>
+                        <Link
+                          sx={{
+                            textDecoration: "none",
+                            cursor: "pointer",
+                            "&:hover": { textDecoration: "underline" },
+                            color: "#FFF",
+                          }}
+                          fontSize={{ xs: "13px", sm: "15px", md: "16px" }}
+                        >
+                          {language === "id" ? "Baca Selengkapnya" : "Read More"}
+                        </Link>
                       </Box>
                     </div>
                   </Box>
