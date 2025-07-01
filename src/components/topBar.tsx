@@ -51,6 +51,7 @@ export const TopBar = () => {
         borderImageSlice: 1,
         borderBottom: "7px solid transparent",
         width: "100vw",
+        height: "60px",
         position: "fixed",
         zIndex: 100,
       }}
@@ -59,7 +60,7 @@ export const TopBar = () => {
         direction={"row"}
         alignItems={"center"}
         width={"100vw"}
-        height={"6.5vh"}
+        height={"55px"}
         justifyContent={"space-between"}
         sx={{ px: "2.5vw" }}
       >
