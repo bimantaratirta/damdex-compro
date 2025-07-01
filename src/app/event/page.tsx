@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
 import { usePaginationData } from "@/lib/usePaginationData";
 import { useLanguage } from "@/components/localStorageProvider";
+import { LoadingView } from "@/components/loadingView";
 
 const Page = () => {
   const router = useRouter();
@@ -14,7 +15,9 @@ const Page = () => {
 
   const { pagination, handlePaginationModelChange } = usePaginationData({ pageIndex: 1, pageSize: 9 });
   const { language } = useLanguage();
-  const { data: events } = useEvent({ limit: pagination.pageSize, page: pagination.pageIndex });
+  const { data: events, loading } = useEvent({ limit: pagination.pageSize, page: pagination.pageIndex });
+
+  if (loading || !events) return <LoadingView />;
 
   return (
     <AppLayout>

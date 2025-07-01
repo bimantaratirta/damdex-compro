@@ -10,12 +10,13 @@ import { useLanguage } from "@/components/localStorageProvider";
 import { useProject } from "@/swr-hooks/project/useProject";
 import eng from "../../locale/eng.json";
 import id from "../../locale/id.json";
+import { LoadingView } from "@/components/loadingView";
 
 const Page = () => {
   const router = useRouter();
   const { pagination, handlePaginationModelChange } = usePaginationData({ pageIndex: 1, pageSize: 8 });
   const { language } = useLanguage();
-  const { data: projects } = useProject({ page: pagination.pageIndex, limit: pagination.pageSize });
+  const { data: projects, loading } = useProject({ page: pagination.pageIndex, limit: pagination.pageSize });
 
   const theme = useTheme();
   const phone = useMediaQuery(theme.breakpoints.down("md"));
@@ -23,6 +24,8 @@ const Page = () => {
   const myLoader = ({ src }: { src: any }) => {
     return src;
   };
+
+  if (loading || !projects) return <LoadingView />;
 
   return (
     <AppLayout>

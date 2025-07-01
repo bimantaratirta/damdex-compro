@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { SixthSection } from "@/components/sixthSection";
 import { AppLayout } from "@/components/appLayout";
-import { Stack, Box, Typography, IconButton, useTheme, useMediaQuery } from "@mui/material";
+import { Stack, Box, Typography, IconButton, useTheme, useMediaQuery, Link } from "@mui/material";
 import img from "@/../public/headerwarna.png";
 import logowarna from "@/../public/Damdex Warna Logo-01.png";
 import produk from "@/../public/produkwarna.png";
@@ -17,6 +17,7 @@ import { FilledButton } from "@/components/button";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/components/localStorageProvider";
 import { useProductDetail } from "@/swr-hooks/product/useProductDetail";
+import { LoadingView } from "@/components/loadingView";
 
 const Page = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
@@ -30,7 +31,7 @@ const Page = () => {
   const router = useRouter();
 
   const { language } = useLanguage();
-  const { data } = useProductDetail(2);
+  const { data, loading } = useProductDetail(2);
 
   useEffect(() => {
     if (emblaApi) {
@@ -41,6 +42,8 @@ const Page = () => {
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
+  if (!data || loading) return <LoadingView />;
 
   return (
     <AppLayout>
@@ -162,7 +165,6 @@ const Page = () => {
                       height: { lg: "500px", sm: "400px", xs: "300px" },
                       mx: 2,
                       backgroundColor: "rgba(0,0,0,1)",
-                      cursor: "pointer",
                     }}
                   >
                     <div
@@ -199,6 +201,17 @@ const Page = () => {
                         >
                           {language === "eng" ? slide.titleENG : slide.titleIDN}
                         </Typography>
+                        <Link
+                          sx={{
+                            textDecoration: "none",
+                            cursor: "pointer",
+                            "&:hover": { textDecoration: "underline" },
+                            color: "#FFF",
+                          }}
+                          fontSize={{ xs: "13px", sm: "15px", md: "16px" }}
+                        >
+                          {language === "id" ? "Baca Selengkapnya" : "Read More"}
+                        </Link>
                       </Box>
                     </div>
                   </Box>

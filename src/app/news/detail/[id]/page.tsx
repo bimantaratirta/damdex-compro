@@ -7,12 +7,13 @@ import { useLanguage } from "@/components/localStorageProvider";
 import { useNewsDetail } from "@/swr-hooks/news/useNewsDetail";
 import { OtherListSection } from "@/components/otherListSection";
 import { useNews } from "@/swr-hooks/news/useNews";
+import { LoadingView } from "@/components/loadingView";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = React.use(params);
   const { language } = useLanguage();
-  const { data } = useNewsDetail(Number(id));
-  const { data: news } = useNews();
+  const { data, loading } = useNewsDetail(Number(id));
+  const { data: news, loading: loadNews } = useNews();
 
   const otherNews = news?.data.payload
     .filter((data) => data.id !== Number(id))
@@ -21,6 +22,8 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
       title: language === "id" ? data.titleIDN : data.titleENG,
       id: data.id,
     }));
+
+  if (loading || loadNews || !data || !news) return <LoadingView />;
 
   return (
     <AppLayout>

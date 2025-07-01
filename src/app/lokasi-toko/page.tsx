@@ -18,6 +18,7 @@ import {
 import React from "react";
 import eng from "@/locale/eng.json";
 import id from "@/locale/id.json";
+import { LoadingView } from "@/components/loadingView";
 
 const Page = () => {
   const [lokasi, setLokasi] = React.useState<string>(
@@ -39,6 +40,8 @@ const Page = () => {
     setLokasi(data);
   };
   const { language } = useLanguage();
+
+  if (loading || !store) return <LoadingView />;
 
   return (
     <AppLayout>

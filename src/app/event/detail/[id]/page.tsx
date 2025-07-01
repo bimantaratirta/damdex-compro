@@ -8,12 +8,13 @@ import Image from "next/image";
 import { OtherListSection } from "@/components/otherListSection";
 import { convertDate } from "@/lib/utils";
 import { useEvent } from "@/swr-hooks/eventGallery/useEvent";
+import { LoadingView } from "@/components/loadingView";
 
 const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = React.use(params);
   const { language } = useLanguage();
-  const { data } = useEventDetail(Number(id));
-  const { data: events } = useEvent({ limit: 3 });
+  const { data, loading } = useEventDetail(Number(id));
+  const { data: events, loading: loadEvents } = useEvent({ limit: 3 });
 
   const otherEvents = events?.data.payload
     .filter((data) => data.id !== Number(id))
@@ -22,6 +23,8 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
       title: language === "id" ? data.titleIDN : data.titleENG,
       id: data.id,
     }));
+
+  if (loading || loadEvents || !data || !events) return <LoadingView />;
 
   return (
     <AppLayout>

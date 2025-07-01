@@ -5,33 +5,42 @@ import { AppLayout } from "@/components/appLayout";
 import img1 from "@/../public/damdexforhome.png";
 import img2 from "@/../public/damdexforpro.png";
 import thinmix from "@/../public/thinmix.jpeg";
-import mediummix from "@/../public/mediummix.png";
-import thickmix from "@/../public/thickmix.png";
-import waterproofing from "@/../public/waterproofing.png";
+import mediummix from "@/../public/mediummix.jpeg";
+import thickmix from "@/../public/thickmix.jpeg";
+import waterproofing from "@/../public/waterproofing.jpeg";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { FilledButton } from "@/components/button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "@/components/localStorageProvider";
 import { useUsageDetail } from "@/swr-hooks/usage/useUsageDetail";
+import { LoadingView } from "@/components/loadingView";
+import { compositionDesc, compUsageDesc, mediumCompDesc, mediumCompUsageDesc } from "@/lib/utils";
 
 const Page = () => {
   const router = useRouter();
-  const [composition, setComposition] = React.useState<string>("");
-  const [compositionId, setCompositionId] = React.useState<number>(1);
-  const [usageForId, setUsageForId] = React.useState<number>(1);
-  const [usage, setUsage] = React.useState<string>("");
+  const searchParams = useSearchParams();
+  const comp = searchParams.get("composition");
+  const use = searchParams.get("usage");
+  const compId = searchParams.get("compositionId");
+  const useId = searchParams.get("usageId");
+  const [composition, setComposition] = React.useState<string>(comp ?? "");
+  const [compositionId, setCompositionId] = React.useState<number>(Number(compId) ?? 0);
+  const [usageForId, setUsageForId] = React.useState<number>(Number(useId) ?? 0);
+  const [usage, setUsage] = React.useState<string>(use ?? "");
   const { language } = useLanguage();
-  const { data } = useUsageDetail(2);
+  const { data, loading } = useUsageDetail(2);
 
   const images = [thinmix, mediummix, thickmix, waterproofing];
+
+  if (loading || !data) return <LoadingView />;
 
   return (
     <AppLayout>
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: { xs: "200px", sm: "250px", md: "300px", xl: "400px" },
+          height: { xs: "180px", sm: "210px", md: "250px", xl: "300px" },
           background: `linear-gradient(180.53deg, rgba(245, 5, 3, 0.65) 22.87%, rgba(255, 230, 86, 0.65) 119.83%), url(${img2.src})`,
           backgroundSize: "cover",
           backgroundPosition: { xs: "top", lg: "center" },
@@ -43,7 +52,7 @@ const Page = () => {
           direction={"column"}
           spacing={4}
           sx={{
-            pt: { xs: "100px", sm: "120px", md: "130px", lg: "100px", xl: "175px" },
+            pt: { xs: "100px", sm: "120px", md: "130px", lg: "100px", xl: "150px" },
           }}
         >
           <Typography
@@ -51,7 +60,6 @@ const Page = () => {
             fontWeight={800}
             color="rgba(255, 255, 255, 1)"
             textAlign={"center"}
-            width={{ xs: "40vw", xl: "30vw" }}
             sx={{ fontSize: { xs: "24px", sm: "35px", md: "45px", lg: "60px" } }}
           >
             Damdex For Professional
@@ -246,6 +254,7 @@ const CompositionButton = ({
   onChange: (event: React.MouseEvent<HTMLElement>, value: any) => void;
   img: string | StaticImport;
 }) => {
+  const { language } = useLanguage();
   return (
     <Stack
       justifyContent={"center"}
@@ -275,9 +284,9 @@ const CompositionButton = ({
           value={value}
           sx={{
             textTransform: "none",
-            width: { lg: "18vw", md: "15vw", sm: "30vw", xs: "50vw" },
+            width: { lg: "18vw", md: "15vw", sm: "30vw", xs: "30vw" },
             borderRadius: "0px 100px 100px",
-            minHeight: { xs: "6vh", lg: "10h", xl: "9vh" },
+            minHeight: { xs: "68px", lg: "75px", xl: "90px" },
             color: "#000",
             fontSize: { xl: "25px", lg: "16px", md: "12px", sm: "14px", xs: "11px" },
             "&.Mui-selected": {
@@ -292,33 +301,35 @@ const CompositionButton = ({
           <Stack direction={"column"}>
             {value}
             {value === "Waterproofing" && (
-              <Typography fontSize={{ lg: "15px", sm: "9px", xs: "8px" }}> (Damdex warna)</Typography>
+              <Typography fontSize={{ lg: "15px", sm: "9px", xs: "8px" }}>(Damdex warna)</Typography>
             )}
           </Stack>
         </ToggleButton>
       </Box>
       <Stack mt={1}>
         <Typography
-          fontSize={{ xl: "26px", lg: "16px", md: "12px", xs: "15px" }}
+          fontSize={{ xl: "26px", lg: "16px", md: "12px", xs: "12px" }}
           fontWeight={800}
           textAlign={"center"}
         >
-          {value === "Medium Mix" || value === "Campuran Kental" ? "Perbandingan Berat" : "Perbandingan Volume"}
+          {value === "Medium Mix" || value === "Campuran Kental"
+            ? mediumCompDesc[(language as "id") || "eng"]
+            : compositionDesc[(language as "id") || "eng"]}
         </Typography>
         <Typography
-          fontSize={{ xl: "20px", lg: "10px", xs: "12px" }}
+          fontSize={{ xl: "20px", lg: "10px", xs: "8px" }}
           textAlign={"center"}
         >
           {value === "Medium Mix" || value === "Campuran Kental"
-            ? "(Menggunakan Timbangan)"
-            : "(Menggunakan gelas/kaleng)"}
+            ? mediumCompUsageDesc[(language as "id") || "eng"]
+            : compUsageDesc[(language as "id") || "eng"]}
         </Typography>
       </Stack>
       <Box
         sx={{
           position: "relative",
           width: { xl: "15vw", lg: "13vw", md: "10vw", sm: "25vw", xs: "30vw" },
-          height: { xl: "15vh", lg: "13vh", md: "6vh", sm: "8vh", xs: "75px" },
+          height: { xl: "175px", lg: "100px", md: "60px", sm: "100px", xs: "75px" },
         }}
       >
         <Image
@@ -348,11 +359,11 @@ const UsageForButton = ({
       value={value}
       sx={{
         width: { md: "15vw", sm: "20vw", xs: "25vw" },
-        borderRadius: { lg: "30px", md: "20px" },
+        borderRadius: { lg: "30px", md: "20px", xs: "15px" },
         color: "#000",
         border: 0,
         fontSize: { xl: "28px", lg: "20px", md: "12px", xs: "12px" },
-        minHeight: { xl: "10vh", lg: "8vh", sm: "5vh", xs: "8vh" },
+        minHeight: { xl: "112px", lg: "90px", sm: "55px", xs: "50px" },
         px: 5,
         lineHeight: 1,
         backgroundColor: "rgba(242, 242, 242, 1)",
