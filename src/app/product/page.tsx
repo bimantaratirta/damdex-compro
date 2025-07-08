@@ -3,7 +3,7 @@ import Image from "next/image";
 // import styles from "./page.module.css";
 import { AppLayout } from "@/components/appLayout";
 import product1 from "@/../public/product1.png";
-import product2 from "@/../public/product2.png";
+// import product2 from "@/../public/product2.png";
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -12,8 +12,8 @@ const PopupPoint = ({ top, right, children }: { top: string; right: string; chil
   return (
     <Box
       sx={{
-        height: { xl: "75px", lg: "44px", md: "35px", sm: "25px", xs: "21px" },
-        width: { xl: "15vw", md: "15vw", sm: "15vw", xs: "15.5vw" },
+        height: { xl: "75px", lg: "44px", md: "35px", sm: "25px", xs: "23px" },
+        width: { xl: "15vw", md: "15vw", sm: "15vw", xs: "18vw" },
         zIndex: 2,
         borderRadius: { md: "5px", xs: "5px" },
         backgroundColor: "#ff0101",
@@ -36,7 +36,7 @@ const Page = () => {
   const tab = useMediaQuery(theme.breakpoints.down("lg"));
   const phonexs = useMediaQuery(theme.breakpoints.down("sm"));
   const phonesm = useMediaQuery(theme.breakpoints.down("md"));
-  const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
+  // const desktopxl = useMediaQuery(theme.breakpoints.up("xl"));
   const desktop = useMediaQuery(theme.breakpoints.down("xl"));
   const router = useRouter();
   return (
@@ -71,27 +71,33 @@ const Page = () => {
               onClick={() => router.push("/product/multifungsi")}
               style={{ cursor: "pointer" }}
             >
-              <Image
+              {/* <Image
                 alt="image2"
                 priority
                 src={product2}
                 fill
-              />
+              /> */}
+              <video
+                autoPlay
+                loop
+                muted
+                preload="none"
+                playsInline
+                style={{
+                  width: "100vw",
+                  height: phonexs ? "300px" : phonesm ? "400px" : tab ? "500px" : desktop ? "676px" : "1082px",
+                  objectFit: "cover",
+                }}
+              >
+                <source
+                  src="multifungsi.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
               <PopupPoint
-                top={
-                  phonexs
-                    ? "160px"
-                    : phonesm
-                    ? "216px"
-                    : tab
-                    ? "270px"
-                    : desktop
-                    ? "363px"
-                    : desktopxl
-                    ? "590px"
-                    : "54.8%"
-                }
-                right={phonesm ? "18.4vw" : phonexs ? "18.4vw" : "18.5%"}
+                top={phonexs ? "168px" : phonesm ? "223px" : tab ? "280px" : desktop ? "380px" : "590px"}
+                right={phonexs ? "16vw" : phonesm ? "19.5vw" : desktop ? "19.5%" : "18.5%"}
               >
                 <Stack
                   spacing={{ xs: 0.2 }}
@@ -120,20 +126,8 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={
-                  phonexs
-                    ? "133px"
-                    : phonesm
-                    ? "180px"
-                    : tab
-                    ? "225px"
-                    : desktop
-                    ? "303px"
-                    : desktopxl
-                    ? "480px"
-                    : "45%"
-                }
-                right={phonexs ? "17vw" : "17%"}
+                top={phonexs ? "138px" : phonesm ? "190px" : tab ? "235px" : desktop ? "318px" : "500px"}
+                right={phonexs ? "15vw" : desktop ? "18%" : "16.8%"}
               >
                 <Typography
                   color="#FFF"
@@ -149,20 +143,8 @@ const Page = () => {
                 </Typography>
               </PopupPoint>
               <PopupPoint
-                top={
-                  phonexs
-                    ? "107px"
-                    : phonesm
-                    ? "142px"
-                    : tab
-                    ? "180px"
-                    : desktop
-                    ? "240px"
-                    : desktopxl
-                    ? "385px"
-                    : "33.75%"
-                }
-                right={phonexs ? "70px" : "19%"}
+                top={phonexs ? "110px" : phonesm ? "150px" : tab ? "185px" : desktop ? "250px" : "400px"}
+                right={phonexs ? "19vw" : desktop ? "19.8%" : "19%"}
               >
                 <Stack
                   spacing={{ xs: 0.2, md: 0.4 }}
@@ -191,20 +173,8 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={
-                  phonexs
-                    ? "105px"
-                    : phonesm
-                    ? "142px"
-                    : tab
-                    ? "35%"
-                    : desktop
-                    ? "240px"
-                    : desktopxl
-                    ? "385px"
-                    : "35.75%"
-                }
-                right={phonexs ? "64.5vw" : "64.6%"}
+                top={phonexs ? "110px" : phonesm ? "150px" : tab ? "37%" : desktop ? "248px" : "398px"}
+                right={phonexs ? "64vw" : phonesm ? "64vw" : tab ? "63.5vw" : desktop ? "64vw" : "64.6%"}
               >
                 <Stack
                   spacing={{ xs: 0.2 }}
@@ -233,10 +203,8 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={
-                  phonexs ? "160px" : phonesm ? "217px" : tab ? "54%" : desktop ? "365px" : desktopxl ? "585px" : "54%"
-                }
-                right={phonexs ? "66.5vw" : phonesm ? "67vw" : tab ? "67%" : "66.8%"}
+                top={phonexs ? "165px" : phonesm ? "222px" : tab ? "56%" : desktop ? "378px" : "590px"}
+                right={phonexs ? "66.5vw" : phonesm ? "65.5vw" : tab ? "65.5vw" : desktop ? "66vw" : "67%"}
               >
                 <Stack
                   spacing={{ xs: 0.2 }}
@@ -265,20 +233,8 @@ const Page = () => {
                 </Stack>
               </PopupPoint>
               <PopupPoint
-                top={
-                  phonexs
-                    ? "133px"
-                    : phonesm
-                    ? "180px"
-                    : tab
-                    ? "44.5%"
-                    : desktop
-                    ? "300px"
-                    : desktopxl
-                    ? "485px"
-                    : "44.5%"
-                }
-                right={phonexs ? "68vw" : phonesm ? "68.5vw" : tab ? "68.5%" : "68.5%"}
+                top={phonexs ? "136px" : phonesm ? "188px" : tab ? "45.5%" : desktop ? "315px" : "493px"}
+                right={phonexs ? "68vw" : phonesm ? "67.5vw" : tab ? "67%" : desktop ? "67.5vw" : "68.8%"}
               >
                 <Typography
                   color="#FFF"
@@ -298,7 +254,7 @@ const Page = () => {
           <Box
             sx={{
               width: { xs: "100vw" },
-              height: phonexs ? "250px" : phonesm ? "300px" : tab ? "500px" : "100vh",
+              height: { xs: "300px", sm: "400px", md: "500px", lg: "676px", xl: "1082px" },
             }}
           >
             <div
@@ -313,7 +269,7 @@ const Page = () => {
                 playsInline
                 style={{
                   width: "100vw",
-                  height: phonexs ? "250px" : phonesm ? "300px" : tab ? "500px" : "100vh",
+                  height: phonexs ? "300px" : phonesm ? "400px" : tab ? "500px" : desktop ? "676px" : "1082px",
                   objectFit: "cover",
                 }}
               >
