@@ -70,7 +70,7 @@ const Page = () => {
           <Box
             sx={{
               width: "100vw",
-              height: { xs: "150px", sm: "190px", md: "220px", lg: "250px", xl: "40vh" },
+              height: { xs: "130px", sm: "170px", md: "200px", lg: "230px", xl: "325px" },
               position: "relative",
               backgroundColor: "rgba(0,0,0,1)",
             }}
@@ -90,7 +90,7 @@ const Page = () => {
                 position: "absolute",
                 left: "23vw",
                 zIndex: 5,
-                top: { xl: "450px", lg: "300px", md: "275px", sm: "275px", xs: "235px" },
+                top: { xl: "450px", lg: "300px", md: "275px", sm: "255px", xs: "215px" },
               }}
             >
               <Stack alignItems={"center"}>
@@ -108,7 +108,7 @@ const Page = () => {
                   width={"80vw"}
                   textAlign={"center"}
                   fontWeight={800}
-                  sx={{ typography: { xl: "h2", lg: "h3", md: "h4", sm: "h5", xs: "h6" } }}
+                  sx={{ typography: { xl: "h2", md: "h3", sm: "h4", xs: "h5" } }}
                 >
                   WATERPROOFING INNOVATION
                 </Typography>
@@ -116,11 +116,11 @@ const Page = () => {
             </Box>
             <Box
               sx={{
-                height: { xl: "4vh", lg: "4vh", md: "2.5vh", sm: "1.5vh", xs: "2.5vh" },
+                height: { xl: "70px", md: "50px", sm: "40px", xs: "35px" },
                 width: "45vw",
                 backgroundColor: "#37B878",
                 position: "absolute",
-                top: { xl: "485px", lg: "335px", md: "305px", sm: "295px", xs: "250px" },
+                top: { xl: "485px", lg: "330px", md: "305px", sm: "275px", xs: "230px" },
                 left: { xs: "29.3vw" },
               }}
             />
@@ -189,15 +189,15 @@ const Page = () => {
                         sx={{
                           position: "absolute",
                           top: 0,
-                          width: "90%",
                           color: "white",
                           pt: 2,
-                          px: 1,
+                          pr: 2,
                         }}
                       >
                         <Typography
                           alignSelf={"start"}
                           fontSize={{ xs: "13px", sm: "15px", md: "16px", lg: "16px", xl: "22px" }}
+                          sx={{ backgroundColor: "rgba(0,0,0,0.3)", display: "inline-block" }}
                         >
                           {language === "eng" ? slide.titleENG : slide.titleIDN}
                         </Typography>
@@ -207,6 +207,7 @@ const Page = () => {
                             cursor: "pointer",
                             "&:hover": { textDecoration: "underline" },
                             color: "#FFF",
+                            backgroundColor: "rgba(0,0,0,0.3)",
                           }}
                           fontSize={{ xs: "13px", sm: "15px", md: "16px" }}
                         >

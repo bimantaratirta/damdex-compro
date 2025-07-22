@@ -7,6 +7,7 @@ import product1 from "@/../public/product1.png";
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import React from "react";
+import ReactPlayer from "react-player";
 
 const PopupPoint = ({ top, right, children }: { top: string; right: string; children: React.ReactNode }) => {
   return (
@@ -77,7 +78,7 @@ const Page = () => {
                 src={product2}
                 fill
               /> */}
-              <video
+              <ReactPlayer
                 autoPlay
                 loop
                 muted
@@ -94,7 +95,7 @@ const Page = () => {
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
-              </video>
+              </ReactPlayer>
               <PopupPoint
                 top={phonexs ? "168px" : phonesm ? "223px" : tab ? "280px" : desktop ? "380px" : "590px"}
                 right={phonexs ? "16vw" : phonesm ? "19.5vw" : desktop ? "19.5%" : "18.5%"}
@@ -261,7 +262,7 @@ const Page = () => {
               onClick={() => router.push("/product/warna")}
               style={{ cursor: "pointer" }}
             >
-              <video
+              <ReactPlayer
                 autoPlay
                 loop
                 muted
@@ -278,7 +279,7 @@ const Page = () => {
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
-              </video>
+              </ReactPlayer>
             </div>
           </Box>
         </Stack>
