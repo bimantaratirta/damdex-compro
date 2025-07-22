@@ -40,7 +40,7 @@ const Page = () => {
       <Box
         sx={{
           width: { xs: "100vw" },
-          height: { xs: "180px", sm: "210px", md: "250px", xl: "300px" },
+          height: { xs: "150px", sm: "180px", md: "200px", lg: "225px" },
           background: `linear-gradient(180.53deg, rgba(87, 47, 117, 0.8) 22.87%, rgba(255, 230, 86, 0.5) 119.83%), url(${img1.src})`,
           backgroundSize: "cover",
           backgroundPosition: { xs: "top", lg: "center" },
@@ -52,7 +52,7 @@ const Page = () => {
           direction={"column"}
           spacing={4}
           sx={{
-            pt: { xs: "100px", sm: "120px", md: "130px", lg: "100px", xl: "150px" },
+            pt: { xs: "90px", sm: "100px" },
           }}
         >
           <Typography
@@ -66,13 +66,13 @@ const Page = () => {
           </Typography>
         </Stack>
       </Box>
-      <Box sx={{ p: 5 }}>
+      <Box sx={{ px: 5, py: 2 }}>
         <Stack
           direction={"column"}
           spacing={1}
         >
           <Typography
-            fontSize={"32px"}
+            fontSize={{ xs: "20px", md: "24px", lg: "32px" }}
             fontWeight={800}
           >
             Composition
@@ -102,9 +102,9 @@ const Page = () => {
             ))}
           </Grid2>
         </Stack>
-        <Divider sx={{ backgroundColor: "#000", my: 4, minWidth: "70vw" }} />
+        <Divider sx={{ backgroundColor: "#000", my: 2, minWidth: "70vw" }} />
         <Typography
-          fontSize={"32px"}
+          fontSize={{ xs: "20px", md: "24px", lg: "32px" }}
           fontWeight={800}
           mb={2}
         >
@@ -112,7 +112,7 @@ const Page = () => {
         </Typography>
         {composition !== "" && (
           <Grid2
-            spacing={{ md: 15, xs: 5 }}
+            spacing={{ md: 15, sm: 5, xs: 2 }}
             justifyContent={"start"}
             direction={"row"}
             container
@@ -123,7 +123,7 @@ const Page = () => {
                 ?.useCompositionUseFor.map((d, i) => (
                   <Grid2
                     key={i}
-                    size={{ md: 2, xs: 4 }}
+                    size={{ md: 2, sm: 3, xs: 4 }}
                     alignSelf={"start"}
                   >
                     <UsageForButton
@@ -146,7 +146,7 @@ const Page = () => {
               height: "auto",
               backgroundColor: "rgba(246, 246, 246, 1)",
               borderRadius: "25px",
-              mt: "100px",
+              mt: 2,
               p: 5,
               "& .gambar": {
                 borderRadius: "25px",
@@ -286,9 +286,9 @@ const CompositionButton = ({
             textTransform: "none",
             width: { lg: "18vw", md: "15vw", sm: "30vw", xs: "30vw" },
             borderRadius: "0px 100px 100px",
-            minHeight: { xs: "68px", lg: "75px", xl: "90px" },
+            maxHeight: { xs: "40px", lg: "52px", xl: "60px" },
             color: "#000",
-            fontSize: { xl: "25px", lg: "16px", md: "12px", sm: "14px", xs: "11px" },
+            fontSize: { xl: "20px", lg: "16px", md: "12px", sm: "14px", xs: "11px" },
             "&.Mui-selected": {
               background: "linear-gradient(85.36deg, #FF8821 0%, #F52F30 95.63%)",
               color: "#FFF",
@@ -308,7 +308,7 @@ const CompositionButton = ({
       </Box>
       <Stack mt={1}>
         <Typography
-          fontSize={{ xl: "26px", lg: "16px", md: "12px", xs: "12px" }}
+          fontSize={{ xl: "20px", lg: "16px", md: "12px", xs: "12px" }}
           fontWeight={800}
           textAlign={"center"}
         >
@@ -317,7 +317,7 @@ const CompositionButton = ({
             : compositionDesc[(language as "id") || "eng"]}
         </Typography>
         <Typography
-          fontSize={{ xl: "20px", lg: "10px", xs: "8px" }}
+          fontSize={{ xl: "16px", lg: "10px", xs: "8px" }}
           textAlign={"center"}
         >
           {value === "Medium Mix" || value === "Campuran Kental"
@@ -328,8 +328,8 @@ const CompositionButton = ({
       <Box
         sx={{
           position: "relative",
-          width: { xl: "15vw", lg: "13vw", md: "10vw", sm: "25vw", xs: "30vw" },
-          height: { xl: "175px", lg: "100px", md: "60px", sm: "100px", xs: "75px" },
+          width: { xl: "175px", lg: "125px", md: "10vw", sm: "100px", xs: "80px" },
+          height: { xl: "100px", lg: "75px", md: "60px", sm: "60px", xs: "50px" },
         }}
       >
         <Image
@@ -359,11 +359,12 @@ const UsageForButton = ({
       value={value}
       sx={{
         width: { md: "15vw", sm: "20vw", xs: "25vw" },
-        borderRadius: { lg: "30px", md: "20px", xs: "15px" },
+        borderRadius: { lg: "18px", md: "16px", xs: "12px" },
         color: "#000",
         border: 0,
-        fontSize: { xl: "28px", lg: "20px", md: "12px", xs: "12px" },
-        minHeight: { xl: "112px", lg: "90px", sm: "55px", xs: "50px" },
+        fontSize: { xl: "20px", lg: "16px", md: "12px", sm: "14px", xs: "11px" },
+        maxHeight: { xs: "40px", sm: "48px", lg: "52px", xl: "60px" },
+        minHeight: { lg: "55px", sm: "48px", xs: "40px" },
         px: 5,
         lineHeight: 1,
         backgroundColor: "rgba(242, 242, 242, 1)",

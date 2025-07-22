@@ -76,8 +76,13 @@ export const SecondSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              width={{ xs: "50vw", md: "15vw" }}
-              sx={{ fontSize: { xs: "16px", sm: "20px", lg: "28px" } }}
+              width={"fit-content"}
+              sx={{
+                fontSize: { xs: "16px", sm: "20px", lg: "28px" },
+                backgroundColor: "rgba(30,129,176,0.3)",
+                pr: 2,
+                py: "1px",
+              }}
             >
               {data?.data.find((data) => data.key === "section-2-top-left-title")?.content}
             </Typography>
@@ -92,7 +97,10 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "14px", lg: "16px" } }}
+              sx={{
+                width: { xs: "60vw", md: "20vw" },
+                fontSize: { xs: "14px", lg: "16px" },
+              }}
             >
               {data?.data.find((data) => data.key === "section-2-top-left-description")?.content}
             </Typography>
@@ -140,7 +148,13 @@ export const SecondSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ width: { xs: "50vw", md: "30vw", lg: "14vw" }, fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
+              sx={{
+                width: "fit-content",
+                fontSize: { xs: "14px", sm: "20px", lg: "28px" },
+                backgroundColor: "rgba(30,129,176,0.3)",
+                pl: 2,
+                py: "1px",
+              }}
               textAlign={"end"}
             >
               {data?.data.find((data) => data.key === "section-2-top-right-title")?.content}
@@ -205,7 +219,13 @@ export const SecondSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ fontSize: { xs: "14px", sm: "20px", lg: "28px" }, width: { xs: "60vw", md: "40vw", lg: "25vw" } }}
+              sx={{
+                fontSize: { xs: "14px", sm: "20px", lg: "28px" },
+                width: "fit-content",
+                backgroundColor: "rgba(30,129,176,0.3)",
+                pr: 2,
+                py: "1px",
+              }}
             >
               {data?.data.find((data) => data.key === "section-2-bottom-left-title")?.content}
             </Typography>
@@ -267,7 +287,13 @@ export const SecondSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ width: { xs: "60vw", md: "40vw", xl: "30vw" }, fontSize: { xs: "14px", sm: "20px", lg: "28px" } }}
+              sx={{
+                width: { xs: "fit-content" },
+                fontSize: { xs: "14px", sm: "20px", md: "16px", lg: "20px", xl: "28px" },
+                backgroundColor: "rgba(30,129,176,0.5)",
+                pl: 2,
+                py: "1px",
+              }}
               textAlign={"end"}
             >
               {data?.data.find((data) => data.key === "section-2-bottom-right-title")?.content}
