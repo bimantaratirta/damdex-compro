@@ -1,0 +1,18 @@
+{
+  "newsTitle": "Berita",
+  "topBar": {
+    "home": "Beranda",
+    "product": "Produk",
+    "use": "Kegunaan",
+    "project": "Projek",
+    "event": "Event",
+    "contact": "Hubungi Kami"
+  },
+  "otherNews": "Baca berita lain",
+  "projectCaption": "Berikut adalah projek yang sudah kami kerjakan",
+  "store": {
+    "title": "LOKASI TOKO",
+    "empty": "Belum ada toko.",
+    "loading": "Memuat data, mohon tunggu."
+  }
+}

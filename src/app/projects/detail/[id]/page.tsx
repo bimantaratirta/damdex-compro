@@ -1,0 +1,124 @@
+"use client";
+import { AppLayout } from "@/components/appLayout";
+import { Box, Stack, Typography } from "@mui/material";
+import Image from "next/image";
+import { use } from "react";
+import { useLanguage } from "@/components/localStorageProvider";
+import { useProjectDetail } from "@/swr-hooks/project/useProjectDetail";
+import { OtherListSection } from "@/components/otherListSection";
+import { useProject } from "@/swr-hooks/project/useProject";
+import { LoadingView } from "@/components/loadingView";
+
+const Page = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params);
+  const { language } = useLanguage();
+  const { data, loading } = useProjectDetail(Number(id));
+  const { data: projects, loading: loadProjects } = useProject({ limit: 3 });
+
+  const otherProjects = projects?.data.payload
+    .filter((data) => data.id !== Number(id))
+    .map((data) => ({
+      img: data.heroImageUrl,
+      title: language === "id" ? data.titleIDN : data.titleENG,
+      id: data.id,
+    }));
+
+  if (!data || !projects || loading || loadProjects) return <LoadingView />;
+
+  return (
+    <AppLayout>
+      <Box sx={{ p: { lg: 10, xs: 5 } }}>
+        <Typography
+          fontWeight={800}
+          textAlign={"center"}
+          mb={5}
+          variant="h3"
+          mt={{ xs: 5, sm: 8, md: 10, lg: 3, xl: 5 }}
+        >
+          {language === "id" ? data?.data.titleIDN : data?.data.titleENG}
+        </Typography>
+        {data && data.data.heroImageUrl && (
+          <Box sx={{ height: { xs: "200px", sm: "300px", lg: "50vh" }, position: "relative", m: "auto" }}>
+            <Image
+              alt="image1"
+              src={data.data.heroImageUrl}
+              fill
+              objectFit="cover"
+              style={{ borderRadius: "25px", objectFit: "cover" }}
+              priority
+              placeholder="blur"
+              blurDataURL={data?.data.heroImageUrl}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              unoptimized
+            />
+          </Box>
+        )}
+        <Box
+          textAlign={"justify"}
+          mx="auto"
+          fontSize={{ xs: "20px", lg: "26px" }}
+          justifyContent={"start"}
+          mt={5}
+        >
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                language === "id"
+                  ? (data?.data.firstDescriptionIDN as string)
+                  : (data?.data.firstDescriptionENG as string),
+            }}
+          />
+        </Box>
+        <Stack
+          mt={5}
+          direction={{ md: "row", xs: "column" }}
+          width={{ md: "90vw", xs: "auto" }}
+          fontSize={"20px"}
+          spacing={5}
+        >
+          {data && data.data.heroImageUrl && (
+            <Box
+              sx={{
+                width: { lg: "50vw", md: "75vw", xs: "auto" },
+                height: { xs: "200px", sm: "300px", lg: "50vh" },
+                position: "relative",
+              }}
+            >
+              <Image
+                alt="image"
+                src={data.data.heroImageUrl}
+                fill
+                objectFit="cover"
+                style={{ borderRadius: "25px" }}
+                placeholder="blur"
+                blurDataURL={data.data.heroImageUrl}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
+                unoptimized
+              />
+            </Box>
+          )}
+          <Box
+            fontSize={{ xs: "20px", lg: "26px" }}
+            sx={{ maxWidth: { md: "30vw" } }}
+          >
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  language === "id"
+                    ? (data?.data.secondDescriptionIDN as string)
+                    : (data?.data.secondDescriptionENG as string),
+              }}
+            />
+          </Box>
+        </Stack>
+        <OtherListSection
+          data={otherProjects}
+          variant="Projects"
+        />
+      </Box>
+    </AppLayout>
+  );
+};
+
+export default Page;
