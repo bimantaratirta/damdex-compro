@@ -37,7 +37,9 @@ export const SecondSection = () => {
           sx={{ fontSize: { xs: "clamp(16px, 8vw, 20px)", md: "clamp(24px, 8vvw, 34px)" } }}
           textAlign={"center"}
         >
-          Cepat Menutup Kebocoran dan Memperkuat Beton
+          {language === "id"
+            ? "Cepat Menutup Kebocoran dan Memperkuat Beton"
+            : "Quickly Seals Leaks and Strengthens Concrete"}
         </Typography>
       </Stack>
       <Stack
