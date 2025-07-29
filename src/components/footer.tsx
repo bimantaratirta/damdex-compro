@@ -4,12 +4,15 @@ import fb from "../../public/fb 1.png";
 import ig from "../../public/fb 2.png";
 import Image, { StaticImageData } from "next/image";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { useLanguage } from "./localStorageProvider";
 export const Footer = () => {
   const sosmed = [
     { img: fb, href: "https://www.facebook.com/Damdex", label: "Damdex Indonesia" },
     { img: ig, href: "https://www.instagram.com/damdexindonesia/?hl=en", label: "@DamdexIndonesia" },
     { img: tiktok, href: "https://www.tiktok.com/@damdexindonesia", label: "@DamdexIndonesia" },
   ];
+
+  const { language } = useLanguage();
 
   return (
     <Box
@@ -29,7 +32,9 @@ export const Footer = () => {
         width={"80vw"}
         sx={{ fontSize: { xs: "16px", md: "28px", lg: "48px" }, width: "50vw" }}
       >
-        Find Us on Social Media or your Favorite Store
+        {language === "eng"
+          ? "Find Us on Social Media or your Favorite Store"
+          : "Temukan Kami di Media Sosial atau Toko Favorit Anda"}
       </Typography>
       <Stack
         direction={"row"}
@@ -81,8 +86,9 @@ export const Footer = () => {
           fontSize={{ lg: "20px", md: "16px", sm: "12px", xs: "10px" }}
           width={{ xs: "25vw" }}
         >
-          Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join the
-          conversation on our social media for insights, tips, and expert advice!
+          {language === "eng"
+            ? "Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join the conversation on our social media for insights, tips, and expert advice!"
+            : "Ingin mempelajari lebih lanjut tentang Damdex dan Damdex Warna serta bagaimana keduanya dapat meningkatkan proyek konstruksi Anda? Bergabunglah dalam percakapan di media sosial kami untuk mendapatkan wawasan, kiat, dan saran ahli!"}
         </Typography>
       </Stack>
       <Typography

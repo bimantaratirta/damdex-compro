@@ -6,9 +6,11 @@ import img1 from "@/../public/damdexforhome.png";
 import img2 from "@/../public/damdexforpro.png";
 import { useRouter } from "next/navigation";
 import { OutlinedButton } from "@/components/button";
+import { useLanguage } from "@/components/localStorageProvider";
 
 const Page = () => {
   const router = useRouter();
+  const { language } = useLanguage();
   return (
     <AppLayout>
       <Box
@@ -31,7 +33,9 @@ const Page = () => {
           textAlign={"center"}
           width={"80vw"}
         >
-          These are the respective ways of using Damdex for your needs in each sector.
+          {language === "eng"
+            ? "These are the respective ways of using Damdex for your needs in each sector."
+            : "Berikut adalah masing-masing cara penggunaan Damdex untuk kebutuhan Anda di setiap sektor."}
         </Typography>
       </Box>
       <Box
@@ -56,7 +60,7 @@ const Page = () => {
             textAlign={"center"}
             sx={{ fontSize: { xs: "25px", sm: "32px", lg: "50px", xl: "60px" } }}
           >
-            Damdex For Your Home
+            {language === "eng" ? "Damdex For Your Home" : "Damdex Untuk Rumah Anda"}
           </Typography>
           <OutlinedButton
             onClick={() => router.push("/use/for-your-home")}
@@ -86,7 +90,7 @@ const Page = () => {
             textAlign={"center"}
             sx={{ fontSize: { xs: "25px", sm: "32px", lg: "50px", xl: "60px" } }}
           >
-            Damdex For Professional
+            {language === "eng" ? "Damdex For Professional" : "Damdex Untuk Professional"}
           </Typography>
           <OutlinedButton
             onClick={() => router.push("/use/for-professional")}

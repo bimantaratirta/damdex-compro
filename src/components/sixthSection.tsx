@@ -3,9 +3,11 @@ import bg from "../../public/bg2.png";
 import img from "../../public/toko.jpg";
 import { OutlinedButton } from "./button";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "./localStorageProvider";
 
 export const SixthSection = ({ noBackground }: { noBackground?: boolean }) => {
   const router = useRouter();
+  const { language } = useLanguage();
   return (
     <Box
       sx={{
@@ -46,7 +48,9 @@ export const SixthSection = ({ noBackground }: { noBackground?: boolean }) => {
             width={"65vw"}
             sx={{ fontSize: { xs: "20px", sm: "24px", md: "40px", lg: "50px", xl: "60px" } }}
           >
-            Toko / Traditional Market / Toko Material
+            {language === "id"
+              ? "Toko / Traditional Market / Toko Material"
+              : "Shop / Traditional Market / Grocery Store"}
           </Typography>
           <OutlinedButton
             label="Find"

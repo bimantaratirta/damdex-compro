@@ -7,6 +7,7 @@ import { Form, Formik } from "formik";
 import { OutlinedButton } from "@/components/button";
 import { useRouter } from "next/navigation";
 import imgToko from "../../../public/toko.jpg";
+import { useLanguage } from "@/components/localStorageProvider";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Nama lengkap harus diisi"),
@@ -17,6 +18,7 @@ const validationSchema = Yup.object({
 
 const Page = () => {
   const router = useRouter();
+  const { language } = useLanguage();
 
   return (
     <AppLayout>
@@ -31,12 +33,16 @@ const Page = () => {
           width={{ md: "30vw", xs: "auto" }}
           spacing={2}
         >
-          <Typography fontSize={{ sm: "32px", xs: "28px" }}>Get in Touch</Typography>
+          <Typography fontSize={{ sm: "32px", xs: "28px" }}>
+            {language === "eng" ? "Get in Touch" : "Hubungi kami"}
+          </Typography>
           <Typography
             fontSize={{ xl: "40px", lg: "30px", md: "30px", sm: "30px", xs: "24px" }}
             fontWeight={800}
           >
-            Have any questions? Feel free to reach out to us.
+            {language === "eng"
+              ? "Have any questions? Feel free to reach out to us."
+              : "Ada pertanyaan? Jangan ragu untuk menghubungi kami."}
           </Typography>
           <Stack spacing={1}>
             <Typography
@@ -54,7 +60,7 @@ const Page = () => {
               fontSize={{ xl: "40px", md: "28px", xs: "24px" }}
               fontWeight={800}
             >
-              Our Location
+              {language === "eng" ? "Our Location" : "Lokasi Kami"}
             </Typography>
             <Typography fontSize={{ xl: "32px", md: "20px", xs: "22px" }}>
               Jl. Cinere Raya No. 50-51 Blok A, Cinere - Limo,Depok 16514
@@ -102,7 +108,9 @@ const Page = () => {
                   }}
                 >
                   <Typography fontSize={{ md: "20px", xs: "22px" }}>
-                    Feel free to let me know if you need any further adjustments
+                    {language === "eng"
+                      ? "Feel free to let us know if you need any further adjustments"
+                      : "Jangan ragu untuk memberi tahu kami jika Anda memerlukan penyesuaian lebih lanjut"}
                   </Typography>
                   <TextField
                     id="name"
@@ -187,7 +195,9 @@ const Page = () => {
                 textAlign={"center"}
                 sx={{ fontSize: { xs: "18px", sm: "30px", md: "20px", lg: "30px", xl: "50px" } }}
               >
-                Toko / Traditional Market / Toko Material
+                {language === "id"
+                  ? "Toko / Traditional Market / Toko Material"
+                  : "Shop / Traditional Market / Grocery Store"}
               </Typography>
               <OutlinedButton
                 label="Find"

@@ -49,7 +49,7 @@ export const ThirdSection = () => {
           sx={{ fontSize: { xs: "16px", md: "24px", lg: "30px" } }}
           textAlign={"center"}
         >
-          Pioneer of Waterproofing Innovation
+          {language === "eng" ? "Pioneer of Waterproofing Innovation" : "Pelopor Inovasi Waterproofing"}
         </Typography>
       </Stack>
       <Stack sx={{ alignItems: { md: "center" } }}>
