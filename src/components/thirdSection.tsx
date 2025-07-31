@@ -37,18 +37,9 @@ export const ThirdSection = () => {
             height: { xs: "100px", sm: "125px", md: "125px", xl: "200px" },
           }}
         >
-          <Image
-            src={logowarna}
-            priority
-            alt="logo"
-            fill
-          />
+          <Image src={logowarna} priority alt="logo" fill />
         </Box>
-        <Typography
-          fontWeight={800}
-          sx={{ fontSize: { xs: "16px", md: "24px", lg: "30px" } }}
-          textAlign={"center"}
-        >
+        <Typography fontWeight={800} sx={{ fontSize: { xs: "16px", md: "24px", lg: "30px" } }} textAlign={"center"}>
           {language === "eng" ? "Pioneer of Waterproofing Innovation" : "Pelopor Inovasi Waterproofing"}
         </Typography>
       </Stack>
@@ -66,11 +57,7 @@ export const ThirdSection = () => {
           data-aos="fade-up"
           data-aos-easing="ease-in-out"
         >
-          <Stack
-            ml="3vw"
-            mt="4vw"
-            zIndex={2}
-          >
+          <Stack ml="3vw" mt="4vw" zIndex={2}>
             <Typography
               color="#FFF"
               variant="h4"
@@ -78,6 +65,7 @@ export const ThirdSection = () => {
               sx={{
                 fontSize: { xs: "16px", sm: "24px", md: "32px", lg: "44px" },
                 width: { xs: "30vw", md: "16vw", lg: "16vw", xl: "14vw" },
+                backgroundColor: "rgba(0,0,0,0.3)",
               }}
             >
               {data?.data.find((data) => data.key === "section-3-top-left-title")?.content}
@@ -93,7 +81,11 @@ export const ThirdSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "60vw", md: "20vw" }, fontSize: { xs: "9px", sm: "15px", xl: "18px" } }}
+              sx={{
+                width: { xs: "60vw", md: "20vw" },
+                fontSize: { xs: "9px", sm: "15px", xl: "18px" },
+                backgroundColor: "rgba(0,0,0,0.3)",
+              }}
             >
               {data?.data.find((data) => data.key === "section-3-top-left-description")?.content}
             </Typography>
@@ -132,7 +124,11 @@ export const ThirdSection = () => {
               color="#FFF"
               variant="h4"
               fontWeight={800}
-              sx={{ width: { xs: "60vw", md: "30vw" }, fontSize: { xs: "14px", sm: "22px", lg: "36px" } }}
+              sx={{
+                width: { xs: "60vw", md: "30vw" },
+                fontSize: { xs: "14px", sm: "22px", lg: "36px" },
+                backgroundColor: "rgba(0,0,0,0.3)",
+              }}
               textAlign={"end"}
             >
               {data?.data.find((data) => data.key === "section-3-bottom-right-title")?.content}
@@ -146,7 +142,11 @@ export const ThirdSection = () => {
               }}
             />
             <Typography
-              sx={{ width: { xs: "50vw", md: "20vw" }, fontSize: { xs: "9px", sm: "15px", xl: "18px" } }}
+              sx={{
+                width: { xs: "50vw", md: "20vw" },
+                fontSize: { xs: "9px", sm: "15px", xl: "18px" },
+                backgroundColor: "rgba(0,0,0,0.3)",
+              }}
               color="#fff"
               fontWeight={400}
               textAlign={"end"}
@@ -189,7 +189,9 @@ export const ThirdSection = () => {
               lineHeight={1}
               width={{ xl: "50vw", lg: "70vw", sm: "80vw", xs: "60vw" }}
               textAlign={"center"}
-              sx={{ fontSize: { xs: "18px", sm: "29px", md: "40px", lg: "48px", xl: "60px" } }}
+              sx={{
+                fontSize: { xs: "18px", sm: "29px", md: "40px", lg: "48px", xl: "60px" },
+              }}
             >
               {data?.data.find((data) => data.key === "section-3-center-title")?.content}
             </Typography>
