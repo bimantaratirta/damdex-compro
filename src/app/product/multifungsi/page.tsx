@@ -54,17 +54,9 @@ const Page = () => {
             height: { xs: "100px", sm: "125px", md: "125px", xl: "200px" },
           }}
         >
-          <Image
-            src={logo}
-            priority
-            alt="logo"
-            fill
-          />
+          <Image src={logo} priority alt="logo" fill />
         </Box>
-        <Stack
-          sx={{ alignItems: { md: "center" }, pt: { xl: 6, lg: 4, sm: 2, xs: 2 } }}
-          direction={"row"}
-        >
+        <Stack sx={{ alignItems: { md: "center" }, pt: { xl: 6, lg: 4, sm: 2, xs: 2 } }} direction={"row"}>
           <Box
             sx={{
               width: "100vw",
@@ -73,12 +65,7 @@ const Page = () => {
               backgroundColor: "rgba(0,0,0,1)",
             }}
           >
-            <Image
-              alt="image1"
-              priority
-              src={img1}
-              fill
-            />
+            <Image alt="image1" priority src={img1} fill />
           </Box>
           <div>
             <Box
@@ -125,10 +112,7 @@ const Page = () => {
           </div>
         </Stack>
 
-        <Stack
-          p={5}
-          fontSize={{ xs: "20px", lg: "26px" }}
-        >
+        <Stack p={5} fontSize={{ xs: "20px", lg: "26px" }}>
           <div
             className="flex flex-col !space-y-10"
             dangerouslySetInnerHTML={{
@@ -140,18 +124,11 @@ const Page = () => {
         {/*Carousel */}
         {data && data.data.productAdvantage && (
           <Box p={{ xs: 5, lg: 10 }}>
-            <Typography
-              gutterBottom
-              fontWeight={800}
-              sx={{ fontWeight: "bold", fontSize: { xl: "34px", md: "24px" } }}
-            >
+            <Typography gutterBottom fontWeight={800} sx={{ fontWeight: "bold", fontSize: { xl: "34px", md: "24px" } }}>
               Additive with Multi Purpose
             </Typography>
 
-            <Box
-              sx={{ overflow: "hidden", position: "relative" }}
-              ref={emblaRef}
-            >
+            <Box sx={{ overflow: "hidden", position: "relative" }} ref={emblaRef}>
               <Box sx={{ display: "flex" }}>
                 {data?.data.productAdvantage.map((slide, index) => (
                   <Box
@@ -221,16 +198,10 @@ const Page = () => {
             {/*Carousel */}
 
             <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-              <IconButton
-                onClick={scrollPrev}
-                sx={{ mx: 1 }}
-              >
+              <IconButton onClick={scrollPrev} sx={{ mx: 1 }}>
                 <ArrowBackIosIcon sx={{ color: "#000" }} />
               </IconButton>
-              <IconButton
-                onClick={scrollNext}
-                sx={{ mx: 1 }}
-              >
+              <IconButton onClick={scrollNext} sx={{ mx: 1 }}>
                 <ArrowForwardIosIcon sx={{ color: "#000" }} />
               </IconButton>
             </Box>
@@ -246,25 +217,11 @@ const Page = () => {
         />
 
         <Box sx={{ width: { lg: "100vw" }, height: { lg: "65vh", xs: "30vh" }, position: "relative" }}>
-          <Image
-            alt="image1"
-            src={sizeImg}
-            fill
-            style={{ objectFit: "contain" }}
-            priority
-          />
+          <Image alt="image1" src={sizeImg} fill style={{ objectFit: "contain" }} priority />
         </Box>
-        <Stack
-          direction={"column"}
-          justifyContent={"center"}
-          width={"100vw"}
-          alignItems={"center"}
-        >
+        <Stack direction={"column"} justifyContent={"center"} width={"100vw"} alignItems={"center"}>
           <Typography fontSize={"20px"}>Tersedia dalam ukuran:</Typography>
-          <Typography
-            fontWeight={800}
-            fontSize={"20px"}
-          >
+          <Typography fontWeight={800} fontSize={"20px"}>
             1, 5 & 20 Liter
           </Typography>
         </Stack>
@@ -278,13 +235,7 @@ const Page = () => {
             backgroundSize: "cover",
           }}
         >
-          <Stack
-            alignItems={"center"}
-            justifyItems={"center"}
-            direction={"row"}
-            spacing={4}
-            sx={{ pt: { xs: "12vh" } }}
-          >
+          <Stack alignItems={"center"} justifyItems={"center"} direction={"row"} spacing={4} sx={{ pt: { xs: "12vh" } }}>
             <Typography
               variant="h2"
               fontWeight={800}
@@ -295,10 +246,7 @@ const Page = () => {
             >
               Vibrant hues endless possibilities
             </Typography>
-            <FilledButton
-              label="View Product"
-              onClick={() => router.push("/product/warna")}
-            />
+            <FilledButton label="Damdex Warna" onClick={() => router.push("/product/warna")} />
           </Stack>
         </Box>
       </Box>

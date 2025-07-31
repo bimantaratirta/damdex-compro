@@ -25,12 +25,7 @@ export const SecondSection = () => {
             height: { xs: "100px", sm: "125px", md: "125px", xl: "175px" },
           }}
         >
-          <Image
-            alt="logo"
-            priority
-            src={logo}
-            fill
-          />
+          <Image alt="logo" priority src={logo} fill />
         </Box>
         <Typography
           fontWeight={800}
@@ -42,10 +37,7 @@ export const SecondSection = () => {
             : "Quickly Seals Leaks and Strengthens Concrete"}
         </Typography>
       </Stack>
-      <Stack
-        zIndex={0}
-        sx={{ mx: { xs: 0, md: "5vw" }, flexDirection: { xs: "column", md: "row" } }}
-      >
+      <Stack zIndex={0} sx={{ mx: { xs: 0, md: "5vw" }, flexDirection: { xs: "column", md: "row" } }}>
         <Box
           sx={{
             width: { xs: "100vw", md: "45vw" },
@@ -69,11 +61,7 @@ export const SecondSection = () => {
           data-aos-easing="ease-in-out"
           data-aos-delay="100"
         >
-          <Stack
-            ml="3vw"
-            mt="2vw"
-            justifyContent={"end"}
-          >
+          <Stack ml="3vw" mt="2vw" justifyContent={"end"}>
             <Typography
               color="#FFF"
               variant="h4"
@@ -81,7 +69,7 @@ export const SecondSection = () => {
               width={"fit-content"}
               sx={{
                 fontSize: { xs: "16px", sm: "20px", lg: "28px" },
-                backgroundColor: "rgba(30,129,176,0.3)",
+                backgroundColor: "rgba(0,0,0,0.2)",
                 pr: 2,
                 py: "1px",
               }}
@@ -102,6 +90,7 @@ export const SecondSection = () => {
               sx={{
                 width: { xs: "60vw", md: "20vw" },
                 fontSize: { xs: "14px", lg: "16px" },
+                backgroundColor: "rgba(0,0,0,0.2)",
               }}
             >
               {data?.data.find((data) => data.key === "section-2-top-left-description")?.content}
@@ -124,9 +113,7 @@ export const SecondSection = () => {
           sx={{
             width: { xs: "100vw", md: "45vw" },
             height: { xs: "250px", sm: "300px", md: "300px", lg: "300px", xl: "300px" },
-            background: `url(${
-              data?.data.find((data) => data.key === "section-2-top-right-image-background")?.fileUrl
-            })`,
+            background: `url(${data?.data.find((data) => data.key === "section-2-top-right-image-background")?.fileUrl})`,
             backgroundSize: "cover",
             filter: "grayscale(100%)",
             "&:hover": {
@@ -140,12 +127,7 @@ export const SecondSection = () => {
           data-aos-easing="ease-in-out"
           data-aos-delay="200"
         >
-          <Stack
-            mr="3vw"
-            mt="2vw"
-            alignItems={"end"}
-            sx={{ mr: { xs: "3vw" } }}
-          >
+          <Stack mr="3vw" mt="2vw" alignItems={"end"} sx={{ mr: { xs: "3vw" } }}>
             <Typography
               color="#FFF"
               variant="h4"
@@ -153,7 +135,7 @@ export const SecondSection = () => {
               sx={{
                 width: "fit-content",
                 fontSize: { xs: "14px", sm: "20px", lg: "28px" },
-                backgroundColor: "rgba(30,129,176,0.3)",
+                backgroundColor: "rgba(0,0,0,0.2)",
                 pl: 2,
                 py: "1px",
               }}
@@ -173,7 +155,11 @@ export const SecondSection = () => {
               textAlign={"end"}
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "70vw", md: "20vw" }, fontSize: { xs: "16px", lg: "16px" } }}
+              sx={{
+                width: { xs: "70vw", md: "20vw" },
+                fontSize: { xs: "16px", lg: "16px" },
+                backgroundColor: "rgba(0,0,0,0.2)",
+              }}
             >
               {data?.data.find((data) => data.key === "section-2-top-right-description")?.content}
             </Typography>
@@ -197,9 +183,7 @@ export const SecondSection = () => {
           sx={{
             width: { xs: "100vw", md: "45vw" },
             height: { xs: "250px", sm: "300px", md: "300px", lg: "300px", xl: "300px" },
-            background: `url(${
-              data?.data.find((data) => data.key === "section-2-bottom-left-image-background")?.fileUrl
-            })`,
+            background: `url(${data?.data.find((data) => data.key === "section-2-bottom-left-image-background")?.fileUrl})`,
             backgroundSize: "cover",
             filter: "grayscale(100%)",
             "&:hover": {
@@ -212,11 +196,7 @@ export const SecondSection = () => {
           data-aos-easing="ease-in-out"
           data-aos-delay="300"
         >
-          <Stack
-            ml="3vw"
-            mt="2vw"
-            justifyContent={"end"}
-          >
+          <Stack ml="3vw" mt="2vw" justifyContent={"end"}>
             <Typography
               color="#FFF"
               variant="h4"
@@ -224,7 +204,7 @@ export const SecondSection = () => {
               sx={{
                 fontSize: { xs: "14px", sm: "20px", lg: "28px" },
                 width: "fit-content",
-                backgroundColor: "rgba(30,129,176,0.3)",
+                backgroundColor: "rgba(0,0,0,0.2)",
                 pr: 2,
                 py: "1px",
               }}
@@ -242,7 +222,11 @@ export const SecondSection = () => {
             <Typography
               color="#fff"
               fontWeight={400}
-              sx={{ width: { xs: "70vw", md: "30vw", lg: "20vw" }, fontSize: { xs: "14px", sm: "16px" } }}
+              sx={{
+                width: { xs: "70vw", md: "30vw", lg: "20vw" },
+                fontSize: { xs: "14px", sm: "16px" },
+                backgroundColor: "rgba(0,0,0,0.2)",
+              }}
             >
               {data?.data.find((data) => data.key === "section-2-bottom-left-description")?.content}
             </Typography>
@@ -264,9 +248,7 @@ export const SecondSection = () => {
           sx={{
             width: { xs: "100vw", md: "45vw" },
             height: { xs: "250px", sm: "300px", md: "300px", lg: "300px", xl: "300px" },
-            background: `url(${
-              data?.data.find((data) => data.key === "section-2-bottom-right-image-background")?.fileUrl
-            })`,
+            background: `url(${data?.data.find((data) => data.key === "section-2-bottom-right-image-background")?.fileUrl})`,
             backgroundSize: "cover",
             filter: "grayscale(100%)",
             "&:hover": {
@@ -279,12 +261,7 @@ export const SecondSection = () => {
           data-aos-easing="ease-in-out"
           data-aos-delay="400"
         >
-          <Stack
-            mr="3vw"
-            mt="2vw"
-            alignItems={"end"}
-            sx={{ mr: { xs: "3vw" } }}
-          >
+          <Stack mr="3vw" mt="2vw" alignItems={"end"} sx={{ mr: { xs: "3vw" } }}>
             <Typography
               color="#FFF"
               variant="h4"
@@ -292,7 +269,7 @@ export const SecondSection = () => {
               sx={{
                 width: { xs: "fit-content" },
                 fontSize: { xs: "14px", sm: "20px", md: "16px", lg: "20px", xl: "28px" },
-                backgroundColor: "rgba(30,129,176,0.5)",
+                backgroundColor: "rgba(0,0,0,0.5)",
                 pl: 2,
                 py: "1px",
               }}
@@ -309,7 +286,11 @@ export const SecondSection = () => {
               }}
             />
             <Typography
-              sx={{ width: { xs: "70vw", md: "20vw" }, fontSize: { xs: "15px", lg: "16px" } }}
+              sx={{
+                width: { xs: "70vw", md: "20vw" },
+                fontSize: { xs: "15px", lg: "16px" },
+                backgroundColor: "rgba(0,0,0,0.2)",
+              }}
               color="#fff"
               fontWeight={400}
               textAlign={"end"}

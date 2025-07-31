@@ -67,27 +67,13 @@ const Page = () => {
         </Stack>
       </Box>
       <Box sx={{ px: 5, py: 2 }}>
-        <Stack
-          direction={"column"}
-          spacing={1}
-        >
-          <Typography
-            fontSize={{ xs: "20px", md: "24px", lg: "32px" }}
-            fontWeight={800}
-          >
+        <Stack direction={"column"} spacing={1}>
+          <Typography fontSize={{ xs: "20px", md: "24px", lg: "32px" }} fontWeight={800}>
             Composition
           </Typography>
-          <Grid2
-            container
-            justifyContent={"space-evenly"}
-            spacing={{ md: 2 }}
-          >
+          <Grid2 container justifyContent={"space-evenly"} spacing={{ md: 2 }}>
             {data?.data.useComposition.map((d, i) => (
-              <Grid2
-                key={i}
-                size={{ xs: 6, md: 3 }}
-                mt={{ xs: 2, md: 0 }}
-              >
+              <Grid2 key={i} size={{ xs: 6, md: 3 }} mt={{ xs: 2, md: 0 }}>
                 <CompositionButton
                   value={language === "id" ? d.titleIDN : d.titleENG}
                   onChange={() => {
@@ -103,29 +89,16 @@ const Page = () => {
           </Grid2>
         </Stack>
         <Divider sx={{ backgroundColor: "#000", my: 2, minWidth: "70vw" }} />
-        <Typography
-          fontSize={{ xs: "20px", md: "24px", lg: "32px" }}
-          fontWeight={800}
-          mb={2}
-        >
+        <Typography fontSize={{ xs: "20px", md: "24px", lg: "32px" }} fontWeight={800} mb={2}>
           {composition}
         </Typography>
         {composition !== "" && (
-          <Grid2
-            spacing={{ md: 15, sm: 5, xs: 2 }}
-            justifyContent={"start"}
-            direction={"row"}
-            container
-          >
+          <Grid2 spacing={{ md: 15, sm: 5, xs: 2 }} justifyContent={"start"} direction={"row"} container>
             {composition !== "" &&
               data?.data.useComposition
                 .find((d) => d.id === compositionId)
                 ?.useCompositionUseFor.map((d, i) => (
-                  <Grid2
-                    key={i}
-                    size={{ md: 2, sm: 3, xs: 4 }}
-                    alignSelf={"start"}
-                  >
+                  <Grid2 key={i} size={{ md: 2, sm: 3, xs: 4 }} alignSelf={"start"}>
                     <UsageForButton
                       selected={usage}
                       value={language === "id" ? d.titleIDN : d.titleENG}
@@ -182,10 +155,7 @@ const Page = () => {
               },
             }}
           >
-            <Box
-              fontWeight={400}
-              fontSize={{ xs: "20px", lg: "26px" }}
-            >
+            <Box fontWeight={400} fontSize={{ xs: "20px", lg: "26px" }}>
               <div
                 dangerouslySetInnerHTML={{
                   __html:
@@ -230,10 +200,7 @@ const Page = () => {
           >
             Damdex For Professional
           </Typography>
-          <FilledButton
-            label="Learn More"
-            onClick={() => router.push("/use/for-professional")}
-          />
+          <FilledButton label="Learn More" onClick={() => router.push("/use/for-professional")} />
         </Stack>
       </Box>
     </AppLayout>
@@ -256,11 +223,7 @@ const CompositionButton = ({
 }) => {
   const { language } = useLanguage();
   return (
-    <Stack
-      justifyContent={"center"}
-      alignItems={"center"}
-      alignContent={"center"}
-    >
+    <Stack justifyContent={"center"} alignItems={"center"} alignContent={"center"}>
       <Box
         sx={
           selected === value
@@ -299,27 +262,20 @@ const CompositionButton = ({
           onChange={onChange}
         >
           <Stack direction={"column"}>
-            {value}
+            {value.toUpperCase()}
             {value === "Waterproofing" && (
-              <Typography fontSize={{ lg: "15px", sm: "9px", xs: "8px" }}>(Damdex warna)</Typography>
+              <Typography fontSize={{ lg: "15px", sm: "9px", xs: "8px" }}>{"(Damdex warna)".toUpperCase()}</Typography>
             )}
           </Stack>
         </ToggleButton>
       </Box>
       <Stack mt={1}>
-        <Typography
-          fontSize={{ xl: "20px", lg: "16px", md: "12px", xs: "12px" }}
-          fontWeight={800}
-          textAlign={"center"}
-        >
+        <Typography fontSize={{ xl: "20px", lg: "16px", md: "12px", xs: "12px" }} fontWeight={800} textAlign={"center"}>
           {value === "Medium Mix" || value === "Campuran Kental"
             ? mediumCompDesc[(language as "id") || "eng"]
             : compositionDesc[(language as "id") || "eng"]}
         </Typography>
-        <Typography
-          fontSize={{ xl: "16px", lg: "10px", xs: "8px" }}
-          textAlign={"center"}
-        >
+        <Typography fontSize={{ xl: "16px", lg: "10px", xs: "8px" }} textAlign={"center"}>
           {value === "Medium Mix" || value === "Campuran Kental"
             ? mediumCompUsageDesc[(language as "id") || "eng"]
             : compUsageDesc[(language as "id") || "eng"]}
@@ -332,13 +288,7 @@ const CompositionButton = ({
           height: { xl: "100px", lg: "75px", md: "60px", sm: "60px", xs: "50px" },
         }}
       >
-        <Image
-          alt="perbandingan"
-          src={img}
-          fill
-          style={{ marginTop: "10px" }}
-          priority
-        />
+        <Image alt="perbandingan" src={img} fill style={{ marginTop: "10px" }} priority />
       </Box>
     </Stack>
   );

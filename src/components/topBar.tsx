@@ -69,6 +69,11 @@ export const TopBar = () => {
           src={logo}
           priority
           height={23}
+          style={{ cursor: "pointer" }}
+          onClick={(e) => {
+            e.preventDefault();
+            router.push("/");
+          }}
         />
         {mobile && (
           <IconButton
@@ -82,11 +87,7 @@ export const TopBar = () => {
         )}
         {!mobile && (
           <>
-            <Stack
-              direction={"row"}
-              spacing={3}
-              pr={"5vw"}
-            >
+            <Stack direction={"row"} spacing={3} pr={"5vw"}>
               <Link
                 underline="hover"
                 color="#FFF"
@@ -154,10 +155,7 @@ export const TopBar = () => {
                 {language === "eng" ? eng.topBar.contact : id.topBar.contact}
               </Link>
             </Stack>
-            <Stack
-              direction={"row"}
-              spacing={1}
-            >
+            <Stack direction={"row"} spacing={1}>
               <Link
                 underline="hover"
                 color={language === "id" ? "#FFF" : "#4D4D4D"}
@@ -200,33 +198,17 @@ export const TopBar = () => {
         }}
       >
         <Box sx={{ height: "100vh", backgroundColor: "#000" }}>
-          <Image
-            alt="logo"
-            src={logo}
-            priority
-            height={23}
-            style={{ margin: "10px 0px 0px 70px" }}
-          />
+          <Image alt="logo" src={logo} priority height={23} style={{ margin: "10px 0px 0px 70px" }} />
           <List>
             {drawerItems.map((item, idx) => (
-              <ListItem
-                key={idx}
-                disablePadding
-              >
-                <ListItemButton
-                  sx={{ textAlign: "center", color: "#FFF" }}
-                  onClick={() => router.push(item.url)}
-                >
+              <ListItem key={idx} disablePadding>
+                <ListItemButton sx={{ textAlign: "center", color: "#FFF" }} onClick={() => router.push(item.url)}>
                   <ListItemText primary={item.name} />
                 </ListItemButton>
               </ListItem>
             ))}
           </List>
-          <Stack
-            direction={"row"}
-            spacing={1}
-            justifyContent={"center"}
-          >
+          <Stack direction={"row"} spacing={1} justifyContent={"center"}>
             <Link
               underline="hover"
               color={language === "id" ? "#FFF" : "#4D4D4D"}
