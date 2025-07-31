@@ -51,21 +51,10 @@ export const Footer = () => {
           // data-aos-easing="ease-in-out"
         >
           {sosmed.map((d, i) => (
-            <SosmedButton
-              key={i}
-              href={d.href}
-              img={d.img}
-              label={d.label}
-            />
+            <SosmedButton key={i} href={d.href} img={d.img} label={d.label} />
           ))}
-          <Stack
-            direction={"row"}
-            spacing={2}
-          >
-            <IconButton
-              href="https://www.youtube.com/user/DamdexIndonesia"
-              target="_blank"
-            >
+          <Stack direction={"row"} spacing={2}>
+            <IconButton href="https://www.youtube.com/user/DamdexIndonesia" target="_blank">
               <YouTubeIcon sx={{ color: "#FFF", fontSize: { xs: "16px", md: "20px", lg: "30px", xl: "50px" } }} />
             </IconButton>
             <Link
@@ -81,11 +70,7 @@ export const Footer = () => {
             </Link>
           </Stack>
         </Stack>
-        <Typography
-          color="#FFF"
-          fontSize={{ lg: "20px", md: "16px", sm: "12px", xs: "10px" }}
-          width={{ xs: "25vw" }}
-        >
+        <Typography color="#FFF" fontSize={{ lg: "24px", md: "20px", sm: "16px", xs: "14px" }} width={{ xs: "40vw" }}>
           {language === "eng"
             ? "Want to learn more about Damdex and Damdex Warna and how they can elevate your construction projects? Join the conversation on our social media for insights, tips, and expert advice!"
             : "Ingin mempelajari lebih lanjut tentang Damdex dan Damdex Warna serta bagaimana keduanya dapat meningkatkan proyek konstruksi Anda? Bergabunglah dalam percakapan di media sosial kami untuk mendapatkan wawasan, kiat, dan saran ahli!"}
@@ -105,14 +90,8 @@ export const Footer = () => {
 
 const SosmedButton = ({ img, href, label }: { img: StaticImageData | string; href: string; label: string }) => {
   return (
-    <Stack
-      direction={"row"}
-      spacing={2}
-    >
-      <IconButton
-        href={href}
-        target="_blank"
-      >
+    <Stack direction={"row"} spacing={2}>
+      <IconButton href={href} target="_blank">
         <Box
           sx={{
             position: "relative",
@@ -120,12 +99,7 @@ const SosmedButton = ({ img, href, label }: { img: StaticImageData | string; hre
             height: { xs: "12px", sm: "16px", md: "20px", lg: "30px", xl: "50px" },
           }}
         >
-          <Image
-            src={img}
-            priority
-            alt="icon"
-            fill
-          />
+          <Image src={img} priority alt="icon" fill />
         </Box>
       </IconButton>
       <Link
