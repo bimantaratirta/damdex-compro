@@ -22,33 +22,18 @@ const Page = () => {
 
   return (
     <AppLayout>
-      <Stack
-        direction={{ md: "row", xs: "column" }}
-        pt={{ xs: 8, sm: 10, md: 12, lg: 8, xl: 10 }}
-        px={5}
-        spacing={3}
-        pb={2}
-      >
-        <Stack
-          width={{ md: "30vw", xs: "auto" }}
-          spacing={2}
-        >
+      <Stack direction={{ md: "row", xs: "column" }} pt={{ xs: 8, sm: 10, md: 12, lg: 8, xl: 10 }} px={5} spacing={3} pb={2}>
+        <Stack width={{ md: "30vw", xs: "auto" }} spacing={2}>
           <Typography fontSize={{ sm: "32px", xs: "28px" }}>
             {language === "eng" ? "Get in Touch" : "Hubungi kami"}
           </Typography>
-          <Typography
-            fontSize={{ xl: "40px", lg: "30px", md: "30px", sm: "30px", xs: "24px" }}
-            fontWeight={800}
-          >
+          <Typography fontSize={{ xl: "40px", lg: "30px", md: "30px", sm: "30px", xs: "24px" }} fontWeight={800}>
             {language === "eng"
               ? "Have any questions? Feel free to reach out to us."
               : "Ada pertanyaan? Jangan ragu untuk menghubungi kami."}
           </Typography>
           <Stack spacing={1}>
-            <Typography
-              fontSize={{ xl: "40px", md: "28px", xs: "24px" }}
-              fontWeight={800}
-            >
+            <Typography fontSize={{ xl: "40px", md: "28px", xs: "24px" }} fontWeight={800}>
               Call Center
             </Typography>
             <Typography fontSize={{ xl: "32px", md: "20px", xs: "22px" }}>
@@ -56,10 +41,7 @@ const Page = () => {
             </Typography>
           </Stack>
           <Stack spacing={1}>
-            <Typography
-              fontSize={{ xl: "40px", md: "28px", xs: "24px" }}
-              fontWeight={800}
-            >
+            <Typography fontSize={{ xl: "40px", md: "28px", xs: "24px" }} fontWeight={800}>
               {language === "eng" ? "Our Location" : "Lokasi Kami"}
             </Typography>
             <Typography fontSize={{ xl: "32px", md: "20px", xs: "22px" }}>
@@ -67,10 +49,7 @@ const Page = () => {
             </Typography>
           </Stack>
           <Stack spacing={1}>
-            <Typography
-              fontSize={{ xl: "40px", md: "28px", xs: "24px" }}
-              fontWeight={800}
-            >
+            <Typography fontSize={{ xl: "40px", md: "28px", xs: "24px" }} fontWeight={800}>
               Email
             </Typography>
             <Typography fontSize={{ xl: "32px", md: "20px", xs: "22px" }}>info@damdexindonesia.com</Typography>
@@ -199,10 +178,7 @@ const Page = () => {
                   ? "Toko / Traditional Market / Toko Material"
                   : "Shop / Traditional Market / Grocery Store"}
               </Typography>
-              <OutlinedButton
-                label="Find"
-                onClick={() => router.push("/lokasi-toko")}
-              />
+              <OutlinedButton label={language === "id" ? "Cari" : "Find"} onClick={() => router.push("/lokasi-toko")} />
             </Stack>
           </Box>
         </Stack>
