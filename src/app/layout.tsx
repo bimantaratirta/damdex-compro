@@ -35,7 +35,7 @@ export default function RootLayout({
             <LocalStorageProvider>
               {children}
               <a
-                href="https://wa.me/6281284845169"
+                href="https://wa.link/5vrsxk"
                 target="_blank"
                 aria-label="Chat via WhatsApp"
                 style={{
