@@ -6,6 +6,7 @@ import { useLanguage } from "./localStorageProvider";
 import { useNews } from "@/swr-hooks/news/useNews";
 import eng from "../locale/eng.json";
 import id from "../locale/id.json";
+import Link from "next/link";
 
 export const FourthSection = () => {
   const theme = useTheme();
@@ -36,11 +37,7 @@ export const FourthSection = () => {
         data-aos-easing="ease-in-out"
       >
         {language === "eng" && (
-          <Typography
-            variant="h2"
-            fontWeight={800}
-            fontSize={{ xs: "20px", md: "60px" }}
-          >
+          <Typography variant="h2" fontWeight={800} fontSize={{ xs: "20px", md: "60px" }}>
             Read our
           </Typography>
         )}
@@ -61,20 +58,11 @@ export const FourthSection = () => {
           {language === "eng" ? eng.newsTitle : id.newsTitle}
         </Typography>
       </Stack>
-      <Stack
-        justifyContent={"center"}
-        spacing={4}
-        direction={"row"}
-        pt={{ xs: 0, md: 2, xl: 8 }}
-      >
+      <Stack justifyContent={"center"} spacing={4} direction={"row"} pt={{ xs: 0, md: 2, xl: 8 }}>
         {mobile &&
           data &&
           data.data.payload.map((d, i) => (
-            <div
-              key={i}
-              onClick={() => router.push(`/news/detail/${d.id}`)}
-              style={{ cursor: "pointer" }}
-            >
+            <div key={i} onClick={() => router.push(`/news/detail/${d.id}`)} style={{ cursor: "pointer" }}>
               <NewsContent
                 img={d.titleImageUrl}
                 title={language === "eng" ? d.titleENG : d.titleIDN}
@@ -85,11 +73,7 @@ export const FourthSection = () => {
         {!mobile &&
           data &&
           data.data.payload.map((d, i) => (
-            <div
-              key={i}
-              onClick={() => router.push(`/news/detail/${d.id}`)}
-              style={{ cursor: "pointer" }}
-            >
+            <div key={i} onClick={() => router.push(`/news/detail/${d.id}`)} style={{ cursor: "pointer" }}>
               <NewsContent
                 img={d.titleImageUrl}
                 title={language === "eng" ? d.titleENG : d.titleIDN}
@@ -105,27 +89,15 @@ export const FourthSection = () => {
         spacing={1}
         pt={{ xs: 2, xl: 5 }}
       >
-        <Typography
-          variant="caption"
-          fontWeight={800}
-          fontSize={{ xs: "20px" }}
-        >
-          {language === "eng" ? eng.otherNews : id.otherNews}
+        <Typography variant="caption" fontWeight={800} fontSize={{ xs: "20px" }}>
+          <Link href={"/news"}>{language === "eng" ? eng.otherNews : id.otherNews}</Link>
         </Typography>
       </Stack>
     </Box>
   );
 };
 
-const NewsContent = ({
-  img,
-  title,
-  description,
-}: {
-  img: string | StaticImageData;
-  title: string;
-  description: string;
-}) => {
+const NewsContent = ({ img, title, description }: { img: string | StaticImageData; title: string; description: string }) => {
   return (
     <Stack
       justifyContent={{ xs: "center", md: "left" }}
@@ -145,19 +117,9 @@ const NewsContent = ({
           height: { xs: "200px", sm: "250px", lg: "300px", xl: "400px" },
         }}
       >
-        <Image
-          alt="news"
-          src={img}
-          fill
-          style={{ borderRadius: 25 }}
-          priority
-          unoptimized
-        />
+        <Image alt="news" src={img} fill style={{ borderRadius: 25 }} priority unoptimized />
       </Box>
-      <Stack
-        spacing={2}
-        width={{ xs: "75vw", md: "45vw" }}
-      >
+      <Stack spacing={2} width={{ xs: "75vw", md: "45vw" }}>
         <Typography
           variant="h5"
           color="#242424"
