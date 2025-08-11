@@ -34,6 +34,7 @@ export const TopBar = () => {
     { name: language === "eng" ? eng.topBar.use : id.topBar.use, url: "/use" },
     { name: language === "eng" ? eng.topBar.project : id.topBar.project, url: "/projects" },
     { name: language === "eng" ? eng.topBar.event : id.topBar.event, url: "/event" },
+    { name: language === "eng" ? eng.topBar.news : id.topBar.news, url: "/news" },
     { name: language === "eng" ? eng.topBar.contact : id.topBar.contact, url: "/contact" },
   ];
 
@@ -142,6 +143,17 @@ export const TopBar = () => {
                 }}
               >
                 {language === "eng" ? eng.topBar.event : id.topBar.event}
+              </Link>
+              <Link
+                underline="hover"
+                color="#FFF"
+                component={"button"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/news");
+                }}
+              >
+                {language === "eng" ? eng.topBar.news : id.topBar.news}
               </Link>
               <Link
                 underline="hover"
