@@ -1,6 +1,6 @@
 "use client";
 import { AppLayout } from "@/components/appLayout";
-import { Box, Grid2, Pagination, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Grid2, Link, Pagination, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { usePaginationData } from "@/lib/usePaginationData";
@@ -64,6 +64,17 @@ const Page = () => {
                   >
                     {language === "id" ? d.titleIDN : d.titleENG}
                   </Typography>
+                  <Link
+                    href={`/news/detail/${d.id}`}
+                    style={{ color: "#000", cursor: "pointer" }}
+                    sx={{
+                      textDecoration: "none",
+                      "&:hover": { textDecoration: "underline", cursor: "pointer" },
+                      fontSize: { xs: "9px", sm: "15px", xl: "18px" },
+                    }}
+                  >
+                    {language === "id" ? "Baca Selengkapnya" : "Read More"}
+                  </Link>
                 </Stack>
               </Grid2>
             </div>
