@@ -10,7 +10,7 @@ import { useHome } from "@/swr-hooks/home/useHome";
 import { LoadingView } from "@/components/loadingView";
 
 const Page = () => {
-  const { loading } = useHome();
+  const { loading } = useHome({ lang: "id", section: 1 });
 
   if (loading) return <LoadingView />;
   return (
