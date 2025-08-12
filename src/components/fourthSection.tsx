@@ -97,7 +97,15 @@ export const FourthSection = () => {
   );
 };
 
-const NewsContent = ({ img, title, description }: { img: string | StaticImageData; title: string; description: string }) => {
+export const NewsContent = ({
+  img,
+  title,
+  description,
+}: {
+  img: string | StaticImageData;
+  title: string;
+  description: string;
+}) => {
   return (
     <Stack
       justifyContent={{ xs: "center", md: "left" }}
@@ -117,7 +125,7 @@ const NewsContent = ({ img, title, description }: { img: string | StaticImageDat
           height: { xs: "200px", sm: "250px", lg: "300px", xl: "400px" },
         }}
       >
-        <Image alt="news" src={img} fill style={{ borderRadius: 25 }} priority unoptimized />
+        <Image alt="news" src={img} fill style={{ borderRadius: 25, objectFit: "cover" }} priority unoptimized />
       </Box>
       <Stack spacing={2} width={{ xs: "75vw", md: "45vw" }}>
         <Typography
