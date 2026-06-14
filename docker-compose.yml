@@ -1,0 +1,18 @@
+# landing-damdex — Next.js frontend (company-profile / "landing")
+# Server source dir: /code/landing-damdex-fe  | public via nginx (do NOT expose directly)
+# Usage:  docker compose up -d --build   |   docker compose down
+services:
+  landing-damdex:
+    build: .
+    image: landing-damdex:latest
+    container_name: landing-damdex
+    restart: always
+    ports:
+      # localhost-only: nginx is the sole public gateway. This closes the
+      # Docker-bypasses-ufw hole that exposed :3821 and led to the RCE.
+      - "127.0.0.1:3821:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1g
