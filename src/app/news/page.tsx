@@ -1,0 +1,97 @@
+"use client";
+import { AppLayout } from "@/components/appLayout";
+import { Box, Grid2, Link, Pagination, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { usePaginationData } from "@/lib/usePaginationData";
+import { useLanguage } from "@/components/localStorageProvider";
+import { LoadingView } from "@/components/loadingView";
+import { useNews } from "@/swr-hooks/news/useNews";
+
+const Page = () => {
+  const router = useRouter();
+  const theme = useTheme();
+  const phone = useMediaQuery(theme.breakpoints.down("md"));
+
+  const { pagination, handlePaginationModelChange } = usePaginationData({ pageIndex: 1, pageSize: 9 });
+  const { language } = useLanguage();
+  const { data: news, loading } = useNews({ limit: pagination.pageSize, page: pagination.pageIndex });
+
+  if (loading || !news) return <LoadingView />;
+
+  return (
+    <AppLayout>
+      <Box
+        sx={{
+          p: 3,
+          backgroundColor: "#e8e0fd",
+        }}
+      >
+        <Typography
+          textAlign={"center"}
+          mt={{ xl: 8, lg: 5, sm: 8, xs: 5 }}
+          fontWeight={800}
+          mx={"auto"}
+          sx={{ fontSize: { lg: "60px", md: "50px", xs: "40px" } }}
+        >
+          {language === "id" ? "Berita" : "News"}
+        </Typography>
+        <Grid2 container mt={5} spacing={{ lg: 4, md: 2, sm: 6, xs: 5 }} justifyContent={"center"}>
+          {news?.data.payload.map((d, idx) => (
+            <div onClick={() => router.push(`/news/detail/${d.id}`)} key={idx}>
+              <Grid2 size={{ md: 4, xs: 8 }}>
+                <Stack spacing={2} sx={{ "&:hover": { cursor: "pointer" } }}>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: { lg: "28vw", md: "28vw", xs: "80vw" },
+                      height: { xl: "300px", lg: "180px", md: "150px", sm: "250px", xs: "180px" },
+                    }}
+                  >
+                    <Image
+                      priority
+                      src={d.titleImageUrl}
+                      alt="event"
+                      fill
+                      style={{ borderRadius: "25px", objectFit: "cover" }}
+                    />
+                  </Box>
+                  <Typography
+                    fontSize={{ lg: "30px", md: "20px" }}
+                    fontWeight={800}
+                    width={{ xl: "25vw", md: "25vw" }}
+                    textOverflow={"clip"}
+                  >
+                    {language === "id" ? d.titleIDN : d.titleENG}
+                  </Typography>
+                  <Link
+                    href={`/news/detail/${d.id}`}
+                    style={{ color: "#000", cursor: "pointer" }}
+                    sx={{
+                      textDecoration: "none",
+                      "&:hover": { textDecoration: "underline", cursor: "pointer" },
+                      fontSize: { xs: "9px", sm: "15px", xl: "18px" },
+                    }}
+                  >
+                    {language === "id" ? "Baca Selengkapnya" : "Read More"}
+                  </Link>
+                </Stack>
+              </Grid2>
+            </div>
+          ))}
+        </Grid2>
+        <Pagination
+          siblingCount={1}
+          count={news?.data.totalPage}
+          shape="rounded"
+          size={phone ? "small" : "large"}
+          page={pagination.pageIndex}
+          onChange={(_, val) => handlePaginationModelChange({ pageIndex: val, pageSize: pagination.pageSize })}
+          sx={{ display: "flex", justifyContent: "center", alignItems: "center", pt: 5 }}
+        />
+      </Box>
+    </AppLayout>
+  );
+};
+
+export default Page;

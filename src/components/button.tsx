@@ -1,13 +1,7 @@
 import { Button } from "@mui/material";
 import { MouseEventHandler } from "react";
 
-export const OutlinedButton = ({
-  onClick,
-  label,
-}: {
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  label: string;
-}) => {
+export const OutlinedButton = ({ onClick, label }: { onClick?: MouseEventHandler<HTMLButtonElement>; label: string }) => {
   return (
     <Button
       variant="outlined"
@@ -39,7 +33,7 @@ export const FilledButton = ({ onClick, label }: { onClick?: MouseEventHandler<H
           color: "#FFF",
           borderColor: "#000",
           backgroundColor: "rgba(0,0,0,1)",
-          width: { md: "20vw", xs: "30vw" },
+          width: { md: "25vw", xs: "30vw" },
           height: "5.664vh",
           borderRadius: "64px",
           fontSize: { xs: 10, lg: 16, xl: 24 },

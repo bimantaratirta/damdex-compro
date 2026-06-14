@@ -7,6 +7,7 @@ import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import Whatsapp from "../../public/whatsapp.png";
 import Image from "next/image";
+import Script from "next/script";
 
 const roboto = Roboto({
   weight: "400",
@@ -27,6 +28,15 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-YPXCS74YV3" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YPXCS74YV3');
+          `}
+        </Script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={roboto.className}>
@@ -35,7 +45,7 @@ export default function RootLayout({
             <LocalStorageProvider>
               {children}
               <a
-                href="https://wa.me/6281284845169"
+                href="https://wa.link/vejdrt"
                 target="_blank"
                 aria-label="Chat via WhatsApp"
                 style={{

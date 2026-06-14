@@ -48,14 +48,9 @@ export const SixthSection = ({ noBackground }: { noBackground?: boolean }) => {
             width={"65vw"}
             sx={{ fontSize: { xs: "20px", sm: "24px", md: "40px", lg: "50px", xl: "60px" } }}
           >
-            {language === "id"
-              ? "Toko / Traditional Market / Toko Material"
-              : "Shop / Traditional Market / Grocery Store"}
+            {language === "id" ? "Toko / Traditional Market / Toko Material" : "Shop / Traditional Market / Grocery Store"}
           </Typography>
-          <OutlinedButton
-            label="Find"
-            onClick={() => router.push("/lokasi-toko")}
-          />
+          <OutlinedButton label={language === "id" ? "Cari" : "Find"} onClick={() => router.push("/lokasi-toko")} />
         </Stack>
       </Box>
     </Box>

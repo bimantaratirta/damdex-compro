@@ -96,7 +96,12 @@ export const SecondSection = () => {
               {data?.data.find((data) => data.key === "section-2-top-left-description")?.content}
             </Typography>
             <Link
-              sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+              sx={{
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+                backgroundColor: "rgba(0,0,0,0.2)",
+                width: { xs: "60vw", md: "20vw" },
+              }}
               href={
                 language === "id"
                   ? "/use/for-your-home?composition=Campuran Kental&compositionId=2&usage=Penguat Beton&usageId=4"
@@ -171,7 +176,13 @@ export const SecondSection = () => {
               }
               className="text-sm"
               style={{ color: "#FFF" }}
-              sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+              sx={{
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+                backgroundColor: "rgba(0,0,0,0.2)",
+                width: { xs: "70vw", md: "30vw", lg: "20vw" },
+                textAlign: "right",
+              }}
             >
               {language === "id" ? "Baca Selengkapnya" : "Read More"}
             </Link>
@@ -238,7 +249,12 @@ export const SecondSection = () => {
               }
               className="text-sm"
               style={{ color: "#FFF" }}
-              sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+              sx={{
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+                backgroundColor: "rgba(0,0,0,0.2)",
+                width: { xs: "70vw", md: "30vw", lg: "20vw" },
+              }}
             >
               {language === "id" ? "Baca Selengkapnya" : "Read More"}
             </Link>
@@ -305,7 +321,13 @@ export const SecondSection = () => {
               }
               className="text-sm"
               style={{ color: "#FFF" }}
-              sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+              sx={{
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+                backgroundColor: "rgba(0,0,0,0.2)",
+                width: { xs: "70vw", md: "30vw", lg: "20vw" },
+                textAlign: "right",
+              }}
             >
               {language === "id" ? "Baca Selengkapnya" : "Read More"}
             </Link>

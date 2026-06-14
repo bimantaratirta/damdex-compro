@@ -13,7 +13,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = React.use(params);
   const { language } = useLanguage();
   const { data, loading } = useNewsDetail(Number(id));
-  const { data: news, loading: loadNews } = useNews();
+  const { data: news, loading: loadNews } = useNews({ limit: 5 });
 
   const otherNews = news?.data.payload
     .filter((data) => data.id !== Number(id))
@@ -21,20 +21,15 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
       img: data.titleImageUrl,
       title: language === "id" ? data.titleIDN : data.titleENG,
       id: data.id,
-    }));
+    }))
+    .slice(0, 3);
 
   if (loading || loadNews || !data || !news) return <LoadingView />;
 
   return (
     <AppLayout>
       <Box sx={{ p: { xs: 3, md: 5 } }}>
-        <Typography
-          fontWeight={800}
-          textAlign={"center"}
-          mb={5}
-          variant="h3"
-          pt={{ xs: 5, sm: 8, lg: 5, xl: 8 }}
-        >
+        <Typography fontWeight={800} textAlign={"center"} mb={5} variant="h3" pt={{ xs: 5, sm: 8, lg: 5, xl: 8 }}>
           {language === "id" ? data?.data.titleIDN : data?.data.titleENG}
         </Typography>
         {data && data.data.titleImageUrl && (
@@ -71,10 +66,7 @@ const Page = ({ params }: { params: Promise<{ id: string }> }) => {
             }}
           />
         </Box>
-        <OtherListSection
-          variant="News"
-          data={otherNews}
-        />
+        <OtherListSection variant="News" data={otherNews} />
       </Box>
     </AppLayout>
   );

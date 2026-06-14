@@ -244,7 +244,7 @@ const Page = () => {
               width={"65vw"}
               sx={{ fontSize: { xl: "45px", md: "30px", xs: "15px" } }}
             >
-              Vibrant hues endless possibilities
+              {language === "id" ? "Warna-warna cerah kemungkinan tak terbatas" : "Vibrant hues endless possibilities"}
             </Typography>
             <FilledButton label="Damdex Warna" onClick={() => router.push("/product/warna")} />
           </Stack>

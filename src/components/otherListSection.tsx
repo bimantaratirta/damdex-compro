@@ -2,6 +2,7 @@ import { Box, Typography, Grid2, Stack } from "@mui/material";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "./localStorageProvider";
 
 export const OtherListSection = ({
   data,
@@ -11,22 +12,25 @@ export const OtherListSection = ({
   variant: "Projects" | "Events" | "News";
 }) => {
   const router = useRouter();
+  const { language } = useLanguage();
   return (
     <Box sx={{ pt: 2, display: "flex", justifyContent: "center", flexDirection: "column" }}>
       {data && data.length !== 0 && (
         <>
-          <Typography
-            fontWeight={800}
-            mb={4}
-            fontSize={{ lg: "30px", md: "24px" }}
-          >
-            Other {variant}
+          <Typography fontWeight={800} mb={4} fontSize={{ lg: "30px", md: "24px" }}>
+            {variant === "Projects"
+              ? language === "id"
+                ? "Projek Lain"
+                : "Other Projects"
+              : variant === "Events"
+              ? language === "id"
+                ? "Event Lain"
+                : "Other Events"
+              : language === "id"
+              ? "Berita Lain"
+              : "Other News"}
           </Typography>
-          <Grid2
-            container
-            spacing={5}
-            justifyContent={{ xs: "start", lg: "space-between" }}
-          >
+          <Grid2 container spacing={5} justifyContent={{ xs: "start", lg: "space-between" }}>
             {data &&
               data.map((d, idx) => (
                 <div
@@ -38,10 +42,7 @@ export const OtherListSection = ({
                   key={idx}
                 >
                   <Grid2 size={1}>
-                    <Stack
-                      spacing={2}
-                      sx={{ "&:hover": { cursor: "pointer" } }}
-                    >
+                    <Stack spacing={2} sx={{ "&:hover": { cursor: "pointer" } }}>
                       <Box
                         sx={{
                           position: "relative",

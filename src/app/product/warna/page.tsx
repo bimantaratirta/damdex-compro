@@ -251,7 +251,7 @@ const Page = () => {
               width={"65vw"}
               sx={{ fontSize: { xl: "45px", md: "30px", xs: "15px" } }}
             >
-              Vibrant hues endless possibilities
+              {language === "id" ? "Pelopor Inovasi Waterproofing" : "Pioneer of Waterproofing Innovation"}
             </Typography>
             <FilledButton label="Damdex Multifungsi" onClick={() => router.push("/product/multifungsi")} />
           </Stack>
